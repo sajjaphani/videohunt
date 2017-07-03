@@ -94,7 +94,7 @@ class Header extends React.Component {
                             <img style={logoStyle} src="/images/logo.png" />
 
                             <div style={titleStyle}>
-                                Jack Fruit
+                                Video Hunt
                             </div>
                         </Menu.Item>
                     </Link>
