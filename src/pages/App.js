@@ -22,7 +22,6 @@ export default class App extends React.Component {
         }
 
         return (
-            <BrowserRouter>
             <div>
                 <Header />
                 <Container style={mainStyle}>
@@ -50,7 +49,6 @@ export default class App extends React.Component {
                 </Container>
 
             </div>
-            </BrowserRouter>
         )
     }
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './components/Root';
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
+import App from './pages/App'
 
 import { loadVideos } from './actions/videoActions';
 
@@ -10,6 +12,10 @@ const store = configureStore();
 store.dispatch(loadVideos());
 
 ReactDOM.render(
-  <Root store={store} />,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('app')
 );

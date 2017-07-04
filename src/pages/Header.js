@@ -10,6 +10,7 @@ import Modal from 'react-modal';
 import {postNewVideo} from '../actions/videoActions';
 
 import {connect} from 'react-redux'
+import { Redirect } from 'react-router'
 
 const customStyles = {
     content: {
@@ -63,6 +64,9 @@ class Header extends React.Component {
         {/*if (name === 'addpost') {
             this.openModal()
         }*/}
+        if (name === 'editorials') {
+            this.setState({ activeItem: name, modalIsOpen: false})
+        }
     }
 
     render() {
@@ -75,12 +79,12 @@ class Header extends React.Component {
         }
         const dotsStyle = {
             fontSize: "1.5em",
-            "letter-spacing": "2px",
+            "letterSpacing": "2px",
             marginTop: "-5px"
         }
         const plusStyle = {
 
-            "letter-spacing": "2px",
+            "letterSpacing": "2px",
             marginTop: "5px"
         }
         return (

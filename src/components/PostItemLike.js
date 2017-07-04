@@ -9,7 +9,7 @@ export default class PostItemLike extends React.Component {
         
         this.state = {
             liked: false
-        };
+        }; 
     }
 
     handleItemClick = (e) => {
@@ -17,8 +17,8 @@ export default class PostItemLike extends React.Component {
         console.log('Toggle Like: ' + this.state.liked)
     }
 
-    render() {
-        const color = this.state.liked ? 'blue' : 'none';
+    render() { 
+        const color = this.state.liked ? 'blue' : 'grey';
         console.log(color)
         return (
 
