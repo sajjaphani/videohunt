@@ -1,7 +1,6 @@
 import React from 'react'
 import { Image, Dropdown } from 'semantic-ui-react'
 
-
 export default class UserAccount extends React.Component {
 
     render() {

@@ -2,13 +2,10 @@ import * as types from './actionTypes';
 
 import videoApi from '../api/videoApi';
 
+
 export function loadVideos() {
     return function (dispatch) {
-        return videoApi.getAll().then(videos => {
-            dispatch(loadVideosSuccess(videos));
-        }).catch(error => {
-            throw (error);
-        });
+            dispatch(loadVideosSuccess(videoApi.getAll()));
     };
 }
 
