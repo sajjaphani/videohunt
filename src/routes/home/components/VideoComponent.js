@@ -4,11 +4,11 @@ import VisibilitySensor from 'react-visibility-sensor'
 
 export default class VideoComponent extends React.Component {
 
-    constructor(){
+    constructor() {
         super()
         const that = this
-         embedly('player', function (player) {
-             {/*console.log("that ",that.props.url)
+        embedly('player', function (player) {
+            {/*console.log("that ",that.props.url)
              console.log("that ",player.url)
              
              console.log("is equal ",player.url === that.props.url)
@@ -33,15 +33,15 @@ export default class VideoComponent extends React.Component {
         console.log(this.props.url + ' Element is now %s', isVisible ? 'visible' : 'hidden')
         console.log(this.player)
         if (isVisible) {
-            if(this.player){
+            if (this.player) {
                 this.player.pause()
-            }else {
+            } else {
                 console.log("this is null")
             }
         } else {
-            if(this.player){
+            if (this.player) {
                 this.player.pause()
-            }else {
+            } else {
                 console.log("this is null")
             }
         }
@@ -54,11 +54,13 @@ export default class VideoComponent extends React.Component {
 
         return (
             <div id={vidId}>
-                <VisibilitySensor partialVisibility={true} offset={{bottom:300}} onChange={this.onChange.bind(this)} />
                 
-                <a className="embedly-card" href={this.props.url}>
-                </a>
-
+                <Embed
+                    id={vidId}
+                    placeholder={placeholder}
+                    source='youtube'
+                    autoplay={true}
+                    />
             </div>
         );
     }
@@ -72,6 +74,9 @@ export default class VideoComponent extends React.Component {
     //     autoplay={true}
     // />
 
+    // <VisibilitySensor partialVisibility={true} offset={{ bottom: 300 }} onChange={this.onChange.bind(this)} />
 
+    //             <a className="embedly-card" href={this.props.url}>
+    //             </a>
 
 }
