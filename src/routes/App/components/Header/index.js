@@ -4,25 +4,21 @@ import { Link } from 'react-router-dom';
 
 import LoginModal from './LoginModal'
 import UserAccount from './UserAccount'
-import HeaderLogo from './HeaderLogo'
+import Logo from './Logo'
+import Title from './Title'
 import MoreAction from './MoreAction'
 import AddPost from './AddPost'
 
 const Header = props => {
 
-    const logoStyle = {
-        marginRight: "1em"
-    }
-
-    
     return (
         <Menu borderless fixed='top' size='small'>
             <Container>
 
                 <Link to="/">
                     <Menu.Item name='editorials'>
-                        <img style={logoStyle} src="/images/logo.png"/>
-                        <HeaderLogo />
+                        <Logo/>
+                        <Title/>
                     </Menu.Item>
                 </Link>
 

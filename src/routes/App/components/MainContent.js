@@ -25,20 +25,3 @@ export default class MainContent extends React.Component {
         )
     }
 }
-
-// <Grid>
-//                     <Grid.Row >
-//                         <Grid.Column only='computer' computer='four' largeScreen='four' widescreen='four' >
-//                             <Container>
-//                                 <Sidebar visible={true} />
-//                             </Container>
-//                         </Grid.Column>
-//                         <Grid.Column mobile='sixteen' tablet='sixteen' computer='nine' largeScreen='nine' widescreen='nine'>
-                            
-//                         </Grid.Column>
-//                         <Grid.Column only='computer' computer='one' largeScreen='one' widescreen='one'>
-
-//                         </Grid.Column>
-//                     </Grid.Row>
-
-//                 </Grid>
