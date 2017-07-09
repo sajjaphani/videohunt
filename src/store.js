@@ -6,11 +6,9 @@ import promise from "redux-promise-middleware"
 
 import reducer from "./reducers"
 
-{/*const middleware = applyMiddleware(promise(), thunk, logger())*/ }
-
 export default function configureStore() {
   return createStore(
     reducer,
-    applyMiddleware(thunk)
+    applyMiddleware(thunk, logger())
   );
 }
