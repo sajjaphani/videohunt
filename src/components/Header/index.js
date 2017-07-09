@@ -8,33 +8,29 @@ import Logo from './Logo'
 import Title from './Title'
 import MoreAction from './MoreAction'
 import AddPost from './AddPost'
+import LoginWrapper from './LoginWrapper'
 
 const Header = props => {
-
+    const { activeSelection, loggedIn, changeSelection, handleLogin } = props
+    console.log('selection', activeSelection)
     return (
         <Menu borderless fixed='top' size='small'>
             <Container>
-
                 <Link to="/">
-                    <Menu.Item name='editorials'>
-                        <Logo/>
-                        <Title/>
+                    <Menu.Item name='title'
+                        active={false}
+                        onClick={changeSelection}>
+                        <Logo />
+                        <Title />
                     </Menu.Item>
                 </Link>
-
-                <Menu.Item name='morehunt' position='right'>
-                    <MoreAction />
-                </Menu.Item>
-
-                <Link to="/new-post">
-                    <Menu.Item name='addpost'>
-                        <AddPost/>
+                <Menu.Menu position='right'>
+                    <AddPost changeSelection={changeSelection} activeSelection={activeSelection} isLoggedIn={loggedIn} />
+                    <Menu.Item name='userAccount'
+                        active={false}>
+                        <LoginWrapper handleLogin={handleLogin} isLoggedIn={loggedIn} />
                     </Menu.Item>
-                </Link>
-
-                <Menu.Item name='signup'>
-                    <UserAccount imageUrl={'/images/boy.png'} />
-                </Menu.Item>
+                </Menu.Menu>
                 {/*<Menu.Menu position='right'>
                         <Menu.Item
                             name='login'
@@ -47,7 +43,6 @@ const Header = props => {
                             <LoginModal name='Signup'/>
                         </Menu.Item>
                     </Menu.Menu>*/}
-
             </Container>
         </Menu>
     );

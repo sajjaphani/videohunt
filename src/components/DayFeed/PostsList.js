@@ -2,7 +2,7 @@ import React from 'react'
 import PostItem from '../PostItem'
 
 const PostsList = props => {
-    console.log(props.posts)
+    console.log('posts list',props.posts)
     const postItems = props.posts.map((post) => {
         return (
             <PostItem key={post.postId} post={post} />

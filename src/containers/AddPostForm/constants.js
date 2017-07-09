@@ -1,0 +1,1 @@
+export const ADD_NEW_VIDEO = 'AddPostForm/ADD_NEW_VIDEO';

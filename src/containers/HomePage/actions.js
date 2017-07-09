@@ -1,4 +1,4 @@
-import * as types from './constants';
+import * as ActionTypes from './constants';
 
 import videoApi from '../../api/videoApi';
 
@@ -19,25 +19,35 @@ export function loadVideoByPostId(postId) {
     };
 }
 
-export function postNewVideo(url) {
-    console.log('Video... ' + url)
-    const video = {
-        postId: 'dxdsdxax',
-        title: 'Some Random Title | Some Title ',
-        subtitle: 'Some Sub Title',
-        url: url,
-        comments: 250,
-        likes: 1200,
-        postedBy: 'random.user'
-    }
+// export function postNewVideo(url) {
+//     console.log('Video... ' + url)
+//     const video = {
+//         postId: 'dxdsdxax',
+//         title: 'Some Random Title | Some Title ',
+//         subtitle: 'Some Sub Title',
+//         url: url,
+//         comments: 250,
+//         likes: 1200,
+//         postedBy: 'random.user'
+//     }
 
-    return { type: types.POST_NEW_VIDEO, video };
+//     return { type: types.POST_NEW_VIDEO, video };
+// }
+
+export function postNewVideo(newPost) {
+    return (dispatch) => {
+        dispatch({
+            type: ActionTypes.POST_NEW_VIDEO,
+            newPost: newPost
+        })
+    }
 }
 
-export function loadVideosSuccess(videos) {
-    return { type: types.LOAD_VIDEOS_SUCCESS, videos };
+export function loadVideosSuccess(posts) {
+    console.log('all videos', posts)
+    return { type: ActionTypes.LOAD_VIDEOS_SUCCESS, posts };
 }
 
 export function loadVideoByPostSuccess(video) {
-    return { type: types.LOAD_VIDEO_BY_POST_SUCCESS, video };
+    return { type: ActionTypes.LOAD_VIDEO_BY_POST_SUCCESS, video };
 }

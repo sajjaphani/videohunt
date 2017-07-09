@@ -10,19 +10,21 @@ import { getAllPosts } from './selector'
 class HomePageContainer extends React.Component {
 
     componentWillMount() {
-        this.props.actions.loadVideos();
+        if(this.props.posts.length == 0){
+            this.props.actions.loadVideos();
+        }
     }
 
     render() {
         return(
-            <MainContent videos={this.props.videos}/>
+            <MainContent posts={this.props.posts}/>
         )
     }
 }
 
 function mapStateToProps(state) {
     return {
-        videos: getAllPosts(state)
+        posts: getAllPosts(state)
     };
 }
 

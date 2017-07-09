@@ -14,7 +14,7 @@ const PostItem = props => (
         <Divider />
         <VideoComponentEmbed url={props.post.url} />
         <Divider />
-        <PostItemFooter likes={props.post.likes} comments={props.post.comments} />
+        <PostItemFooter visible={props.post.footerVisible} likes={props.post.likes} comments={props.post.comments} />
     </Segment>
 )
 

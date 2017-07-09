@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Grid, Segment, Container } from 'semantic-ui-react'
 
-import AddPostForm from './AddPostForm'
+import AddPostFormContainer from '../../containers/AddPostForm'
 
 export default class AddPostPage extends React.Component {
     render() {
@@ -15,7 +15,7 @@ export default class AddPostPage extends React.Component {
                         </Container>
                     </Grid.Column>
                     <Grid.Column mobile='sixteen' tablet='sixteen' computer='nine' largeScreen='nine' widescreen='nine'>
-                        <AddPostForm />
+                        <AddPostFormContainer />
                     </Grid.Column>
                     <Grid.Column only='computer' computer='one' largeScreen='one' widescreen='one'>
                     </Grid.Column>

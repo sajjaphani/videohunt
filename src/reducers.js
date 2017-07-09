@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import posts from './containers/HomePage/reducer';
+import { postsReducer } from './containers/HomePage/reducer';
+import { headerReducer } from './containers/Header/reducer';
 
 const rootReducer = combineReducers({
-    videos: posts
+    posts: postsReducer,
+    header: headerReducer
 });
 
 export default rootReducer

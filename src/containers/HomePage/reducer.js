@@ -1,20 +1,19 @@
 import * as types from './constants';
 
 const initialState = {
-  videos: []
+  posts: []
 }
 
-export default function posts(state = initialState.videos, action) {
+export const postsReducer = (state = initialState.posts, action) => {
     switch (action.type) {
         case types.LOAD_VIDEOS_SUCCESS:
-            return action.videos
+            return action.posts
         case types.POST_NEW_VIDEO:
-            const videos = [...state];
-            console.log('Inside reducer....')
-            console.log(action.video)
-            console.log(videos)
-            videos[0].posts.unshift(action.video)
-            return videos
+            const posts = [...state];
+            console.log('state',state)
+            console.log('New post',action.newPost)
+            posts.unshift(action.newPost)
+            return posts
         case types.LOAD_VIDEO_BY_POST_SUCCESS:
             return action.video
         default:
