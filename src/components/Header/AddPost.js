@@ -11,8 +11,8 @@ const AddPost = props => {
     const { isLoggedIn, activeSelection, changeSelection } = props
     if (isLoggedIn) {
         return (
-            <Menu.Item name='addPost'
-                active={activeSelection === 'addPost'}
+            <Menu.Item name='post'
+                active={activeSelection === 'post'}
                 onClick={changeSelection}
                 position='right'>
                     <div> &#x2795; </div>

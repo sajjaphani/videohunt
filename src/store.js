@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore } from "redux"
+import { applyMiddleware, createStore, compose } from "redux"
 
 import logger from "redux-logger"
 import thunk from "redux-thunk"
@@ -10,10 +10,10 @@ import reducer from "./reducers"
 
 export const history = createHistory()
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const router = routerMiddleware(history)
 export function configureStore() {
-  return createStore(
-    reducer,
-    applyMiddleware(thunk, logger(), router)
+  return createStore(reducer, composeEnhancers(applyMiddleware(thunk, logger(), router))
   );
 }

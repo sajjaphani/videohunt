@@ -14,7 +14,6 @@ const App = () => {
         const mainStyle = {
             marginTop: "5em" //my change
         }
-        const route='/'
         return (
             <div>
                 <HeaderContainer />
@@ -22,7 +21,7 @@ const App = () => {
                     <ConnectedRouter history={history}>
                         <Switch>
                             <Route exact path="/" component={HomePage} />
-                            <Route path="/new-post" component={AddPostPage} />
+                            <Route path="/post" component={AddPostPage} />
                             <Route component={NotFoundPage} />
                         </Switch>
                     </ConnectedRouter>

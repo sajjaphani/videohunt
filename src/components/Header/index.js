@@ -16,7 +16,7 @@ const Header = props => {
     return (
         <Menu borderless fixed='top' size='small'>
             <Container>
-                    <Menu.Item name='title'
+                    <Menu.Item name='home'
                         active={false}
                         onClick={changeSelection}>
                         <Logo />

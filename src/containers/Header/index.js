@@ -2,11 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Header from '../../components/Header'
 import { changeSelection, handleLogin } from './actions'
+import { getLoggedIn, getActiveSelection } from './selectors'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        activeSelection: state.header.activeSelection,
-        loggedIn: state.header.loggedIn
+        activeSelection: getActiveSelection(state),
+        loggedIn: getLoggedIn(state)
     }
 }
 

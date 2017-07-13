@@ -1,16 +1,14 @@
 import * as ActionTypes from './constants'
+import { fromJS } from 'immutable'
 
 const headerState = {
     activeSelection: 'none',
-    loggedIn: false
 }
 
-export const headerReducer = (state = headerState, action) => {
+export const headerReducer = (state = fromJS(headerState), action) => {
     switch (action.type) {
         case ActionTypes.CHANGE_SELECTION:
-            return { ...state, activeSelection: action.activeSelection }
-       case ActionTypes.LOGIN_SUCCESS:
-            return { ...state, loggedIn: true } 
+            return state.setIn(['activeSelection'], action.payload)
         default:
             return state
     }
