@@ -1,11 +1,12 @@
 import React from 'react'
-import { Container } from 'semantic-ui-react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 import App from '../../components/App'
 
-export default class AppContainer extends React.Component {
-    render() {
-        return (<App/>)
-    }
+const mapStateToProps = (state) => {
+    return {  }
 }
+
+export default connect(mapStateToProps,{
+
+})(App)
