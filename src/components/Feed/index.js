@@ -1,7 +1,7 @@
 import React from 'react'
 import DayFeed from '../DayFeed'
 
-const MainContent = props => {
+const Feed = props => {
     console.log('state here',props)
     if (props.posts) {
         const daysFeed = props.posts.map((dayItem) => {
@@ -20,4 +20,4 @@ const MainContent = props => {
     }
 }
 
-export default MainContent
+export default Feed

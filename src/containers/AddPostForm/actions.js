@@ -1,4 +1,4 @@
-import { postNewVideo } from '../HomePage/actions'
+import { postNewVideo } from '../Feed/actions'
 
 export const addNewVideoPost = (post) => {
     console.log('This is the post',post)

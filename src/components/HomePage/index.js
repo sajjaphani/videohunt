@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Segment, Container } from 'semantic-ui-react'
 
-import HomePageContainer from '../../containers/HomePage'
+import FeedContainer from '../../containers/Feed'
 import SidebarContainer from '../../containers/Sidebar'
 
 const HomePage = props => {
@@ -14,12 +14,12 @@ const HomePage = props => {
                     </Container>
                 </Grid.Column>
                 <Grid.Column mobile='sixteen' tablet='sixteen' computer='nine' largeScreen='nine' widescreen='nine'>
-                    <HomePageContainer />
+                    <FeedContainer />
                 </Grid.Column>
                 <Grid.Column only='computer' computer='one' largeScreen='one' widescreen='one'>
                 </Grid.Column>
             </Grid.Row>
-        </Grid>
+        </Grid> 
     )
 }
 

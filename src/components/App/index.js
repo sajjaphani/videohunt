@@ -12,7 +12,7 @@ import NotFoundPage from '../NotFoundPage'
 const App = () => {
     {
         const mainStyle = {
-            marginTop: "5em" //my change
+            marginTop: "5em"
         }
         return (
             <div>
