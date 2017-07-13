@@ -15,9 +15,7 @@ const AddPost = props => {
                 active={activeSelection === 'addPost'}
                 onClick={changeSelection}
                 position='right'>
-                <Link to="/new-post">
                     <div> &#x2795; </div>
-                </Link>
             </Menu.Item>
         )
     } else {

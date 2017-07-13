@@ -16,14 +16,12 @@ const Header = props => {
     return (
         <Menu borderless fixed='top' size='small'>
             <Container>
-                <Link to="/">
                     <Menu.Item name='title'
                         active={false}
                         onClick={changeSelection}>
                         <Logo />
                         <Title />
                     </Menu.Item>
-                </Link>
                 <Menu.Menu position='right'>
                     <AddPost changeSelection={changeSelection} activeSelection={activeSelection} isLoggedIn={loggedIn} />
                     <Menu.Item name='userAccount'
