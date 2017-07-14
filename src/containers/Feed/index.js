@@ -5,26 +5,27 @@ import { connect } from 'react-redux';
 
 import Feed from '../../components/Feed'
 import * as actions from './actions'
-import { getAllPosts } from './selector'
+import { getFeed } from './selector'
 
 class FeedContainer extends React.Component {
 
     componentWillMount() {
-        if(this.props.posts.length == 0){
+        // TODO: refactor to add isLoaded state
+        if(this.props.feed){
             this.props.actions.loadVideos();
         }
     }
 
     render() {
         return(
-            <Feed posts={this.props.posts}/>
+            <Feed feed={this.props.feed} />
         )
     }
 }
 
 function mapStateToProps(state) {
     return {
-        posts: getAllPosts(state)
+        feed: getFeed(state)
     };
 }
 

@@ -15,13 +15,12 @@ export default class AddPostForm extends React.Component {
     const postId = date.toDateString()
     const { url, title, description } = this.state
     const post = {
-      postId: postId,
       url: url,
       title: title,
       subtitle: description,
       comments: 0,
       likes: 0,
-      postedBy: 'nischal.srinivas'
+      userId: 'nischal.srinivas'
     }
     this.props.addNewVideoPost(post)
   }
@@ -29,7 +28,6 @@ export default class AddPostForm extends React.Component {
     const { url, title, description } = this.state
 
     const post = {
-      postId: 'random_id',
       url: url,
       title: title,
       subtitle: description,

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import AppContainer from './containers/App'
 import { Provider } from 'react-redux'
 import { configureStore } from './store';
+import './TestImmutable'
 
 const store = configureStore();
 

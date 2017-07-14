@@ -1,13 +1,13 @@
 import * as types from './constants';
+import { fromJS } from 'immutable'
 
 const initialState = {
-  posts: []
 }
 
-export const postsReducer = (state = initialState.posts, action) => {
+export const postsReducer = (state = fromJS(initialState), action) => {
     switch (action.type) {
         case types.LOAD_VIDEOS_SUCCESS:
-            return action.posts
+            return state.mergeDeep(action.payload.feed)
         case types.POST_NEW_VIDEO:
             const posts = [...state];
             console.log('state',state)

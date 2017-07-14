@@ -5,7 +5,7 @@ import { appReducer } from './containers/App/reducer'
 import { routerReducer } from 'react-router-redux'
 
 const rootReducer = combineReducers({
-    posts: postsReducer,
+    feed: postsReducer,
     header: headerReducer,
     router: routerReducer,
     app: appReducer

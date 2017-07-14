@@ -1,15 +1,7 @@
 import { createSelector } from 'reselect'
 
 // Input selectors
-const getPosts = state => state.posts
+const getFeed = state => (state.feed.keySeq().toArray())
 
-export const getAllPosts = createSelector(
-    [getPosts], (posts) => {
-        //do something on posts (like filter etc) and send the posts list
-        if (posts) {
-            return posts
-        } else {
-            return []
-        }
-    }
-)
+
+export { getFeed }

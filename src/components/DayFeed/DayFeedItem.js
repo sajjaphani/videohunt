@@ -1,12 +1,13 @@
 import React from 'react'
-import PostsList from './PostsList'
+import PostsListContainer from '../../containers/PostsList'
 import DayFeedHeader from './DayFeedHeader'
 
 const DayFeedItem = props => {
+    const { date } = props
     return (
         <div>
-            <DayFeedHeader date={props.dayItem.date} dateAnnotation={props.dayItem.dateAnnotation} />
-            <PostsList posts={props.dayItem.posts} />
+            <DayFeedHeader date={props.date} />
+            <PostsListContainer feedDate={props.date} />
         </div>
     )
 }

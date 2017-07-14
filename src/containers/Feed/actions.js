@@ -7,7 +7,7 @@ export function loadVideos() {
     return function (dispatch) {
             dispatch(loadVideosSuccess(videoApi.getAll()));
     };
-}
+} 
 
 export function loadVideoByPostId(postId) {
     return function (dispatch) {
@@ -29,8 +29,8 @@ export function postNewVideo(newPost) {
     }
 }
 
-export function loadVideosSuccess(posts) {
-    return { type: ActionTypes.LOAD_VIDEOS_SUCCESS, posts };
+export function loadVideosSuccess(feed) {
+    return { type: ActionTypes.LOAD_VIDEOS_SUCCESS, payload: feed };
 }
 
 export function loadVideoByPostSuccess(video) {
