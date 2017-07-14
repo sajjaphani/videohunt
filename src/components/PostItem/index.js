@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import PostItemHeader from './PostItemHeader'
 import VideoComponentEmbed from './VideoComponentEmbed'
-import PostItemFooter from './PostItemFooter'
+import PostItemFooter from '../PostItemFooter'
 
 const PostItem = props => (
     <Segment attached>
@@ -13,7 +13,6 @@ const PostItem = props => (
         </Link>
         <Divider />
         <VideoComponentEmbed url={props.post.url} />
-        <Divider />
         <PostItemFooter visible={props.post.footerVisible} likes={props.post.likes} comments={props.post.comments} />
     </Segment>
 )
