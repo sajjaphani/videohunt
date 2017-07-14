@@ -19,16 +19,6 @@ export function loadVideoByPostId(postId) {
     };
 }
 
-export function postNewVideo(newPost) {
-    return (dispatch) => {
-        dispatch({
-            type: ActionTypes.POST_NEW_VIDEO,
-            newPost: newPost
-        })
-        dispatch(push('/'))
-    }
-}
-
 export function loadVideosSuccess(feed) {
     return { type: ActionTypes.LOAD_VIDEOS_SUCCESS, payload: feed };
 }

@@ -31,3 +31,16 @@ if (feedEntry) {
 
 
 console.log('New feed state', newFeedState.toJS())
+
+
+console.log('###############################')
+
+const date = new Date()
+console.log(date.toDateString())
+
+console.log('###############################')
+
+const date2 = new Date("Thu Jul 13 2017")
+
+console.log(date2.toISOString())
+console.log('################################')

@@ -12,7 +12,6 @@ import LoginWrapper from './LoginWrapper'
 
 const Header = props => {
     const { activeSelection, loggedIn, changeSelection, handleLogin } = props
-    console.log('selection', activeSelection)
     return (
         <Menu borderless fixed='top' size='small'>
             <Container>

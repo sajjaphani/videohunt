@@ -1,19 +1,24 @@
-import { postNewVideo } from '../Feed/actions'
+import * as ActionTypes from './constants';
+import { push } from 'react-router-redux'
+import videoApi from '../../api/videoApi';
 
 export const addNewVideoPost = (post) => {
-    console.log('This is the post',post)
     const newPost = post
     newPost.comments = []
     newPost.likes = []
-    newPost.postedOn = new Date()
-    newPost.id = new Date().toString()
+    // response should have postedOn as well
+    newPost.postedOn = new Date().toISOString()
+    // id should be retrieved from rest call
+    newPost.id = new Date().toISOString()
     return postNewVideo(newPost)
 } 
 
-// {
-// 		"title": "Nanna Nenu Phone Calls - Things Dads Say || Mahathalli",
-// 		"subtitle": "Mahathalli",
-// 		"url": "https://www.youtube.com/watch?v=eD1vDVo1Sgc",
-// 		"userId": "595f3e5365ac7f15c7a92b9c",
-// 		"_id": "5967232100766321e4ca0c82"
-// 	}
+export function postNewVideo(newPost) {
+    return (dispatch) => {
+        dispatch({
+            type: ActionTypes.ADD_NEW_VIDEO,
+            payload: newPost
+        })
+        dispatch(push('/'))
+    }
+}

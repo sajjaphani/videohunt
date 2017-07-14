@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux';
-import { postsReducer } from './containers/Feed/reducer';
+import { feedReducer } from './containers/Feed/reducer';
 import { headerReducer } from './containers/Header/reducer';
 import { appReducer } from './containers/App/reducer'
 import { routerReducer } from 'react-router-redux'
+import { postsReducer } from './containers/PostsList/reducer'
 
 const rootReducer = combineReducers({
-    feed: postsReducer,
+    app: appReducer,
     header: headerReducer,
     router: routerReducer,
-    app: appReducer
+    feed: feedReducer,
+    posts: postsReducer
 });
 
 export default rootReducer

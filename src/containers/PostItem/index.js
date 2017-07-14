@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getPosts } from './selectors'
+import { getPost } from './selectors'
 import PostItem from '../../components/PostItem'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        posts: getPosts(state, ownProps)
+        post: getPost(state, ownProps)
     }
 }
 
