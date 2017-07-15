@@ -11,7 +11,7 @@ class FeedContainer extends React.Component {
 
     componentWillMount() {
         // TODO: refactor to add isLoaded state
-        if(this.props.feed){
+        if(this.props.feed.length == 0){
             this.props.actions.loadVideos();
         }
     }

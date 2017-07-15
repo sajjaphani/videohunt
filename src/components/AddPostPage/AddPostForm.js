@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, Button, Checkbox, Form, Container, Segment } from 'semantic-ui-react'
 
-import PostItem from '../PostItem'
+import Post from '../Post'
 
 export default class AddPostForm extends React.Component {
 
@@ -52,7 +52,7 @@ export default class AddPostForm extends React.Component {
           Preview
         </Header>
         <Segment attached>
-          <PostItem footerVisible={false} post={post} />
+          <Post footerVisible={false} url={url} title={title} subtitle={description}/>
         </Segment>
       </Container>
     )

@@ -1,14 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getPost } from './selectors'
-import PostItem from '../../components/PostItem'
+
+import LikeButton from '../../components/LikeButton'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        post: getPost(state, ownProps)
+        postId: ownProps.postId,
+        likes: ownProps.likes
     }
 }
 
 export default connect(mapStateToProps, {
 
-})(PostItem)
+})(LikeButton)

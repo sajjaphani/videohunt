@@ -3,7 +3,7 @@ import { fromJS } from 'immutable'
 
 const initState = {
     loggedIn : false,
-    userId: 'srireddy',
+    userId: '595f459865ac7f15c7a92b9d',
 }
 
 export const appReducer = (state= fromJS(initState), action) => {

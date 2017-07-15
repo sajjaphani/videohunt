@@ -1,10 +1,10 @@
 import React from 'react'
-import PostItemContainer from '../../containers/PostItem'
+import PostContainer from '../../containers/Post'
 
 const PostsList = props => {
     const postItems = props.postIds.map((postId) => {
         return (
-            <PostItemContainer key={postId} postId={postId} />
+            <PostContainer key={postId} postId={postId} />
         )
     })
     return (

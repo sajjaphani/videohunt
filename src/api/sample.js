@@ -38,9 +38,10 @@ const sampleJson = {
             "userId": "595f3e5365ac7f15c7a92b9c",
             "__v": 0,
             "postedOn": "2017-07-13T07:37:05.658Z",
-            "likes": [
-            ],
+            "likes": ["595f3e5365ac7f15c7a92b9c", "595f459865ac7f15c7a92b9d, 595f45b565ac7f15c7a92b9e"],
             "comments": [
+                "1",
+                "2"
             ]
         },
         "5965e22961507c28ccd086e5": {
@@ -51,8 +52,14 @@ const sampleJson = {
             "userId": "595f3e5365ac7f15c7a92b9c",
             "__v": 0,
             "postedOn": "2017-07-12T08:47:37.786Z",
-            "likes": [],
-            "comments": []
+            "likes": [
+                "595f3e5365ac7f15c7a92b9c",
+                "595f45b565ac7f15c7a92b9e"
+            ],
+            "comments": [
+                "3",
+                "4"
+            ]
         },
         "5965e07495528310a0811a00": {
             "id": "5965e07495528310a0811a00",
@@ -63,7 +70,7 @@ const sampleJson = {
             "__v": 0,
             "postedOn": "2017-07-12T08:40:20.644Z",
             "likes": [],
-            "comments": []
+            "comments": ["5", "6"]
         },
         "5965d7582283cd266cc85f71": {
             "id": "5965d7582283cd266cc85f71",
@@ -217,6 +224,29 @@ const sampleJson = {
             "postedOn": "2017-07-05T05:11:29.090Z",
             "likes": [],
             "comments": []
+        }
+    },
+    "users": {
+        "595f3e5365ac7f15c7a92b9c": {
+            "id": "595f3e5365ac7f15c7a92b9c",
+            "name": "Phani Sajja",
+            "headline": "Some Headline...",
+            "email": "sajja.phani@gmail.com",
+            "memberSince": "2017-07-07T07:54:59.864Z"
+        },
+        "595f459865ac7f15c7a92b9d": {
+            "id": "595f459865ac7f15c7a92b9d",
+            "name": "Nischal Srinivas",
+            "headline": "Some Headline...",
+            "email": "nischal.srinivas@gmail.com",
+            "memberSince": "2017-07-07T08:26:00.723Z"
+        },
+        "595f45b565ac7f15c7a92b9e": {
+            "id": "595f45b565ac7f15c7a92b9e",
+            "name": "Kiran Kumar",
+            "headline": "Some Headline...",
+            "email": "kirankumar.iiit@gmail.com",
+            "memberSince": "2017-07-07T08:26:29.090Z"
         }
     }
 }

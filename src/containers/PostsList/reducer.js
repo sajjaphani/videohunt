@@ -3,7 +3,7 @@ import { fromJS } from 'immutable'
 
 const posts = {
 
-}
+} 
 
 export const postsReducer = (state = fromJS(posts), action) => {
     switch (action.type) {
