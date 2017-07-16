@@ -1,0 +1,5 @@
+const LIKE_POST = 'Like/LIKE_POST'
+
+const UNLIKE_POST = 'Like/UNLIKE_POST'
+
+export { LIKE_POST, UNLIKE_POST }

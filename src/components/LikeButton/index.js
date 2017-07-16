@@ -1,14 +1,20 @@
 import React from 'react'
 import { Button, Icon } from 'semantic-ui-react'
 
-const LikeButton = props => {
-    const likeCount = props.likes.length > 0 ? ' | ' + props.likes.length : ''
-    return (
-        <Button basic color={'grey'} size='tiny'>
-            <Icon name='like' />
-            Like {likeCount}
-        </Button>
-    )
+export default class LikeButton extends React.Component {
+    handleClick = (e) => {
+        const { postId, liked } = this.props
+        this.props.togglePost(postId, !liked)
+    }
+    render() {
+        const { likes, liked } = this.props
+        const likeCount = likes.length > 0 ? ' | ' + likes.length : ''
+        const color = liked ? 'blue' : 'grey'
+        return (
+            <Button basic color={color} size='tiny' onClick={this.handleClick}>
+                <Icon name='like' />
+                Like {likeCount}
+            </Button>
+        )
+    }
 }
-
-export default LikeButton
