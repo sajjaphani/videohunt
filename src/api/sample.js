@@ -39,10 +39,7 @@ const sampleJson = {
             "__v": 0,
             "postedOn": "2017-07-13T07:37:05.658Z",
             "likes": ["595f3e5365ac7f15c7a92b9c", "595f459865ac7f15c7a92b9d, 595f45b565ac7f15c7a92b9e"],
-            "comments": [
-                "1",
-                "2"
-            ]
+            "comments": ["comment1", "comment2"]
         },
         "5965e22961507c28ccd086e5": {
             "id": "5965e22961507c28ccd086e5",
@@ -56,10 +53,7 @@ const sampleJson = {
                 "595f3e5365ac7f15c7a92b9c",
                 "595f45b565ac7f15c7a92b9e"
             ],
-            "comments": [
-                "3",
-                "4"
-            ]
+            "comments": ["comment3", "comment4"]
         },
         "5965e07495528310a0811a00": {
             "id": "5965e07495528310a0811a00",
@@ -70,7 +64,7 @@ const sampleJson = {
             "__v": 0,
             "postedOn": "2017-07-12T08:40:20.644Z",
             "likes": [],
-            "comments": ["5", "6"]
+            "comments": ["comment5", "comment6"]
         },
         "5965d7582283cd266cc85f71": {
             "id": "5965d7582283cd266cc85f71",
@@ -247,6 +241,38 @@ const sampleJson = {
             "headline": "Some Headline...",
             "email": "kirankumar.iiit@gmail.com",
             "memberSince": "2017-07-07T08:26:29.090Z"
+        }
+    },
+    "comments": {
+        "comment1": {
+            "id": "comment1",
+            "text": "This is a sample comment1",
+            "userId": "595f459865ac7f15c7a92b9d"
+        },
+        "comment2": {
+            "id": "comment2",
+            "text": "This is another comment2",
+            "userId": "595f3e5365ac7f15c7a92b9c"
+        },
+        "comment3": {
+            "id": "comment3",
+            "text": "This is a sample comment3",
+            "userId": "595f45b565ac7f15c7a92b9e"
+        },
+        "comment4": {
+            "id": "comment4",
+            "text": "This is another comment4",
+            "userId": "595f459865ac7f15c7a92b9d"
+        },
+        "comment5": {
+            "id": "comment5",
+            "text": "This is a sample comment5",
+            "userId": "595f45b565ac7f15c7a92b9e"
+        },
+        "comment6": {
+            "id": "comment6",
+            "text": "This is another comment6",
+            "userId": "595f459865ac7f15c7a92b9d"
         }
     }
 }

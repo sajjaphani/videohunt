@@ -22,6 +22,11 @@ export const postsReducer = (state = fromJS(posts), action) => {
                 const { postId, userId } = action.payload
                 return state.updateIn([postId, 'likes'], list => list.delete(list.indexOf(userId)))
             }
+        case Types.TOGGLE_COMMENT:
+            {
+                const { postId, expand } = action.payload
+                return state.setIn([postId, 'expandComments'], expand)
+            }
         default:
             state
     }
