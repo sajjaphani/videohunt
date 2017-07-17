@@ -38,7 +38,7 @@ const sampleJson = {
             "userId": "595f3e5365ac7f15c7a92b9c",
             "__v": 0,
             "postedOn": "2017-07-13T07:37:05.658Z",
-            "likes": ["595f3e5365ac7f15c7a92b9c", "595f459865ac7f15c7a92b9d, 595f45b565ac7f15c7a92b9e"],
+            "likes": ["595f3e5365ac7f15c7a92b9c", "595f459865ac7f15c7a92b9d", "595f45b565ac7f15c7a92b9e"],
             "comments": ["comment1", "comment2"]
         },
         "5965e22961507c28ccd086e5": {
