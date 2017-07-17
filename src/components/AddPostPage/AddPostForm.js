@@ -3,7 +3,7 @@ import { Header, Button, Checkbox, Form, Container, Segment } from 'semantic-ui-
 
 import Post from '../Post'
 
-export default class AddPostForm extends React.Component {
+export default class AddPostForm extends React.PureComponent {
 
   state = { url: '', title: '', description: '' }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Embed } from 'semantic-ui-react'
 import VisibilitySensor from 'react-visibility-sensor'
 
-export default class VideoComponentEmbedly extends React.Component {
+export default class VideoComponentEmbedly extends React.PureComponent {
 
     constructor() {
         super()

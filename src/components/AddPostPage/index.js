@@ -4,7 +4,7 @@ import { Grid, Segment, Container } from 'semantic-ui-react'
 
 import AddPostFormContainer from '../../containers/AddPostForm'
 
-export default class AddPostPage extends React.Component {
+export default class AddPostPage extends React.PureComponent {
     render() {
         return (
             <Grid>

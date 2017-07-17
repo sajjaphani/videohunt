@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Icon } from 'semantic-ui-react'
 
-export default class CommentButton extends React.Component {
+export default class CommentButton extends React.PureComponent {
     handleClick = (e) => {
         const { postId, toggleComment, expandComments } = this.props
         const expand = expandComments ? !expandComments : true

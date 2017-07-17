@@ -7,7 +7,7 @@ import Feed from '../../components/Feed'
 import * as actions from './actions'
 import { getFeed } from './selector'
 
-class FeedContainer extends React.Component {
+class FeedContainer extends React.PureComponent {
 
     componentWillMount() {
         // TODO: refactor to add isLoaded state

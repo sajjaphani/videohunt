@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from 'semantic-ui-react'
 import { Switch, Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux'
-import {history} from '../../store'
+import { history } from '../../store'
 
 import HeaderContainer from '../../containers/Header'
 import HomePage from '../HomePage'

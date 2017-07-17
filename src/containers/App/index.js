@@ -6,8 +6,7 @@ import { getLoggedIn, getUser, getRoute} from './selectors'
 
 const mapStateToProps = (state) => {
     return { 
-        loggedIn: getLoggedIn(state),
-        user: getUser(state)
+        
      }
 }
 

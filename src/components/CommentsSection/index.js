@@ -2,6 +2,8 @@ import React from 'react'
 import { Button, Comment, Form, Header, Divider, Image } from 'semantic-ui-react'
 
 import CommentContainer from '../../containers/Comment'
+import CommentFormContainer from '../../containers/CommentForm'
+
 
 const CommentsSection = (props) => {
     const { postId, expandComments, comments, loggedIn } = props
@@ -13,19 +15,8 @@ const CommentsSection = (props) => {
         )
     })
     let commentForm = <div />
-    console.log('Log in state',loggedIn)
     if (loggedIn) {
-        commentForm = (
-            <Form reply size='mini'>
-                <Form.Group >
-                    {/*<Image src='/images/boy.png' size='tiny'  width='2' circular/>*/}
-                    {/*<Button icon='checkmark' size='mini' basic color='blue' width='1'/>*/}
-                    <Form.Input name='comment' placeholder='Add a comment...' width='15' />
-                    <Button icon='checkmark' size='mini' basic color='blue' width='1' />
-                    {/*<Form.Button content='Reply' basic color='blue' />*/}
-                </Form.Group>
-            </Form>
-        )
+        commentForm = (<CommentFormContainer postId={postId} />)
     }
     return (<div>
         {divider}

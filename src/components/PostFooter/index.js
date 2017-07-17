@@ -6,7 +6,7 @@ import WatchListButton from './WatchListButton'
 import ShareButton from './ShareButton'
 import CommentsSectionContainer from '../../containers/CommentsSection'
 
-class PostFooter extends React.Component {
+class PostFooter extends React.PureComponent {
     render() {
         const { visible, likes, comments, postId } = this.props
         const sectionVisible = visible === undefined ? true : visible

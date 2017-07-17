@@ -2,7 +2,7 @@ import React from 'react'
 
 import Sidebar from '../../components/Sidebar'
 
-export default class SidebarContainer extends React.Component {
+export default class SidebarContainer extends React.PureComponent {
     constructor() {
         super();
         this.state = {

@@ -1,0 +1,3 @@
+const ADD_POST_COMMENT = 'CommentForm/ADD_POST_COMMENT';  
+
+export { ADD_POST_COMMENT }
