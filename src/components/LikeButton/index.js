@@ -7,13 +7,13 @@ export default class LikeButton extends React.PureComponent {
         this.props.togglePost(postId, !liked)
     }
     render() {
-        const { likes, liked } = this.props
-        const likeCount = likes.length > 0 ? ' | ' + likes.length : ''
+        const { likesCount, liked } = this.props
+        const numOflikes = likesCount > 0 ? ' | ' + likesCount : ''
         const color = liked ? 'blue' : 'grey'
         return (
             <Button basic color={color} size='tiny' onClick={this.handleClick}>
                 <Icon name='like' />
-                Like {likeCount}
+                Like {numOflikes}
             </Button>
         )
     }

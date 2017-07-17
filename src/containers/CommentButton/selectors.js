@@ -6,8 +6,12 @@ const getPostId = (state, ownProps) => {
 
 const getPosts = (state) => (state.posts)
 
-const getPost = createSelector([getPostId, getPosts], (postId, posts) => (posts.get(postId).toJS()))
+const getPost = createSelector([getPostId, getPosts], (postId, posts) => (posts.get(postId)))
 
-const isExpandComments = createSelector([getPost], (post) => post.expandComments)
+const isExpandComments = createSelector([getPost], (post) => post.get('expandComments'))
 
-export { isExpandComments }
+const getComments = (state, ownProps) => ownProps.comments
+
+const getTotalComments = createSelector([getComments],(comments) => comments.size)
+
+export { isExpandComments, getTotalComments }

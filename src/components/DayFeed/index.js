@@ -5,9 +5,9 @@ import DayFeedItem from './DayFeedItem'
 const DayFeed = props => {
     return (
         <Segment.Group>
-            <DayFeedItem date={props.date}/>
+            <DayFeedItem date={props.date} />
         </Segment.Group>
-    ) 
+    )
 }
 
 export default DayFeed

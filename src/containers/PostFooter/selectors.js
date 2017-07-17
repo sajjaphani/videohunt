@@ -4,10 +4,10 @@ const getPostId = (state, props) => (props.postId)
 
 const getPosts = (state) => (state.posts)
 
-const getPost = createSelector([getPostId, getPosts], (postId, posts) => (posts.get(postId).toJS()))
+const getPost = createSelector([getPostId, getPosts], (postId, posts) => (posts.get(postId)))
 
-const getLikes = createSelector([getPost], (post) => (post.likes))
+const getLikes = createSelector([getPost], (post) => (post.get('likes')))
 
-const getComments = createSelector([getPost], (post) => (post.comments))
+const getComments = createSelector([getPost], (post) => (post.get('comments')))
 
 export { getLikes, getComments }

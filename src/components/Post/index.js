@@ -8,7 +8,7 @@ import PostFooterContainer from '../../containers/PostFooter'
 
 const Post = props => {
     const visible = props.footerVisible === undefined ? true : props.footerVisible
-    let footer = <div/>
+    let footer = <div />
     if (visible) {
         footer = <PostFooterContainer visible={props.visible} postId={props.postId} />
     }

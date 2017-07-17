@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 
 import LikeButton from '../../components/LikeButton'
 import { togglePost } from './actions'
-import { getUserId, isLiked } from './selectors'
+import { getUserId, isLiked, getLikesCount } from './selectors'
 
 const mapStateToProps = (state, ownProps) => {
     return {
         postId: ownProps.postId,
-        likes: ownProps.likes,
+        likesCount: getLikesCount(state,ownProps),
         userId: getUserId(state),
         liked: isLiked(state, ownProps)
     }

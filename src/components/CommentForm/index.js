@@ -8,9 +8,8 @@ export default class CommentForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log('Comment submitted ', this.state.commentText)
-        const {postId, userId} = this.props
-        const {commentText} = this.state
+        const { postId, userId } = this.props
+        const { commentText } = this.state
         const comment = {
             postId,
             userId,

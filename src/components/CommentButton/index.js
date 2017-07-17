@@ -8,8 +8,8 @@ export default class CommentButton extends React.PureComponent {
         toggleComment(postId, expand)
     }
     render() {
-        const { comments } = this.props
-        const commentCount = comments.length > 0 ? ' | ' + comments.length : ''
+        const { commentNo } = this.props
+        const commentCount = commentNo > 0 ? ' | ' + commentNo : ''
         return (
             <Button basic size='tiny' onClick={this.handleClick}>
                 <Icon name='comment' />
