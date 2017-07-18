@@ -5,10 +5,11 @@ import * as ActionTypes from './constants'
 
 export const changeSelection = (e, {name}) => {
     return (dispatch) => {
-        dispatch({
-            type: ActionTypes.CHANGE_SELECTION,
-            payload: name
-        })
+        // No need to retain change selection in header
+        // dispatch({
+        //     type: ActionTypes.CHANGE_SELECTION,
+        //     payload: name
+        // })
         // change route by pushing state using react-router-redux
         dispatch(push(convertSelectionToRoute(name)))
     }
