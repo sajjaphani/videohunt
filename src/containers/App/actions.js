@@ -11,8 +11,10 @@ const changeRoute = (route) => {
 
 const pushRoute = (route) => (push(route))
 
-const loginSuccess = () => ({
-    type: ActionTypes.LOGIN_SUCCESS
-})
+const loginRequest = () => {
+    return (dispatch) => {
+        dispatch({ type: ActionTypes.LOGIN_REQUEST })
+    }
+}
 
-export { changeRoute, loginSuccess }
+export { changeRoute, loginRequest }

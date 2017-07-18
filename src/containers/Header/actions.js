@@ -1,6 +1,6 @@
 import { push } from 'react-router-redux'
 
-import { loginSuccess } from '../App/actions'
+import { loginRequest } from '../App/actions'
 import * as ActionTypes from './constants'
 
 export const changeSelection = (e, {name}) => {
@@ -26,7 +26,5 @@ const convertSelectionToRoute = (name) => {
 }
 
 export const handleLogin = (e, {name}) => {
-    return (dispatch) => {
-        dispatch(loginSuccess())
-    }
+    return loginRequest()
 }
