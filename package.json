@@ -37,6 +37,7 @@
     "redux-logger": "^2.6.1",
     "redux-promise": "^0.5.3",
     "redux-promise-middleware": "^3.2.0",
+    "redux-saga": "^0.15.4",
     "redux-thunk": "^2.1.0",
     "reselect": "^3.0.1",
     "semantic-ui-react": "^0.68.2"
