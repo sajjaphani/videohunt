@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 import Sidebar from '../../components/Sidebar'
 
@@ -14,6 +15,9 @@ export default class SidebarContainer extends React.PureComponent {
 
     handleItemClick = (e, {name}) => { 
         this.setState({ activeItem: name, visible: this.state.visible }) 
+        axios.get('/api/v1/secure').then( response => {
+            console.log('secure response ', response)
+        })
     }
 
     componentWillMount() {

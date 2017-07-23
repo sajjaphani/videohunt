@@ -6,6 +6,14 @@ module.exports = {
   context: path.join(__dirname, "src"),
   devtool: debug ? "inline-sourcemap" : false,
   entry: ['babel-polyfill', "./index.js"],
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        secure: false
+      }
+    }
+  },
   module: {
     rules: [
       {
