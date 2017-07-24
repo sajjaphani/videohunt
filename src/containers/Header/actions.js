@@ -49,6 +49,6 @@ export const handleLogin = (e, { name }) => {
         window.open('/api/v1/authentication/' + provider);
         window.addEventListener("message", receiveMessage, false);
     }
-    authenticate('google')
+    authenticate(name)
     return loginRequest()
 }

@@ -7,21 +7,21 @@ const LoginModal = props => {
             {/*<Modal.Header>Select a Photo</Modal.Header>*/}
             <Modal.Content image>
                 {/*<Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />*/}
-                <Segment textAlign='center'>
+                <Segment basic textAlign='center'>
 
-                    <Modal.Description>
-                        <Button color='facebook'>
+                    <Modal.Content>
+                        <Button name='facebook' color='facebook' onClick={props.handleLogin}>
                             <Icon name='facebook' /> Facebook
                             </Button>
                         <Divider horizontal>Or</Divider>
-                        <Button color='google plus'>
+                        <Button name='google' color='google plus' onClick={props.handleLogin}>
                             <Icon name='google plus' /> Google Plus
                             </Button>
                         <Divider horizontal>Or</Divider>
-                        <Button color='twitter'>
+                        <Button name='twitter' color='twitter' onClick={props.handleLogin}>
                             <Icon name='twitter' /> Twitter
                             </Button>
-                    </Modal.Description>
+                    </Modal.Content>
                 </Segment>
 
             </Modal.Content>
