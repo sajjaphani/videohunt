@@ -4,6 +4,6 @@ import { loginSaga } from './containers/App/sagas'
 
 export default function* rootSaga() {
     yield all([
-        loginSaga()
+        // loginSaga()
     ])
 }

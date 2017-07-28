@@ -26,29 +26,24 @@ const convertSelectionToRoute = (name) => {
 }
 
 export const handleLogin = (e, { name }) => {
-    function authenticate(provider) {
-        window.authenticateCallback = function (token) {
-            accessToken = token;
-            console.log('This is access token ', accessToken)
-            console.log('Not bad!!')
-        };
+    return (dispatch) => {
+        dispatch({ type: ActionTypes.LOGIN_REQUEST })
+        function authenticate(provider) {
 
-        function receiveMessage(event) {
-            // Do we trust the sender of this message?  (might be
-            // different from what we originally opened, for example).
+            function receiveMessage(event) {
+                // Do we trust the sender of this message?  (might be
+                // different from what we originally opened, for example).
 
-            if (event.origin === "http://localhost:3000") {
-                console.log('This is here ', event.data)
-                return;
+                if (event.origin === "http://localhost:3000") {
+                    localStorage.setItem('jwtToken', event.data)
+                    dispatch({ type: ActionTypes.LOGIN_SUCCESS })
+                }
+
             }
 
-            // event.source is popup
-            // event.data is "hi there yourself!  the secret response is: rheeeeet!"
+            window.open('/api/v1/authentication/' + provider);
+            window.addEventListener("message", receiveMessage, false);
         }
-
-        window.open('/api/v1/authentication/' + provider);
-        window.addEventListener("message", receiveMessage, false);
+        authenticate(name)
     }
-    authenticate(name)
-    return loginRequest()
 }
