@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppContainer from './containers/App'
 import { Provider } from 'react-redux'
-import { store } from './store';
 
+import AppContainer from './containers/App'
+import { store } from './store';
+import setAuthToken from './utils/setAuthToken'
+
+setAuthToken(localStorage.getItem('jwtToken'))
 
 ReactDOM.render(
   <Provider store={store}>

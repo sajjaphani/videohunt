@@ -8,7 +8,7 @@ module.exports = {
   entry: ['babel-polyfill', "./index.js"],
   devServer: {
     proxy: {
-      '/api': {
+      '/api/**': {
         target: 'http://localhost:3000',
         secure: false
       }
@@ -42,4 +42,8 @@ module.exports = {
   plugins: debug ? [] : [
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
   ],
+  node: {
+    net: 'empty',
+    dns: 'empty'
+  }
 };

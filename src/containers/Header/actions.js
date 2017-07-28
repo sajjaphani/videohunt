@@ -1,7 +1,9 @@
 import { push } from 'react-router-redux'
+import jwt from 'jsonwebtoken'
 
 import { loginRequest } from '../App/actions'
 import * as ActionTypes from './constants'
+import setAuthToken from '../../utils/setAuthToken'
 
 export const changeSelection = (e, { name }) => {
     return (dispatch) => {
@@ -35,8 +37,11 @@ export const handleLogin = (e, { name }) => {
                 // different from what we originally opened, for example).
 
                 if (event.origin === "http://localhost:3000") {
-                    localStorage.setItem('jwtToken', event.data)
+                    const token = event.data
+                    localStorage.setItem('jwtToken', token)
+                    setAuthToken(token)
                     dispatch({ type: ActionTypes.LOGIN_SUCCESS })
+                    console.log('user ',jwt.decode(token))
                 }
 
             }
