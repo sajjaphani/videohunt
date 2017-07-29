@@ -5,7 +5,7 @@ import LoginButton from './LoginButton'
 const LoginWrapper = props => {
     const { isLoggedIn, loginLoading } = props
     if (isLoggedIn) {
-        return <UserAccount imageUrl={'/images/boy.png'} />
+        return <UserAccount userId={props.userId} />
     } else {
         return <LoginButton handleLogin={props.handleLogin} loginLoading={loginLoading} />
     }

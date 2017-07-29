@@ -22,4 +22,6 @@ const getCommentUser = createSelector([getComment, getUsers], (comment, users) =
 
 const getUserName = createSelector([getCommentUser], (user) => user.get('name'))
 
-export { getCommentText, getUserName }
+const getUserPicture = createSelector([getCommentUser], (user) => user.get('picture')?user.get('picture'):'/images/man1.png')
+
+export { getCommentText, getUserName, getUserPicture }

@@ -1,11 +1,11 @@
 import React from 'react'
-import { Image, Dropdown } from 'semantic-ui-react'
+import { Dropdown } from 'semantic-ui-react'
+
+import User from '../../containers/User'
 
 const UserAccount = props => {
     const trigger = (
-        <span>
-            <Image avatar src={props.imageUrl} /> Nischal
-        </span>
+        <User userId={props.userId} imageUrl={props.imageUrl} />
     )
     const options = [
         { key: 'user', text: 'Account', icon: 'user' },
@@ -13,7 +13,7 @@ const UserAccount = props => {
         { key: 'sign-out', text: 'Sign Out', icon: 'sign out' },
     ]
     return (
-        <Dropdown trigger={trigger} options={options} pointing='top left' icon={null} />
+        <Dropdown trigger={trigger} options={options} pointing='top right' icon={null} />
     )
 }
 

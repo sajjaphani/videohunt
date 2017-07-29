@@ -233,7 +233,8 @@ const sampleJson = {
             "name": "Nischal Srinivas",
             "headline": "Some Headline...",
             "email": "nischal.srinivas@gmail.com",
-            "memberSince": "2017-07-07T08:26:00.723Z"
+            "memberSince": "2017-07-07T08:26:00.723Z",
+            "picture": "https://scontent.xx.fbcdn.net/v/t1.0-1/c0.0.50.50/p50x50/19059568_10212456734831929_5171602577296152885_n.jpg?oh=bf54ffa8c51dd22687020ae061a151d8&oe=59F4FF15"
         },
         "595f45b565ac7f15c7a92b9e": {
             "id": "595f45b565ac7f15c7a92b9e",

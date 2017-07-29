@@ -10,7 +10,8 @@ const initState = {
 export const appReducer = (state = fromJS(initState), action) => {
     switch (action.type) {
         case ActionTypes.LOGIN_SUCCESS:
-            const tempState = state.set('loginLoading', false)
+            let tempState = state.set('loginLoading', false)
+            tempState = tempState.set('userId', action.payload.id)
             return tempState.setIn(['loggedIn'], true)
         case ActionTypes.LOGIN_REQUEST:
             return state.set('loginLoading', true)

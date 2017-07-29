@@ -4,7 +4,7 @@ import { headerReducer } from './containers/Header/reducer';
 import { appReducer } from './containers/App/reducer'
 import { routerReducer } from 'react-router-redux'
 import { postsReducer } from './containers/PostsList/reducer'
-import { usersReducer } from './containers/Users/reducer'
+import { userReducer } from './containers/User/reducer'
 import { commentsReducer } from './containers/CommentsSection/reducer'
 
 const rootReducer = combineReducers({
@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
     router: routerReducer,
     feed: feedReducer,
     posts: postsReducer,
-    users: usersReducer,
+    users: userReducer,
     comments: commentsReducer
 });
 

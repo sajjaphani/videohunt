@@ -40,8 +40,8 @@ export const handleLogin = (e, { name }) => {
                     const token = event.data
                     localStorage.setItem('jwtToken', token)
                     setAuthToken(token)
-                    dispatch({ type: ActionTypes.LOGIN_SUCCESS })
-                    console.log('user ',jwt.decode(token))
+                    const user = jwt.decode(token).user
+                    dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: user })
                 }
 
             }

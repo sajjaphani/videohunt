@@ -26,7 +26,7 @@ const Header = props => {
                     <Menu.Item name='userAccount'
                         active={false}>
                         {/* TODO: Create a container for Login wrapper*/}
-                        <LoginWrapper handleLogin={handleLogin} isLoggedIn={loggedIn} loginLoading={loginLoading} />
+                        <LoginWrapper handleLogin={handleLogin} isLoggedIn={loggedIn} userId={props.loggedInUserId} loginLoading={loginLoading} />
                     </Menu.Item>
                 </Menu.Menu>
                 {/*<Menu.Menu position='right'>

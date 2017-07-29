@@ -2,10 +2,10 @@ import React from 'react'
 import { Comment } from 'semantic-ui-react'
 
 const CommentItem = (props) => {
-    const { userName, commentText } = props
+    const { userName, commentText, userPicture } = props
     return (
         <Comment>
-            <Comment.Avatar src='/images/man1.png' />
+            <Comment.Avatar src={userPicture} />
             <Comment.Content>
                 <Comment.Author as='a'>{userName}</Comment.Author>
                 <Comment.Metadata>
