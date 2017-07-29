@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
 
-export default class CommentForm extends React.Component {
+export default class CommentForm extends React.PureComponent {
     state = { commentText: '' }
 
     handleChange = (e, { name, value }) => this.setState({ [name]: value })

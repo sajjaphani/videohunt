@@ -52,3 +52,11 @@ export const handleLogin = (e, { name }) => {
         authenticate(name)
     }
 }
+
+export const handleLogout = () => {
+    return (dispatch) => {
+        dispatch(push('/'))
+        localStorage.removeItem('jwtToken')
+        window.location.reload()
+    }
+}
