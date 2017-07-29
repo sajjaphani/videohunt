@@ -6,7 +6,6 @@ import LoginModal from './LoginModal'
 import UserAccount from './UserAccount'
 import Logo from './Logo'
 import Title from './Title'
-import MoreAction from './MoreAction'
 import AddPost from './AddPost'
 import LoginWrapper from './LoginWrapper'
 
