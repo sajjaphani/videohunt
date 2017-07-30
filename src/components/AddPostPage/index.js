@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Grid, Segment, Container } from 'semantic-ui-react'
 
 import AddPostFormContainer from '../../containers/AddPostForm'
