@@ -42,6 +42,7 @@ export const handleLogin = (e, { name }) => {
                     setAuthToken(token)
                     const user = jwt.decode(token).user
                     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: user })
+                    closeLogin(dispatch)
                 }
 
             }
@@ -51,6 +52,20 @@ export const handleLogin = (e, { name }) => {
         }
         authenticate(name)
     }
+}
+
+export const openLogin = (open) => {
+    return (dispatch) => {
+        if (open) {
+           dispatch({type: ActionTypes.LOGIN_MODAL_OPEN}) 
+        } else {
+           closeLogin(dispatch)
+        }
+    }
+}
+
+const closeLogin = (dispatch) => {
+    dispatch({type: ActionTypes.LOGIN_MODAL_CLOSE})
 }
 
 export const handleLogout = () => {

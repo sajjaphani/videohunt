@@ -1,5 +1,7 @@
+import { LOGIN_MODAL_CLOSE, LOGIN_MODAL_OPEN } from '../App/constants'
+
 const LIKE_POST = 'Like/LIKE_POST'
 
 const UNLIKE_POST = 'Like/UNLIKE_POST'
 
-export { LIKE_POST, UNLIKE_POST }
+export { LIKE_POST, UNLIKE_POST, LOGIN_MODAL_CLOSE, LOGIN_MODAL_OPEN }

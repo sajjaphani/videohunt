@@ -1,4 +1,4 @@
-import { LIKE_POST, UNLIKE_POST } from './constants'
+import { LIKE_POST, UNLIKE_POST, LOGIN_MODAL_OPEN } from './constants'
 
 const togglePost = (postId, like) => {
     return (dispatch, getState) => {
@@ -15,6 +15,9 @@ const togglePost = (postId, like) => {
             })
         } else {
             // TODO: dispatch SHOW_LOGIN action that redirects to login page
+            dispatch({
+                type: LOGIN_MODAL_OPEN,
+            })
         }
     }
 }

@@ -10,7 +10,7 @@ import AddPost from './AddPost'
 import LoginWrapper from './LoginWrapper'
 
 const Header = props => {
-    const { activeSelection, loggedIn, changeSelection, handleLogin, loginLoading, handleLogout } = props
+    const { activeSelection, loggedIn, changeSelection, handleLogin, loginLoading, handleLogout, loginModalOpen, openLogin } = props
     return (
         <Menu borderless fixed='top' size='small'>
             <Container>
@@ -25,7 +25,14 @@ const Header = props => {
                     <Menu.Item name='userAccount'
                         active={false}>
                         {/* TODO: Create a container for Login wrapper*/}
-                        <LoginWrapper handleLogin={handleLogin} isLoggedIn={loggedIn} userId={props.loggedInUserId} loginLoading={loginLoading} handleLogout={handleLogout} />
+                        <LoginWrapper
+                            openLogin={openLogin}
+                            loginModalOpen={loginModalOpen}
+                            handleLogin={handleLogin}
+                            isLoggedIn={loggedIn}
+                            userId={props.loggedInUserId}
+                            loginLoading={loginLoading}
+                            handleLogout={handleLogout} />
                     </Menu.Item>
                 </Menu.Menu>
                 {/*<Menu.Menu position='right'>

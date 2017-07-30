@@ -11,4 +11,6 @@ const isLoginLoading = createSelector([getApp], (app) => (app.get('loginLoading'
 
 const getLoggedInUserId = createSelector([getApp], (app) => app.get('userId'))
 
-export { getLoggedIn, getActiveSelection, isLoginLoading, getLoggedInUserId }
+const getLoginModalOpen = createSelector([getApp], (app) => app.get('loginModalOpen'))
+
+export { getLoggedIn, getActiveSelection, isLoginLoading, getLoggedInUserId, getLoginModalOpen }
