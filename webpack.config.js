@@ -7,6 +7,9 @@ module.exports = {
   devtool: debug ? "inline-sourcemap" : false,
   entry: ['babel-polyfill', "./index.js"],
   devServer: {
+    historyApiFallback: {
+      index: 'index.html'
+    },
     proxy: {
       '/api/**': {
         target: 'http://localhost:3000',
