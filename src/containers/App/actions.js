@@ -12,9 +12,28 @@ const changeRoute = (route) => {
 const pushRoute = (route) => (push(route))
 
 const loginRequest = () => {
-    return (dispatch) => {
-        dispatch({ type: ActionTypes.LOGIN_REQUEST })
+    return {
+        type: ActionTypes.LOGIN_REQUEST
     }
 }
 
-export { changeRoute, loginRequest }
+const loginSuccess = (user) => {
+    return {
+        type: ActionTypes.LOGIN_SUCCESS,
+        payload: user
+    }
+}
+
+const openLoginModal = () => {
+    return {
+        type: ActionTypes.LOGIN_MODAL_OPEN
+    }
+}
+
+const closeLoginModal = () => {
+    return {
+        type: ActionTypes.LOGIN_MODAL_CLOSE
+    }
+}
+
+export { changeRoute, loginRequest, loginSuccess, openLoginModal, closeLoginModal }
