@@ -23,7 +23,8 @@ const Header = props => {
                 <Menu.Menu position='right'>
                     <AddPost changeSelection={changeSelection} activeSelection={activeSelection} isLoggedIn={loggedIn} />
                     <Menu.Item name='userAccount'
-                        active={false}>
+                        active={false}
+                        onClick={changeSelection}>
                         {/* TODO: Create a container for Login wrapper*/}
                         <LoginWrapper
                             openLogin={openLogin}
