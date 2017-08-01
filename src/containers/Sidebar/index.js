@@ -4,8 +4,8 @@ import axios from 'axios'
 import Sidebar from '../../components/Sidebar'
 
 export default class SidebarContainer extends React.PureComponent {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             activeItem: 'All',
             visible: true

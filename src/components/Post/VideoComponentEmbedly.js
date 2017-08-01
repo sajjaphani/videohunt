@@ -4,8 +4,8 @@ import VisibilitySensor from 'react-visibility-sensor'
 
 export default class VideoComponentEmbedly extends React.PureComponent {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         const that = this
         embedly('player', function (player) {
             {/*console.log("that ",that.props.url)
