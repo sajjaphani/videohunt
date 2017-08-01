@@ -10,7 +10,6 @@ export default class SidebarContainer extends React.PureComponent {
             activeItem: 'All',
             visible: true
         };
-        this.handleItemClick = this.handleItemClick.bind(this)
     }
 
     handleItemClick = (e, {name}) => { 
