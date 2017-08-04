@@ -4,8 +4,8 @@ import VisibilitySensor from 'react-visibility-sensor'
 
 export default class VideoComponentEmbedly extends React.PureComponent {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         const that = this
         embedly('player', function (player) {
             {/*console.log("that ",that.props.url)
@@ -19,7 +19,7 @@ export default class VideoComponentEmbedly extends React.PureComponent {
         });
     }
 
-    onChange(isVisible) {
+    onChange = (isVisible) => {
         console.log(this.props.url + ' Element is now %s', isVisible ? 'visible' : 'hidden')
         console.log(this.player)
         if (isVisible) {
@@ -41,7 +41,7 @@ export default class VideoComponentEmbedly extends React.PureComponent {
         const vidId = this.props.url.split('v=').pop();
         return (
             <div id={vidId}>
-                <VisibilitySensor partialVisibility={true} offset={{ bottom: 300 }} onChange={this.onChange.bind(this)} />
+                <VisibilitySensor partialVisibility={true} offset={{ bottom: 300 }} onChange={this.onChange} />
                 <a className="embedly-card" href={this.props.url}>
                 </a>
             </div>
