@@ -1,15 +1,29 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { Switch, Route } from 'react-router';
+import { ConnectedRouter } from 'react-router-redux'
+import { history } from '../../store'
 
-import App from '../../components/App'
-import { getLoggedIn, getUser, getRoute} from './selectors'
+import HeaderContainer from '../Header'
+import HomePage from '../../components/HomePage'
+import AddPostPage from '../../components/AddPostPage'
+import NotFoundPage from '../../components/NotFoundPage'
+import MainContent from '../../components/MainContent'
 
-const mapStateToProps = (state) => {
-    return { 
-        
-     }
+export default class MainContentContainer extends React.PureComponent {
+    render() {
+        return (
+            <div>
+                <HeaderContainer />
+                <MainContent>
+                    <ConnectedRouter history={history}>
+                        <Switch>
+                            <Route exact path="/" component={HomePage} />
+                            <Route path="/post" component={AddPostPage} />
+                            <Route component={NotFoundPage} />
+                        </Switch>
+                    </ConnectedRouter>
+                </MainContent>
+            </div>
+        )
+    }
 }
-
-export default connect(mapStateToProps,{
-
-})(App)
