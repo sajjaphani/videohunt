@@ -4,10 +4,11 @@ import PostsListContainer from '../../containers/PostsList'
 import DayFeedHeader from './DayFeedHeader'
 
 const DayFeed = props => {
+    const { children } = props
     return (
         <Segment.Group>
             <DayFeedHeader date={props.date} />
-            <PostsListContainer feedDate={props.date} />
+            {children}
         </Segment.Group>
     )
 }

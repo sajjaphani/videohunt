@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import LikeButton from '../../components/LikeButton'
-import { togglePost } from './actions'
+import { toggleLike } from './actions'
 import { getUserId, isLiked, getLikesCount } from './selectors'
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,5 +15,5 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default connect(mapStateToProps, {
-    togglePost
+    toggleLike
 })(LikeButton)

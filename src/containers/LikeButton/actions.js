@@ -1,6 +1,6 @@
 import { LIKE_POST, UNLIKE_POST, LOGIN_MODAL_OPEN } from './constants'
 
-const togglePost = (postId, like) => {
+const toggleLike = (postId, like) => {
     return (dispatch, getState) => {
         // TODO: Refactor:  get userid in reducer where state is accesible
         const { userId, loggedIn } = getState().app.toJS()
@@ -22,4 +22,4 @@ const togglePost = (postId, like) => {
     }
 }
 
-export { togglePost }
+export { toggleLike }

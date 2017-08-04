@@ -52,7 +52,10 @@ export default class AddPostForm extends React.PureComponent {
           Preview
         </Header>
         <Segment attached>
-          <Post footerVisible={false} url={url} title={title} subtitle={description}/>
+          <Post>
+            <Post.Header title={title} subtitle={description} />
+            <Post.Video url={url} />
+          </Post>
         </Segment>
       </Container>
     )
