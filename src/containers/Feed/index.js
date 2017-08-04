@@ -3,7 +3,7 @@ import { Header, Segment, Divider, Button, Icon } from 'semantic-ui-react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Feed from '../../components/Feed'
+import DayFeedContainer from '../DayFeed'
 import * as actions from './actions'
 import { getFeed } from './selector'
 
@@ -17,9 +17,25 @@ class FeedContainer extends React.PureComponent {
     }
 
     render() {
+        const dayFeedList = computeDayFeedList(this.props.feed)
         return(
-            <Feed feed={this.props.feed} />
+            <div>
+                {dayFeedList}
+            </div>
         )
+    }
+}
+
+function computeDayFeedList(feed) {
+    if (feed) {
+        const dayFeedList = feed.map((feedDate) => <DayFeedContainer key={feedDate} date={feedDate}/>)
+        return (
+            <div>
+                {dayFeedList}
+            </div>
+        );
+    } else {
+        return (<div></div>)
     }
 }
 

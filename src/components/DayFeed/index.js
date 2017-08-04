@@ -1,11 +1,13 @@
 import React from 'react'
 import { Segment } from 'semantic-ui-react'
-import DayFeedItem from './DayFeedItem'
+import PostsListContainer from '../../containers/PostsList'
+import DayFeedHeader from './DayFeedHeader'
 
 const DayFeed = props => {
     return (
         <Segment.Group>
-            <DayFeedItem date={props.date} />
+            <DayFeedHeader date={props.date} />
+            <PostsListContainer feedDate={props.date} />
         </Segment.Group>
     )
 }
