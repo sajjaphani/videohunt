@@ -1,6 +1,9 @@
 import React from 'react'
 import { Comment } from 'semantic-ui-react'
 
+import Form from './Form'
+import Section from './Section'
+
 const CommentItem = (props) => {
     const { userName, commentText, userPicture } = props
     return (
@@ -21,5 +24,8 @@ const CommentItem = (props) => {
         </Comment>
     )
 }
+
+CommentItem.Form = Form
+CommentItem.Section = Section
 
 export default CommentItem

@@ -1,7 +1,34 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import CommentsSection from '../../components/CommentsSection'
-import { isExpandComments, getPostComments, isLoggedIn } from './selectors'
+import Comment from '../../components/Comment'
+import CommentContainer from '../Comment'
+import CommentFormContainer from '../CommentForm'
+import { isExpandComments, isLoggedIn } from './selectors'
+
+class CommentsSectionContainer extends React.PureComponent {
+    render() {
+        const { postId, expandComments, comments, loggedIn } = this.props
+        const commentItems = computePostComments(comments, postId)
+        let commentForm = <div/>
+        if (loggedIn) {
+            commentForm = (<CommentFormContainer postId={postId} />)
+        }
+        return (
+            <Comment.Section expandComments={expandComments}>
+                {commentForm} 
+                {commentItems}
+            </Comment.Section>
+        )
+    }
+}
+
+const computePostComments = (comments, postId) => (
+    comments.map((commentId) => {
+        return (
+            <CommentContainer key={commentId} postId={postId} commentId={commentId} />
+        )
+    })
+)
 
 const mapStateToProps = (state, ownProps) => {
     const { postId, expandComments, comments } = ownProps
@@ -15,4 +42,4 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(mapStateToProps, {
 
-})(CommentsSection)
+})(CommentsSectionContainer)

@@ -26,7 +26,6 @@ class PostFooterContainer extends React.PureComponent {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        visible: ownProps.visible,
         postId: ownProps.postId,
         likes: getLikes(state, ownProps),
         comments: getComments(state, ownProps)

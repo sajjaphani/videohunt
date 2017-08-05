@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import CommentForm from '../../components/CommentForm'
+import Comment from '../../components/Comment'
 import { addComment } from './actions'
 import { getUserId } from './selectors'
 
@@ -14,4 +14,4 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(mapStateToProps, {
     addComment
-})(CommentForm)
+})(Comment.Form)

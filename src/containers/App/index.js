@@ -9,7 +9,7 @@ import AddPostPage from '../../components/AddPostPage'
 import NotFoundPage from '../../components/NotFoundPage'
 import MainContent from '../../components/MainContent'
 
-export default class MainContentContainer extends React.PureComponent {
+export default class AppContainer extends React.PureComponent {
     render() {
         return (
             <div>

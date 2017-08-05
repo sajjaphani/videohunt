@@ -11,14 +11,14 @@ class FeedContainer extends React.PureComponent {
 
     componentWillMount() {
         // TODO: refactor to add isLoaded state
-        if(this.props.feed.length == 0){
+        if (this.props.feed.length == 0) {
             this.props.actions.loadVideos();
         }
     }
 
     render() {
         const dayFeedList = computeDayFeedList(this.props.feed)
-        return(
+        return (
             <div>
                 {dayFeedList}
             </div>
@@ -27,16 +27,10 @@ class FeedContainer extends React.PureComponent {
 }
 
 function computeDayFeedList(feed) {
-    if (feed) {
-        const dayFeedList = feed.map((feedDate) => <DayFeedContainer key={feedDate} date={feedDate}/>)
-        return (
-            <div>
-                {dayFeedList}
-            </div>
-        );
-    } else {
-        return (<div></div>)
-    }
+    if (feed)
+        return feed.map((feedDate) => <DayFeedContainer key={feedDate} date={feedDate} />)
+    else
+        return (<div />)
 }
 
 function mapStateToProps(state) {
