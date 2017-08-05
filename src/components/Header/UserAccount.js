@@ -19,7 +19,6 @@ export default class UserAccount extends React.PureComponent {
             { key: 'settings', text: 'Settings', icon: 'settings', value: 'settings' },
             { key: 'sign-out', text: 'Sign Out', icon: 'sign out', value: 'sign-out' },
         ]
-
         return (
             <Dropdown trigger={trigger} value={'sasa'} options={options} pointing='top right' icon={null} onChange={this.handleChange} />
         )

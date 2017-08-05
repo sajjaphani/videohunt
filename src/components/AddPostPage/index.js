@@ -10,7 +10,6 @@ export default class AddPostPage extends React.PureComponent {
                 <Grid.Row >
                     <Grid.Column only='computer' computer='four' largeScreen='four' widescreen='four' >
                         <Container>
-
                         </Container>
                     </Grid.Column>
                     <Grid.Column mobile='sixteen' tablet='sixteen' computer='nine' largeScreen='nine' widescreen='nine'>

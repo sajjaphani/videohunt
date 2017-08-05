@@ -36,18 +36,6 @@ const Header = props => {
                             handleLogout={handleLogout} />
                     </Menu.Item>
                 </Menu.Menu>
-                {/*<Menu.Menu position='right'>
-                        <Menu.Item
-                            name='login'
-                        >
-                            <LoginModal name='Login / Signup' />
-                        </Menu.Item>
-                        <Menu.Item
-                            name='signup'
-                        >
-                            <LoginModal name='Signup'/>
-                        </Menu.Item>
-                    </Menu.Menu>*/}
             </Container>
         </Menu>
     );

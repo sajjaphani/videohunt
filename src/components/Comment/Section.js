@@ -13,7 +13,6 @@ const Section = (props) => {
             </Comment.Group>
         </div>
     )
-
 }
 
 export default Section
