@@ -3,6 +3,7 @@ import { Comment } from 'semantic-ui-react'
 
 import Form from './Form'
 import Section from './Section'
+import Emojify from 'react-emojione'
 
 const CommentItem = (props) => {
     const { userName, commentText, userPicture } = props
@@ -15,7 +16,9 @@ const CommentItem = (props) => {
                     <div>5 days ago</div>
                 </Comment.Metadata>
                 <Comment.Text>
-                    {commentText}
+                    <Emojify>
+                        {commentText}
+                    </Emojify>
                 </Comment.Text>
                 <Comment.Actions>
                     <Comment.Action>Reply</Comment.Action>
