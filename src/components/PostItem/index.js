@@ -2,7 +2,7 @@ import React from 'react'
 import Post from '../Post'
 import PostFooterContainer from '../../containers/PostFooter'
 
-export default class PostContainer extends React.PureComponent {
+export default class PostItem extends React.PureComponent {
     render() {
         const { title, subtitle, url, postId } = this.props
         return (
