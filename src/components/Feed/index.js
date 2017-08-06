@@ -1,7 +1,7 @@
 import React from 'react'
 import DayFeedContainer from '../../containers/DayFeed'
 
-export default class FeedContainer extends React.PureComponent {
+export default class Feed extends React.PureComponent {
     componentWillMount() {
         // TODO: refactor to add isLoaded state
         if (this.props.feed.length == 0) {

@@ -8,7 +8,7 @@ const posts = {
 export const postsReducer = (state = fromJS(posts), action) => {
     switch (action.type) {
         case Types.LOAD_VIDEOS_SUCCESS:
-            return state.mergeDeep(action.payload.posts)
+            return state.mergeDeep(action.payload.data.posts)
         case Types.ADD_NEW_VIDEO:
             const post = action.payload
             return state.set(post.id, fromJS(post))

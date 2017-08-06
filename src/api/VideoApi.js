@@ -1,4 +1,4 @@
-import sampleJson from './sample'
+import sampleJson from './sample2'
 
 class VideoApi {
     static getAll() {
