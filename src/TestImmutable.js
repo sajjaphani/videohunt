@@ -44,3 +44,15 @@ const date2 = new Date("Thu Jul 13 2017")
 
 console.log(date2.toISOString())
 console.log('################################')
+
+import moment from 'moment'
+const dateString = moment('2017-08-05T06:30:00.000Z').calendar(null, {
+    sameDay: '[Today]',
+    nextDay: '[Tomorrow]',
+    nextWeek: 'dddd',
+    lastDay: '[Yesterday]',
+    lastWeek: '[Last] dddd',
+    sameElse: 'DD/MM/YYYY'
+});
+console.log('This is today ', dateString)
+console.log('This is current time ',moment('2017-08-05T06:30:00.000Z').format('ll'))
