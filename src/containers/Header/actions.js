@@ -4,6 +4,8 @@ import jwt from 'jsonwebtoken'
 import { loginRequest, loginSuccess, openLoginModal, closeLoginModal } from '../App/actions'
 import setAuthToken from '../../utils/setAuthToken'
 
+import { LOGOUT_REQUEST } from './constants'
+
 export const changeSelection = (e, { name }) => {
     return (dispatch) => {
         dispatch(push(convertSelectionToRoute(name)))
@@ -58,9 +60,7 @@ export const openLogin = (open) => {
 }
 
 export const handleLogout = () => {
-    return (dispatch) => {
-        dispatch(push('/'))
-        localStorage.removeItem('jwtToken')
-        window.location.reload()
+    return {
+        type: LOGOUT_REQUEST
     }
 }

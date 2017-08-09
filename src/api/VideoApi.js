@@ -1,17 +1,19 @@
 import sampleJson from './sample2'
+import axios from 'axios'
 
-class VideoApi {
-    static getAll() {
-        return sampleJson
-    };
-
-    static getVideoByPost(postId) {
-        return fetch('http://localhost:3000/api/v1/video' + postId).then(response => {
-            return response.json();
-        }).catch(error => {
-            return error;
+export function getInitVideos() {
+    //  return sampleJson
+    return axios.get('http://localhost:3000/api/v1/posts')
+        .then(response => response.data)
+        .catch(err => {
+            throw err;
         });
-    }
 }
 
-export default VideoApi;
+export function getNextVideos(nextUrl) {
+    return axios.get(nextUrl)
+        .then(response => response.data)
+        .catch(err => {
+            throw err;
+        });
+}

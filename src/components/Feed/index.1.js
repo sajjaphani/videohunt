@@ -1,7 +1,6 @@
 import React from 'react'
 import DayFeedContainer from '../../containers/DayFeed'
-
-import LoadFeedContainer from '../../containers/LoadFeed'
+import VisibilitySensor from 'react-visibility-sensor'
 
 export default class Feed extends React.PureComponent {
     componentWillMount() {
@@ -10,16 +9,28 @@ export default class Feed extends React.PureComponent {
             this.props.actions.loadVideos();
         }
     }
-
     render() {
         const dayFeedList = computeDayFeedList(this.props.feed)
         return (
             <div>
                 {dayFeedList}
-                
-                <LoadFeedContainer />
+                <VisibilitySensor
+                    scrollCheck
+                    scrollThrottle={100}
+                    intervalDelay={8000}
+                    containment={this}
+                    onChange={this.onChange}
+                    minTopValue={10}
+                    partialVisibility={true}
+                    offset={this.props.offset}>
+                    <div className='sensor' />
+                </VisibilitySensor>
             </div>
         )
+    }
+
+    onChange = (isVisible) => {
+        console.log('Visible: ' + isVisible)
     }
 }
 

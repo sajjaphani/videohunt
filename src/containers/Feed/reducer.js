@@ -1,15 +1,23 @@
-import * as types from './constants';
+import * as Types from './constants';
 import { fromJS } from 'immutable'
+
+
 
 const initialState = {
 }
 
 export const feedReducer = (state = fromJS(initialState), action) => {
     switch (action.type) {
-        case types.LOAD_VIDEOS_SUCCESS:
-            const tempState = state.set('pagination',fromJS(action.payload.pagination))
-            return tempState.set('data',fromJS(action.payload.data.feed))
-        case types.ADD_NEW_VIDEO:
+        case Types.LOAD_VIDEOS_SUCCESS:
+            const tempState = state.set('pagination', fromJS(action.payload.pagination))
+            return tempState.set('data', fromJS(action.payload.data.feed))
+        case Types.LOAD_MORE_VIDEOS_SUCCESS: {
+            const tempState = state.set('pagination', fromJS(action.payload.pagination))
+            const oldFeed = state.get('data')
+            const newFeed = fromJS(action.payload.data.feed)
+            return tempState.set('data', oldFeed.mergeDeep(newFeed))
+        }
+        case Types.ADD_NEW_VIDEO:
             const post = action.payload
             const feedKey = new Date(post.postedOn).toISOString()
             if (state.get('data').has(feedKey)) {
@@ -17,7 +25,7 @@ export const feedReducer = (state = fromJS(initialState), action) => {
             } else {
                 return state.setIn(['data', feedKey], fromJS([post.id]))
             }
-        case types.LOAD_VIDEO_BY_POST_SUCCESS:
+        case Types.LOAD_VIDEO_BY_POST_SUCCESS:
             return action.video
         default:
             return state;

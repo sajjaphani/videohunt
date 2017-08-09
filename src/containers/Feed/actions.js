@@ -4,9 +4,12 @@ import videoApi from '../../api/videoApi';
 
 
 export function loadVideos() {
-    return function (dispatch) {
-            dispatch(loadVideosSuccess(videoApi.getAll()));
-    };
+    return {
+        type: ActionTypes.LOAD_VIDEOS
+    }
+    // return function (dispatch) {
+    //         dispatch(loadVideosSuccess(videoApi.getAll()));
+    // };
 } 
 
 export function loadVideoByPostId(postId) {

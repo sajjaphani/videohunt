@@ -8,6 +8,7 @@ const posts = {
 export const postsReducer = (state = fromJS(posts), action) => {
     switch (action.type) {
         case Types.LOAD_VIDEOS_SUCCESS:
+        case Types.LOAD_MORE_VIDEOS_SUCCESS:
             return state.mergeDeep(action.payload.data.posts)
         case Types.ADD_NEW_VIDEO:
             const post = action.payload
@@ -27,10 +28,10 @@ export const postsReducer = (state = fromJS(posts), action) => {
                 const { postId, expand } = action.payload
                 return state.setIn([postId, 'expandComments'], expand)
             }
-            case Types.ADD_POST_COMMENT: {
-                const { postId, id } = action.payload
-                return state.updateIn([postId, 'comments'], list => list.push(id))
-            }
+        case Types.ADD_POST_COMMENT: {
+            const { postId, id } = action.payload
+            return state.updateIn([postId, 'comments'], list => list.push(id))
+        }
         default:
             state
     }
