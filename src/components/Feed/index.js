@@ -17,8 +17,8 @@ export default class Feed extends React.PureComponent {
         return (
             <div>
                 {dayFeedList}
-                 <DummyPost /> 
-                <LoadFeedContainer />
+                 <LoadFeedContainer /> 
+                 {/* <DummyPost />    */}
             </div>
         )
     }

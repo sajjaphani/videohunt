@@ -28,9 +28,9 @@ export const postsReducer = (state = fromJS(posts), action) => {
                 const { postId, expand } = action.payload
                 return state.setIn([postId, 'expandComments'], expand)
             }
-        case Types.ADD_POST_COMMENT: {
-            const { postId, id } = action.payload
-            return state.updateIn([postId, 'comments'], list => list.push(id))
+        case Types.ADD_POST_COMMENT_SUCCESS: {
+            const { postId, commentId } = action.payload
+            return state.updateIn([postId, 'comments'], list => list.push(commentId))
         }
         default:
             state

@@ -9,7 +9,7 @@ import LikeButton from '../LikeButton'
 
 const DummyPost = (props) => (
     <div>
-        <Dimmer.Dimmable as={Segment} dimmed={'true'}>
+        <Dimmer.Dimmable as={Segment} dimmed={true}>
             <Dimmer active inverted>
                 <Loader size='large'>Loading...</Loader>
             </Dimmer>

@@ -22,10 +22,9 @@ export default class CommentsSectionContainer extends React.PureComponent {
 }
 
 const computePostComments = (comments, postId) => (
-    // comments.map((commentId) => {
-    //     return (
-    //         <CommentContainer key={commentId} postId={postId} commentId={commentId} />
-    //     )
-    // })
-    ''
+    comments.map((commentId) => {
+        return (
+            <CommentContainer key={commentId} postId={postId} commentId={commentId} />
+        )
+    })
 )

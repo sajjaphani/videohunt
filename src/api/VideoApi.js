@@ -1,17 +1,29 @@
 import sampleJson from './sample2'
 import axios from 'axios'
 
+// We may set environment variable
+// TODO in production we may not need this?
+const apiBaseUrl = 'http://localhost:3000'
+
 export function getInitVideos() {
-    //  return sampleJson
-    return axios.get('http://localhost:8080/api/v1/posts')
+    return getNextVideos('/api/v1/posts')
+}
+
+export function getNextVideos(nextUrl) {
+    const index = nextUrl.lastIndexOf(apiBaseUrl)
+    let url = index > -1 ? nextUrl.substring(index + apiBaseUrl.length) : nextUrl
+    return axios.get(url)
         .then(response => response.data)
         .catch(err => {
             throw err;
         });
 }
 
-export function getNextVideos(nextUrl) {
-    return axios.get(nextUrl)
+export function postComment(postId, content) {
+    let postCommentUrl = '/api/v1/posts/' + postId + '/comments'
+    return axios.post(postCommentUrl, {
+        content: content
+    })
         .then(response => response.data)
         .catch(err => {
             throw err;

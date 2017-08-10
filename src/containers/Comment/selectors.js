@@ -13,15 +13,23 @@ const getComment = createSelector([getCommentId, getComments], (commentId, comme
 })
 
 const getCommentText = createSelector([getComment], (comment) => {
-    return comment.get('text')
+    return comment.get('content')
+})
+
+const getCommentOn = createSelector([getComment], (comment) => {
+    return comment.get('commentedOn')
 })
 
 const getUsers = (state) => state.users
 
-const getCommentUser = createSelector([getComment, getUsers], (comment, users) => users.get(comment.get('userId')))
+const getCommentUser = createSelector([getComment, getUsers], (comment, users) => {
+    return users.get(comment.get('userId'))
+})
 
-const getUserName = createSelector([getCommentUser], (user) => user.get('name'))
+const getUserName = createSelector([getCommentUser], (user) => {
+    return user.get('name')
+})
 
-const getUserPicture = createSelector([getCommentUser], (user) => user.get('picture')?user.get('picture'):'/images/man1.png')
+const getUserPicture = createSelector([getCommentUser], (user) => user.get('picture') ? user.get('picture') : '/images/man1.png')
 
-export { getCommentText, getUserName, getUserPicture }
+export { getCommentText, getCommentOn, getUserName, getUserPicture }

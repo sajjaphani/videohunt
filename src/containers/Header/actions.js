@@ -35,7 +35,7 @@ export const handleLogin = (e, { name }) => {
                     const token = event.data
                     localStorage.setItem('jwtToken', token)
                     setAuthToken(token)
-                    const user = jwt.decode(token).user
+                    const user = jwt.decode(token)
                     dispatch(loginSuccess(user))
                     dispatch(closeLoginModal)
                 }

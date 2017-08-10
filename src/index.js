@@ -10,7 +10,7 @@ import {loginSuccess} from './containers/App/actions'
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken)
-  const user = jwt.decode(localStorage.jwtToken).user
+  const user = jwt.decode(localStorage.jwtToken)
   store.dispatch(loginSuccess(user))
 }
 
