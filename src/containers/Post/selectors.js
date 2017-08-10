@@ -13,5 +13,6 @@ const getSubtitle = createSelector([getPost], (post) => post.subtitle)
 
 const getURL = createSelector([getPost], (post) => post.url)
 
+const getComments = createSelector([getPost], (post) => (post.comments))
 
-export { getPostId, getTitle, getSubtitle, getURL }
+export { getPostId, getTitle, getSubtitle, getURL, getComments }

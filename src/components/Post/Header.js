@@ -1,15 +1,14 @@
 import React from 'react'
-import { Header, Divider } from 'semantic-ui-react'
+import { Header, Divider, Segment, Grid, Icon, Menu, Button } from 'semantic-ui-react'
 
 const PostHeader = props => (
-    <div>
+    <Segment attached padded clearing>
         <Header as='h3' >
             {props.title}
             <Header.Subheader>
                 {props.subtitle}
             </Header.Subheader>
         </Header>
-        <Divider />
-    </div>
+    </Segment>
 )
 export default PostHeader

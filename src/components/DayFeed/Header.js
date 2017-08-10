@@ -12,7 +12,7 @@ const DayFeedHeader = props => {
         sameElse: 'MMMM Do YYYY'
     });
     return (
-        <Header as='h2' attached='top'>
+        <Header as='h2' attached='top' color='grey'>
             {date}
             <Header.Subheader>
                 {props.dateAnnotation}

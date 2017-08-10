@@ -26,7 +26,7 @@ const samplejson = {
                 "id": "59784446c8cb59186c256852"
             },
             "597844acc8cb59186c256853": {
-                "title": "MR. Productions 'Shaadi' Short Film 2017 | with English Subtitles ",
+                "title": "MR. Productions 'Shaadi' Short Film 2017 ",
                 "subtitle": "Subash Chandra",
                 "url": "https://www.youtube.com/watch?v=IN1jSU267ZA",
                 "userId": "595f3e5365ac7f15c7a92b9c",
@@ -36,7 +36,7 @@ const samplejson = {
                 "id": "597844acc8cb59186c256853"
             },
             "597844eec8cb59186c256854": {
-                "title": "Pelli Pusthakam Short Film From MR. Productions",
+                "title": "Pelli Pusthakam Short Film ",
                 "subtitle": "mr productions",
                 "url": "https://www.youtube.com/watch?v=roRVv4Rrj6M",
                 "userId": "595f3e5365ac7f15c7a92b9c",
@@ -46,7 +46,7 @@ const samplejson = {
                 "id": "597844eec8cb59186c256854"
             },
             "59784515c8cb59186c256855": {
-                "title": "Naathicharaami | Telugu short film | RK Nallam | Klapboard Productions | Directed By Kranthi Kumar",
+                "title": "Naathicharaami | Telugu short film ",
                 "subtitle": "Klapboard Productions",
                 "url": "https://www.youtube.com/watch?v=6RLMDBZ3ZPY",
                 "userId": "595f3e5365ac7f15c7a92b9c",
@@ -56,7 +56,7 @@ const samplejson = {
                 "id": "59784515c8cb59186c256855"
             },
             "5979815a37552e2b24679d8c": {
-                "title": "Vachinde Song With Lyrics | Fidaa Songs | Varun Tej, Sai Pallavi | Sekhar Kammula | Shakti Kanth",
+                "title": "Vachinde Song With Lyrics | Fidaa Songs ",
                 "subtitle": "Aditya Music",
                 "url": "https://www.youtube.com/watch?v=z3ZNX_2gPD8",
                 "userId": "595f3e5365ac7f15c7a92b9c",
@@ -68,7 +68,7 @@ const samplejson = {
                 "id": "5979815a37552e2b24679d8c"
             },
             "5979819137552e2b24679d8d": {
-                "title": " Natyam Latest Short Film 2016 - Sandhya Raju || Revanth Korukonda || with English Subtitles",
+                "title": " Natyam Latest Short Film 2016 - Sandhya Raju ",
                 "subtitle": "Natyam",
                 "url": "https://www.youtube.com/watch?v=5gtSFseugFo",
                 "userId": "595f3e5365ac7f15c7a92b9c",

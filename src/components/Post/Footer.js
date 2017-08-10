@@ -1,11 +1,10 @@
 import React from 'react'
-import { Divider } from 'semantic-ui-react'
+import { Divider, Segment } from 'semantic-ui-react'
 
 const Footer = (props) => (
-    <div>
-        <Divider />
+    <Segment attached>
         {props.children}
-    </div>
+    </Segment>
 )
 
 export default Footer

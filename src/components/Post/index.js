@@ -1,14 +1,13 @@
 import React from 'react'
-import { Segment } from 'semantic-ui-react'
 
 import Header from './Header'
 import Footer from './Footer'
 import Video from './Video'
 
 const Post = props => (
-    <Segment attached>
+    <div>
         {props.children}
-    </Segment>
+    </div>
 )
 
 Post.Header = Header

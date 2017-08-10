@@ -1,7 +1,8 @@
 import React from 'react'
-import DayFeedContainer from '../../containers/DayFeed'
 
+import DayFeedContainer from '../../containers/DayFeed'
 import LoadFeedContainer from '../../containers/LoadFeed'
+import DummyPost from '../DummyPost'
 
 export default class Feed extends React.PureComponent {
     componentWillMount() {
@@ -16,7 +17,7 @@ export default class Feed extends React.PureComponent {
         return (
             <div>
                 {dayFeedList}
-                
+                 <DummyPost /> 
                 <LoadFeedContainer />
             </div>
         )
