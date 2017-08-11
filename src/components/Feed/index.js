@@ -27,7 +27,6 @@ export default class Feed extends React.PureComponent {
         const dayFeedList = computeDayFeedList(this.props.feed)
         return (
             <div>
-
                 <InfiniteScroll
                     pageStart={0}
                     loadMore={this.loadPosts}
