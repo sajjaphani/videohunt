@@ -1,14 +1,25 @@
 import React from 'react'
+import InfiniteScroll from 'react-infinite-scroller';
 
 import DayFeedContainer from '../../containers/DayFeed'
-import LoadFeedContainer from '../../containers/LoadFeed'
 import DummyPost from '../DummyPost'
 
 export default class Feed extends React.PureComponent {
-    componentWillMount() {
-        // TODO: refactor to add isLoaded state
+
+    constructor(props) {
+        super(props)
+        this.state = { hasMore: true }
+    }
+
+    loadPosts = () => {
         if (this.props.feed.length == 0) {
             this.props.actions.loadVideos();
+        } else {
+            if (this.props.nextPage) {
+                this.props.actions.loadMoreVideos(this.props.nextPage)
+            } else {
+                this.setState({ hasMore: false })
+            }
         }
     }
 
@@ -16,9 +27,15 @@ export default class Feed extends React.PureComponent {
         const dayFeedList = computeDayFeedList(this.props.feed)
         return (
             <div>
-                {dayFeedList}
-                 <LoadFeedContainer /> 
-                 {/* <DummyPost />    */}
+
+                <InfiniteScroll
+                    pageStart={0}
+                    loadMore={this.loadPosts}
+                    hasMore={this.state.hasMore}
+                    loader={<DummyPost />}
+                >
+                    {dayFeedList}
+                </InfiniteScroll>
             </div>
         )
     }

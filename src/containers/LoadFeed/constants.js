@@ -1,3 +1,0 @@
-export const LOAD_MORE_VIDEOS = 'LoadFeed/LOAD_MORE_VIDEOS';  
-
-export const LOAD_MORE_VIDEOS_SUCCESS = 'LoadFeed/LOAD_MORE_VIDEOS_SUCCESS';  

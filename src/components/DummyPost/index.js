@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Dimmer, Loader } from 'semantic-ui-react'
+import { Segment, Dimmer, Loader, Container } from 'semantic-ui-react'
 
 import Post from '../Post'
 import WatchListButton from '../WatchListButton'
@@ -9,7 +9,7 @@ import LikeButton from '../LikeButton'
 
 const DummyPost = (props) => (
     <div>
-        <Dimmer.Dimmable as={Segment} dimmed={true}>
+        <Dimmer.Dimmable as={Container} dimmed={true}>
             <Dimmer active inverted>
                 <Loader size='large'>Loading...</Loader>
             </Dimmer>
@@ -23,11 +23,7 @@ const DummyPost = (props) => (
                     <ShareButton />
                 </Post.Footer>
             </Post>
-
         </Dimmer.Dimmable>
-
-
-
     </div>
 )
 

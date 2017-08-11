@@ -21,4 +21,13 @@ const getFeed = createSelector([getFeedIds], (feed) => {
         return []
 })
 
-export { getFeed }
+const getPagination = createSelector([getFeedIds], (feed) => {
+    const paginationData = feed.get('pagination')
+    if (paginationData) {
+        return paginationData.get('next')
+    }
+    else
+        return ''
+})
+
+export { getFeed, getPagination }
