@@ -10,8 +10,8 @@ const getPost = createSelector([getPostId, getPosts], (postId, posts) => (posts.
 
 const isExpandComments = createSelector([getPost], (post) => post.get('expandComments'))
 
-const getComments = (state, ownProps) => ownProps.comments
+const getComments = (state, ownProps) => ownProps.comments.get('data')
 
-const getTotalComments = createSelector([getComments],(comments) => comments.size)
+const getTotalComments = createSelector([getComments], (comments) => comments.size)
 
 export { isExpandComments, getTotalComments }
