@@ -29,3 +29,14 @@ export function postComment(postId, content) {
             throw err;
         });
 }
+
+export function togglePostLike(postId, liked) {
+    let likePostUrl = '/api/v1/posts/' + postId + '/like'
+    return axios.post(likePostUrl, {
+        liked: liked
+    })
+        .then(response => response.data)
+        .catch(err => {
+            throw err;
+        });
+}

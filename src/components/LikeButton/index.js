@@ -3,9 +3,10 @@ import { Button, Icon } from 'semantic-ui-react'
 
 export default class LikeButton extends React.PureComponent {
     handleClick = (e) => {
-        const { postId, liked } = this.props
-        this.props.toggleLike(postId, !liked)
+        const { postId, liked, isLoggedIn } = this.props
+        this.props.toggleLike(postId, !liked, isLoggedIn)
     }
+    
     render() {
         const { likesCount, liked } = this.props
         const numOflikes = likesCount > 0 ? ' | ' + likesCount : ''

@@ -13,15 +13,23 @@ export const postsReducer = (state = fromJS(posts), action) => {
         case Types.ADD_NEW_VIDEO:
             const post = action.payload
             return state.set(post.id, fromJS(post))
-        case Types.LIKE_POST:
+        case Types.LIKE_POST_SUCCESS:
             {
                 const { postId, userId } = action.payload
-                return state.updateIn([postId, 'likes'], list => list.push(userId))
+                return state.updateIn([postId, 'likes'], list => {
+                    let lstData = list.get('data')
+                    lstData.push(userId)
+                    return list
+                })
             }
-        case Types.UNLIKE_POST:
+        case Types.UNLIKE_POST_SUCCESS:
             {
                 const { postId, userId } = action.payload
-                return state.updateIn([postId, 'likes'], list => list.delete(list.indexOf(userId)))
+                return state.updateIn([postId, 'likes'], list => {
+                    let lstData = list.get('data')
+                    lstData.delete(lstData.indexOf(userId))
+                    return list
+                })
             }
         case Types.TOGGLE_COMMENT:
             {
