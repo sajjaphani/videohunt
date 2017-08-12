@@ -15,21 +15,23 @@ export const postsReducer = (state = fromJS(posts), action) => {
             return state.set(post.id, fromJS(post))
         case Types.LIKE_POST_SUCCESS:
             {
+                // TODO: refactor to minimize operations
                 const { postId, userId } = action.payload
-                return state.updateIn([postId, 'likes'], list => {
-                    let lstData = list.get('data')
-                    lstData.push(userId)
-                    return list
-                })
+                const likeCount = state.getIn([postId, 'likes', 'summary', 'count'])
+                const likecountState = state.setIn([postId, 'likes', 'summary', 'count'], likeCount + 1)
+                const hasLiked = likecountState.getIn([postId, 'likes', 'summary', 'has_liked'])
+                const hasLikedState = likecountState.setIn([postId, 'likes', 'summary', 'has_liked'], !hasLiked)
+                return hasLikedState.updateIn([postId, 'likes', 'data'], list => list.push(userId))
             }
         case Types.UNLIKE_POST_SUCCESS:
             {
+                // TODO: refactor to minimize operations
                 const { postId, userId } = action.payload
-                return state.updateIn([postId, 'likes'], list => {
-                    let lstData = list.get('data')
-                    lstData.delete(lstData.indexOf(userId))
-                    return list
-                })
+                const likeCount = state.getIn([postId, 'likes', 'summary', 'count'])
+                const likecountState = state.setIn([postId, 'likes', 'summary', 'count'], likeCount - 1)
+                const hasLiked = likecountState.getIn([postId, 'likes', 'summary', 'has_liked'])
+                const hasLikedState = likecountState.setIn([postId, 'likes', 'summary', 'has_liked'], !hasLiked)
+                return hasLikedState.updateIn([postId, 'likes', 'data'], list => list.delete(list.indexOf(userId)))
             }
         case Types.TOGGLE_COMMENT:
             {
