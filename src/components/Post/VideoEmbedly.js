@@ -1,5 +1,5 @@
 import React from 'react'
-import { Embed } from 'semantic-ui-react'
+import { Embed, Segment } from 'semantic-ui-react'
 import VisibilitySensor from 'react-visibility-sensor'
 
 export default class VideoEmbedly extends React.PureComponent {
@@ -40,11 +40,15 @@ export default class VideoEmbedly extends React.PureComponent {
     render() {
         const vidId = this.props.url.split('v=').pop();
         return (
-            <div id={vidId}>
-                <VisibilitySensor partialVisibility={true} offset={{ bottom: 300 }} onChange={this.onChange} />
+            <Segment attached clearing>
                 <a className="embedly-card" href={this.props.url}>
                 </a>
-            </div>
+            </Segment>
+            // <div id={vidId}>
+            //     {/* <VisibilitySensor partialVisibility={true} offset={{ bottom: 300 }} onChange={this.onChange} /> */}
+            //     <a className="embedly-card" href={this.props.url}>
+            //     </a>
+            // </div>
         );
     }
 }
