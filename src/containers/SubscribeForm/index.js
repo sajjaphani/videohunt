@@ -10,7 +10,6 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-function mapDispatchToProps(dispatch) {
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SubscribeForm)
+export default connect(mapStateToProps, {
+    
+})(SubscribeForm)

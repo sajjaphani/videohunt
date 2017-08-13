@@ -40,7 +40,9 @@ export const postsReducer = (state = fromJS(posts), action) => {
             }
         case Types.ADD_POST_COMMENT_SUCCESS: {
             const { postId, commentId } = action.payload
-            return state.updateIn([postId, 'comments'], list => list.push(commentId))
+            const commentCount = state.getIn([postId, 'comments', 'summary', 'count'])
+            const commentCountState = state.setIn([postId, 'comments', 'summary', 'count'], commentCount + 1)
+            return commentCountState.updateIn([postId, 'comments', 'data'], list => list.push(commentId))
         }
         default:
             state

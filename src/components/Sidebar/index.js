@@ -1,47 +1,49 @@
 import React from 'react'
 import { List, Segment, Divider } from 'semantic-ui-react'
 
-const Sidebar = props => {
-    const mainStyle = {
-        display: props.visible ? "block" : "none"
+export default class Sidebar extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeItem: props.activeItem,
+        };
     }
-    const activeItem = props.activeItem
-    return (
-        <Segment style={mainStyle}>
-            <List verticalAlign='middle'>
-                <List.Item>
-                    <List.Header>Feed <List.Content as='a' floated='right'>Edit</List.Content></List.Header>
-                </List.Item>
-            </List>
-            <Divider />
-            <List selection verticalAlign='middle'>
-                <List.Item
-                    name='All'
-                    active={activeItem === 'All'}
-                    onClick={props.handleItemClick}>
-                    <List.Content>All</List.Content>
-                </List.Item>
-                <List.Item
-                    name='English'
-                    active={activeItem === 'English'}
-                    onClick={props.handleItemClick}>
-                    <List.Content>English</List.Content>
-                </List.Item>
-                <List.Item
-                    name='Telugu'
-                    active={activeItem === 'Telugu'}
-                    onClick={props.handleItemClick}>
-                    <List.Content>Telugu</List.Content>
-                </List.Item>
-                <List.Item
-                    name='Hindi'
-                    active={activeItem === 'Hindi'}
-                    onClick={props.handleItemClick}>
-                    <List.Content>Hindi</List.Content>
-                </List.Item>
-            </List>
-        </Segment>
-    );
-}
 
-export default Sidebar
+    handleItemClick = (e, { name }) => {
+        console.log('This item selected ', name)
+        this.setState({ activeItem: name })
+    }
+
+    componentWillMount() {
+        this.setState({
+            activeItem: this.state.activeItem,
+        })
+    }
+
+    render() {
+        const { items, title } = this.props
+        const listItems = items.map(item =>
+            <List.Item
+                key={item}
+                name={item}
+                active={this.state.activeItem === item}
+                onClick={this.handleItemClick}>
+                <List.Content>{item}</List.Content>
+            </List.Item>
+        )
+    
+        return (
+            <Segment>
+                <List verticalAlign='middle'>
+                    <List.Item>
+                        <List.Header>{title} <List.Content as='a' floated='right'>Edit</List.Content></List.Header>
+                    </List.Item>
+                </List>
+                <Divider />
+                <List selection verticalAlign='middle'>
+                    {listItems}
+                </List>
+            </Segment>
+        );
+    }
+}
