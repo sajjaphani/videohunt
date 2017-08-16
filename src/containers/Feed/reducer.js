@@ -18,7 +18,7 @@ export const feedReducer = (state = fromJS(initialState), action) => {
             return tempState.set('data', oldFeed.mergeDeep(newFeed))
         }
         case Types.ADD_NEW_VIDEO_SUCCESS:
-            return state
+            // return state
             const post = action.payload.post
             const feedKey = action.payload.post.feedKey
             if (state.get('data').has(feedKey)) {

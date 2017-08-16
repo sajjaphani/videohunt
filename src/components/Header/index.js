@@ -8,6 +8,7 @@ import Logo from './Logo'
 import Title from './Title'
 import AddPost from './AddPost'
 import LoginWrapper from './LoginWrapper'
+import Search from './SearchFeed'
 
 const Header = props => {
     const { activeSelection, loggedIn, changeSelection, handleLogin, loginLoading, handleLogout, loginModalOpen, openLogin } = props
@@ -19,6 +20,10 @@ const Header = props => {
                     onClick={changeSelection}>
                     <Logo />
                     <Title />
+                </Menu.Item>
+                <Menu.Item name='search'
+                    active={false}>
+                    <Search />
                 </Menu.Item>
                 <Menu.Menu position='right'>
                     <AddPost changeSelection={changeSelection} activeSelection={activeSelection} isLoggedIn={loggedIn} />
