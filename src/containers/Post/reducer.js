@@ -10,9 +10,10 @@ export const postsReducer = (state = fromJS(posts), action) => {
         case Types.LOAD_VIDEOS_SUCCESS:
         case Types.LOAD_MORE_VIDEOS_SUCCESS:
             return state.mergeDeep(action.payload.data.posts)
-        case Types.ADD_NEW_VIDEO:
-            const post = action.payload
+        case Types.ADD_NEW_VIDEO_SUCCESS:
+            const post = action.payload.post
             return state.set(post.id, fromJS(post))
+            // return state
         case Types.LIKE_POST_SUCCESS:
             {
                 // TODO: refactor to minimize operations

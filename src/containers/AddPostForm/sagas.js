@@ -10,8 +10,8 @@ function* addNewVideoAction(action) {
     console.log('Action', action.payload)
     const post = yield call(postVideo, action.payload)
     console.log('Post', post)
-    yield put(push('/'))
     yield put({ type: ADD_NEW_VIDEO_SUCCESS, payload: post })
+    yield put(push('/'))
 }
 
 function* addNewVideoSaga() {
