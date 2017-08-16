@@ -13,7 +13,26 @@ const CommentItem = (props) => {
     const { children } = props
     return (
         <Comment>
+<<<<<<< nested-comments
             {children}  
+=======
+            <Comment.Avatar src={userPicture} />
+            <Comment.Content>
+                <Comment.Author as='a'>{userName}</Comment.Author>
+                <Comment.Metadata>
+                    {moment(commentedOn).calendar()}
+                </Comment.Metadata>
+                <Comment.Text>
+                    <Emojify>
+                        {commentText}
+                    </Emojify>
+                </Comment.Text>
+                <Comment.Actions>
+                    <Comment.Action>Like (2)</Comment.Action>
+                    <Comment.Action>Reply</Comment.Action>
+                </Comment.Actions>
+            </Comment.Content>
+>>>>>>> Partial commit for handling post a video
         </Comment>
     )
 }
