@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Comment, Form, Header, Divider, Image, Segment } from 'semantic-ui-react'
+import { Comment, Header, Segment } from 'semantic-ui-react'
 
 const Section = (props) => {
     const { expandComments, children } = props
@@ -7,7 +7,7 @@ const Section = (props) => {
         return <div />
     return (
         <Segment attached basic>
-            <Comment.Group collapsed={!expandComments} size='small'>
+            <Comment.Group collapsed={!expandComments} size='small' threaded>
                 <Header as='h3' dividing>Comments</Header>
                 {children}
             </Comment.Group>
