@@ -14,11 +14,11 @@ export const addNewVideoPost = (post) => {
 } 
 
 export function postNewVideo(newPost) {
-    return (dispatch) => {
-        dispatch({
+    console.log('New Post', newPost)
+    return {
             type: ActionTypes.ADD_NEW_VIDEO,
             payload: newPost
-        })
-        dispatch(push('/'))
-    }
+        }
+        // dispatch(push('/'))
+    
 }

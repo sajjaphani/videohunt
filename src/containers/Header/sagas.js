@@ -7,7 +7,7 @@ import { push } from 'react-router-redux'
 
 function* handleLogoutAction() {
     localStorage.removeItem('jwtToken')
-    push('/')
+    yield put(push('/'))
     yield put({ type: LOGOUT_SUCCESS })
     window.location.reload()
 }

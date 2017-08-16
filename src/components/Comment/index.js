@@ -22,6 +22,7 @@ const CommentItem = (props) => {
                     </Emojify>
                 </Comment.Text>
                 <Comment.Actions>
+                    <Comment.Action>Like (2)</Comment.Action>
                     <Comment.Action>Reply</Comment.Action>
                 </Comment.Actions>
             </Comment.Content>

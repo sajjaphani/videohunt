@@ -40,3 +40,15 @@ export function togglePostLike(postId, liked) {
             throw err;
         });
 }
+
+export function postVideo(post) {
+    console.log('Posta', post)
+    let postVideoUrl = '/api/v1/posts/'
+    return axios.post(postVideoUrl, {
+        post
+    })
+        .then(response => response.data)
+        .catch(err => {
+            throw err;
+        });
+}
