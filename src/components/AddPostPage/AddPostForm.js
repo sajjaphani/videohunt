@@ -5,10 +5,10 @@ import Post from '../Post'
 
 export default class AddPostForm extends React.PureComponent {
 
-  state = { url: '', title: '', description: '', language: '', category: '' }
+  state = { url: '', title: '', subtitle: '', language: '', category: '' }
 
   handleChange = (e, { name, value }) => {
-    console.log({ [name]: value })
+    e.preventDefault()
     this.setState({ [name]: value })
   }
 
@@ -16,11 +16,11 @@ export default class AddPostForm extends React.PureComponent {
     e.preventDefault()
     const date = new Date()
     const postId = date.toDateString()
-    const { url, title, description, language, category } = this.state
+    const { url, title, subtitle, language, category } = this.state
     const post = {
       url: url,
       title: title,
-      subtitle: description,
+      subtitle: subtitle,
       language: language,
       category: category,
       comments: 0,
@@ -29,17 +29,17 @@ export default class AddPostForm extends React.PureComponent {
     }
     this.props.addNewVideoPost(post)
   }
+
   render() {
-    const { url, title, description } = this.state
+    const { url, title, subtitle } = this.state
 
     const post = {
       url: url,
       title: title,
-      subtitle: description,
+      subtitle: subtitle,
       footerVisible: false
     }
     const langOptions = [
-      { key: 'all', text: 'All', value: 'All' },
       { key: 'english', text: 'English', value: 'english' },
       { key: 'hindi', text: 'Hindi', value: 'hindi' },
       { key: 'telugu', text: 'Telugu', value: 'telugu' },
@@ -48,7 +48,6 @@ export default class AddPostForm extends React.PureComponent {
     ]
 
     const categoryOptions = [
-      { key: 'all', text: 'All', value: 'All' },
       { key: 'action', text: 'Action', value: 'action' },
       { key: 'comedy', text: 'Comedy', value: 'comedy' },
       { key: 'inspirational', text: 'Inspirational', value: 'inspirational' },
@@ -71,7 +70,7 @@ export default class AddPostForm extends React.PureComponent {
               <Form.Input placeholder='URL' name='url' value={url} label='URL' onChange={this.handleChange} />
             </Form.Group>
             <Form.Input placeholder='Video title' name='title' value={title} label='Title' onChange={this.handleChange} />
-            <Form.Input placeholder='eg: Video by Rahman' name='description' value={description} label='Short description' onChange={this.handleChange} />
+            <Form.Input placeholder='eg: Video by Rahman' name='subtitle' value={subtitle} label='Sub Title' onChange={this.handleChange} />
             {/* <Dropdown placeholder='Skills' label='Skills' search fluid selection options={options} onChange={this.handleDropDown} /> */}
             <Form.Field control={Select} label='Language' name='language' options={langOptions} placeholder='Language' onChange={this.handleChange} />
             <Form.Field control={Select} label='Category' name='category' options={categoryOptions} placeholder='Category' onChange={this.handleChange} />
@@ -83,7 +82,7 @@ export default class AddPostForm extends React.PureComponent {
         </Header>
         <Segment attached>
           <Post>
-            <Post.Header title={title} subtitle={description} />
+            <Post.Header title={title} subtitle={subtitle} />
             <Post.Video url={url} />
           </Post>
         </Segment>
