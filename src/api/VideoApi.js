@@ -6,7 +6,7 @@ import axios from 'axios'
 const apiBaseUrl = 'http://localhost:3000'
 
 export function getInitVideos() {
-    return sampleJson
+     return getNextVideos('/api/v1/posts') 
 }
 
 export function getNextVideos(nextUrl) {
