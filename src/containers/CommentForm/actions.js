@@ -1,10 +1,15 @@
-import { ADD_POST_COMMENT } from './constants'
+import { ADD_POST_COMMENT, ADD_COMMENT_REPLY } from './constants'
 
-const addComment = (comment) => {
+export const addComment = (comment) => {
     return {
         type: ADD_POST_COMMENT,
         comment: comment
     }
 }
 
-export { addComment }
+export const addReply = (comment) => {
+    return {
+        type: ADD_COMMENT_REPLY,
+        comment: comment
+    }
+}

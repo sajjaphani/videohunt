@@ -11,6 +11,19 @@ const commentsReducer = (state = fromJS(initState), action) => {
             const { commentId } = action.payload
             return state.set(commentId, fromJS(action.payload))
         }
+        case ActionTypes.ADD_COMMENT_REPLY_SUCCESS: {
+            const { parentId, commentId } = action.payload
+            // get parents current replies count
+            const repliesCount = state.getIn([parentId, 'replies', 'summary', 'count'])
+            // increment parents replies count
+            const repliesCountState = state.setIn([parentId, 'replies', 'summary', 'count'], repliesCount + 1)
+            // add reply comment it in parent comment replies data
+            const parentCommentState = repliesCountState.updateIn([parentId, 'replies', 'data'], list => list.push(commentId))
+            // add reply comment in comments state
+            const addState = parentCommentState.set(commentId, fromJS(action.payload))
+            // Make the replies visible
+            return addState.setIn([parentId, 'showReplies'], true)
+        }
         case ActionTypes.TOGGLE_REPLY: {
             const { commentId } = action.payload
             const showReplyForm = state.getIn([commentId, 'showReplyForm'])

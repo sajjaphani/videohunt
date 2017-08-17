@@ -8,19 +8,30 @@ export default class CommentForm extends React.PureComponent {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const { postId, userId } = this.props
+        const { postId, userId, commentId } = this.props
         const { commentText } = this.state
-        const comment = {
-            postId,
-            userId,
-            text: commentText,
-            id: new Date().getTime().toString()
+        if (postId) {
+            const comment = {
+                postId,
+                userId,
+                text: commentText,
+                id: new Date().getTime().toString()
+            }
+            this.props.addComment(comment)
+        } else if (commentId) {
+            const comment = {
+                // comment id of parent comment
+                parentId: commentId,
+                userId,
+                text: commentText,
+                id: new Date().getTime().toString()
+            }
+            this.props.addReply(comment)
         }
-        this.props.addComment(comment)
         this.setState({ commentText: '' })
     }
     render() {
-        if(this.props.hidden) {
+        if (this.props.hidden) {
             return null
         }
         return (
