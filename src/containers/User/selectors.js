@@ -1,8 +1,6 @@
 import { createSelector } from 'reselect'
 
-const getProfileId = (state, ownProps) => {
-    console.log('this is userid ', ownProps.userId)
-    return ownProps.userId}
+const getProfileId = (state, ownProps) => ownProps.userId
 
 const getUsers = (state) => state.users
 

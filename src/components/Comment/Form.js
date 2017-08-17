@@ -20,19 +20,22 @@ export default class CommentForm extends React.PureComponent {
         this.setState({ commentText: '' })
     }
     render() {
+        if(this.props.hidden) {
+            return null
+        }
         return (
             <Form reply size='mini' onSubmit={this.handleSubmit}>
                 <Form.Group >
-                    {/*<Image src='/images/boy.png' size='tiny'  width='2' circular/>*/}
-                    {/*<Button icon='checkmark' size='mini' basic color='blue' width='1'/>*/}
                     <Form.Input
                         name='commentText'
                         value={this.state.commentText}
                         placeholder='Add a comment...'
-                        width='15'
-                        onChange={this.handleChange} />
-                    <Button icon='checkmark' size='mini' basic color='blue' width='1' />
-                    {/*<Form.Button content='Reply' basic color='blue' />*/}
+                        width='16'
+                        onChange={this.handleChange}
+                        action>
+                        <input />
+                        <Button icon='checkmark' basic color='blue' />
+                    </Form.Input>
                 </Form.Group>
             </Form>
         )

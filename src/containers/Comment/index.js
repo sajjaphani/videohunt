@@ -1,18 +1,28 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getCommentText,getCommentOn, getUserName, getUserPicture } from './selectors'
-import Comment from '../../components/Comment'
+import { bindActionCreators } from 'redux'
+
+import * as Selectors from './selectors'
+import CommentItem from '../../components/CommentItem'
+import * as actions from './actions'
 
 const mapStateToProps = (state, ownProps) => {
     return {
         postId: ownProps.postId,
-        commentText: getCommentText(state, ownProps),
-        commentedOn: getCommentOn(state, ownProps),
-        userName: getUserName(state, ownProps),
-        userPicture: getUserPicture(state, ownProps)
+        commentText: Selectors.getCommentText(state, ownProps),
+        commentedOn: Selectors.getCommentOn(state, ownProps),
+        userName: Selectors.getUserName(state, ownProps),
+        userPicture: Selectors.getUserPicture(state, ownProps),
+        totalReplies: Selectors.getTotalReplies(state, ownProps),
+        commentId: ownProps.commentId,
+        isShowReplyForm: Selectors.getShowReplyForm(state, ownProps),
+        isShowReplies: Selectors.getShowReplies(state, ownProps),
+        replies: Selectors.getReplies(state, ownProps)
     }
 }
 
-export default connect(mapStateToProps, {
+function mapDispatchToProps(dispatch) {
+    return { actions: bindActionCreators(actions, dispatch) }
+}
 
-})(Comment)
+export default connect(mapStateToProps, mapDispatchToProps)(CommentItem)

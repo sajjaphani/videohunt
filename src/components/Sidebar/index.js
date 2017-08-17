@@ -10,7 +10,6 @@ export default class Sidebar extends React.PureComponent {
     }
 
     handleItemClick = (e, { name }) => {
-        console.log('This item selected ', name)
         this.setState({ activeItem: name })
     }
 
