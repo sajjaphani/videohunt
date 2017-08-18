@@ -32,7 +32,7 @@ const commentsReducer = (state = fromJS(initState), action) => {
         case ActionTypes.SHOW_REPLIES: {
             const { commentId } = action.payload
             const showReplies = state.getIn([commentId, 'showReplies'])
-            return state.setIn([commentId, 'showReplies'], !showReplies)
+            return state.setIn([commentId, 'showReplies'], showReplies ? showReplies : !showReplies)
         }
         default:
             break

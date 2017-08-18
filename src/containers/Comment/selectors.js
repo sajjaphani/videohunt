@@ -27,7 +27,7 @@ const getCommentOn = createSelector([getComment], (comment) => {
 
 const getTotalReplies = createSelector([getComment], (comment) => {
     const replies = comment.get('replies')
-    if(replies) {
+    if (replies) {
         return replies.get('summary').get('count')
     }
     return 0
@@ -35,7 +35,7 @@ const getTotalReplies = createSelector([getComment], (comment) => {
 
 export const getReplies = createSelector([getComment], (comment) => {
     const replies = comment.get('replies')
-    if(replies) {
+    if (replies) {
         return replies.get('data').toJS()
     }
     return []
@@ -56,7 +56,21 @@ const getUserName = createSelector([getCommentUser], (user) => {
     return user.get('name')
 })
 
-const getUserPicture = createSelector([getCommentUser], (user) => user.get('picture') ? user.get('picture') : '/images/man1.png')
+const getUserPicture = createSelector([getCommentUser], (user) => {
+    const userPicture = user.get('picture')
+    if (userPicture) {
+        return userPicture
+    } else {
+        const profileId = user.get('profileId')
+        const provider = user.get('provider')
+        if (provider == 'facebook') {
+            return 'http://graph.facebook.com/' + profileId + '/picture?type=square'
+        } else if (provider == 'google') {
+            return '/images/man1.png'
+        }
+        return '/images/man1.png'
+    }
+})
 
 
 export { getCommentText, getCommentOn, getUserName, getUserPicture, getTotalReplies, getShowReplyForm } 

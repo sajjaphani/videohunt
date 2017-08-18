@@ -44,7 +44,7 @@ export default class CommentForm extends React.PureComponent {
                         width='16'
                         onChange={this.handleChange}
                         action>
-                        <input />
+                        <input autoFocus/>
                         <Button icon='checkmark' basic color='blue' />
                     </Form.Input>
                 </Form.Group>

@@ -3,11 +3,11 @@ import { Comment } from 'semantic-ui-react'
 
 const Replies = (props) => {
     const {hidden, children} = props
-    if (hidden) {
+    if (hidden || children.length == 0) {
         return null
     }
     return (
-        <Comment.Group collapsed={hidden} threaded>
+        <Comment.Group collapsed={hidden} threaded size='small' >
             {children}
         </Comment.Group>
     )
