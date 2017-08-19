@@ -17,7 +17,8 @@ const mapStateToProps = (state, ownProps) => {
         commentId: ownProps.commentId,
         isShowReplyForm: Selectors.getShowReplyForm(state, ownProps),
         isShowReplies: Selectors.getShowReplies(state, ownProps),
-        replies: Selectors.getReplies(state, ownProps)
+        replies: Selectors.getReplies(state, ownProps),
+        isLoggedIn: Selectors.isLoggedIn(state)
     }
 }
 

@@ -13,6 +13,10 @@ export default class Actions extends React.PureComponent {
     }
 
     render() {
+        const hidden = this.props.hidden ? this.props.hidden : false
+        if (hidden) {
+            return null
+        }
         return (
             <Comment.Actions>
                 <Comment.Action onClick={this.likeHandler}>
