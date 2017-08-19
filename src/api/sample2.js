@@ -233,8 +233,8 @@ const samplejson = {
                     ],
                     "summary": {
                         "count": 1,
-                        "can_like": true,
-                        "has_liked": true
+                        "canLike": true,
+                        "hasLiked": false
                     }
                 },
                 "replies": {

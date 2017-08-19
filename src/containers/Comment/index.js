@@ -18,7 +18,9 @@ const mapStateToProps = (state, ownProps) => {
         isShowReplyForm: Selectors.getShowReplyForm(state, ownProps),
         isShowReplies: Selectors.getShowReplies(state, ownProps),
         replies: Selectors.getReplies(state, ownProps),
-        isLoggedIn: Selectors.isLoggedIn(state)
+        isLoggedIn: Selectors.isLoggedIn(state),
+        totalLikes: Selectors.getTotalLikes(state, ownProps),
+        hasLiked: Selectors.hasLiked(state, ownProps)
     }
 }
 

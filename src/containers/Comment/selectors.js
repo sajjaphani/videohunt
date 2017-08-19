@@ -12,7 +12,7 @@ const getComment = createSelector([getCommentId, getComments], (commentId, comme
     return comments.get(commentId)
 })
 
-const getShowReplyForm = createSelector([getComment], (comment) => {
+export const getShowReplyForm = createSelector([getComment], (comment) => {
     const showReplyForm = comment.get('showReplyForm')
     return showReplyForm === undefined ? false : showReplyForm
 })
@@ -25,12 +25,28 @@ const getCommentOn = createSelector([getComment], (comment) => {
     return comment.get('commentedOn')
 })
 
-const getTotalReplies = createSelector([getComment], (comment) => {
+export const getTotalReplies = createSelector([getComment], (comment) => {
     const replies = comment.get('replies')
     if (replies) {
         return replies.get('summary').get('count')
     }
     return 0
+})
+
+export const getTotalLikes = createSelector([getComment], (comment) => {
+    const replies = comment.get('likes')
+    if (replies) {
+        return replies.get('summary').get('count')
+    }
+    return 0
+})
+
+export const hasLiked = createSelector([getComment], (comment) => {
+    const replies = comment.get('likes')
+    if (replies) {
+        return replies.get('summary').get('hasLiked')
+    }
+    return false
 })
 
 export const getReplies = createSelector([getComment], (comment) => {
@@ -73,4 +89,4 @@ const getUserPicture = createSelector([getCommentUser], (user) => {
 })
 
 
-export { getCommentText, getCommentOn, getUserName, getUserPicture, getTotalReplies, getShowReplyForm } 
+export { getCommentText, getCommentOn, getUserName, getUserPicture } 

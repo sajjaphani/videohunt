@@ -34,6 +34,24 @@ const commentsReducer = (state = fromJS(initState), action) => {
             const showReplies = state.getIn([commentId, 'showReplies'])
             return state.setIn([commentId, 'showReplies'], showReplies ? showReplies : !showReplies)
         }
+        case ActionTypes.LIKE_COMMENT_SUCCESS: {
+            const { commentId } = action.payload
+            // get previous like count
+            const likeCount = state.getIn([commentId, 'likes','summary','count'])
+            // change hasLiked to true
+            const likedState = state.setIn([commentId, 'likes','summary','hasLiked'], true)
+            // increment the count
+            return likedState.setIn([commentId, 'likes','summary','count'], likeCount + 1)
+        }
+        case ActionTypes.UNLIKE_COMMENT_SUCCESS:{
+            const { commentId } = action.payload
+            // get previous like count
+            const likeCount = state.getIn([commentId, 'likes','summary','count'])
+            // change hasLiked to true
+            const likedState = state.setIn([commentId, 'likes','summary','hasLiked'], false)
+            // increment the count
+            return likedState.setIn([commentId, 'likes','summary','count'], likeCount - 1)
+        }
         default:
             break
     }

@@ -4,7 +4,8 @@ import { Comment } from 'semantic-ui-react'
 export default class Actions extends React.PureComponent {
 
     likeHandler = () => {
-        console.log('like clicked')
+        const { hasLiked, commentId } = this.props
+        this.props.toggleLike(commentId, hasLiked)
     }
 
     replyHandler = () => {
@@ -14,13 +15,18 @@ export default class Actions extends React.PureComponent {
 
     render() {
         const hidden = this.props.hidden ? this.props.hidden : false
+        const { hasLiked } = this.props
         if (hidden) {
             return null
+        }
+        let likeText = 'Like'
+        if (hasLiked) {
+            likeText = 'Liked'
         }
         return (
             <Comment.Actions>
                 <Comment.Action onClick={this.likeHandler}>
-                    Like
+                    {likeText}
                 </Comment.Action>
                 <Comment.Action onClick={this.replyHandler}>
                     Reply
