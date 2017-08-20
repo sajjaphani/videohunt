@@ -9,8 +9,8 @@ export default class Actions extends React.PureComponent {
     }
 
     replyHandler = () => {
-        const { commentId } = this.props
-        this.props.toggleReply(commentId)
+        const { commentId, isShowReplies } = this.props
+        this.props.toggleReply(commentId, isShowReplies)
     }
 
     render() {

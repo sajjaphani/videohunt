@@ -19,7 +19,8 @@ export default class CommentItem extends React.PureComponent {
                         toggleLike={toggleLike}
                         toggleReply={toggleReply}
                         commentId={commentId}
-                        hidden={!isLoggedIn} />
+                        hidden={!isLoggedIn}
+                        isShowReplies={isShowReplies} />
                     <CommentFormContainer commentId={commentId} hidden={!isShowReplyForm} />
                     <Comment.RepliesSummary commentId={commentId}
                         showReplies={showReplies}
