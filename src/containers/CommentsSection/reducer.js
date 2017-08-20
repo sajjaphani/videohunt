@@ -29,10 +29,11 @@ const commentsReducer = (state = fromJS(initState), action) => {
             const showReplyForm = state.getIn([commentId, 'showReplyForm'])
             return state.setIn([commentId, 'showReplyForm'], !showReplyForm)
         }
-        case ActionTypes.SHOW_REPLIES: {
-            const { commentId } = action.payload
+        case ActionTypes.SHOW_REPLIES_SUCCESS: {
+            const { commentId, comments } = action.payload
             const showReplies = state.getIn([commentId, 'showReplies'])
-            return state.setIn([commentId, 'showReplies'], showReplies ? showReplies : !showReplies)
+            const newState = state.mergeDeep(fromJS(comments))
+            return newState.setIn([commentId, 'showReplies'], showReplies ? showReplies : !showReplies)
         }
         case ActionTypes.LIKE_COMMENT_SUCCESS: {
             const { commentId } = action.payload

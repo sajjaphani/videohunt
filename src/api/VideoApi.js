@@ -32,15 +32,24 @@ export function postComment(postId, content) {
 }
 
 export function postReply(comment) {
-    // let postCommentUrl = '/api/v1/posts/' + postId + '/comments'
-    // return axios.post(postCommentUrl, {
-    //     content: content
-    // })
-    //     .then(response => response.data)
-    //     .catch(err => {
-    //         throw err;
-    //     });
-    return comment
+    let postCommentUrl = '/api/v1/comments/' + comment.parentId + '/comments'
+    return axios.post(postCommentUrl, {
+        content: comment.text
+    })
+        .then(response => response.data)
+        .catch(err => {
+            throw err;
+        });
+}
+
+export function getCommentReplies(commentId) {
+    console.log(getCommentsUrl)
+    let getCommentsUrl = '/api/v1/comments/' + commentId + '/comments'
+    return axios.get(getCommentsUrl)
+        .then(response => response.data)
+        .catch(err => {
+            throw err;
+        });
 }
 
 export function togglePostLike(postId, liked) {

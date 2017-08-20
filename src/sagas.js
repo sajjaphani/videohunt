@@ -6,7 +6,7 @@ import { logoutSaga } from './containers/Header/sagas'
 import { postCommentSaga, commentReplySaga } from './containers/CommentForm/sagas'
 import { likePostSaga, unlikePostSaga } from './containers/LikeButton/sagas'
 import { addNewVideoSaga } from './containers/AddPostForm/sagas'
-import {likeCommentSaga, unlikeCommentSaga} from './containers/Comment/sagas'
+import {fetchCommentReplies, likeCommentSaga, unlikeCommentSaga} from './containers/Comment/sagas'
 
 export default function* rootSaga() {
     yield all([
@@ -18,6 +18,7 @@ export default function* rootSaga() {
         fork(likePostSaga),
         fork(unlikePostSaga),
         fork(addNewVideoSaga),
+        fork(fetchCommentReplies),
         fork(likeCommentSaga),
         fork(unlikeCommentSaga)
     ])
