@@ -43,7 +43,6 @@ export function postReply(comment) {
 }
 
 export function getCommentReplies(commentId) {
-    console.log(getCommentsUrl)
     let getCommentsUrl = '/api/v1/comments/' + commentId + '/comments'
     return axios.get(getCommentsUrl)
         .then(response => response.data)
@@ -64,7 +63,6 @@ export function togglePostLike(postId, liked) {
 }
 
 export function postVideo(post) {
-    console.log('Posta', post)
     let postVideoUrl = '/api/v1/posts/'
     return axios.post(postVideoUrl, post)
         .then(response => response.data)

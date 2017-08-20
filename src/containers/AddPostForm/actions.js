@@ -14,7 +14,6 @@ export const addNewVideoPost = (post) => {
 } 
 
 export function postNewVideo(newPost) {
-    console.log('New Post', newPost)
     return {
             type: ActionTypes.ADD_NEW_VIDEO,
             payload: newPost

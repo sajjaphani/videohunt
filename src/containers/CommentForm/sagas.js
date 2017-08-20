@@ -16,8 +16,6 @@ function* postCommentSaga() {
 
 function* handleCommentReply(action) {
     const comment = yield call(postReply, action.comment)
-    // console.log('Reply', comment)
-
     yield put({ type: ADD_COMMENT_REPLY_SUCCESS, payload: comment })
 }
 

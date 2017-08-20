@@ -23,9 +23,7 @@ function* unlikeCommentSaga() {
 }
 
 function* handleFetchCommentReplies(action) {
-    console.log('Action', action)
     const comments = yield call(getCommentReplies, action.payload.commentId)
-    console.log('comments', comments)
     yield put({ type: SHOW_REPLIES_SUCCESS, payload: {commentId:action.payload.commentId, comments:comments }})
 }
 

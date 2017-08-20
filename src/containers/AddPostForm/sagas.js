@@ -7,9 +7,7 @@ import { ADD_NEW_VIDEO, ADD_NEW_VIDEO_SUCCESS } from './constants'
 import { postVideo } from '../../api/videoApi';
 
 function* addNewVideoAction(action) {
-    console.log('Action', action.payload)
     const post = yield call(postVideo, action.payload)
-    console.log('Post', post)
     yield put({ type: ADD_NEW_VIDEO_SUCCESS, payload: post })
     yield put(push('/'))
 }
