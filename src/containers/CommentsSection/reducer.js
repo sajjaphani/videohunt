@@ -40,7 +40,7 @@ const commentsReducer = (state = fromJS(initState), action) => {
             // get previous like count
             const likeCount = state.getIn([commentId, 'likes','summary','count'])
             // change hasLiked to true
-            const likedState = state.setIn([commentId, 'likes','summary','hasLiked'], true)
+            const likedState = state.setIn([commentId, 'likes','summary','has_liked'], true)
             // increment the count
             return likedState.setIn([commentId, 'likes','summary','count'], likeCount + 1)
         }
@@ -49,7 +49,7 @@ const commentsReducer = (state = fromJS(initState), action) => {
             // get previous like count
             const likeCount = state.getIn([commentId, 'likes','summary','count'])
             // change hasLiked to true
-            const likedState = state.setIn([commentId, 'likes','summary','hasLiked'], false)
+            const likedState = state.setIn([commentId, 'likes','summary','has_liked'], false)
             // increment the count
             return likedState.setIn([commentId, 'likes','summary','count'], likeCount - 1)
         }

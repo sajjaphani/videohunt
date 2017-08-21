@@ -44,7 +44,7 @@ export const getTotalLikes = createSelector([getComment], (comment) => {
 export const hasLiked = createSelector([getComment], (comment) => {
     const replies = comment.get('likes')
     if (replies) {
-        return replies.get('summary').get('hasLiked')
+        return replies.get('summary').get('has_liked')
     }
     return false
 })

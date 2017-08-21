@@ -70,3 +70,14 @@ export function postVideo(post) {
             throw err;
         });
 }
+
+export function toggleCommentLike(commentId, liked) {
+    let likeCommentUrl = '/api/v1/comments/' + commentId + '/like'
+    return axios.post(likeCommentUrl, {
+        liked: liked
+    })
+        .then(response => response.data)
+        .catch(err => {
+            throw err;
+        });
+}
