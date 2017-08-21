@@ -8,6 +8,7 @@ import { bindActionCreators } from 'redux';
 import HeaderContainer from '../Header'
 import HomePage from '../../components/HomePage'
 import AddPostPage from '../../components/AddPostPage'
+import PostPage from '../../components/PostPage'
 import NotFoundPage from '../../components/NotFoundPage'
 import MainContent from '../../components/MainContent'
 import SignupSection from '../../components/SignupSection'
@@ -25,6 +26,7 @@ class AppContainer extends React.PureComponent {
                         <Switch>
                             <Route exact path="/" component={HomePage} />
                             <Route path="/post" component={AddPostPage} />
+                            <Route path="/posts/:id" component={PostPage} /> 
                             <Route component={NotFoundPage} />
                         </Switch>
                     </ConnectedRouter>
