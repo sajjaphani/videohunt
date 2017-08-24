@@ -81,3 +81,12 @@ export function toggleCommentLike(commentId, liked) {
             throw err;
         });
 }
+
+export function loadSinglePost(postId) {
+    let getPostUrl = '/api/v1/posts/' + postId
+    return axios.get(getPostUrl)
+        .then(response => response.data)
+        .catch(err => {
+            throw err;
+        });
+}

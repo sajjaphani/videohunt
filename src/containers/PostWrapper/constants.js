@@ -1,0 +1,2 @@
+export const LOAD_SINGLE_POST = 'PostWrapper/LOAD_SINGLE_POST'
+export const LOAD_SINGLE_POST_SUCCESS = 'PostWrapper/LOAD_SINGLE_POST_SUCCESS'

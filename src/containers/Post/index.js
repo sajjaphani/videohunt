@@ -6,6 +6,7 @@ import PostItem from '../../components/PostItem'
 const mapStateToProps = (state, ownProps) => {
     return {
         postId: ownProps.postId,
+        expandComments: ownProps.expandComments,
         title: getTitle(state, ownProps),
         subtitle: getSubtitle(state, ownProps),
         url: getURL(state, ownProps),

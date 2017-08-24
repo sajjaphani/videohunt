@@ -10,6 +10,10 @@ const isLoggedIn = (state) => (state.app.get('loggedIn'))
 
 const getPost = createSelector([getPostId, getPosts], (postId, posts) => (posts.get(postId).toJS()))
 
-const isExpandComments = createSelector([getPost], (post) => post.expandComments)
+const defaultExpandComments = (state, ownProps) => (ownProps.expandComments)
+
+const isExpandComments = createSelector([getPost, defaultExpandComments], (post, expandComments) =>
+    (expandComments ? expandComments : post.expandComments)
+)
 
 export { isExpandComments, isLoggedIn }

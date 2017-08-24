@@ -6,7 +6,7 @@ import CommentsSectionContainer from '../../containers/CommentsSection'
 
 export default class PostItem extends React.PureComponent {
     render() {
-        const { title, subtitle, url, postId, comments } = this.props
+        const { title, subtitle, url, postId, comments, expandComments } = this.props
         const postPath = '/posts/' + postId
         return (
             <Post>
@@ -15,7 +15,10 @@ export default class PostItem extends React.PureComponent {
                 </Link>
                 <Post.Video url={url} />
                 <PostFooterContainer postId={postId} />
-                <CommentsSectionContainer postId={postId} comments={comments} />
+                <CommentsSectionContainer
+                    postId={postId}
+                    comments={comments}
+                    expandComments={expandComments} />
             </Post>
         )
     }

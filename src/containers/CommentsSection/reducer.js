@@ -6,6 +6,7 @@ const initState = {}
 const commentsReducer = (state = fromJS(initState), action) => {
     switch (action.type) {
         case ActionTypes.LOAD_VIDEOS_SUCCESS:
+        case ActionTypes.LOAD_SINGLE_POST_SUCCESS:        
             return state.mergeDeep(action.payload.data.comments)
         case ActionTypes.ADD_POST_COMMENT_SUCCESS: {
             const { commentId } = action.payload
