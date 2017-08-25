@@ -15,7 +15,7 @@ export const changeSelection = (e, { name }) => {
 const convertSelectionToRoute = (name) => {
     let route = ''
     if (name === 'post') {
-        route = name
+        route = '/' + name
     } else if (name === 'home') {
         route = '/'
     }
