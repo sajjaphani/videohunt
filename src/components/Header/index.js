@@ -11,7 +11,7 @@ import LoginWrapper from './LoginWrapper'
 import Search from './SearchFeed'
 
 const Header = props => {
-    const { activeSelection, loggedIn, changeSelection, handleLogin, loginLoading, handleLogout, loginModalOpen, openLogin } = props
+    const { activeSelection, loggedIn, changeSelection, handleLogin, loginLoading, handleLogout, loginModalOpen, openLogin, handleProfile, handleSettings } = props
     return (
         <Menu borderless fixed='top' size='small'>
             <Container>
@@ -28,8 +28,7 @@ const Header = props => {
                 <Menu.Menu position='right'>
                     <AddPost changeSelection={changeSelection} activeSelection={activeSelection} isLoggedIn={loggedIn} />
                     <Menu.Item name='userAccount'
-                        active={false}
-                        onClick={changeSelection}>
+                        active={false}>
                         {/* TODO: Create a container for Login wrapper*/}
                         <LoginWrapper
                             openLogin={openLogin}
@@ -38,7 +37,10 @@ const Header = props => {
                             isLoggedIn={loggedIn}
                             userId={props.loggedInUserId}
                             loginLoading={loginLoading}
-                            handleLogout={handleLogout} />
+                            handleLogout={handleLogout}
+                            handleProfile={handleProfile}
+                            handleSettings={handleSettings}
+                             />
                     </Menu.Item>
                 </Menu.Menu>
             </Container>

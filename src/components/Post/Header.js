@@ -6,7 +6,7 @@ const PostHeader = props => (
         <Header as='h3' >
             {props.title}
             <Header.Subheader>
-                {props.subtitle}
+            <Icon name='youtube square' size='large' />{props.subtitle} | Comedy
             </Header.Subheader>
         </Header>
     </Segment>

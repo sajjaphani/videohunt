@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 import { loginRequest, loginSuccess, openLoginModal, closeLoginModal } from '../App/actions'
 import setAuthToken from '../../utils/setAuthToken'
 
-import { LOGOUT_REQUEST } from './constants'
+import { LOGOUT_REQUEST, PROFILE_REQUEST, SETTINGS_REQUEST } from './constants'
 
 export const changeSelection = (e, { name }) => {
     return (dispatch) => {
@@ -62,5 +62,17 @@ export const openLogin = (open) => {
 export const handleLogout = () => {
     return {
         type: LOGOUT_REQUEST
+    }
+}
+
+export const handleProfile = () => {
+    return {
+        type: PROFILE_REQUEST
+    }
+}
+
+export const handleSettings = () => {
+    return {
+        type: SETTINGS_REQUEST
     }
 }

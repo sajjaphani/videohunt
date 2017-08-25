@@ -1,0 +1,2 @@
+export const PROFILE_SIDEBAR = 'ProfileSidebar/PROFILE_SIDEBAR'
+export const PROFILE_SIDEBAR_SUCCESS = 'ProfileSidebar/PROFILE_SIDEBAR_SUCCESS'

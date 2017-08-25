@@ -10,7 +10,9 @@ const source = _.times(5, () => ({
     price: faker.finance.amount(0, 100, 2, '$'),
 }))
 
-export default class SearchFeed extends Component {
+export default class SearchFeed extends React.PureComponent {
+    state = { isLoading: false, results: [], value: '' }
+
     componentWillMount() {
         this.resetComponent()
     }
@@ -19,11 +21,12 @@ export default class SearchFeed extends Component {
 
     handleResultSelect = (e, { result }) => this.setState({ value: result.title })
 
-    handleSearchChange = (e, { value }) => {
+    handleSearchChange = (e, value) => {
         this.setState({ isLoading: true, value })
 
         setTimeout(() => {
-            if (this.state.value.length < 1) return this.resetComponent()
+            if (this.state.value.length < 1) 
+                return this.resetComponent()
 
             const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
             const isMatch = (result) => re.test(result.title)
@@ -37,7 +40,6 @@ export default class SearchFeed extends Component {
 
     render() {
         const { isLoading, value, results } = this.state
-
         return (
             <Grid>
                 <Grid.Column width={10}>

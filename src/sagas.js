@@ -2,11 +2,11 @@ import { fork, all } from 'redux-saga/effects'
 
 import { loginSaga } from './containers/App/sagas'
 import { loadVideoSaga, loadMoreVideoSaga } from './containers/Feed/sagas'
-import { logoutSaga } from './containers/Header/sagas'
+import { logoutSaga, profileSaga, settingsSaga } from './containers/Header/sagas'
 import { postCommentSaga, commentReplySaga } from './containers/CommentForm/sagas'
 import { likePostSaga, unlikePostSaga } from './containers/LikeButton/sagas'
 import { addNewVideoSaga } from './containers/AddPostForm/sagas'
-import { fetchCommentReplies, likeCommentSaga, unlikeCommentSaga } from './containers/Comment/sagas'
+import {fetchCommentReplies, likeCommentSaga, unlikeCommentSaga} from './containers/Comment/sagas'
 import { loadPostSaga } from './containers/PostWrapper/sagas'
 
 export default function* rootSaga() {
@@ -14,6 +14,8 @@ export default function* rootSaga() {
         fork(loadVideoSaga),
         fork(loadMoreVideoSaga),
         fork(logoutSaga),
+        fork(profileSaga),
+        fork(settingsSaga),
         fork(postCommentSaga),
         fork(commentReplySaga),
         fork(likePostSaga),
