@@ -1,4 +1,4 @@
-import { ADD_NEW_VIDEO } from '../AddPostForm/constants'
+import { ADD_NEW_VIDEO_SUCCESS } from '../AddPostForm/constants'
 
 export const LOAD_VIDEOS = 'Feed/LOAD_VIDEOS';  
 
@@ -10,4 +10,4 @@ export const LOAD_MORE_VIDEOS = 'LoadFeed/LOAD_MORE_VIDEOS';
 
 export const LOAD_MORE_VIDEOS_SUCCESS = 'LoadFeed/LOAD_MORE_VIDEOS_SUCCESS';  
 
-export { ADD_NEW_VIDEO }
+export { ADD_NEW_VIDEO_SUCCESS }

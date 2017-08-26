@@ -4,7 +4,7 @@ import Comment from '../Comment'
 import CommentContainer from '../../containers/Comment'
 import CommentFormContainer from '../../containers/CommentForm'
 
-export default class CommentsSectionContainer extends React.PureComponent {
+export default class CommentsSection extends React.PureComponent {
     render() {
         const { postId, expandComments, comments, loggedIn } = this.props
         const commentItems = computePostComments(comments, postId)

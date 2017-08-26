@@ -14,7 +14,6 @@ export const postsReducer = (state = fromJS(posts), action) => {
         case Types.ADD_NEW_VIDEO_SUCCESS:
             const post = action.payload.post
             return state.set(post.id, fromJS(post))
-            // return state
         case Types.LIKE_POST_SUCCESS:
             {
                 // TODO: refactor to minimize operations
