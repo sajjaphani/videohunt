@@ -20,7 +20,7 @@ export const feedReducer = (state = fromJS(initialState), action) => {
         case Types.ADD_NEW_VIDEO_SUCCESS:
             // return state
             const post = action.payload.post
-            const feedKey = action.payload.post.feedKey
+            const feedKey = action.payload.feedKey
             if (state.get('data').has(feedKey)) {
                 return state.updateIn(['data', feedKey], list => list.push(post.id))
             } else {
