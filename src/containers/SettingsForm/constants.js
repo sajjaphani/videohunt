@@ -1,2 +1,2 @@
-export const UPDATE_SETTINGS = 'SettingsForm/ADD_NEW_VIDEO'
-export const UPDATE_SETTINGS_SUCCESS = 'SettingsForm/ADD_NEW_VIDEO_SUCCESS'
+export const UPDATE_SETTINGS = 'SettingsForm/UPDATE_SETTINGS'
+export const UPDATE_SETTINGS_SUCCESS = 'SettingsForm/UPDATE_SETTINGS_SUCCESS'
