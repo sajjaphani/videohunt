@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Button, Checkbox, Form, Container, Segment, Select } from 'semantic-ui-react'
+import { Header, Button, Label, Checkbox, Form, Container, Segment, Select } from 'semantic-ui-react'
 
 import Post from '../Post'
 
@@ -10,6 +10,14 @@ export default class AddPostForm extends React.PureComponent {
   handleChange = (e, { name, value }) => {
     e.preventDefault()
     this.setState({ [name]: value })
+  }
+
+  handleMouseOver = (value) => {
+    this.props.updatePostHint(value)
+  }
+
+  handleFocus = (value) => {
+    this.props.updatePostHint(value)
   }
 
   handleSubmit = e => {
@@ -67,13 +75,18 @@ export default class AddPostForm extends React.PureComponent {
         <Segment attached>
           <Form onSubmit={this.handleSubmit}>
             <Form.Group widths='equal'>
-              <Form.Input placeholder='URL' name='url' value={url} label='URL' onChange={this.handleChange} />
+              <Form.Input autoFocus={true} placeholder='URL' name='url' value={url} label='URL' onChange={this.handleChange} 
+                    onFocus={this.handleFocus.bind(this, 'url')} onMouseOver={this.handleMouseOver.bind(this, 'url')} />
             </Form.Group>
-            <Form.Input placeholder='Video title' name='title' value={title} label='Title' onChange={this.handleChange} />
-            <Form.Input placeholder='eg: Video by Rahman' name='subtitle' value={subtitle} label='Sub Title' onChange={this.handleChange} />
+            <Form.Input placeholder='Video title' name='title' value={title} label='Title' onChange={this.handleChange} 
+                  onFocus={this.handleFocus.bind(this, 'title')} onMouseOver={this.handleMouseOver.bind(this, 'title')} />
+            <Form.Input placeholder='eg: Video by Rahman' name='subtitle' value={subtitle} label='Sub Title' onChange={this.handleChange} 
+                  onFocus={this.handleFocus.bind(this, 'subtitle')} onMouseOver={this.handleMouseOver.bind(this, 'subtitle')} />
             {/* <Dropdown placeholder='Skills' label='Skills' search fluid selection options={options} onChange={this.handleDropDown} /> */}
-            <Form.Field control={Select} label='Language' name='language' options={langOptions} placeholder='Language' onChange={this.handleChange} />
-            <Form.Field control={Select} label='Category' name='category' options={categoryOptions} placeholder='Category' onChange={this.handleChange} />
+            <Form.Field control={Select} label='Language' name='language' options={langOptions} placeholder='Language' onChange={this.handleChange} 
+                  onFocus={this.handleFocus.bind(this, 'language')} onMouseOver={this.handleMouseOver.bind(this, 'language')} />
+            <Form.Field control={Select} label='Category' name='category' options={categoryOptions} placeholder='Category' onChange={this.handleChange} 
+                  onFocus={this.handleFocus.bind(this, 'category')} onMouseOver={this.handleMouseOver.bind(this, 'category')} />
             <Form.Button content='Submit' />
           </Form>
         </Segment>
