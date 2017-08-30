@@ -38,6 +38,7 @@ export const handleLogin = (e, { name }) => {
                     const user = jwt.decode(token)
                     dispatch(loginSuccess(user))
                     dispatch(closeLoginModal)
+                    window.location.reload()
                 }
 
             }
