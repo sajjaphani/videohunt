@@ -19,8 +19,8 @@ const Video = props => {
     // const vidId = props.url.includes('v=') ? props.url.split('v=').pop() : ''
     // const placeholder = 'http://img.youtube.com/vi/' + vidId + '/maxresdefault.jpg'
     const placeholder = 'https://i.ytimg.com/vi/' + videoId + '/sddefault.jpg'
-    if (videoId == '' || videoId == null)
-        return (<div />);
+    // if (videoId == '' || videoId == null)
+    //     return (<div />);
 
     return (
         <Segment attached clearing>
