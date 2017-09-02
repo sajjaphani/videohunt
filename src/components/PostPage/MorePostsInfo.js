@@ -1,12 +1,39 @@
 import React from 'react';
-import { Header, Image, Container, Segment } from 'semantic-ui-react'
+import { Header, Image, Container, Item, Segment } from 'semantic-ui-react'
 
 export default class MorePostsInfo extends React.PureComponent {
 
   render() {
-    const src = 'https://i.ytimg.com/vi/DuHu1HlYk08/hqdefault.jpg'
-    const src1 = 'https://i.ytimg.com/vi/o0p7vwwhIRw/mqdefault.jpg'
-    const src2 = 'https://i.ytimg.com/vi/n1d4uS3vbzw/mqdefault.jpg'
+    const items = [
+      {
+        childKey: 0,
+        image: 'https://i.ytimg.com/vi/dhFzNQsRh_I/maxresdefault.jpg',
+        header: 'When Your Dog Is Better Looking Than You',
+        description: 'WHY ARE YOU SO BEAUTIFUL.',
+        meta: 'BuzzFeedVideo',
+      },
+      {
+        childKey: 1,
+        image: 'https://i.ytimg.com/vi/rHtSQynwLGE/maxresdefault.jpg',
+        header: 'When You Walk Your Anxious Puppy',
+        description: '“I don’t want you to panic, but we’re lost!”',
+        meta: 'BuzzFeedVideo',
+      },
+      {
+        childKey: 2,
+        image: 'https://i.ytimg.com/vi/ifXO3U8DxYU/maxresdefault.jpg',
+        header: 'Puppyhood: Back To Work',
+        description: 'The separation anxiety is real. New Puppy Chow Natural.',
+        meta: 'BuzzFeedVideo',
+      },
+      {
+        childKey: 3,
+        image: 'https://i.ytimg.com/vi/G4Sn91t1V4g/maxresdefault.jpg',
+        header: 'Dear Kitten',
+        description: 'Cats everywhere are promising big changes for a taste of wet cat food. What will your cat do?',
+        meta: 'BuzzFeedVideo',
+      }
+    ]
     return (
       <Container>
         <Segment.Group>
@@ -14,28 +41,7 @@ export default class MorePostsInfo extends React.PureComponent {
             Related Videos
           </Header>
           <Segment attached>
-            <Image src={src} size='small' floated='left' />
-            <p>
-              Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip
-            detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos
-            choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.
-          </p>
-          </Segment>
-          <Segment attached>
-            <Image src={src1} size='small' floated='left' />
-            <p>
-              Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip
-            detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos
-            choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.
-          </p>
-          </Segment>
-          <Segment attached>
-            <Image src={src2} size='small' floated='left' />
-            <p>
-              Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip
-            detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos
-            choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.
-          </p>
+            <Item.Group divided items={items} />
           </Segment>
         </Segment.Group>
       </Container>
