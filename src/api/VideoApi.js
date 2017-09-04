@@ -5,9 +5,13 @@ import axios from 'axios'
 // TODO in production we may not need this?
 const apiBaseUrl = 'http://localhost:3000'
 
-export function getInitVideos() {
-    // return sampleJson
-     return getNextVideos('/api/v1/posts') 
+export function getInitVideos(category) {
+    if (category == 'All') {
+        return getNextVideos('/api/v1/posts')
+    } else {
+        console.log('Category videos ' + '/api/v1/category/' + category.toLowerCase())
+        return getNextVideos('/api/v1/category/' + encodeURIComponent(category.toLowerCase()))
+    }
 }
 
 export function getNextVideos(nextUrl) {

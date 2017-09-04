@@ -5,11 +5,16 @@ const initState = {
     loggedIn: false,
     userId: '595f459865ac7f15c7a92b9d',
     loginLoading: false,
-    loginModalOpen: false
+    loginModalOpen: false,
+    languages: 'All',
+    feed: 'All'
 }
 
 export const appReducer = (state = fromJS(initState), action) => {
     switch (action.type) {
+        case ActionTypes.SELECT_SIDEBAR_ITEM:
+            const { itemType, itemName } = action.payload
+            return state.set(itemType, itemName)
         case ActionTypes.LOGIN_SUCCESS:
             let tempState = state.set('loginLoading', false)
             tempState = tempState.set('userId', action.payload.id)

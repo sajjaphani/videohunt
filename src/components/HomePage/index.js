@@ -1,8 +1,8 @@
 import React from 'react'
 import { Grid, Segment, Container, Input, Form, Header } from 'semantic-ui-react'
 
-import FeedContainer from '../../containers/Feed'
-import Sidebar from '../Sidebar'
+import FeedWrapperContainer from '../../containers/FeedWrapper'
+import SidebarContainer from '../../containers/Sidebar'
 import SubscribeFormContainer from '../../containers/SubscribeForm'
 
 const HomePage = props => {
@@ -12,11 +12,11 @@ const HomePage = props => {
         <Grid>
             <Grid.Row >
                 <Grid.Column only='computer' computer='four' largeScreen='four' widescreen='four' >
-                    <Sidebar title='Languages' items={languages} activeItem={'All'} />
-                    <Sidebar title='Feed' items={categories} activeItem={'All'} />
+                    <SidebarContainer categoryType='languages' title='Languages' items={languages} />
+                    <SidebarContainer categoryType='feed' title='Feed' items={categories} />
                 </Grid.Column>
                 <Grid.Column mobile='sixteen' tablet='sixteen' computer='eight' largeScreen='eight' widescreen='eight'>
-                    <FeedContainer />
+                    <FeedWrapperContainer />
                 </Grid.Column>
                 <Grid.Column only='computer' computer='four' largeScreen='four' widescreen='four'>
                     <SubscribeFormContainer />

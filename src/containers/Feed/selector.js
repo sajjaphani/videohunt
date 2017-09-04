@@ -1,10 +1,13 @@
 import { createSelector } from 'reselect'
 
+const getApp = state => state.app
 // Input selector
 const getFeedIds = state => state.feed
 
-const getFeed = createSelector([getFeedIds], (feed) => {
-    const feedData = feed.get('data')
+const getFeedCategory = createSelector([getApp], (app) => (app.get('feed')))
+
+const getFeed = createSelector([getFeedIds, getFeedCategory], (feed, category) => {
+    const feedData = feed.getIn([category,'data'])
     if (feedData)
         return feedData.keySeq().toArray().sort((a, b) => {
             const dateA = new Date(a)
@@ -21,8 +24,8 @@ const getFeed = createSelector([getFeedIds], (feed) => {
         return []
 })
 
-const getPagination = createSelector([getFeedIds], (feed) => {
-    const paginationData = feed.get('pagination')
+const getPagination = createSelector([getFeedIds, getFeedCategory], (feed, category) => {
+    const paginationData = feed.getIn([category,'pagination'])
     if (paginationData) {
         return paginationData.get('next')
     }
@@ -30,4 +33,4 @@ const getPagination = createSelector([getFeedIds], (feed) => {
         return ''
 })
 
-export { getFeed, getPagination }
+export { getFeed, getPagination, getFeedCategory }

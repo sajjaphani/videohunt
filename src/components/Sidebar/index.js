@@ -2,30 +2,19 @@ import React from 'react'
 import { List, Segment, Divider } from 'semantic-ui-react'
 
 export default class Sidebar extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            activeItem: props.activeItem,
-        };
-    }
 
     handleItemClick = (e, { name }) => {
-        this.setState({ activeItem: name })
-    }
-
-    componentWillMount() {
-        this.setState({
-            activeItem: this.state.activeItem,
-        })
+        const { categoryType } = this.props
+        this.props.actions.selectSidebarItem(categoryType, name)
     }
 
     render() {
-        const { items, title } = this.props
+        const { items, title, activeItem } = this.props
         const listItems = items.map(item =>
             <List.Item
                 key={item}
                 name={item}
-                active={this.state.activeItem === item}
+                active={activeItem === item}
                 onClick={this.handleItemClick}>
                 <List.Content>{item}</List.Content>
             </List.Item>

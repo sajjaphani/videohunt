@@ -12,11 +12,12 @@ export default class Feed extends React.PureComponent {
     }
 
     loadPosts = () => {
+        const { category } = this.props
         if (this.props.feed.length == 0) {
-            this.props.actions.loadVideos();
+            this.props.actions.loadVideos(category);
         } else {
             if (this.props.nextPage) {
-                this.props.actions.loadMoreVideos(this.props.nextPage)
+                this.props.actions.loadMoreVideos(category, this.props.nextPage)
             } else {
                 this.setState({ hasMore: false })
             }

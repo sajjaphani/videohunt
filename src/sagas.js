@@ -24,6 +24,6 @@ export default function* rootSaga() {
         fork(fetchCommentReplies),
         fork(likeCommentSaga),
         fork(unlikeCommentSaga),
-        fork(loadPostSaga)
+        fork(loadPostSaga),
     ])
 }
