@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
         title: ownProps.title,
         items: ownProps.items,
         categoryType: ownProps.categoryType,
-        activeItem: getActiveItem(state, ownProps),
+        activeItem: ownProps.activeItem ? ownProps.activeItem : getActiveItem(state, ownProps)
     }
 }
 

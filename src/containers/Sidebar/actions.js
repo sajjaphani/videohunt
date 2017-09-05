@@ -4,21 +4,28 @@ import { SELECT_SIDEBAR_ITEM } from './constants'
 
 function selectSidebarItem(itemType, itemName) {
     return function (dispatch) {
-        dispatch(
-            {
-                type: SELECT_SIDEBAR_ITEM,
-                payload: {
-                    itemType,
-                    itemName
-                }
+        dispatch(sidebarSelectAction(itemType, itemName))
+        if (itemType == 'feed') {
+            if (itemName == 'All') {
+                dispatch(push('/'))
+            } else {
+                dispatch(push('/topics/' + itemName))
             }
-        )
-        if (itemName == 'All') {
-            dispatch(push('/'))
-        } else {
-            dispatch(push('/topics/' + itemName))
+        } else if (itemType == 'languages') {
+            // TODO: need to revisit when languages are handled            
         }
     }
 }
+
+function sidebarSelectAction(itemType, itemName) {
+    return {
+        type: SELECT_SIDEBAR_ITEM,
+        payload: {
+            itemType,
+            itemName
+        }
+    }
+}
+
 
 export { selectSidebarItem }

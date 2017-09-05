@@ -9,14 +9,14 @@ import SubscribeFormContainer from '../../containers/SubscribeForm'
 const HomePage = props => {
     const languages = ['All', 'English', 'Hindi', 'Telugu', 'Malayalam']
     const categories = ['All', 'Action', 'Comedy', 'Inspirational', 'Science', 'Short Films', 'Sports', 'Technology', 'Trailers', 'Viral']
-    const { path, params } = props.match
-    const feedComponent = path == '/' ? <FeedContainer /> : <CategoryFeedContainer feed={params.id} />
+    const category = pathToCategoryName(props.match)
+    const feedComponent = category == 'All' ? <FeedContainer /> : <CategoryFeedContainer feed={category} />
     return (
         <Grid>
             <Grid.Row >
                 <Grid.Column only='computer' computer='four' largeScreen='four' widescreen='four' >
-                    <SidebarContainer categoryType='languages' title='Languages' items={languages} />
-                    <SidebarContainer categoryType='feed' title='Feed' items={categories} />
+                    <SidebarContainer categoryType='languages' title='Languages' items={languages}/>
+                    <SidebarContainer categoryType='feed' title='Feed' items={categories} activeItem={category}/>
                 </Grid.Column>
                 <Grid.Column mobile='sixteen' tablet='sixteen' computer='eight' largeScreen='eight' widescreen='eight'>
                     {feedComponent}
@@ -27,6 +27,16 @@ const HomePage = props => {
             </Grid.Row>
         </Grid>
     )
+}
+
+function pathToCategoryName(match) {
+    let category = ''
+    if (match.path == '/') {
+        category = 'All'
+    } else {
+        category = match.params.id
+    }
+    return category
 }
 
 export default HomePage
