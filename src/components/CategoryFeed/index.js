@@ -13,8 +13,10 @@ export default class CategoryFeed extends React.PureComponent {
     }
 
     componentWillReceiveProps(nextProps) {
-        const { postIds } = nextProps
-        if (!postIds) {
+        const { postIds, nextPage } = nextProps
+        // if there are no posts or if there is a next page url
+        // then this component has more items
+        if (!postIds || nextPage) {
             this.setState({ hasMore: true })
         }
     }
