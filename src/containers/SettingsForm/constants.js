@@ -1,2 +1,0 @@
-export const UPDATE_SETTINGS = 'SettingsForm/UPDATE_SETTINGS'
-export const UPDATE_SETTINGS_SUCCESS = 'SettingsForm/UPDATE_SETTINGS_SUCCESS'

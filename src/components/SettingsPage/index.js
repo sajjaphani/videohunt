@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Segment, Container } from 'semantic-ui-react'
 
-import SettingsFormContainer from '../../containers/SettingsForm'
+import SettingsForm from './SettingsForm'
 
 export default class SettingsPage extends React.PureComponent {
     render() {
@@ -9,7 +9,7 @@ export default class SettingsPage extends React.PureComponent {
             <Grid>
                 <Grid.Row >
                     <Grid.Column mobile='sixteen' tablet='sixteen' computer='sixteen' largeScreen='sixteen' widescreen='sixteen'>
-                        <SettingsFormContainer />
+                        <SettingsForm />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

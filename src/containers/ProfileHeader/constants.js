@@ -1,2 +1,0 @@
-export const PROFILE_HEADER = 'ProfileHeader/PROFILE_HEADER'
-export const PROFILE_HEADER_SUCCESS = 'ProfileHeader/PROFILE_HEADER_SUCCESS'
