@@ -28,6 +28,7 @@ class AppContainer extends React.PureComponent {
                     <ConnectedRouter history={history}>
                         <Switch>
                             <Route exact path="/" component={HomePage} />
+                            <Route path="/topics/:id" component={HomePage} />
                             <Route path="/post" component={AddPostPage} />
                             <Route path="/posts/:id" component={PostPage} /> 
                             <Route path="/profile" component={ProfilePage} /> 
