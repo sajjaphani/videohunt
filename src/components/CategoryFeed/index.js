@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Header } from 'semantic-ui-react'
 import InfiniteScroll from 'react-infinite-scroller';
 
 import PostContainer from '../../containers/Post'
@@ -38,10 +38,11 @@ export default class CategoryFeed extends React.PureComponent {
     }
 
     render() {
-        const { postIds } = this.props
+        const { postIds, feed } = this.props
         const postList = computePostList(postIds)
         return (
             <div>
+                 <Header as='h2' attached='top' color='grey'>{feed}</Header>
                 <InfiniteScroll
                     pageStart={0}
                     loadMore={this.loadPosts}
