@@ -1,8 +1,15 @@
 import { createSelector } from 'reselect'
 
+const getPostId = (state, props) => (props.postId)
+
+const getPosts = (state) => (state.posts)
+
+const getPost = createSelector([getPostId, getPosts], (postId, posts) => (posts.get(postId)))
+
+const getLikes = createSelector([getPost], (post) => (post.get('likes')))
 
 const getUserId = (state) => state.app.get('userId')
-const getLikes = (state, ownProps) => ownProps.likes
+
 const getLikesCount = createSelector([getLikes], (likes) => {
     const summary = likes.get('summary')
     if (summary) {
@@ -10,7 +17,9 @@ const getLikesCount = createSelector([getLikes], (likes) => {
     }
     return 0
 })
+
 const isLoggedIn = (state) => (state.app.get('loggedIn'))
+
 const isLiked = createSelector([isLoggedIn, getLikes], (loggedIn,likes) => {
     const summary = likes.get('summary')
     if (summary) {

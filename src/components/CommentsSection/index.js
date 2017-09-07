@@ -8,13 +8,13 @@ export default class CommentsSection extends React.PureComponent {
     render() {
         const { postId, expandComments, comments, loggedIn } = this.props
         const commentItems = computePostComments(comments, postId)
-        let commentForm = <div/>
+        let commentForm = <div />
         if (loggedIn) {
             commentForm = (<CommentFormContainer postId={postId} />)
         }
         return (
             <Comment.Section expandComments={expandComments}>
-                {commentForm} 
+                {commentForm}
                 {commentItems}
             </Comment.Section>
         )

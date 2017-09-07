@@ -5,7 +5,7 @@ import { toggleComment } from './actions'
 import { isExpandComments, getTotalComments } from './selectors'
 
 const mapStateToProps = (state, ownProps) => {
-    const { postId, comments } = ownProps
+    const { postId } = ownProps
     return {
         postId: postId,
         commentNo: getTotalComments(state,ownProps),

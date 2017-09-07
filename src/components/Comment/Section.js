@@ -4,7 +4,7 @@ import { Comment, Header, Segment } from 'semantic-ui-react'
 const Section = (props) => {
     const { expandComments, children } = props
     if (!expandComments)
-        return <div />
+        return null
     return (
         <Segment attached basic>
             <Comment.Group collapsed={!expandComments} size='small' threaded>
