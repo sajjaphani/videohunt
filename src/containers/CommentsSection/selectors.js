@@ -14,6 +14,4 @@ const isExpandComments = createSelector([getPost, defaultExpandComments], (post,
     (expandComments ? expandComments : post.get('expandComments'))
 )
 
-const getPostComments = createSelector([getPost], (post) => post.getIn(['comments', 'data']))
-
-export { isExpandComments, isLoggedIn, getPostComments }
+export { isExpandComments, isLoggedIn }

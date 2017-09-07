@@ -8,6 +8,7 @@ import { likePostSaga, unlikePostSaga } from './containers/LikeButton/sagas'
 import { addNewVideoSaga } from './containers/AddPostForm/sagas'
 import {fetchCommentReplies, likeCommentSaga, unlikeCommentSaga} from './containers/Comment/sagas'
 import { loadPostSaga } from './containers/PostWrapper/sagas'
+import {loadPostCommentsSaga} from './containers/CommentsList/sagas'
 
 export default function* rootSaga() {
     yield all([
@@ -25,5 +26,6 @@ export default function* rootSaga() {
         fork(likeCommentSaga),
         fork(unlikeCommentSaga),
         fork(loadPostSaga),
+        fork(loadPostCommentsSaga)
     ])
 }

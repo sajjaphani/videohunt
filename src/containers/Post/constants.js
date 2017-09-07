@@ -4,6 +4,7 @@ import { LIKE_POST_SUCCESS, UNLIKE_POST_SUCCESS } from '../LikeButton/constants'
 import { TOGGLE_COMMENT } from '../CommentButton/constants'
 import { ADD_POST_COMMENT, ADD_POST_COMMENT_SUCCESS } from '../CommentForm/constants'
 import { LOAD_SINGLE_POST_SUCCESS } from '../PostWrapper/constants'
+import { Fetch_POST_COMMENTS_SUCCESS } from '../CommentsList/constants'
 
 export {
     LOAD_VIDEOS_SUCCESS,
@@ -15,5 +16,6 @@ export {
     ADD_POST_COMMENT, 
     LOAD_MORE_VIDEOS_SUCCESS, 
     ADD_POST_COMMENT_SUCCESS,
-    LOAD_SINGLE_POST_SUCCESS
+    LOAD_SINGLE_POST_SUCCESS,
+    Fetch_POST_COMMENTS_SUCCESS
 }

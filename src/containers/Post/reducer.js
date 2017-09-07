@@ -45,6 +45,11 @@ export const postsReducer = (state = fromJS(posts), action) => {
             const commentCountState = state.setIn([postId, 'comments', 'summary', 'count'], commentCount + 1)
             return commentCountState.updateIn([postId, 'comments', 'data'], list => list.push(commentId))
         }
+        case Types.Fetch_POST_COMMENTS_SUCCESS: {
+            const { postId, payload } = action
+            const comments = fromJS(payload).getIn(['data', 'comments']).keySeq()
+            return state.updateIn([postId, 'comments', 'data'], list => list.concat(comments))
+        }
         default:
             state
     }

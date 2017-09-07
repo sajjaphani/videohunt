@@ -45,6 +45,16 @@ export function postReply(comment) {
         });
 }
 
+export function getPostComments(nextUrl) {
+    const index = nextUrl.lastIndexOf(apiBaseUrl)
+    let url = index > -1 ? nextUrl.substring(index + apiBaseUrl.length) : nextUrl
+    return axios.get(url)
+        .then(response => response.data)
+        .catch(err => {
+            throw err;
+        });
+}
+
 export function getCommentReplies(commentId) {
     let getCommentsUrl = '/api/v1/comments/' + commentId + '/comments'
     return axios.get(getCommentsUrl)
