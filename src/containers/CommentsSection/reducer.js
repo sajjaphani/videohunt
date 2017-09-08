@@ -8,6 +8,16 @@ const commentsReducer = (state = fromJS(initState), action) => {
         // case ActionTypes.LOAD_VIDEOS_SUCCESS:
         // case ActionTypes.LOAD_MORE_VIDEOS_SUCCESS:
         // case ActionTypes.LOAD_SINGLE_POST_SUCCESS:
+        case ActionTypes.Fetch_COMMENT_REPLIES_SUCCESS:  
+            const { commentId, payload } = action
+            // merge all replies from payload
+            const commentsListState = state.mergeDeep(action.payload.data.comments)
+            const replies = fromJS(payload).getIn(['data', 'comments']).keySeq()
+            // concat replies in comment replies array
+            const commentsState = commentsListState.updateIn([commentId, 'replies', 'data'], list => list.concat(replies))
+            // update next page url
+            const nextUrl = fromJS(payload).getIn(['pagination', 'next'])
+            return commentsState.setIn([commentId, 'replies', 'paging', 'next'], nextUrl)      
         case ActionTypes.Fetch_POST_COMMENTS_SUCCESS:        
             return state.mergeDeep(action.payload.data.comments)
         case ActionTypes.ADD_POST_COMMENT_SUCCESS: {
@@ -32,11 +42,10 @@ const commentsReducer = (state = fromJS(initState), action) => {
             const showReplyForm = state.getIn([commentId, 'showReplyForm'])
             return state.setIn([commentId, 'showReplyForm'], !showReplyForm)
         }
-        case ActionTypes.SHOW_REPLIES_SUCCESS: {
-            const { commentId, comments } = action.payload
+        case ActionTypes.SHOW_REPLIES: {
+            const { commentId } = action.payload
             const showReplies = state.getIn([commentId, 'showReplies'])
-            const newState = state.mergeDeep(fromJS(comments))
-            return newState.setIn([commentId, 'showReplies'], showReplies ? showReplies : !showReplies)
+            return state.setIn([commentId, 'showReplies'], showReplies ? showReplies : !showReplies)
         }
         case ActionTypes.LIKE_COMMENT_SUCCESS: {
             const { commentId } = action.payload

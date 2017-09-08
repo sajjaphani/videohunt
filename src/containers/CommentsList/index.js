@@ -9,6 +9,7 @@ import CommentsList from '../../components/CommentsList'
 const mapStateToProps = (state, ownProps) => {
     return {
         postId: ownProps.postId,
+        commentId: ownProps.commentId,
         commentIds: getComments(state, ownProps),
         hasMore: hasMoreComments(state, ownProps),
         nextPageUrl: getNextPageUrl(state, ownProps)

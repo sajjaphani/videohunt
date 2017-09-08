@@ -9,3 +9,13 @@ export const loadPostComments = (postId, nextUrl) => {
         }
     }
 }
+
+export const loadCommentReplies = (commentId, nextUrl) => {
+    return {
+        type: Types.Fetch_COMMENT_REPLIES,
+        payload: {
+            commentId,
+            nextUrl
+        }
+    }
+}

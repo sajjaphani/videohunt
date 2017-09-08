@@ -6,9 +6,9 @@ import { logoutSaga, profileSaga, settingsSaga } from './containers/Header/sagas
 import { postCommentSaga, commentReplySaga } from './containers/CommentForm/sagas'
 import { likePostSaga, unlikePostSaga } from './containers/LikeButton/sagas'
 import { addNewVideoSaga } from './containers/AddPostForm/sagas'
-import {fetchCommentReplies, likeCommentSaga, unlikeCommentSaga} from './containers/Comment/sagas'
+import { likeCommentSaga, unlikeCommentSaga } from './containers/Comment/sagas'
 import { loadPostSaga } from './containers/PostWrapper/sagas'
-import {loadPostCommentsSaga} from './containers/CommentsList/sagas'
+import { loadPostCommentsSaga, loadCommentRepliesSaga } from './containers/CommentsList/sagas'
 
 export default function* rootSaga() {
     yield all([
@@ -22,10 +22,10 @@ export default function* rootSaga() {
         fork(likePostSaga),
         fork(unlikePostSaga),
         fork(addNewVideoSaga),
-        fork(fetchCommentReplies),
         fork(likeCommentSaga),
         fork(unlikeCommentSaga),
         fork(loadPostSaga),
-        fork(loadPostCommentsSaga)
+        fork(loadPostCommentsSaga),
+        fork(loadCommentRepliesSaga)
     ])
 }

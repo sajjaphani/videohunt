@@ -1,15 +1,18 @@
 import React from 'react'
 
 import Comment from '../Comment'
-import CommentContainer from '../../containers/Comment'
+import CommentsListContainer from '../../containers/CommentsList'
 import CommentFormContainer from '../../containers/CommentForm'
 
 export default class CommentItem extends React.PureComponent {
-    computeReplies = (replies) => replies.map(replyId => <CommentContainer key={replyId} commentId={replyId} />)
+
     render() {
-        const { totalReplies, commentId, isShowReplyForm, isShowReplies, replies, isLoggedIn, hasLiked } = this.props
+        const { postId, totalReplies, commentId, isShowReplyForm, isShowReplies, isLoggedIn, hasLiked } = this.props
         const { toggleReply, showReplies, toggleLike } = this.props.actions
-        const repliesList = this.computeReplies(replies)
+        let repliesList = null
+        if (showReplies) {
+            repliesList = <CommentsListContainer key={commentId} postId={postId} commentId={commentId} />
+        }
         return (
             <Comment>
                 <Comment.Avatar userPicture={this.props.userPicture} />
@@ -27,10 +30,11 @@ export default class CommentItem extends React.PureComponent {
                         totalReplies={totalReplies}
                         hidden={isShowReplies} />
                 </Comment.Content>
-                <Comment.Replies hidden={!isShowReplies}>
+                <Comment.Replies hidden={!isShowReplies || totalReplies == 0}>
                     {repliesList}
                 </Comment.Replies>
             </Comment>
         )
     }
+
 }
