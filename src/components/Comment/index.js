@@ -8,6 +8,7 @@ import Replies from './Replies'
 import RepliesSummary from './RepliesSummary'
 import Content from './Content'
 import Avatar from './Avatar'
+import ShowMoreButton from './ShowMoreButton'
 
 const CommentItem = (props) => {
     const { children } = props
@@ -25,5 +26,6 @@ CommentItem.Replies = Replies
 CommentItem.Content = Content
 CommentItem.Avatar = Avatar
 CommentItem.RepliesSummary = RepliesSummary
+CommentItem.ShowMoreButton = ShowMoreButton
 
 export default CommentItem
