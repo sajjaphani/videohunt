@@ -50,7 +50,12 @@ export const postsReducer = (state = fromJS(posts), action) => {
             const comments = fromJS(payload).getIn(['data', 'comments']).keySeq()
             const commentsState = state.updateIn([postId, 'comments', 'data'], list => list.concat(comments))
             const nextUrl = fromJS(payload).getIn(['pagination', 'next'])
-            return commentsState.setIn([postId, 'comments', 'paging', 'next'], nextUrl)
+            const pagingState = commentsState.setIn([postId, 'comments', 'paging', 'next'], nextUrl)
+            return pagingState.setIn([postId, 'comments', 'loading'], false)
+        }
+        case Types.Fetch_POST_COMMENTS:{
+            const {postId} = action.payload
+            return state.setIn([postId, 'comments', 'loading'], true)
         }
         default:
             state

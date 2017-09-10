@@ -2,7 +2,7 @@ import { LOAD_VIDEOS_SUCCESS, LOAD_MORE_VIDEOS_SUCCESS } from '../Feed/constants
 import { ADD_POST_COMMENT, ADD_POST_COMMENT_SUCCESS, ADD_COMMENT_REPLY_SUCCESS } from '../CommentForm/constants'
 import { TOGGLE_REPLY, SHOW_REPLIES, SHOW_REPLIES_SUCCESS, LIKE_COMMENT_SUCCESS, UNLIKE_COMMENT_SUCCESS } from '../Comment/constants'
 import { LOAD_SINGLE_POST_SUCCESS } from '../PostWrapper/constants'
-import { Fetch_POST_COMMENTS_SUCCESS, Fetch_COMMENT_REPLIES_SUCCESS } from '../CommentsList/constants'
+import { Fetch_POST_COMMENTS_SUCCESS, Fetch_COMMENT_REPLIES_SUCCESS, Fetch_COMMENT_REPLIES } from '../CommentsList/constants'
 
 export { 
     LOAD_VIDEOS_SUCCESS, 
@@ -15,5 +15,6 @@ export {
     UNLIKE_COMMENT_SUCCESS,
     LOAD_SINGLE_POST_SUCCESS,
     Fetch_POST_COMMENTS_SUCCESS,
-    Fetch_COMMENT_REPLIES_SUCCESS
+    Fetch_COMMENT_REPLIES_SUCCESS,
+    Fetch_COMMENT_REPLIES
 }

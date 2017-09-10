@@ -35,7 +35,7 @@ export default class CommentsList extends React.PureComponent {
     }
 
     render() {
-        const { commentIds, postId, hasMore } = this.props
+        const { commentIds, postId, hasMore, isLoading, isComment } = this.props
         const comments = this.computePostComments(commentIds, postId)
         let showMore = null
         let loader = null
@@ -45,6 +45,10 @@ export default class CommentsList extends React.PureComponent {
             // return null
             return null
         }
+
+        // if (isComment && commentIds.size == 0 && hasMore) {
+        //     return null
+        // }
 
         if (commentIds.size == 0 && hasMore) {
             // If initial comments are empty, but we have something to fetch
@@ -57,7 +61,7 @@ export default class CommentsList extends React.PureComponent {
         } else if (hasMore) {
             // If we still have more comments to fetch
             // add a show comments button
-            showMore = <Comment.ShowMoreButton showMore={this.showMoreComments} />
+            showMore = <Comment.ShowMoreButton showMore={this.showMoreComments} loading={isLoading}/>
         }
         return (
             <div>

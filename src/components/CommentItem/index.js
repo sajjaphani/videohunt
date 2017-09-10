@@ -7,10 +7,10 @@ import CommentFormContainer from '../../containers/CommentForm'
 export default class CommentItem extends React.PureComponent {
 
     render() {
-        const { postId, totalReplies, commentId, isShowReplyForm, isShowReplies, isLoggedIn, hasLiked } = this.props
+        const { postId, totalReplies, commentId, isShowReplyForm, isShowReplies, isLoggedIn, hasLiked, isRepliesLoading } = this.props
         const { toggleReply, showReplies, toggleLike } = this.props.actions
         let repliesList = null
-        if (showReplies) {
+        if (isShowReplies) {
             repliesList = <CommentsListContainer key={commentId} postId={postId} commentId={commentId} />
         }
         return (
@@ -28,6 +28,7 @@ export default class CommentItem extends React.PureComponent {
                     <Comment.RepliesSummary commentId={commentId}
                         showReplies={showReplies}
                         totalReplies={totalReplies}
+                        loading={isRepliesLoading}
                         hidden={isShowReplies} />
                 </Comment.Content>
                 <Comment.Replies hidden={!isShowReplies || totalReplies == 0}>

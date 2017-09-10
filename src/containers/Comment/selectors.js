@@ -57,6 +57,10 @@ export const getReplies = createSelector([getComment], (comment) => {
     return []
 })
 
+export const isRepliesLoading = createSelector([getComment], (comment) => (
+    comment.getIn(['replies', 'loading'])
+))
+
 export const getShowReplies = createSelector([getComment], (comment) => {
     const showReplies = comment.get('showReplies')
     return showReplies === undefined ? false : showReplies

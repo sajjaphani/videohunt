@@ -14,7 +14,7 @@ const getComment = createSelector([getCommentId, getStateComments, isComment], (
 
 const getPost = createSelector([getPostId, getPosts], (postId, posts) => (posts.get(postId)))
 
-export const getReplies = createSelector([getComment], (comment) => {
+const getReplies = createSelector([getComment], (comment) => {
     if (!comment) {
         return []
     }
@@ -25,10 +25,14 @@ export const getReplies = createSelector([getComment], (comment) => {
     return []
 })
 
+const isLoading = createSelector([getPost, getComment, isComment], (post, comment, isComment) => (
+    isComment? comment.getIn(['replies', 'loading']) : post.getIn(['comments', 'loading'])
+))
+
 const getComments = createSelector([getPost, getReplies, isComment], (post, replies, isComment) => isComment ? replies :  post.getIn(['comments', 'data']))
 
 const getNextPageUrl = createSelector([getPost, getComment, isComment], (post, comment, isComment) => isComment ? comment.getIn(['replies', 'paging', 'next']) : post.getIn(['comments', 'paging', 'next']))
 
 const hasMoreComments = createSelector([getNextPageUrl], (nextUrl) => (nextUrl ? true : false))
 
-export { getNextPageUrl, hasMoreComments, getComments }
+export { getNextPageUrl, hasMoreComments, getComments, isLoading, isComment }
