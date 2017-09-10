@@ -28,4 +28,4 @@ function sidebarSelectAction(itemType, itemName) {
 }
 
 
-export { selectSidebarItem }
+export { selectSidebarItem, sidebarSelectAction }

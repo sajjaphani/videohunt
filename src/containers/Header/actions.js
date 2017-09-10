@@ -3,12 +3,16 @@ import jwt from 'jsonwebtoken'
 
 import { loginRequest, loginSuccess, openLoginModal, closeLoginModal } from '../App/actions'
 import setAuthToken from '../../utils/setAuthToken'
+import { sidebarSelectAction } from '../Sidebar/actions'
 
 import { LOGOUT_REQUEST, PROFILE_REQUEST, SETTINGS_REQUEST } from './constants'
 
 export const changeSelection = (e, { name }) => {
     return (dispatch) => {
         dispatch(push(convertSelectionToRoute(name)))
+        if (name == 'home') {
+            dispatch(sidebarSelectAction('feed', 'All'))
+        }
     }
 }
 
