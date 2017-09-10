@@ -4,7 +4,7 @@ const getApp = state => state.app
 // Input selector
 const getFeedIds = state => state.feed
 
-const getFeedCategory = createSelector([getApp], (app) => (app.get('feed')))
+const getFeedCategory = (state, ownProps) => (ownProps.category)
 
 const getFeed = createSelector([getFeedIds, getFeedCategory], (feed, category) => {
     const feedData = feed.getIn([category,'data'])
@@ -33,4 +33,4 @@ const getPagination = createSelector([getFeedIds, getFeedCategory], (feed, categ
         return ''
 })
 
-export { getFeed, getPagination, getFeedCategory }
+export { getFeed, getPagination }

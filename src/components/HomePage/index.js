@@ -10,7 +10,7 @@ const HomePage = props => {
     const languages = ['All', 'English', 'Hindi', 'Telugu', 'Malayalam']
     const categories = ['All', 'Action', 'Comedy', 'Inspirational', 'Science', 'Short Films', 'Sports', 'Technology', 'Trailers', 'Viral']
     const category = pathToCategoryName(props.match)
-    const feedComponent = category == 'All' ? <FeedContainer /> : <CategoryFeedContainer feed={category} />
+    const feedComponent = category == 'All' ? <FeedContainer category={category} /> : <CategoryFeedContainer feed={category} />
     return (
         <Grid>
             <Grid.Row >

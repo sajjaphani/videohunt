@@ -25,7 +25,7 @@ export default class Feed extends React.PureComponent {
     }
 
     render() {
-        const dayFeedList = computeDayFeedList(this.props.feed)
+        const dayFeedList = this.computeDayFeedList()
         return (
             <div>
                 <InfiniteScroll
@@ -39,11 +39,11 @@ export default class Feed extends React.PureComponent {
             </div>
         )
     }
-}
-
-function computeDayFeedList(feed) {
-    if (feed)
-        return feed.map((feedDate) => <DayFeedContainer key={feedDate} date={feedDate} />)
-    else
-        return (<div />)
+    computeDayFeedList = () => {
+        const { feed, category } = this.props
+        if (feed)
+            return feed.map((feedDate) => <DayFeedContainer key={feedDate} date={feedDate} category={category} />)
+        else
+            return (<div />)
+    }
 }
