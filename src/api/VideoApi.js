@@ -1,4 +1,3 @@
-import sampleJson from './sample2'
 import axios from 'axios'
 
 // We may set environment variable
