@@ -8,6 +8,7 @@ import { bindActionCreators } from 'redux';
 import HeaderContainer from '../Header'
 import HomePage from '../../components/HomePage'
 import AddPostPage from '../../components/AddPostPage'
+import AddPostInfoPage from '../../components/AddPostInfoPage'
 import PostPage from '../../components/PostPage'
 import NotFoundPage from '../../components/NotFoundPage'
 import ProfilePage from '../../components/ProfilePage'
@@ -24,15 +25,16 @@ class AppContainer extends React.PureComponent {
             <div>
                 <HeaderContainer />
                 <MainContent>
-                    <SignupSection loggedIn={this.props.loggedIn} openLogin={this.props.actions.openLoginModal}/>
+                    <SignupSection loggedIn={this.props.loggedIn} openLogin={this.props.actions.openLoginModal} />
                     <ConnectedRouter history={history}>
                         <Switch>
                             <Route exact path="/" component={HomePage} />
                             <Route path="/topics/:id" component={HomePage} />
-                            <Route path="/post" component={AddPostPage} />
-                            <Route path="/posts/:id" component={PostPage} /> 
-                            <Route path="/profile" component={ProfilePage} /> 
-                            <Route path="/settings" component={SettingsPage} /> 
+                            <Route exact path="/posts/new" component={AddPostPage} />
+                            <Route path="/posts/new/info" component={AddPostInfoPage} />
+                            <Route path="/posts/:id" component={PostPage} />
+                            <Route path="/profile" component={ProfilePage} />
+                            <Route path="/settings" component={SettingsPage} />
                             <Route component={NotFoundPage} />
                         </Switch>
                     </ConnectedRouter>

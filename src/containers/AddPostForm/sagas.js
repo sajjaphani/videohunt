@@ -2,18 +2,32 @@ import { put, call, takeLatest } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
 import { push } from 'react-router-redux'
 
-import { ADD_NEW_VIDEO, ADD_NEW_VIDEO_SUCCESS } from './constants'
+import { CHECK_ADD_NEW_VIDEO, CHECK_ADD_NEW_VIDEO_SUCCESS, CHECK_ADD_NEW_VIDEO_DUPLICATE, CHECK_ADD_NEW_VIDEO_FAILURE } from './constants'
 
-import { postVideo } from '../../api/videoApi';
+import { checkPostVideo } from '../../api/videoApi';
 
-function* addNewVideoAction(action) {
-    const post = yield call(postVideo, action.payload)
-    yield put({ type: ADD_NEW_VIDEO_SUCCESS, payload: post })
-    yield put(push('/'))
+function* checkAddNewVideoAction(action) {
+    const post = yield call(checkPostVideo, action.payload)
+    console.log(post)
+    switch (post.status) {
+        case 'duplicate':
+            yield put({ type: CHECK_ADD_NEW_VIDEO_DUPLICATE, payload: post.data })
+            break;
+        case 'submitted':
+            yield put({ type: CHECK_ADD_NEW_VIDEO_SUBMITTED, payload: post.data })
+            break;
+        case 'ok':
+            yield put({ type: CHECK_ADD_NEW_VIDEO_SUCCESS, payload: post.data })
+            yield put(push('/posts/new/info'))
+            break;
+        default:
+            yield put({ type: CHECK_ADD_NEW_VIDEO_FAILURE, payload: post.data })
+            break;
+    }
 }
 
-function* addNewVideoSaga() {
-    yield takeLatest(ADD_NEW_VIDEO, addNewVideoAction)
+function* checkAddNewVideoSaga() {
+    yield takeLatest(CHECK_ADD_NEW_VIDEO, checkAddNewVideoAction)
 }
 
-export { addNewVideoSaga }
+export { checkAddNewVideoSaga }

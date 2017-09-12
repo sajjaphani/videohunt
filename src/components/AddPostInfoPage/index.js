@@ -1,11 +1,11 @@
 import React from 'react'
 import { Grid, Segment, Container } from 'semantic-ui-react'
 
-import AddPostFormContainer from '../../containers/AddPostForm'
-import AddPostHeader from './AddPostHeader'
-import AddPostHint from './AddPostHint'
+import AddPostInfoFormContainer from '../../containers/AddPostInfoForm'
+import AddPostInfoHeader from './AddPostInfoHeader'
+import AddPostInfoHint from './AddPostInfoHint'
 
-export default class AddPostPage extends React.PureComponent {
+export default class AddPostInfoPage extends React.PureComponent {
     constructor(props) {
         super(props)
         this.state = { name: '', hint: '' }
@@ -27,19 +27,18 @@ export default class AddPostPage extends React.PureComponent {
     }
 
     render() {
-        console.log('jfdkljf')
         const { name, hint } = this.state
         return (
             <Grid>
                 <Grid.Row>
-                    <AddPostHeader />
+                    <AddPostInfoHeader />
                 </Grid.Row>
                 <Grid.Row >
                     <Grid.Column mobile='sixteen' tablet='sixteen' computer='ten' largeScreen='ten' widescreen='ten'>
-                        <AddPostFormContainer updatePostHint={this.updatePostHint} />
+                        <AddPostInfoFormContainer updatePostHint={this.updatePostHint} />
                     </Grid.Column>
                     <Grid.Column verticalAlign='top' only='computer' computer='six' largeScreen='six' widescreen='six'>
-                        <AddPostHint name={name} hint={hint}/>
+                        <AddPostInfoHint name={name} hint={hint}/>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

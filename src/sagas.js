@@ -5,7 +5,8 @@ import { loadVideoSaga, loadMoreVideoSaga } from './containers/Feed/sagas'
 import { logoutSaga, profileSaga, settingsSaga } from './containers/Header/sagas'
 import { postCommentSaga, commentReplySaga } from './containers/CommentForm/sagas'
 import { likePostSaga, unlikePostSaga } from './containers/LikeButton/sagas'
-import { addNewVideoSaga } from './containers/AddPostForm/sagas'
+import { checkAddNewVideoSaga } from './containers/AddPostForm/sagas'
+import { addNewVideoSaga, redirectToFirstPageSaga } from './containers/AddPostInfoForm/sagas'
 import { likeCommentSaga, unlikeCommentSaga } from './containers/Comment/sagas'
 import { loadPostSaga } from './containers/PostWrapper/sagas'
 import { loadPostCommentsSaga, loadCommentRepliesSaga } from './containers/CommentsList/sagas'
@@ -21,6 +22,8 @@ export default function* rootSaga() {
         fork(commentReplySaga),
         fork(likePostSaga),
         fork(unlikePostSaga),
+        fork(checkAddNewVideoSaga),
+        fork(redirectToFirstPageSaga),
         fork(addNewVideoSaga),
         fork(likeCommentSaga),
         fork(unlikeCommentSaga),

@@ -6,6 +6,7 @@ import { routerReducer } from 'react-router-redux'
 import { postsReducer } from './containers/Post/reducer'
 import { userReducer } from './containers/User/reducer'
 import { commentsReducer } from './containers/CommentsSection/reducer'
+import { newPostReducer } from './containers/AddPostForm/reducer'
 
 const rootReducer = combineReducers({
     app: appReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     feed: feedReducer,
     posts: postsReducer,
     users: userReducer,
-    comments: commentsReducer
+    comments: commentsReducer,
+    newPost: newPostReducer
 });
 
 export default rootReducer

@@ -102,3 +102,12 @@ export function loadSinglePost(postId) {
             throw err;
         });
 }
+
+export function checkPostVideo(post) {
+    let postVideoUrl = '/api/v1/posts/status'
+    return axios.post(postVideoUrl, post)
+        .then(response => response.data)
+        .catch(err => {
+            throw err;
+        });
+}
