@@ -27,7 +27,6 @@ export default class AddPostPage extends React.PureComponent {
     }
 
     render() {
-        console.log('jfdkljf')
         const { name, hint } = this.state
         return (
             <Grid>

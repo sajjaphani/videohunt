@@ -54,8 +54,6 @@ export default class AddPostInfoForm extends React.PureComponent {
       return (<div />)
 
     const { url, title, synopsis, embed, subtitle } = this.state
-    // console.log('url', embed)
-    // const { synopsis, subtitle } = this.state
 
     const langOptions = [
       { key: 'english', text: 'English', value: 'english' },
