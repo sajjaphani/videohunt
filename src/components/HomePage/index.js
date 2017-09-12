@@ -7,7 +7,7 @@ import SidebarContainer from '../../containers/Sidebar'
 import SubscribeFormContainer from '../../containers/SubscribeForm'
 
 const HomePage = props => {
-    const languages = ['All', 'English', 'Hindi', 'Telugu', 'Malayalam']
+    const languages = ['All', 'English', 'Hindi', 'Bengali', 'Telugu', 'Marathi', 'Tamil', 'Urdu', 'Kannada', 'Gujarati', 'Odia', 'Malayalam', 'Sanskrit']
     const categories = ['All', 'Action', 'Comedy', 'Inspirational', 'Science', 'Short Films', 'Sports', 'Technology', 'Trailers', 'Viral']
     const category = pathToCategoryName(props.match)
     const feedComponent = category == 'All' ? <FeedContainer category={category} /> : <CategoryFeedContainer feed={category} />

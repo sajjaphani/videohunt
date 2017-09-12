@@ -58,9 +58,16 @@ export default class AddPostInfoForm extends React.PureComponent {
     const langOptions = [
       { key: 'english', text: 'English', value: 'english' },
       { key: 'hindi', text: 'Hindi', value: 'hindi' },
+      { key: 'bengali', text: 'Bengali', value: 'bengali' },
       { key: 'telugu', text: 'Telugu', value: 'telugu' },
+      { key: 'marathi', text: 'Marathi', value: 'marathi' },
       { key: 'tamil', text: 'Tamil', value: 'tamil' },
+      { key: 'urdu', text: 'Urdu', value: 'urdu' },
+      { key: 'kannada', text: 'Kannada', value: 'kannada' },
+      { key: 'gujarati', text: 'Gujarati', value: 'gujarati' },
+      { key: 'odia', text: 'Odia', value: 'odia' },
       { key: 'malayalam', text: 'Malayalam', value: 'malayalam' },
+      { key: 'sanskrit', text: 'Sanskrit', value: 'sanskrit' },
     ]
 
     const categoryOptions = [
@@ -69,9 +76,10 @@ export default class AddPostInfoForm extends React.PureComponent {
       { key: 'inspirational', text: 'Inspirational', value: 'inspirational' },
       { key: 'romance', text: 'Romance', value: 'romance' },
       { key: 'science', text: 'Science', value: 'science' },
-      { key: 'shortfilms', text: 'Short Films', value: 'shortfilms' },
+      { key: 'short-films', text: 'Short Films', value: 'short-films' },
       { key: 'sports', text: 'Sports', value: 'sports' },
       { key: 'technology', text: 'Technology', value: 'technology' },
+      { key: 'trailers', text: 'Trailers', value: 'trailers' },
       { key: 'viral', text: 'Viral', value: 'viral' },
     ]
 
