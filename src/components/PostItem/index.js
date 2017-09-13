@@ -10,12 +10,12 @@ import ShareButton from '../ShareButton'
 
 export default class PostItem extends React.PureComponent {
     render() {
-        const { title, subtitle, url, postId, expandComments } = this.props
+        const { title, author, url, category, provider, postId, expandComments } = this.props
         const postPath = '/posts/' + postId
         return (
             <Post>
                 <Link to={postPath}>
-                    <Post.Header title={title} subtitle={subtitle} />
+                    <Post.Header title={title} author={author} category={category} provider={provider} />
                 </Link>
                 <Post.Video url={url} />
                 <Post.Footer>
