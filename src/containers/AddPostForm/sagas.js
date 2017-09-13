@@ -14,8 +14,6 @@ function* checkAddNewVideoAction(action) {
             yield put({ type: CHECK_ADD_NEW_VIDEO_DUPLICATE, payload: post.data })
             break;
         case 'submitted':
-            yield put({ type: CHECK_ADD_NEW_VIDEO_SUBMITTED, payload: post.data })
-            break;
         case 'ok':
             yield put({ type: CHECK_ADD_NEW_VIDEO_SUCCESS, payload: post.data })
             yield put(push('/posts/new/info'))
