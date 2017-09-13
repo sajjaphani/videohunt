@@ -102,7 +102,7 @@ export default class AddPostInfoForm extends React.PureComponent {
               onFocus={this.handleFocus.bind(this, 'language')} onMouseOver={this.handleMouseOver.bind(this, 'language')} />
             <Form.Field control={Select} label='Category' name='category' options={categoryOptions} placeholder='Category' onChange={this.handleChange}
               onFocus={this.handleFocus.bind(this, 'category')} onMouseOver={this.handleMouseOver.bind(this, 'category')} />
-            <Form.Button content='Submit' />
+            <Form.Button color='orange' content='Submit' />
           </Form>
         </Segment>
         <Header as='h2' attached='top'>
