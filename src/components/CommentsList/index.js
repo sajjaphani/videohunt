@@ -35,7 +35,6 @@ export default class CommentsList extends React.PureComponent {
     }
 
     render() {
-        console.log('showing this component')
         const { commentIds, postId, hasMore, isLoading, isComment } = this.props
         const comments = this.computePostComments(commentIds, postId)
         let showMore = null

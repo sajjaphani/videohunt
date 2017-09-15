@@ -8,7 +8,6 @@ import { checkPostVideo } from '../../api/videoApi';
 
 function* checkAddNewVideoAction(action) {
     const post = yield call(checkPostVideo, action.payload)
-    console.log(post)
     switch (post.status) {
         case 'duplicate':
             yield put({ type: CHECK_ADD_NEW_VIDEO_DUPLICATE, payload: post.data })

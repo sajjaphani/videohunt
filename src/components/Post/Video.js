@@ -15,17 +15,11 @@ function getParameter(url, name) {
 
 const Video = props => {
     const videoId = getParameter(props.url, 'v')
-    // console.log('V=', videoId)
-    // const vidId = props.url.includes('v=') ? props.url.split('v=').pop() : ''
-    // const placeholder = 'http://img.youtube.com/vi/' + vidId + '/maxresdefault.jpg'
     let placeholder
     if(videoId == '' || videoId == null)
         placeholder = '/images/videohunt.jpg'
     else 
         placeholder = 'https://i.ytimg.com/vi/' + videoId + '/sddefault.jpg'
-    // if (videoId == '' || videoId == null)
-    //     return (<div />);
-
     return (
         <Segment attached clearing>
             <Embed

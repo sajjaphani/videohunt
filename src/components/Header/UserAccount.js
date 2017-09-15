@@ -9,7 +9,6 @@ export default class UserAccount extends React.PureComponent {
 
     handleChange = (e, { value }) => {
         e.preventDefault()
-        console.log(value)
         if (value === 'sign-out') {
             this.props.handleLogout()
         } else if (value === 'user') {

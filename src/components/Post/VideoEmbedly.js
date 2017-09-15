@@ -8,32 +8,19 @@ export default class VideoEmbedly extends React.PureComponent {
         super(props)
         const that = this
         embedly('player', function (player) {
-            {/*console.log("that ",that.props.url)
-             console.log("that ",player.url)
-             
-             console.log("is equal ",player.url === that.props.url)
-            if (player.url === that.props.url){
-                that.player = player
-                player.mute()
-            }*/}
+            
         });
     }
 
     onChange = (isVisible) => {
-        console.log(this.props.url + ' Element is now %s', isVisible ? 'visible' : 'hidden')
-        console.log(this.player)
         if (isVisible) {
             if (this.player) {
                 this.player.pause()
-            } else {
-                console.log("this is null")
-            }
+            } 
         } else {
             if (this.player) {
                 this.player.pause()
-            } else {
-                console.log("this is null")
-            }
+            } 
         }
     }
 
@@ -44,11 +31,6 @@ export default class VideoEmbedly extends React.PureComponent {
                 <a className="embedly-card" href={this.props.url}>
                 </a>
             </Segment>
-            // <div id={vidId}>
-            //     {/* <VisibilitySensor partialVisibility={true} offset={{ bottom: 300 }} onChange={this.onChange} /> */}
-            //     <a className="embedly-card" href={this.props.url}>
-            //     </a>
-            // </div>
         );
     }
 }

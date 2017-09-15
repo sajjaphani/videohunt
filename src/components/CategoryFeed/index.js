@@ -61,7 +61,6 @@ export default class CategoryFeed extends React.PureComponent {
 }
 
 function computePostList(posts) {
-    console.log('these are the posts', posts)
     if (posts)
         return posts.map((postId) => <PostContainer key={postId} postId={postId} />)
     else
