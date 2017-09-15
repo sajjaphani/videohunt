@@ -21,6 +21,11 @@ export default class CategoryFeed extends React.PureComponent {
         }
     }
 
+    componentDidUpdate() {
+        FB.XFBML.parse()
+        twttr.widgets.load()        
+    }
+    
     loadPosts = () => {
         console.log('these are the props of category', this.props)
         const { feed } = this.props

@@ -18,6 +18,7 @@ export default class AddPostInfoForm extends React.PureComponent {
 
   componentDidMount() {
     FB.XFBML.parse()
+    twttr.widgets.load()
   }
 
   handleChange = (e, { name, value }) => {

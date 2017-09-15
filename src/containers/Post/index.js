@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getPostId, getTitle, getAuthor, getURL, getCategory, getProvider } from './selectors'
+import { getPostId, getTitle, getAuthor, getURL, getCategory, getProvider, getEmbed } from './selectors'
 import PostItem from '../../components/PostItem'
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,6 +12,7 @@ const mapStateToProps = (state, ownProps) => {
         url: getURL(state, ownProps),
         category: getCategory(state, ownProps),
         provider: getProvider(state, ownProps),
+        embed: getEmbed(state, ownProps),
     }
 }
 

@@ -20,6 +20,13 @@ import { getLoggedIn } from './selectors.js'
 import * as actions from './actions.js'
 
 class AppContainer extends React.PureComponent {
+
+    componentDidUpdate() {
+        if(FB)
+            FB.XFBML.parse()
+        twttr.widgets.load()        
+    }
+
     render() {
         return (
             <div>

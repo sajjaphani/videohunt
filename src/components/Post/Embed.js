@@ -3,11 +3,13 @@ import { Segment } from 'semantic-ui-react'
 
 const Embed = props => {
     const embed = props.embed
-    if(!embed)
+    if (!embed)
         return (<div />)
+    function createMarkup() { return { __html: embed } }
+
     return (
         <Segment attached clearing>
-            <div dangerouslySetInnerHTML={{__html: embed }} />
+            <div dangerouslySetInnerHTML={createMarkup()} />
         </Segment>
     )
 }

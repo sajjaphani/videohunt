@@ -16,9 +16,11 @@ const getURL = createSelector([getPost], (post) => post.url)
 
 const getCategory = createSelector([getPost], (post) => toTitleCase(post.category))
 
-const getProvider = createSelector([getPost], (post) => toTitleCase(post.provider_name))
+const getProvider = createSelector([getPost], (post) => post.provider_name)
 
-export { getPostId, getTitle, getAuthor, getURL, getCategory, getProvider }
+const getEmbed = createSelector([getPost], (post) => post.html)
+
+export { getPostId, getTitle, getAuthor, getURL, getCategory, getProvider, getEmbed }
 
 function toTitleCase(str) {
     if (!str)

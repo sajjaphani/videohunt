@@ -24,6 +24,11 @@ export default class Feed extends React.PureComponent {
         }
     }
 
+    componentDidUpdate() {
+        FB.XFBML.parse()
+        twttr.widgets.load()        
+    }
+    
     render() {
         const dayFeedList = this.computeDayFeedList()
         return (
