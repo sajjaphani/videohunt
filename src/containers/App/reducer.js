@@ -6,8 +6,8 @@ const initState = {
     userId: '595f459865ac7f15c7a92b9d',
     loginLoading: false,
     loginModalOpen: false,
-    languages: 'All',
-    feed: 'All'
+    languages: 'all',
+    feed: 'all'
 }
 
 export const appReducer = (state = fromJS(initState), action) => {

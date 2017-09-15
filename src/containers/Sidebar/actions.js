@@ -6,7 +6,7 @@ function selectSidebarItem(itemType, itemName) {
     return function (dispatch) {
         dispatch(sidebarSelectAction(itemType, itemName))
         if (itemType == 'feed') {
-            if (itemName == 'All') {
+            if (itemName == 'all') {
                 dispatch(push('/'))
             } else {
                 dispatch(push('/topics/' + itemName))

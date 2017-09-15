@@ -8,13 +8,17 @@ export default class Sidebar extends React.PureComponent {
         this.props.actions.selectSidebarItem(categoryType, name)
     }
 
+    normalizeKey = (item) => {
+        return item.toLowerCase().replace(/ /g, "-");
+    }
+
     render() {
         const { items, title, activeItem } = this.props
         const listItems = items.map(item =>
             <List.Item
                 key={item}
-                name={item}
-                active={activeItem === item}
+                name={this.normalizeKey(item)}
+                active={activeItem === this.normalizeKey(item)}
                 onClick={this.handleItemClick}>
                 <List.Content>{item}</List.Content>
             </List.Item>

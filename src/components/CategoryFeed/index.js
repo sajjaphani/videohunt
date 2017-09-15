@@ -27,7 +27,6 @@ export default class CategoryFeed extends React.PureComponent {
     }
     
     loadPosts = () => {
-        console.log('these are the props of category', this.props)
         const { feed } = this.props
         if (this.props.postIds) {
             // if posts exist try to fetch next videos

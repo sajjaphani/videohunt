@@ -11,7 +11,7 @@ export const changeSelection = (e, { name }) => {
     return (dispatch) => {
         dispatch(push(convertSelectionToRoute(name)))
         if (name == 'home') {
-            dispatch(sidebarSelectAction('feed', 'All'))
+            dispatch(sidebarSelectAction('feed', 'all'))
         }
     }
 }

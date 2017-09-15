@@ -14,7 +14,7 @@ export const feedReducer = (state = fromJS(initialState), action) => {
             return tempState.setIn([category, 'data'], fromJS(payload.data.feed))
         case Types.LOAD_MORE_VIDEOS_SUCCESS: {
             let { category, payload } = action
-            if (category == 'All') {
+            if (category == 'all') {
                 const tempState = state.setIn([category, 'pagination'], fromJS(payload.pagination))
                 const oldFeed = state.getIn([category, 'data'])
                 const newFeed = fromJS(payload.data.feed)
@@ -30,10 +30,10 @@ export const feedReducer = (state = fromJS(initialState), action) => {
             // return state
             const post = action.payload.post
             const feedKey = action.payload.feedKey
-            if (state.getIn(['All', 'data']).has(feedKey)) {
-                return state.updateIn(['All', 'data', feedKey], list => list.push(post.id))
+            if (state.getIn(['all', 'data']).has(feedKey)) {
+                return state.updateIn(['all', 'data', feedKey], list => list.push(post.id))
             } else {
-                return state.setIn(['All', 'data', feedKey], fromJS([post.id]))
+                return state.setIn(['all', 'data', feedKey], fromJS([post.id]))
             }
         case Types.LOAD_VIDEO_BY_POST_SUCCESS:
             return action.video

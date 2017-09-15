@@ -5,7 +5,7 @@ import axios from 'axios'
 const apiBaseUrl = 'http://localhost:3000'
 
 export function getInitVideos(category) {
-    if (category == 'All') {
+    if (category == 'all') {
         return getNextVideos('/api/v1/posts')
     } else {
         return getNextVideos('/api/v1/category/' + encodeURIComponent(category.toLowerCase()))

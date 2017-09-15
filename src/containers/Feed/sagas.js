@@ -7,7 +7,7 @@ import { fromJS } from 'immutable'
 function* handleLoadVideosAction(action) {
     const { category } = action.payload
     let response = yield call(getInitVideos, category)
-    if (category != 'All') {
+    if (category != 'all') {
         // reconstruct feed part for categories
         response = reconstructFeed(response)
     }
@@ -31,7 +31,7 @@ function* loadVideoSaga() {
 function* handleLoadMoreVideosAction(action) {
     const { nextUrl, category } = action.payload
     let response = yield call(getNextVideos, nextUrl)
-    if (category != 'All') {
+    if (category != 'all') {
         response = reconstructFeed(response)
     }
     yield put({ type: LOAD_MORE_VIDEOS_SUCCESS, payload: response, category: category })
