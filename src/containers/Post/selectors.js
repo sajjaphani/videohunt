@@ -10,8 +10,19 @@ const getPost = createSelector([getPostId, getPosts], (postId, posts) => (posts.
 
 const getTitle = createSelector([getPost], (post) => post.title)
 
-const getSubtitle = createSelector([getPost], (post) => post.subtitle)
+const getAuthor = createSelector([getPost], (post) => post.author)
 
 const getURL = createSelector([getPost], (post) => post.url)
 
-export { getPostId, getTitle, getSubtitle, getURL }
+const getCategory = createSelector([getPost], (post) => toTitleCase(post.category))
+
+const getProvider = createSelector([getPost], (post) => toTitleCase(post.provider_name))
+
+export { getPostId, getTitle, getAuthor, getURL, getCategory, getProvider }
+
+function toTitleCase(str) {
+    if (!str)
+        return str
+    str = str.split("-").join(" ")
+    return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase() })
+}

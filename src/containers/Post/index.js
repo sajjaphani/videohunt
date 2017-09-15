@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getPostId, getTitle, getSubtitle, getURL } from './selectors'
+import { getPostId, getTitle, getAuthor, getURL, getCategory, getProvider } from './selectors'
 import PostItem from '../../components/PostItem'
 
 const mapStateToProps = (state, ownProps) => {
@@ -8,8 +8,10 @@ const mapStateToProps = (state, ownProps) => {
         postId: ownProps.postId,
         expandComments: ownProps.expandComments,
         title: getTitle(state, ownProps),
-        subtitle: getSubtitle(state, ownProps),
-        url: getURL(state, ownProps)
+        author: getAuthor(state, ownProps),
+        url: getURL(state, ownProps),
+        category: getCategory(state, ownProps),
+        provider: getProvider(state, ownProps),
     }
 }
 
