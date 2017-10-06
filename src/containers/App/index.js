@@ -34,7 +34,7 @@ class AppContainer extends React.PureComponent {
                 <MainContent>
                     <SignupSection loggedIn={this.props.loggedIn} openLogin={this.props.actions.openLoginModal} />
                     <ConnectedRouter history={history}>
-                        <Switch>
+                         <Switch>
                             <Route exact path="/" component={HomePage} />
                             <Route path="/topics/:id" component={HomePage} />
                             <Route exact path="/posts/new" component={AddPostPage} />
@@ -43,7 +43,7 @@ class AppContainer extends React.PureComponent {
                             <Route path="/profile" component={ProfilePage} />
                             <Route path="/settings" component={SettingsPage} />
                             <Route component={NotFoundPage} />
-                        </Switch>
+                        </Switch> 
                     </ConnectedRouter>
                 </MainContent>
             </div>
