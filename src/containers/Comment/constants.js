@@ -1,0 +1,7 @@
+export const TOGGLE_REPLY = 'Comment/TOGGLE_REPLY'
+export const SHOW_REPLIES = 'Comment/SHOW_REPLIES'
+export const SHOW_REPLIES_SUCCESS = 'Comment/SHOW_REPLIES_SUCCESS'
+export const LIKE_COMMENT = 'Comment/LIKE_COMMENT'
+export const LIKE_COMMENT_SUCCESS = 'Comment/LIKE_COMMENT_SUCCESS'
+export const UNLIKE_COMMENT = 'Comment/UNLIKE_COMMENT'
+export const UNLIKE_COMMENT_SUCCESS = 'Comment/UNLIKE_COMMENT_SUCCESS'

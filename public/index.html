@@ -9,26 +9,50 @@
     <meta name="author" content="">
     <title>Video Hunt</title>
 
-	 <link rel="shortcut icon" href="favicon.ico"></link>
-	 
     <!-- Semantic CSS -->
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"></link>
-    <link rel="stylesheet" href="/css/semantic.min.css"></link>
-
     <style type="text/css">
         body {
             background-color: #f3f3f3;
         }
     </style>
-    <!--<script async src="https://cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>-->
-    <script src="/scripts/lib/platform.js" charset="UTF-8"></script>
+    <script async src="https://cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 </head>
 
 <body>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script>
+        window.twttr = (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+
+            t._e = [];
+            t.ready = function (f) {
+                t._e.push(f);
+            };
+
+            return t;
+        }(document, "script", "twitter-wjs"));
+    </script>
     <div class="layout">
     </div>
-    <div id="app"></div>
-    <script src="/js/bundle.min.js"></script>
+    <div id="root"></div>
+    <script src="/client.min.js"></script>
+    <!-- <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
 </body>
 
 </html>
