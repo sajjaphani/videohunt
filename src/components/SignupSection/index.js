@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Divider, Header, Grid, Button, Image, Embed } from 'semantic-ui-react'
+import { Segment, Divider, Header, Grid, Button, Embed } from 'semantic-ui-react'
 
 const SignupSection = (props) => {
     if (props.loggedIn) {

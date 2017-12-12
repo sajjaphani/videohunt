@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Image, Container, Item, Segment } from 'semantic-ui-react'
+import { Header, Container, Item, Segment } from 'semantic-ui-react'
 
 export default class MorePostsInfo extends React.PureComponent {
 

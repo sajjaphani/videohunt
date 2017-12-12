@@ -2,7 +2,6 @@ import { applyMiddleware, createStore, compose } from "redux"
 import createHistory from 'history/createBrowserHistory'
 import thunk from "redux-thunk"
 import logger from "redux-logger"
-import promise from "redux-promise-middleware"
 import { routerMiddleware } from 'react-router-redux'
 import createSagaMiddleware from 'redux-saga'
 

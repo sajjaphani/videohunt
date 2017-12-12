@@ -1,6 +1,6 @@
-import { put, takeLatest, fork, call } from 'redux-saga/effects'
+import { put, takeLatest, call } from 'redux-saga/effects'
 
-import { LIKE_COMMENT, LIKE_COMMENT_SUCCESS, UNLIKE_COMMENT, UNLIKE_COMMENT_SUCCESS, SHOW_REPLIES, SHOW_REPLIES_SUCCESS } from './constants'
+import { LIKE_COMMENT, LIKE_COMMENT_SUCCESS, UNLIKE_COMMENT, UNLIKE_COMMENT_SUCCESS } from './constants'
 
 import { toggleCommentLike } from '../../api/VideoApi'
 

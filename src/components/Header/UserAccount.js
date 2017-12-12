@@ -22,13 +22,7 @@ export default class UserAccount extends React.PureComponent {
         const trigger = (
             <User userId={this.props.userId} imageUrl={this.props.imageUrl} />
         )
-        const options = [
-            { key: 'user', text: 'Profile', icon: 'user', value: 'user' },
-            { key: 'settings', text: 'Settings', icon: 'settings', value: 'settings' },
-            { key: 'sign-out', text: 'Sign Out', icon: 'sign out', value: 'sign-out' },
-        ]
         return (
-            // <Dropdown trigger={trigger} floating defaultValue='' options={options} pointing='top right' icon={null} onChange={this.handleChange} />
             <Dropdown trigger={trigger} icon={null} pointing='top right'>
                 <Dropdown.Menu>
                     <Dropdown.Item text='Profile' icon='user' onClick={this.handleChange} value='user' />

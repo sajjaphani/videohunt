@@ -1,4 +1,3 @@
-import React from 'react'
 import { connect } from 'react-redux'
 import { getUserName, getUserPicture } from './selectors'
 import User from '../../components/User'

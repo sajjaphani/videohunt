@@ -1,9 +1,6 @@
 import React from 'react'
-import { Menu, Container, Button, Divider } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
+import { Menu, Container } from 'semantic-ui-react'
 
-import LoginModal from './LoginModal'
-import UserAccount from './UserAccount'
 import Logo from './Logo'
 import Title from './Title'
 import AddPost from './AddPost'

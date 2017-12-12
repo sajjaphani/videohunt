@@ -1,9 +1,7 @@
 import React from 'react'
 
 import Comment from '../Comment'
-import CommentContainer from '../../containers/Comment'
 import CommentFormContainer from '../../containers/CommentForm'
-
 import CommentsListContainer from '../../containers/CommentsList'
 
 export default class CommentsSection extends React.PureComponent {

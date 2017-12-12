@@ -58,7 +58,7 @@ export const postsReducer = (state = fromJS(posts), action) => {
             return state.setIn([postId, 'comments', 'loading'], true)
         }
         default:
-            state
+            return state
     }
-    return state
+    
 }

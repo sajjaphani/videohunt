@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Button, Header, Container, Divider, Segment, Icon, Loader, Image, Dimmer } from 'semantic-ui-react'
+import { Modal, Button, Divider, Segment, Icon } from 'semantic-ui-react'
 
 const LoginModal = props => {
     const onClose = (e, data) => {

@@ -18,11 +18,11 @@ export default class PostItem extends React.PureComponent {
                     <Post.Header title={title} author={author} category={category} provider={provider} />
                 </Link>
                 {/* TODO, we need to remove the Post.Video once we push only embed data */}
-                {/* {embed &&
+                {embed &&
                     <Post.Embed embed={embed} />
-                } */}
+                }
                 {
-                    <Post.VideoEmbedly url={url} />
+                    <Post.Video url={url} />
                 }
                 <Post.Footer>
                     <LikeButtonContainer postId={postId} />

@@ -1,6 +1,5 @@
-import React from 'react'
 import { connect } from 'react-redux'
-import { getPostId, getTitle, getAuthor, getURL, getCategory, getProvider, getEmbed } from './selectors'
+import { getTitle, getAuthor, getURL, getCategory, getProvider, getEmbed } from './selectors'
 import PostItem from '../../components/PostItem'
 
 const mapStateToProps = (state, ownProps) => {

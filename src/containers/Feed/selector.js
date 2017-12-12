@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect'
 
-const getApp = state => state.app
 // Input selector
 const getFeedIds = state => state.feed
 
@@ -16,7 +15,7 @@ const getFeed = createSelector([getFeedIds, getFeedCategory], (feed, category) =
                 return 1
             } else if (dateA > dateB) {
                 return -1
-            } else if (dateA == dateB) {
+            } else /*if (dateA == dateB)*/ {
                 return 0
             }
         })

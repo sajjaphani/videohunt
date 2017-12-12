@@ -10,7 +10,7 @@ import { LOGOUT_REQUEST, PROFILE_REQUEST, SETTINGS_REQUEST } from './constants'
 export const changeSelection = (e, { name }) => {
     return (dispatch) => {
         dispatch(push(convertSelectionToRoute(name)))
-        if (name == 'home') {
+        if (name === 'home') {
             dispatch(sidebarSelectAction('feed', 'all'))
         }
     }
@@ -19,7 +19,7 @@ export const changeSelection = (e, { name }) => {
 const convertSelectionToRoute = (name) => {
     let route = ''
     if (name === 'post') {
-        route = '/' + 'posts/new'
+        route = '/posts/new'
     } else if (name === 'home') {
         route = '/'
     }

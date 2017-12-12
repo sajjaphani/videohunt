@@ -12,8 +12,9 @@ const userReducer = (state = fromJS({}), action) => {
             return state.mergeDeep(action.payload.data.users)
         case ActionTypes.LOGIN_SUCCESS:
             return state.set(action.payload.id, fromJS(action.payload))
+        default:
+            return state
     }
-    return state
 }
 
 export { userReducer }

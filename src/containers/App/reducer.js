@@ -25,7 +25,8 @@ export const appReducer = (state = fromJS(initState), action) => {
             return state.set('loginModalOpen', true)
         case ActionTypes.LOGIN_MODAL_CLOSE:
             return state.set('loginModalOpen', false)
+        default:
+            return state
     }
-    return state
 }
 

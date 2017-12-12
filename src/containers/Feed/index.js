@@ -1,5 +1,3 @@
-import React from 'react'
-import { Header, Segment, Divider, Button, Icon } from 'semantic-ui-react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 

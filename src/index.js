@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import jwt from 'jsonwebtoken'
 
 import AppContainer from './containers/App'
 import { store } from './store';
 import setAuthToken from './utils/setAuthToken'
-import {loginSuccess} from './containers/App/actions'
 import registerServiceWorker from './registerServiceWorker';
 
 if (localStorage.jwtToken) {

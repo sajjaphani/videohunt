@@ -4,11 +4,11 @@ import moment from 'moment'
 import Emojify from 'react-emojione'
 
 const Content = (props) => {
-    const { userName, commentText, commentedOn, userPicture, children, totalLikes } = props
+    const { userName, commentText, commentedOn, children, totalLikes } = props
     let likeText = ''
     if (totalLikes > 0) {
         const countText = '. '+ totalLikes
-        likeText = totalLikes == 1 ?  countText + ' like' : countText + ' likes'
+        likeText = totalLikes === 1 ?  countText + ' like' : countText + ' likes'
     }
     return (
             <Comment.Content>

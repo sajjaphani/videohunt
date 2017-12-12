@@ -1,11 +1,5 @@
 import React from 'react'
 import { Menu } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
-
-const plusStyle = {
-    "letterSpacing": "2px",
-    marginTop: "5px"
-}
 
 const AddPost = props => {
     const { isLoggedIn, activeSelection, changeSelection } = props
@@ -15,7 +9,7 @@ const AddPost = props => {
                 active={activeSelection === 'post'}
                 onClick={changeSelection}
                 position='right'>
-                    <div> &#x2795; </div>
+                    <span role="img" aria-label="Add post"> &#x2795; </span>
             </Menu.Item>
         )
     } else {

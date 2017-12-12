@@ -14,7 +14,7 @@ export const feedReducer = (state = fromJS(initialState), action) => {
             return tempState.setIn([category, 'data'], fromJS(payload.data.feed))
         case Types.LOAD_MORE_VIDEOS_SUCCESS: {
             let { category, payload } = action
-            if (category == 'all') {
+            if (category === 'all') {
                 const tempState = state.setIn([category, 'pagination'], fromJS(payload.pagination))
                 const oldFeed = state.getIn([category, 'data'])
                 const newFeed = fromJS(payload.data.feed)

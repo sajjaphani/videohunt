@@ -12,7 +12,7 @@ export default class RepliesSummary extends React.PureComponent {
         const { hidden, totalReplies, loading } = this.props
         const replyStr = totalReplies > 1 ? ' Replies...' : ' Reply...'
         const summary = totalReplies + replyStr
-        if (hidden || totalReplies == 0) {
+        if (hidden || totalReplies === 0) {
             return null
         }
         return (

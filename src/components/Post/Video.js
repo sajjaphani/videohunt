@@ -2,6 +2,7 @@ import React from 'react'
 import { Embed, Segment } from 'semantic-ui-react'
 
 function getParameter(url, name) {
+    // eslint-disable-next-line
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
@@ -16,7 +17,7 @@ function getParameter(url, name) {
 const Video = props => {
     const videoId = getParameter(props.url, 'v')
     let placeholder
-    if(videoId == '' || videoId == null)
+    if(videoId === '' || videoId == null)
         placeholder = '/images/videohunt.jpg'
     else 
         placeholder = 'https://i.ytimg.com/vi/' + videoId + '/sddefault.jpg'

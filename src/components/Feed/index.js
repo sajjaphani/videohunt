@@ -13,7 +13,7 @@ export default class Feed extends React.PureComponent {
 
     loadPosts = () => {
         const { category } = this.props
-        if (this.props.feed.length == 0) {
+        if (this.props.feed.length === 0) {
             this.props.actions.loadVideos(category);
         } else {
             if (this.props.nextPage) {

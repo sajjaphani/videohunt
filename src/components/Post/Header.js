@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Divider, Segment, Grid, Icon, Menu, Button } from 'semantic-ui-react'
+import { Header, Segment, Icon } from 'semantic-ui-react'
 
 const PostHeader = props => {
     let icon

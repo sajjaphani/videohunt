@@ -1,7 +1,6 @@
-import { put, takeLatest, fork, call } from 'redux-saga/effects'
-import { delay } from 'redux-saga'
+import { put, takeLatest } from 'redux-saga/effects'
 
-import { LOAD_VIDEOS, LOAD_VIDEOS_SUCCESS, LOGOUT_REQUEST, LOGOUT_SUCCESS, PROFILE_REQUEST, PROFILE_SUCCESS, SETTINGS_REQUEST, SETTINGS_SUCCESS } from './constants'
+import { LOGOUT_REQUEST, LOGOUT_SUCCESS, PROFILE_REQUEST, PROFILE_SUCCESS, SETTINGS_REQUEST, SETTINGS_SUCCESS } from './constants'
 
 import { push } from 'react-router-redux'
 

@@ -1,16 +1,8 @@
 import React from 'react'
-import { Embed, Segment } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 // import VisibilitySensor from 'react-visibility-sensor'
 
 export default class VideoEmbedly extends React.PureComponent {
-
-    constructor(props) {
-        super(props)
-        const that = this
-        // embedly('player', function (player) {
-            
-        // });
-    }
 
     onChange = (isVisible) => {
         if (isVisible) {

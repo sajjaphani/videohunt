@@ -1,7 +1,5 @@
 import React from 'react';
-import { Header, Button, Label, Checkbox, Form, Container, Segment, Select, Message } from 'semantic-ui-react'
-
-import Post from '../Post'
+import { Header, Form, Container, Segment, Message } from 'semantic-ui-react'
 
 export default class AddPostForm extends React.PureComponent {
 

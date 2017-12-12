@@ -1,5 +1,4 @@
-import { put, takeLatest, fork, call } from 'redux-saga/effects'
-import { delay } from 'redux-saga'
+import { put, takeLatest, call } from 'redux-saga/effects'
 
 import * as Types from './constants'
 

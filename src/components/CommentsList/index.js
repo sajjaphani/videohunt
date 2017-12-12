@@ -1,9 +1,8 @@
 import React from 'react'
-import { Segment, Dimmer, Loader, Button } from 'semantic-ui-react'
+import { Dimmer, Loader } from 'semantic-ui-react'
 
 import Comment from '../Comment'
 import CommentContainer from '../../containers/Comment'
-import CommentFormContainer from '../../containers/CommentForm'
 
 export default class CommentsList extends React.PureComponent {
 
@@ -40,17 +39,17 @@ export default class CommentsList extends React.PureComponent {
         let showMore = null
         let loader = null
 
-        if (commentIds.size == 0 && !hasMore) {
+        if (commentIds.size === 0 && !hasMore) {
             // If there are no comments to show and no more elements to fetch
             // return null
             return null
         }
 
-        if (isComment && commentIds.size == 0 && hasMore) {
+        if (isComment && commentIds.size === 0 && hasMore) {
             return null
         }
 
-        if (commentIds.size == 0 && hasMore) {
+        if (commentIds.size === 0 && hasMore) {
             // If initial comments are empty, but we have something to fetch
             // then show loading
             loader = (

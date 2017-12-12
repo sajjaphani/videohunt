@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Button, Label, Checkbox, Form, Container, Segment, Select } from 'semantic-ui-react'
+import { Header, Button, Label, Container, Segment } from 'semantic-ui-react'
 
 export default class SettingsForm extends React.PureComponent {
 

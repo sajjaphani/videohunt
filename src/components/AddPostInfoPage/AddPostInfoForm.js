@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Button, Label, Checkbox, Form, Container, Segment, Select } from 'semantic-ui-react'
+import { Header, Form, Container, Segment, Select } from 'semantic-ui-react'
 
 import Post from '../Post'
 
@@ -35,8 +35,6 @@ export default class AddPostInfoForm extends React.PureComponent {
 
   handleSubmit = e => {
     e.preventDefault()
-    const date = new Date()
-    const postId = date.toDateString()
     const { url, title, subtitle, synopsis, language, category } = this.state
     const post = {
       url: url,

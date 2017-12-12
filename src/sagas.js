@@ -1,6 +1,5 @@
 import { fork, all } from 'redux-saga/effects'
 
-import { loginSaga } from './containers/App/sagas'
 import { loadVideoSaga, loadMoreVideoSaga } from './containers/Feed/sagas'
 import { logoutSaga, profileSaga, settingsSaga } from './containers/Header/sagas'
 import { postCommentSaga, commentReplySaga } from './containers/CommentForm/sagas'

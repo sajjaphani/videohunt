@@ -4,8 +4,6 @@ const getCommentId = (state, ownProps) => (ownProps.commentId)
 
 const getComments = (state) => state.comments
 
-const getUserId = (state) => state.app.userId
-
 export const isLoggedIn = (state) => state.app.get('loggedIn')
 
 const getComment = createSelector([getCommentId, getComments], (commentId, comments) => {
@@ -83,9 +81,9 @@ const getUserPicture = createSelector([getCommentUser], (user) => {
     } else {
         const profileId = user.get('profileId')
         const provider = user.get('provider')
-        if (provider == 'facebook') {
+        if (provider === 'facebook') {
             return 'http://graph.facebook.com/' + profileId + '/picture?type=square'
-        } else if (provider == 'google') {
+        } else if (provider === 'google') {
             return '/images/man1.png'
         }
         return '/images/man1.png'

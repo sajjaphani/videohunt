@@ -1,5 +1,5 @@
 import React from 'react'
-import { Divider, Segment } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 
 const Footer = (props) => (
     <Segment attached>

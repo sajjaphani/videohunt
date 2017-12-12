@@ -31,7 +31,7 @@ export default class CommentItem extends React.PureComponent {
                         loading={isRepliesLoading}
                         hidden={isShowReplies && replies.length > 0} />
                 </Comment.Content>
-                <Comment.Replies hidden={!isShowReplies || totalReplies == 0}>
+                <Comment.Replies hidden={!isShowReplies || totalReplies === 0}>
                     {repliesList}
                 </Comment.Replies>
             </Comment>

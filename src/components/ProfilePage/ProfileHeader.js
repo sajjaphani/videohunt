@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Label, Button, Checkbox, Form, Container, Segment, Select } from 'semantic-ui-react'
+import { Header, Container, Segment } from 'semantic-ui-react'
 
 export default class ProfileHeader extends React.PureComponent {
 

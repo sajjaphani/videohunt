@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Dimmer, Loader, Container } from 'semantic-ui-react'
+import { Dimmer, Loader, Container } from 'semantic-ui-react'
 
 import Post from '../Post'
 import WatchListButton from '../WatchListButton'

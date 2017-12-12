@@ -1,5 +1,4 @@
-import { put, takeLatest, fork, call } from 'redux-saga/effects'
-import { delay } from 'redux-saga'
+import { put, takeLatest, call } from 'redux-saga/effects'
 
 import { ADD_POST_COMMENT, ADD_POST_COMMENT_SUCCESS, ADD_COMMENT_REPLY, ADD_COMMENT_REPLY_SUCCESS } from './constants'
 
