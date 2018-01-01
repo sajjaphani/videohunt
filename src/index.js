@@ -1,23 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
 import jwt from 'jsonwebtoken'
 
-import AppContainer from './containers/App'
+import Root from './components/Root'
 import { store } from './store';
-import setAuthToken from './utils/setAuthToken'
-import {loginSuccess} from './containers/App/actions'
+import { setAuthToken } from './utils/Headers'
+import { loginSuccess } from './containers/App/actions'
+import { getSerializedToken } from './utils/localStorage'
 
-if (localStorage.jwtToken) {
-  setAuthToken(localStorage.jwtToken)
-  const user = jwt.decode(localStorage.jwtToken)
-  store.dispatch(loginSuccess(user))
-}
+initAuthToken();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <AppContainer />
-  </Provider>
+  <Root store={store}/>
   ,
   document.getElementById('app')
 );
+
+function initAuthToken() {
+  const jwtToken = getSerializedToken();
+  if (jwtToken) {
+    setAuthToken(jwtToken)
+    const user = jwt.decode(jwtToken)
+    store.dispatch(loginSuccess(user))
+  }
+}

@@ -2,9 +2,9 @@ import { push } from 'react-router-redux'
 import jwt from 'jsonwebtoken'
 
 import { loginRequest, loginSuccess, openLoginModal, closeLoginModal } from '../App/actions'
-import setAuthToken from '../../utils/setAuthToken'
+import { setAuthToken } from '../../utils/Headers'
 import { sidebarSelectAction } from '../Sidebar/actions'
-
+import { serializeToken } from '../../utils/localStorage'
 import { LOGOUT_REQUEST, PROFILE_REQUEST, SETTINGS_REQUEST } from './constants'
 
 export const changeSelection = (e, { name }) => {
@@ -26,31 +26,26 @@ const convertSelectionToRoute = (name) => {
     return route
 }
 
+function authenticate(dispatch, provider) {
+    function receiveMessage(event) {
+        if (event.origin === "http://localhost:3000") {
+            const token = event.data
+            serializeToken(token)
+            setAuthToken(token)
+            const user = jwt.decode(token)
+            dispatch(loginSuccess(user))
+            dispatch(closeLoginModal)
+            window.location.reload()
+        }
+    }
+    window.open('/api/v1/authentication/' + provider);
+    window.addEventListener("message", receiveMessage, false);
+}
+
 export const handleLogin = (e, { name }) => {
     return (dispatch) => {
         dispatch(loginRequest())
-        function authenticate(provider) {
-
-            function receiveMessage(event) {
-                // Do we trust the sender of this message?  (might be
-                // different from what we originally opened, for example).
-
-                if (event.origin === "http://localhost:3000") {
-                    const token = event.data
-                    localStorage.setItem('jwtToken', token)
-                    setAuthToken(token)
-                    const user = jwt.decode(token)
-                    dispatch(loginSuccess(user))
-                    dispatch(closeLoginModal)
-                    window.location.reload()
-                }
-
-            }
-
-            window.open('/api/v1/authentication/' + provider);
-            window.addEventListener("message", receiveMessage, false);
-        }
-        authenticate(name)
+        authenticate(dispatch, name)
     }
 }
 

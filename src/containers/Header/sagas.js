@@ -1,12 +1,13 @@
 import { put, takeLatest, fork, call } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
-
-import { LOAD_VIDEOS, LOAD_VIDEOS_SUCCESS, LOGOUT_REQUEST, LOGOUT_SUCCESS, PROFILE_REQUEST, PROFILE_SUCCESS, SETTINGS_REQUEST, SETTINGS_SUCCESS } from './constants'
-
 import { push } from 'react-router-redux'
 
+import { removeToken } from '../../utils/localStorage'
+import { LOAD_VIDEOS, LOAD_VIDEOS_SUCCESS, LOGOUT_REQUEST, LOGOUT_SUCCESS, PROFILE_REQUEST, PROFILE_SUCCESS, SETTINGS_REQUEST, SETTINGS_SUCCESS } from './constants'
+
+
 function* handleLogoutAction() {
-    localStorage.removeItem('jwtToken')
+    removeToken()
     yield put(push('/'))
     yield put({ type: LOGOUT_SUCCESS })
     window.location.reload()

@@ -27,10 +27,10 @@ export default class VideoEmbedly extends React.PureComponent {
     render() {
         const vidId = this.props.url.split('v=').pop();
         return (
-            <Segment attached clearing>
+            <Segment vertical>
                 <a className="embedly-card" href={this.props.url}>
                 </a>
-            </Segment>
+             </Segment>
         );
     }
 }
