@@ -14,7 +14,8 @@ export function getInitVideos(category) {
 
 export function getNextVideos(nextUrl) {
     const index = nextUrl.lastIndexOf(apiBaseUrl)
-    let url = index > -1 ? nextUrl.substring(index + apiBaseUrl.length) : nextUrl
+    let url = index > -1 ? nextUrl.substring(index + apiBaseUrl.length) : nextUrl;
+
     return axios.get(url)
         .then(response => response.data)
         .catch(err => {

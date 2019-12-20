@@ -11,7 +11,7 @@ var proxy = require('express-http-proxy');
 
 app.use(express.static(DIST_DIR));
 
-app.use('/api/', proxy('localhost:3000', {
+app.use('/api/', proxy('localhost:8811', {
   proxyReqPathResolver: function (req) {
     return require('url').parse('/api' + req.url).path;
   }

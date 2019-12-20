@@ -3,6 +3,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 
 import DayFeedContainer from '../../containers/DayFeed'
 import DummyPost from '../DummyPost'
+import EmptyFeed from '../EmptyFeed';
 
 export default class Feed extends React.PureComponent {
 
@@ -13,7 +14,10 @@ export default class Feed extends React.PureComponent {
 
     loadPosts = () => {
         const { category } = this.props
+        console.log('Feed Props', this.props);
         if (this.props.feed.length === 0) {
+            console.log('no more feed')
+            this.setState({ hasMore: false })
             this.props.actions.loadVideos(category);
         } else {
             if (this.props.nextPage) {
@@ -44,10 +48,11 @@ export default class Feed extends React.PureComponent {
         )
     }
     computeDayFeedList = () => {
+        console.log('Here', this.props)
         const { feed, category } = this.props
-        if (feed)
+        if (feed && feed.length > 0)
             return feed.map((feedDate) => <DayFeedContainer key={feedDate} date={feedDate} category={category} />)
         else
-            return (<div />)
+            return (<EmptyFeed />)
     }
 }
