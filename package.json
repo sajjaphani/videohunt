@@ -73,5 +73,10 @@
     "eject": "react-scripts eject",
     "start:prod": "node server.js"
   },
-  "proxy": "http://localhost:8811/"
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:8811",
+      "secure": false
+    }
+  }
 }

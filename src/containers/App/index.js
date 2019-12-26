@@ -13,7 +13,7 @@ import PostPage from '../../components/PostPage'
 import NotFoundPage from '../../components/NotFoundPage'
 import ProfilePage from '../../components/ProfilePage'
 import SettingsPage from '../../components/SettingsPage'
-
+import ActivateAccount from '../../components/ActivateAccount'
 import MainContent from '../../components/MainContent'
 import SignupSection from '../../components/SignupSection'
 import { getLoggedIn } from './selectors.js'
@@ -22,7 +22,7 @@ import * as actions from './actions.js'
 class AppContainer extends React.PureComponent {
 
     componentDidUpdate() {
-             
+
     }
 
     render() {
@@ -32,7 +32,7 @@ class AppContainer extends React.PureComponent {
                 <MainContent>
                     <SignupSection loggedIn={this.props.loggedIn} openLogin={this.props.actions.openLoginModal} />
                     <ConnectedRouter history={history}>
-                         <Switch>
+                        <Switch>
                             <Route exact path="/" component={HomePage} />
                             <Route path="/topics/:id" component={HomePage} />
                             <Route exact path="/posts/new" component={AddPostPage} />
@@ -40,8 +40,9 @@ class AppContainer extends React.PureComponent {
                             <Route path="/posts/:id" component={PostPage} />
                             <Route path="/profile" component={ProfilePage} />
                             <Route path="/settings" component={SettingsPage} />
+                            <Route path="/login/success" component={ActivateAccount} />
                             <Route component={NotFoundPage} />
-                        </Switch> 
+                        </Switch>
                     </ConnectedRouter>
                 </MainContent>
             </div>
