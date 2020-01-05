@@ -11,19 +11,22 @@ import ShareButton from '../ShareButton'
 export default class PostItem extends React.PureComponent {
     render() {
         const { title, author, url, embed, category, provider, postId, expandComments } = this.props
-        const postPath = '/posts/' + postId
+        const postPath = '/posts/' + postId;
+
+        let videoEmbed;
+        if (embed) {
+            videoEmbed = <Post.Embed embed={embed} />;
+        } else {
+            videoEmbed = <Post.Video url={url} />;
+        }
+
         return (
             <Post>
                 <Link to={postPath}>
                     <Post.Header title={title} author={author} category={category} provider={provider} />
                 </Link>
                 {/* TODO, we need to remove the Post.Video once we push only embed data */}
-                {embed &&
-                    <Post.Embed embed={embed} />
-                }
-                {
-                    <Post.Video url={url} />
-                }
+                {videoEmbed}
                 <Post.Footer>
                     <LikeButtonContainer postId={postId} />
                     <CommentButtonContainer postId={postId} />

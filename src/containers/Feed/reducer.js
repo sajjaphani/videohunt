@@ -23,14 +23,14 @@ export const feedReducer = (state = fromJS(initialState), action) => {
                 const tempState = state.setIn([category, 'pagination'], fromJS(payload.pagination))
                 const oldFeed = state.getIn([category, 'data', 'postIds'])
                 const newFeed = fromJS(payload.data.feed.postIds)
-                return tempState.setIn([category, 'data','postIds'], oldFeed.concat(newFeed))
+                return tempState.setIn([category, 'data', 'postIds'], oldFeed.concat(newFeed))
             }
         }
         case Types.ADD_NEW_VIDEO_SUCCESS:
             // return state
             const post = action.payload.post
             const feedKey = action.payload.feedKey
-            if (state.getIn(['all', 'data']).has(feedKey)) {
+            if (state.getIn(['all', 'data', feedKey])) {
                 return state.updateIn(['all', 'data', feedKey], list => list.push(post.id))
             } else {
                 return state.setIn(['all', 'data', feedKey], fromJS([post.id]))

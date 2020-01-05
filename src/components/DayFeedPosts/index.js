@@ -1,4 +1,5 @@
 import React from 'react'
+
 import DayFeed from '../DayFeed'
 import PostContainer from '../../containers/Post'
 
@@ -19,6 +20,7 @@ const computePostsList = (postIds) => {
         return (
             <PostContainer key={postId} postId={postId} />
         )
-    })
-    return postItems
+    });
+
+    return postItems;
 }

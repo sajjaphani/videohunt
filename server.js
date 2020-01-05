@@ -13,7 +13,10 @@ app.use(express.static(DIST_DIR));
 
 app.use('/api/', proxy('localhost:8811', {
   proxyReqPathResolver: function (req) {
-    return require('url').parse('/api' + req.url).path;
+    var parts = req.url.split('?');
+    var queryString = parts[1];
+    var updatedPath = parts[0];
+    return updatedPath + (queryString ? '?' + queryString : '');
   }
 }));
 

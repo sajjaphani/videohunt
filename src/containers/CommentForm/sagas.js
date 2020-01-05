@@ -5,7 +5,7 @@ import { ADD_POST_COMMENT, ADD_POST_COMMENT_SUCCESS, ADD_COMMENT_REPLY, ADD_COMM
 import { postComment, postReply } from '../../api/VideoApi'
 
 function* handlePostCommentAction(action) {
-    const comment = yield call(postComment, action.comment.postId, action.comment.text)
+    const comment = yield call(postComment, action.comment.postId, action.comment.text);
     yield put({ type: ADD_POST_COMMENT_SUCCESS, payload: comment })
 }
 

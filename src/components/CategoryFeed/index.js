@@ -29,7 +29,6 @@ export default class CategoryFeed extends React.PureComponent {
     }
 
     loadPosts = () => {
-        console.log('P here', this.props);
         const { feed } = this.props
         if (this.props.postIds) {
             // if posts exist try to fetch next videos
@@ -64,7 +63,6 @@ export default class CategoryFeed extends React.PureComponent {
 }
 
 function computePostList(posts) {
-    console.log('Posts', posts);
     if (posts && posts.length > 0)
         return posts.map((postId) => <PostContainer key={postId} postId={postId} />)
     else

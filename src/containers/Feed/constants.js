@@ -1,4 +1,4 @@
-import { ADD_NEW_VIDEO, ADD_NEW_VIDEO_SUCCESS } from '../AddPostForm/constants'
+import { ADD_NEW_VIDEO, ADD_NEW_VIDEO_SUCCESS } from '../AddPostInfoForm/constants'
 
 export const LOAD_VIDEOS = 'Feed/LOAD_VIDEOS';  
 
