@@ -21,6 +21,7 @@ app.use('/api/', proxy('localhost:8811', {
 }));
 
 app.get("*", function (req, res) {
+  res.setHeader("Set-Cookie", "HttpOnly; Secure; SameSite=None");
   res.sendFile(path.join(DIST_DIR, "index.html"));
 });
 

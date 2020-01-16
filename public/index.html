@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
+    <title>VideoHunt</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Discover Awesome Videos Everyday">
-    <meta name="author" content="">
-    <title>VideoHunt</title>
+    <meta name="keywords" content="videohunt,video,video aggregation" />
 
     <!-- Semantic CSS -->
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
@@ -22,16 +22,39 @@
 
 <body>
     <div id="fb-root"></div>
-    <script>
+    <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    <script>window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v3.2'
+            });
+        }; (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '619175788827743',
+                cookie: true,
+                xfbml: true,
+                version: 'v5.0'
+            });
+            FB.AppEvents.logPageView();
+        };
+
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
+            if (d.getElementById(id)) { return; }
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <script>
+    </script> -->
+    <!-- <script>
         window.twttr = (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0],
                 t = window.twttr || {};
@@ -48,7 +71,7 @@
 
             return t;
         }(document, "script", "twitter-wjs"));
-    </script>
+    </script> -->
     <div class="layout">
     </div>
     <div id="root"></div>

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import jwt from 'jsonwebtoken'
 
-import AppContainer from './containers/App'
+import App from './containers/App'
 import { store } from './store';
 import setAuthToken from './utils/setAuthToken'
 import registerServiceWorker from './registerServiceWorker';
@@ -17,9 +17,8 @@ if (localStorage.jwtToken) {
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppContainer />
-  </Provider>
-  ,
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
 
