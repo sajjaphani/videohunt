@@ -4,6 +4,9 @@ import InfiniteScroll from 'react-infinite-scroller';
 
 import PostContainer from '../../containers/Post'
 import DummyPost from '../DummyPost'
+import EmptyFeed from '../EmptyFeed';
+
+import getDisplayName from '../../utils/feed-to-name'
 
 export default class CategoryFeed extends React.PureComponent {
 
@@ -22,9 +25,9 @@ export default class CategoryFeed extends React.PureComponent {
     }
 
     componentDidUpdate() {
-             
+
     }
-    
+
     loadPosts = () => {
         const { feed } = this.props
         if (this.props.postIds) {
@@ -45,7 +48,7 @@ export default class CategoryFeed extends React.PureComponent {
         const postList = computePostList(postIds)
         return (
             <div>
-                 <Header as='h2' attached='top' color='grey'>{feed}</Header>
+                <Header as='h2' attached='top' color='grey'>{getDisplayName(feed)}</Header>
                 <InfiniteScroll
                     pageStart={0}
                     loadMore={this.loadPosts}
@@ -60,8 +63,8 @@ export default class CategoryFeed extends React.PureComponent {
 }
 
 function computePostList(posts) {
-    if (posts)
+    if (posts && posts.length > 0)
         return posts.map((postId) => <PostContainer key={postId} postId={postId} />)
     else
-        return (<div />)
+        return (<EmptyFeed />)
 }

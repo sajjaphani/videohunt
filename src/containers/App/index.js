@@ -1,62 +1,29 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Switch, Route } from 'react-router';
-import { ConnectedRouter } from 'react-router-redux'
-import { history } from '../../store'
-import { bindActionCreators } from 'redux';
+import React from "react";
+// import { Helmet } from 'react-helmet';
 
-import HeaderContainer from '../Header'
-import HomePage from '../../components/HomePage'
-import AddPostPage from '../../components/AddPostPage'
-import AddPostInfoPage from '../../components/AddPostInfoPage'
-import PostPage from '../../components/PostPage'
-import NotFoundPage from '../../components/NotFoundPage'
-import ProfilePage from '../../components/ProfilePage'
-import SettingsPage from '../../components/SettingsPage'
+import AppContainer from './app-container'
 
-import MainContent from '../../components/MainContent'
-import SignupSection from '../../components/SignupSection'
-import { getLoggedIn } from './selectors.js'
-import * as actions from './actions.js'
+/*global FB*/
 
-class AppContainer extends React.PureComponent {
+class App extends React.Component {
 
-    componentDidUpdate() {
-             
+    componentDidMount() {
+        
     }
 
     render() {
         return (
-            <div>
-                <HeaderContainer />
-                <MainContent>
-                    <SignupSection loggedIn={this.props.loggedIn} openLogin={this.props.actions.openLoginModal} />
-                    <ConnectedRouter history={history}>
-                         <Switch>
-                            <Route exact path="/" component={HomePage} />
-                            <Route path="/topics/:id" component={HomePage} />
-                            <Route exact path="/posts/new" component={AddPostPage} />
-                            <Route path="/posts/new/info" component={AddPostInfoPage} />
-                            <Route path="/posts/:id" component={PostPage} />
-                            <Route path="/profile" component={ProfilePage} />
-                            <Route path="/settings" component={SettingsPage} />
-                            <Route component={NotFoundPage} />
-                        </Switch> 
-                    </ConnectedRouter>
-                </MainContent>
-            </div>
-        )
+            // <div className="app">
+            //     <Helmet>
+            //         <title>VideoHunt</title>
+            //         <meta charSet="utf-8" />
+            //         <meta name="description" content="VideoHunt App" data-react-helmet="true" />
+            //         <meta name="keywords" content="videohunt,video,video aggregation" data-react-helmet="true" />
+            //     </Helmet>
+            // </div>
+            <AppContainer />
+        );
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        loggedIn: getLoggedIn(state)
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return { actions: bindActionCreators(actions, dispatch) }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer)
+export default App;

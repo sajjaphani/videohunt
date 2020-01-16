@@ -30,11 +30,11 @@ export const handleLogin = (e, { name }) => {
     return (dispatch) => {
         dispatch(loginRequest())
         function authenticate(provider) {
-
+            // console.log('provider', provider);
             function receiveMessage(event) {
                 // Do we trust the sender of this message?  (might be
                 // different from what we originally opened, for example).
-
+                // console.log('Event', event);
                 if (event.origin === "http://localhost:3000") {
                     const token = event.data
                     localStorage.setItem('jwtToken', token)
@@ -44,10 +44,9 @@ export const handleLogin = (e, { name }) => {
                     dispatch(closeLoginModal)
                     window.location.reload()
                 }
-
             }
 
-            window.open('/api/v1/authentication/' + provider);
+            window.open('/api/v1/authentication/' + provider, "_self");
             window.addEventListener("message", receiveMessage, false);
         }
         authenticate(name)

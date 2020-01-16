@@ -14,7 +14,8 @@ export function getInitVideos(category) {
 
 export function getNextVideos(nextUrl) {
     const index = nextUrl.lastIndexOf(apiBaseUrl)
-    let url = index > -1 ? nextUrl.substring(index + apiBaseUrl.length) : nextUrl
+    let url = index > -1 ? nextUrl.substring(index + apiBaseUrl.length) : nextUrl;
+
     return axios.get(url)
         .then(response => response.data)
         .catch(err => {
@@ -23,10 +24,11 @@ export function getNextVideos(nextUrl) {
 }
 
 export function postComment(postId, content) {
-    let postCommentUrl = '/api/v1/posts/' + postId + '/comments'
-    return axios.post(postCommentUrl, {
+    let postCommentUrl = '/api/v1/posts/' + postId + '/comments';
+    const comment = {
         content: content
-    })
+    };
+    return axios.post(postCommentUrl, comment)
         .then(response => response.data)
         .catch(err => {
             throw err;
@@ -34,10 +36,11 @@ export function postComment(postId, content) {
 }
 
 export function postReply(comment) {
-    let postCommentUrl = '/api/v1/comments/' + comment.parentId + '/comments'
-    return axios.post(postCommentUrl, {
+    let postCommentUrl = '/api/v1/comments/' + comment.parentId + '/comments';
+    const reply = {
         content: comment.text
-    })
+    };
+    return axios.post(postCommentUrl, reply)
         .then(response => response.data)
         .catch(err => {
             throw err;

@@ -1,9 +1,9 @@
-import { applyMiddleware, createStore, compose } from "redux"
-import createHistory from 'history/createBrowserHistory'
-import thunk from "redux-thunk"
-import logger from "redux-logger"
-import { routerMiddleware } from 'react-router-redux'
-import createSagaMiddleware from 'redux-saga'
+import { applyMiddleware, createStore, compose } from "redux";
+import { createBrowserHistory as createHistory } from 'history';
+import thunk from "redux-thunk";
+import logger from "redux-logger";
+import { routerMiddleware } from 'react-router-redux';
+import createSagaMiddleware from 'redux-saga';
 
 import rootSaga from './sagas'
 import reducer from "./reducers"

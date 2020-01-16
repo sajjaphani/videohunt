@@ -43,7 +43,7 @@ export const postsReducer = (state = fromJS(posts), action) => {
             const { postId, commentId } = action.payload
             const commentCount = state.getIn([postId, 'comments', 'summary', 'count'])
             const commentCountState = state.setIn([postId, 'comments', 'summary', 'count'], commentCount + 1)
-            return commentCountState.updateIn([postId, 'comments', 'data'], list => list.push(commentId))
+            return commentCountState.updateIn([postId, 'comments', 'data'], list => list.unshift(commentId))
         }
         case Types.Fetch_POST_COMMENTS_SUCCESS: {
             const { postId, payload } = action
@@ -53,12 +53,12 @@ export const postsReducer = (state = fromJS(posts), action) => {
             const pagingState = commentsState.setIn([postId, 'comments', 'paging', 'next'], nextUrl)
             return pagingState.setIn([postId, 'comments', 'loading'], false)
         }
-        case Types.Fetch_POST_COMMENTS:{
-            const {postId} = action.payload
+        case Types.Fetch_POST_COMMENTS: {
+            const { postId } = action.payload
             return state.setIn([postId, 'comments', 'loading'], true)
         }
         default:
             return state
     }
-    
+
 }

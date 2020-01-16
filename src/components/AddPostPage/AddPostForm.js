@@ -29,9 +29,30 @@ export default class AddPostForm extends React.PureComponent {
 
   render() {
     const { url } = this.state
-    let dupPostUrl
-    if (this.props.duplicatePost) {
+    let dupPostUrl;
+    let dupComponent;
+    if (this.props.duplicatePost && this.props.duplicatePost.id) {
       dupPostUrl = '/posts/' + this.props.duplicatePost.id
+      dupComponent = <Segment attached>
+        <Message warning>
+          <Message.Header>There is a post exists for the given URL!</Message.Header>
+          <p>Visit <a href={dupPostUrl}> page</a> to see the post.</p>
+        </Message>
+      </Segment>
+    } else {
+      dupComponent = <div />
+    }
+
+    let errorComp;
+    if (this.props.errorData) {
+      errorComp = <Segment attached>
+        <Message error>
+          <Message.Header>There is some problem processing the URL!</Message.Header>
+          <p>Please check the validity of the URL.</p>
+        </Message>
+      </Segment>
+    } else {
+      errorComp = <div />
     }
 
     return (
@@ -50,22 +71,8 @@ export default class AddPostForm extends React.PureComponent {
             </Form.Group>
           </Form>
         </Segment>
-        {this.props.duplicatePost &&
-          <Segment attached>
-            <Message warning>
-              <Message.Header>There is a post exists for the given URL!</Message.Header>
-              <p>Visit <a href={dupPostUrl}> page</a> to see the post.</p>
-            </Message>
-          </Segment>
-        }
-        {this.props.errorData &&
-          <Segment attached>
-            <Message error>
-              <Message.Header>There is some problem processing the URL!</Message.Header>
-              <p>Please check the validity of the URL.</p>
-            </Message>
-          </Segment>
-        }
+        {dupComponent}
+        {errorComp}
       </Container>
     )
   }

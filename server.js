@@ -11,13 +11,17 @@ var proxy = require('express-http-proxy');
 
 app.use(express.static(DIST_DIR));
 
-app.use('/api/', proxy('localhost:3000', {
+app.use('/api/', proxy('localhost:8811', {
   proxyReqPathResolver: function (req) {
-    return require('url').parse('/api' + req.url).path;
+    var parts = req.url.split('?');
+    var queryString = parts[1];
+    var updatedPath = parts[0];
+    return updatedPath + (queryString ? '?' + queryString : '');
   }
 }));
 
 app.get("*", function (req, res) {
+  res.setHeader("Set-Cookie", "HttpOnly; Secure; SameSite=None");
   res.sendFile(path.join(DIST_DIR, "index.html"));
 });
 
