@@ -1,5 +1,5 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
-import { push } from 'react-router-redux'
+import { push } from 'connected-react-router'
 
 import { CHECK_ADD_NEW_VIDEO, CHECK_ADD_NEW_VIDEO_SUCCESS, CHECK_ADD_NEW_VIDEO_DUPLICATE, CHECK_ADD_NEW_VIDEO_FAILURE } from './constants'
 

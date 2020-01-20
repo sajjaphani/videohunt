@@ -1,10 +1,40 @@
-var path = require("path"),
-  express = require("express");
-var compression = require('compression')
+const path = require("path");
+const express = require("express");
+const session = require('express-session');
 
-var DIST_DIR = path.join(__dirname, "build"),
-  PORT = 8080,
-  app = express();
+const cors = require('cors');
+const helmet = require('helmet');
+const BodyParser = require('body-parser');
+const CookieParser = require('cookie-parser');
+const csrf = require('csurf')
+const compression = require('compression');
+
+const DIST_DIR = path.join(__dirname, "build");
+const PORT = 8080;
+const app = express();
+
+app.set('trust proxy', 1);
+app.use(session({
+  secret: 'session keyboard cat',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    secure: true,
+    httpOnly: true,
+    domain: 'videohunt.com',
+    path: '/'
+  }
+}));
+
+app.use(cors())
+app.use(helmet())
+app.use(BodyParser.json());
+app.use(BodyParser.urlencoded({
+  extended: true
+}));
+app.use(CookieParser());
+app.use(csrf({ cookie: true }));
+
 // compress all responses
 app.use(compression())
 var proxy = require('express-http-proxy');

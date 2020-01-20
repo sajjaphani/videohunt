@@ -1,10 +1,10 @@
-import { push } from 'react-router-redux'
+import { push } from 'connected-react-router'
 
 import * as ActionTypes from './constants'
 
 const changeRoute = (route) => {
     return (dispatch) => {
-        // push the new route using react-router-redux
+        // push the new route using connected-react-router
         dispatch(pushRoute(route))
     }
 }

@@ -1,4 +1,4 @@
-import { push } from 'react-router-redux'
+import { push } from 'connected-react-router'
 import jwt from 'jsonwebtoken'
 
 import { loginRequest, loginSuccess, openLoginModal, closeLoginModal } from '../App/actions'

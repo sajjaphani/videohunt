@@ -1,4 +1,4 @@
-import { push } from 'react-router-redux'
+import { push } from 'connected-react-router'
 
 import { SELECT_SIDEBAR_ITEM } from './constants'
 
@@ -26,6 +26,5 @@ function sidebarSelectAction(itemType, itemName) {
         }
     }
 }
-
 
 export { selectSidebarItem, sidebarSelectAction }
