@@ -1,8 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router';
-import { ConnectedRouter } from 'react-router-redux'
-import { history } from '../../store'
+import { ConnectedRouter } from 'connected-react-router'
 import { bindActionCreators } from 'redux';
 
 import HeaderContainer from '../Header'
@@ -18,13 +17,9 @@ import MainContent from '../../components/MainContent'
 import SignupSection from '../../components/SignupSection'
 import { getLoggedIn } from './selectors.js'
 import * as actions from './actions.js'
+import { history } from '../../store'
 
 class AppContainer extends React.PureComponent {
-
-    componentDidUpdate() {
-
-    }
-
     render() {
         return (
             <div>

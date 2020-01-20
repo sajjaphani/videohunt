@@ -1,8 +1,8 @@
 import { put, takeLatest } from 'redux-saga/effects'
+import { push } from 'connected-react-router'
 
 import { LOGOUT_REQUEST, LOGOUT_SUCCESS, PROFILE_REQUEST, PROFILE_SUCCESS, SETTINGS_REQUEST, SETTINGS_SUCCESS } from './constants'
 
-import { push } from 'react-router-redux'
 
 function* handleLogoutAction() {
     localStorage.removeItem('jwtToken')

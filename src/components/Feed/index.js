@@ -13,7 +13,7 @@ export default class Feed extends React.PureComponent {
     }
 
     loadPosts = () => {
-        const { category } = this.props
+        const { category } = this.props;
         if (this.props.feed.length === 0) {
             this.setState({ hasMore: false })
             this.props.actions.loadVideos(category);
@@ -27,7 +27,7 @@ export default class Feed extends React.PureComponent {
     }
 
     componentDidUpdate() {
-        
+
     }
 
     render() {
@@ -38,18 +38,19 @@ export default class Feed extends React.PureComponent {
                     pageStart={0}
                     loadMore={this.loadPosts}
                     hasMore={this.state.hasMore}
-                    loader={<DummyPost />}
+                    loader={<DummyPost key={0}/>}
                 >
                     {dayFeedList}
                 </InfiniteScroll>
             </div>
         )
     }
+
     computeDayFeedList = () => {
-        const { feed, category } = this.props
-        if (feed && feed.length > 0)
+        const { feed, category } = this.props;
+        if (feed && feed.length > 0) {
             return feed.map((feedDate) => <DayFeedContainer key={feedDate} date={feedDate} category={category} />)
-        else
-            return (<EmptyFeed />)
+        } else
+            return (<EmptyFeed key="empty-feed" />)
     }
 }

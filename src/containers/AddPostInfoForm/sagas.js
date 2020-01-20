@@ -1,6 +1,5 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
-// import { delay } from 'redux-saga'
-import { push } from 'react-router-redux'
+import { push } from 'connected-react-router'
 
 import { ADD_NEW_VIDEO, ADD_NEW_VIDEO_SUCCESS, ADD_NEW_VIDEO_REDIRECT } from './constants'
 

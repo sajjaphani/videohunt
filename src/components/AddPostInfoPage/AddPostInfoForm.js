@@ -9,15 +9,11 @@ export default class AddPostInfoForm extends React.PureComponent {
     this.state = { url: '', synopsis: '', title: '', subtitle: '', language: '', category: '', embed: '' }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (!this.props.newPost)
       this.props.redirectToFirstPage()
     else 
       this.setState({ url: this.props.newPost.url, synopsis: this.props.newPost.description, title: this.props.newPost.title, subtitle: this.props.newPost.author, language: '', category: '', embed: this.props.newPost.html })
-  }
-
-  componentDidMount() {
-    
   }
 
   handleChange = (e, { name, value }) => {

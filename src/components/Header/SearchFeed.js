@@ -13,7 +13,7 @@ const source = _.times(5, () => ({
 export default class SearchFeed extends React.PureComponent {
     state = { isLoading: false, results: [], value: '' }
 
-    componentWillMount() {
+    componentDidMount() {
         this.resetComponent()
     }
 
