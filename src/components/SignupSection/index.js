@@ -24,7 +24,7 @@ const SignupSection = (props) => {
                         {/* <Image src='/images/login_logo.png' size='medium' /> */}
                         <Embed
                             id={'wa1n3s7M-1A'}
-                            placeholder={'http://img.youtube.com/vi/wa1n3s7M-1A/maxresdefault.jpg'}
+                            placeholder={'https://img.youtube.com/vi/wa1n3s7M-1A/maxresdefault.jpg'}
                             source='youtube'
                             autoplay={true}
                         />
