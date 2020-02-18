@@ -6,8 +6,8 @@ const getFeedIds = state => state.feed
 const getFeedCategory = (state, ownProps) => (ownProps.category)
 
 const getFeed = createSelector([getFeedIds, getFeedCategory], (feed, category) => {
-    const feedData = feed.getIn([category,'data'])
-    if (feedData)
+    const feedData = feed.getIn([category, 'data'])
+    if (feedData) {
         return feedData.keySeq().toArray().sort((a, b) => {
             const dateA = new Date(a)
             const dateB = new Date(b)
@@ -19,17 +19,27 @@ const getFeed = createSelector([getFeedIds, getFeedCategory], (feed, category) =
                 return 0
             }
         })
-    else
-        return []
-})
+    } else {
+        return [];
+    }
+});
 
 const getPagination = createSelector([getFeedIds, getFeedCategory], (feed, category) => {
-    const paginationData = feed.getIn([category,'pagination'])
+    const paginationData = feed.getIn([category, 'pagination']);
     if (paginationData) {
-        return paginationData.get('next')
+        return paginationData.get('next');
+    } else {
+        return '';
     }
-    else
-        return ''
-})
+});
 
-export { getFeed, getPagination }
+const getInitializing = createSelector([getFeedIds, getFeedCategory], (feed, category) => {
+    const initData = feed.getIn([category, 'init']);
+    if (initData) {
+        return initData.get('initializing');
+    } else {
+        return true;
+    }
+});
+
+export { getFeed, getPagination, getInitializing }

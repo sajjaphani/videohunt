@@ -16,26 +16,27 @@ export default class CategoryFeed extends React.PureComponent {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        const { postIds, nextPage } = prevProps
-        // if there are no posts or if there is a next page url
-        // then this component has more items
-        if (!postIds || nextPage) {
-            this.setState({ hasMore: true })
+        console.log('hello');
+        const feed = this.props.feed;
+        const prevFeed = prevProps.feed;
+        if(feed !== prevFeed) {
+            this.setState({ hasMore: true });
         }
+
+        const FB = window.FB;
+        FB.XFBML.parse();
     }
 
     loadPosts = () => {
-        const { feed } = this.props
-        if (this.props.postIds) {
-            // if posts exist try to fetch next videos
-            if (this.props.nextPage) {
-                this.props.actions.loadMoreVideos(feed, this.props.nextPage)
-            } else {
-                this.setState({ hasMore: false })
-            }
-        } else {
-            // otherwise fetch initial videos
+        const { feed, initializing, nextPage } = this.props;
+        if (initializing) {
             this.props.actions.loadVideos(feed);
+        } else {
+            if (nextPage) {
+                this.props.actions.loadMoreVideos(feed, nextPage);
+            } else {
+                this.setState({ hasMore: false });
+            }
         }
     }
 
@@ -49,7 +50,7 @@ export default class CategoryFeed extends React.PureComponent {
                     pageStart={0}
                     loadMore={this.loadPosts}
                     hasMore={this.state.hasMore}
-                    loader={<DummyPost />}
+                    loader={<DummyPost key={0} />}
                 >
                     {postList}
                 </InfiniteScroll>

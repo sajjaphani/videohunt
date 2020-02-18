@@ -2,7 +2,7 @@ import { put, takeLatest, call } from 'redux-saga/effects'
 
 import { ADD_POST_COMMENT, ADD_POST_COMMENT_SUCCESS, ADD_COMMENT_REPLY, ADD_COMMENT_REPLY_SUCCESS } from './constants'
 
-import { postComment, postReply } from '../../api/VideoApi'
+import { postComment, postReply } from '../../api'
 
 function* handlePostCommentAction(action) {
     const comment = yield call(postComment, action.comment.postId, action.comment.text);

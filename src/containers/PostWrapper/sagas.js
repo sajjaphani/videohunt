@@ -2,7 +2,7 @@ import { put, takeLatest, call } from 'redux-saga/effects'
 
 import * as Types from './constants'
 
-import { loadSinglePost } from '../../api/VideoApi'
+import { loadSinglePost } from '../../api'
 
 function* handleLoadPost(action) {
     const { postId } = action.payload

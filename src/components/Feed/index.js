@@ -15,7 +15,6 @@ export default class Feed extends React.PureComponent {
     loadPosts = () => {
         const { category } = this.props;
         if (this.props.feed.length === 0) {
-            this.setState({ hasMore: false })
             this.props.actions.loadVideos(category);
         } else {
             if (this.props.nextPage) {
@@ -27,7 +26,8 @@ export default class Feed extends React.PureComponent {
     }
 
     componentDidUpdate() {
-
+        const FB = window.FB;
+        FB.XFBML.parse();
     }
 
     render() {

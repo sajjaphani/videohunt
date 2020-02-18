@@ -1,6 +1,7 @@
 import React from 'react'
 import UserAccount from './UserAccount'
 import LoginButton from './LoginButton'
+import SignupButton from './SignupButton'
 import Notifications from './Notifications'
 
 const LoginWrapper = props => {
@@ -11,7 +12,12 @@ const LoginWrapper = props => {
             <UserAccount userId={props.userId} handleLogout={handleLogout} handleProfile={handleProfile} handleSettings={handleSettings} />
         </div>
     } else {
-        return <LoginButton openLogin={openLogin} open={loginModalOpen} handleLogin={props.handleLogin} loginLoading={loginLoading} />
+        return (
+            <div>
+                <LoginButton openLogin={openLogin} open={loginModalOpen} handleLogin={props.handleLogin} loginLoading={loginLoading} />
+                <SignupButton openLogin={openLogin} open={loginModalOpen} handleLogin={props.handleLogin} loginLoading={loginLoading} />
+            </div>
+        )
     }
 }
 

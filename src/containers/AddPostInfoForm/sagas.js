@@ -3,7 +3,7 @@ import { push } from 'connected-react-router'
 
 import { ADD_NEW_VIDEO, ADD_NEW_VIDEO_SUCCESS, ADD_NEW_VIDEO_REDIRECT } from './constants'
 
-import { postVideo } from '../../api/VideoApi';
+import { postVideo } from '../../api';
 
 function* addNewVideoAction(action) {
     const post = yield call(postVideo, action.payload);

@@ -13,18 +13,24 @@ import DummyPost from '../DummyPost'
  * 
  */
 export default class PostWrapper extends React.PureComponent {
-    render() {
-        const { postExists, postId } = this.props
-        if (postExists) {
-            return <PostContainer postId={postId} expandComments={true} />
-        }
-        return <DummyPost />
-    }
+
     componentDidMount() {
         const { postId, postExists } = this.props
         // get post details if not available in state
         if (!postExists) {
             this.props.actions.loadPost(postId)
         }
+
+        const FB = window.FB;
+        FB.XFBML.parse();
+    }
+
+    render() {
+        const { postExists, postId } = this.props
+        if (postExists) {
+            return <PostContainer postId={postId} expandComments={true} />
+        }
+
+        return <DummyPost key={0} />
     }
 }

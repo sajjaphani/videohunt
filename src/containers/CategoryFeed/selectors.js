@@ -4,21 +4,31 @@ const getFeedState = (state) => state.feed
 
 const getFeedCategory = (state, ownProps) => ownProps.feed
 
-const getPostIds = createSelector([getFeedState, getFeedCategory],(feedState, category) => {
+const getPostIds = createSelector([getFeedState, getFeedCategory], (feedState, category) => {
     const categoryFeed = feedState.getIn([category])
-    if(categoryFeed){
-        return categoryFeed.getIn(['data','postIds']).toJS()
+    if (categoryFeed) {
+        return categoryFeed.getIn(['data', 'postIds']).toJS();
     }
-    return categoryFeed
+
+    return [];
 })
 
 const getPagination = createSelector([getFeedState, getFeedCategory], (feed, category) => {
-    const paginationData = feed.getIn([category,'pagination'])
+    const paginationData = feed.getIn([category, 'pagination'])
     if (paginationData) {
-        return paginationData.get('next')
+        return paginationData.get('next');
+    } else {
+        return '';
     }
-    else
-        return ''
-})
+});
 
-export { getPostIds, getPagination }
+const getInitializing = createSelector([getFeedState, getFeedCategory], (feed, category) => {
+    const initData = feed.getIn([category, 'init']);
+    if (initData) {
+        return initData.get('initializing');
+    } else {
+        return true;
+    }
+});
+
+export { getPostIds, getPagination, getInitializing }

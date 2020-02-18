@@ -5,16 +5,17 @@ const SubscribeForm = (props) => {
     if (props.loggedIn) {
         return <div />
     }
+
     return (
         <Segment>
             <Header size='small'>
                 Subscribe
             <Header.Subheader>
-                    Get the best new videos in your inbox, every day
+                    Get the best new videos in your inbox every day.
             </Header.Subheader>
             </Header>
             <Form >
-                <Form.Input placeholder='Your email...' name='title' />
+                <Form.Input placeholder='Your email' name='title' />
                 <Form.Button color='orange' fluid content='Subscribe' />
             </Form>
         </Segment>

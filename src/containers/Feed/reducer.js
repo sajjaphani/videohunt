@@ -1,16 +1,15 @@
 import * as Types from './constants';
 import { fromJS } from 'immutable'
 
-
-
 const initialState = {
 }
 
 export const feedReducer = (state = fromJS(initialState), action) => {
     switch (action.type) {
         case Types.LOAD_VIDEOS_SUCCESS:
-            let { category, payload } = action
-            const tempState = state.setIn([category, 'pagination'], fromJS(payload.pagination))
+            let { category, payload } = action;
+            let tempState = state.setIn([category, 'pagination'], fromJS(payload.pagination));
+            tempState = tempState.setIn([category, 'init'], fromJS({ initializing: false }));
             return tempState.setIn([category, 'data'], fromJS(payload.data.feed))
         case Types.LOAD_MORE_VIDEOS_SUCCESS: {
             let { category, payload } = action

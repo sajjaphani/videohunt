@@ -3,7 +3,7 @@ import { delay } from 'redux-saga'
 
 import * as Types from './constants'
 
-import { getPostComments } from '../../api/VideoApi'
+import { getPostComments } from '../../api'
 
 function* handleLoadPostComments(action) {
     const { postId, nextUrl } = action.payload

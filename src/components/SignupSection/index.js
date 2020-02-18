@@ -5,16 +5,17 @@ const SignupSection = (props) => {
     if (props.loggedIn) {
         return <div />
     }
+    
     return (
         <Segment padded='very'>
             <Grid>
                 <Grid.Row >
                     <Grid.Column floated='right' mobile='sixteen' tablet='sixteen' computer='eight' largeScreen='eight' widescreen='eight' >
                         <Header size='huge'>
-                            Discover awesome videos everyday
+                            Discover Awesome Videos Everyday
                             <Divider hidden />
                             <Header.Subheader>
-                                Video Hunt surfaces the best new videos, every day. It's a place for video-loving enthusiasts to share and watch latest awesome videos. So join our awesome community to discover awesome videos everyday.
+                                VideoHunt surfaces the best new videos every day. It's a place for video-loving enthusiasts to share and watch the latest awesome videos. So join our awesome community to discover awesome videos every day.
                             </Header.Subheader>
                             <Divider hidden />
                             <Button color='orange' onClick={props.openLogin}>SIGN UP</Button>

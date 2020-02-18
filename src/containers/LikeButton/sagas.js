@@ -1,7 +1,7 @@
 import { put, takeLatest, call } from 'redux-saga/effects'
 
 import { LIKE_POST, LIKE_POST_SUCCESS, UNLIKE_POST, UNLIKE_POST_SUCCESS } from './constants'
-import { togglePostLike } from '../../api/VideoApi';
+import { togglePostLike } from '../../api';
 
 function* handleLikeVideoAction(action) {
     const data = yield call(togglePostLike, action.payload.postId, true)

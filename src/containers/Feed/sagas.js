@@ -1,8 +1,8 @@
 import { put, takeLatest, call } from 'redux-saga/effects'
+import { fromJS } from 'immutable'
 
 import { LOAD_VIDEOS, LOAD_VIDEOS_SUCCESS, LOAD_MORE_VIDEOS, LOAD_MORE_VIDEOS_SUCCESS } from './constants'
-import { getInitVideos, getNextVideos } from '../../api/VideoApi';
-import { fromJS } from 'immutable'
+import { getInitVideos, getNextVideos } from '../../api';
 
 function* handleLoadVideosAction(action) {
     const { category } = action.payload

@@ -23,7 +23,7 @@ export default class Sidebar extends React.PureComponent {
                 <List.Content>{item}</List.Content>
             </List.Item>
         )
-    
+
         return (
             <Segment>
                 <List verticalAlign='middle'>

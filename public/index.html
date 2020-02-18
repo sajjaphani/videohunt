@@ -10,8 +10,8 @@
     <meta name="keywords" content="videohunt,video,video aggregation" />
 
     <!-- Semantic CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
-    </link>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
+
     <style type="text/css">
         body {
             background-color: #f3f3f3;
@@ -22,8 +22,10 @@
 
 <body>
     <div id="fb-root"></div>
-    <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
-    <script>window.twttr = (function (d, s, id) {
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0"></script>
+    <script>
+        window.twttr = (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0],
                 t = window.twttr || {};
             if (d.getElementById(id)) return t;
@@ -39,8 +41,6 @@
 
             return t;
         }(document, "script", "twitter-wjs"));</script>
-    <div class="layout">
-    </div>
     <div id="root"></div>
 </body>
 

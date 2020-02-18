@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // We may set environment variable
 // TODO in production we may not need this?
-const apiBaseUrl = 'http://localhost:3000'
+const apiBaseUrl = 'http://localhost:3000';
 
 export function getInitVideos(category) {
     if (category === 'all') {
@@ -102,6 +102,7 @@ export function loadSinglePost(postId) {
     return axios.get(getPostUrl)
         .then(response => response.data)
         .catch(err => {
+            console.log(err);
             throw err;
         });
 }
