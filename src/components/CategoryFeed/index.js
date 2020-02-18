@@ -16,7 +16,6 @@ export default class CategoryFeed extends React.PureComponent {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log('hello');
         const feed = this.props.feed;
         const prevFeed = prevProps.feed;
         if(feed !== prevFeed) {
