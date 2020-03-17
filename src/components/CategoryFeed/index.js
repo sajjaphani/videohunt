@@ -1,12 +1,12 @@
 import React from 'react'
-import { Header } from 'semantic-ui-react'
+import { Header, Container, Segment, Divider } from 'semantic-ui-react'
 import InfiniteScroll from 'react-infinite-scroller';
 
 import PostContainer from '../../containers/Post'
 import DummyPost from '../DummyPost'
 import EmptyFeed from '../EmptyFeed';
 
-import getDisplayName from '../../utils/feed-to-name'
+import { getDisplayName } from '../../utils/feed'
 
 export default class CategoryFeed extends React.PureComponent {
 
@@ -18,12 +18,14 @@ export default class CategoryFeed extends React.PureComponent {
     componentDidUpdate(prevProps, prevState) {
         const feed = this.props.feed;
         const prevFeed = prevProps.feed;
-        if(feed !== prevFeed) {
+        if (feed !== prevFeed) {
             this.setState({ hasMore: true });
         }
 
         const FB = window.FB;
-        FB.XFBML.parse();
+        if (FB) {
+            FB.XFBML.parse();
+        }
     }
 
     loadPosts = () => {
@@ -40,27 +42,45 @@ export default class CategoryFeed extends React.PureComponent {
     }
 
     render() {
-        const { postIds, feed } = this.props
-        const postList = computePostList(postIds)
+        const { postIds, feed } = this.props;
+        const postList = computePostList(postIds, this.state.hasMore);
+        const borderStyle = { borderRadius: '4px' };
+
         return (
-            <div>
-                <Header as='h2' attached='top' color='grey'>{getDisplayName(feed)}</Header>
-                <InfiniteScroll
-                    pageStart={0}
-                    loadMore={this.loadPosts}
-                    hasMore={this.state.hasMore}
-                    loader={<DummyPost key={0} />}
-                >
-                    {postList}
-                </InfiniteScroll>
-            </div>
+            <Container>
+                <Segment style={borderStyle}>
+                    <Header size='small' className="ui-background">{getDisplayName(feed)}</Header>
+                    <InfiniteScroll
+                        pageStart={0}
+                        loadMore={this.loadPosts}
+                        hasMore={this.state.hasMore}
+                        loader={<DummyPost key={0} />}
+                    >
+                        {postList}
+                    </InfiniteScroll>
+                </Segment>
+            </Container>
         )
     }
 }
 
-function computePostList(posts) {
+function computePostList(posts, hasMore) {
     if (posts && posts.length > 0)
-        return posts.map((postId) => <PostContainer key={postId} postId={postId} />)
-    else
-        return (<EmptyFeed />)
+        return posts.map((postId) =>
+            <div key={postId}>
+                <Divider />
+                <PostContainer key={postId} postId={postId} />
+            </div>
+        )
+    else {
+        if (hasMore)
+            return <div />
+        else
+            return (
+                <div>
+                    <Divider />
+                    <EmptyFeed />
+                </div>
+            )
+    }
 }

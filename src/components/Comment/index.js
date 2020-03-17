@@ -10,6 +10,8 @@ import Content from './Content'
 import Avatar from './Avatar'
 import ShowMoreButton from './ShowMoreButton'
 
+import './Comment.css';
+
 const CommentItem = (props) => {
     const { children } = props
     return (

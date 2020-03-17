@@ -1,5 +1,39 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+
+  background-image: url(/images/bg-image.png),
+    linear-gradient(178deg, #15304e00 0%, #15304e 100%);
+  background-position: 0% 0%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-origin: padding-box;
+  background-clip: padding-box;
+  background-color: transparent;
+}
+
+#root {
+  opacity: 1;
+  background: rgb(21, 48, 78);
+  background: transparent linear-gradient(178deg, rgba(21,48,78,0.5) 50%, rgba(21,48,78,.5) 100%) 0%
+    0% no-repeat padding-box;
+    min-height: 100%;
+}
+
+/* UI items background overwrites */
+.ui-background {
+  background-color: #c8d2de !important;
+}
+
+.btn-primary {
+  color: #15304e;
+  text-transform: uppercase;
+  background-color: #1dd1f0 !important;
+}
+
+.btn-primary-link {
+  color: #15304e;
+  text-transform: uppercase;
+  background-color: transparent !important;
 }

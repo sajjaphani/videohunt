@@ -1,0 +1,9 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+@headerFont        : 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont          : 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageBackground    : #f3f3f3;
+@textColor         : rgba(21, 48, 78, 1);
+@mutedTextColor    : rgba(21, 48, 78, .8);

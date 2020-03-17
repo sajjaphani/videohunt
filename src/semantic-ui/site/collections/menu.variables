@@ -1,0 +1,36 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/* Menu */
+@background: rgba(200, 210, 222, 1);
+
+/* Active Item */
+@activeItemTextColor: rgba(21, 48, 78, .8);
+
+
+/* Sub Menu */
+@subMenuDistance: 0.5em;
+@subMenuMargin: 0em;
+
+/* Secondary */
+
+@secondaryMargin: 0em;
+@secondaryItemMargin: 0em;
+@secondaryActiveItemBackground: #FFFFFF;
+@secondaryActiveItemColor: rgba(21, 48, 78, .8);
+@secondaryItemBorderRadius: 0em;
+@secondaryItemColor: rgba(21, 48, 78, .8);
+
+@secondaryHoverItemBackground: #FFFFFF;
+@secondaryHoverItemColor: rgba(21, 48, 78, 1);
+
+@secondaryVerticalItemMargin: 0em 0em;
+@secondaryVerticalItemBorderRadius: 0em;
+
+@secondaryActiveHoverItemBackground: #FFFFFF;
+@secondaryActiveHoverItemColor: rgba(21, 48, 78, 1);
+@secondaryActiveHoveredItemBackground: #FFFFFF;
+@secondaryActiveHoveredItemColor: rgba(21, 48, 78, 1);
+
+@secondaryMenuSubMenuMargin: 0em;

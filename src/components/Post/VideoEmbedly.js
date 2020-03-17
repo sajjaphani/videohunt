@@ -1,6 +1,5 @@
 import React from 'react'
 import { Segment } from 'semantic-ui-react'
-// import VisibilitySensor from 'react-visibility-sensor'
 
 export default class VideoEmbedly extends React.PureComponent {
 

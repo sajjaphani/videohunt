@@ -1,0 +1,10 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/* Text */
+@textTransform: uppercase;
+@tapColor: transparent;
+@fontFamily: @pageFont;
+@fontWeight: 700;
+@textColor: rgba(21, 48, 78, 1);

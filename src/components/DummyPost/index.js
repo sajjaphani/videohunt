@@ -1,30 +1,20 @@
 import React from 'react'
-import { Dimmer, Loader, Container } from 'semantic-ui-react'
-
-import Post from '../Post'
-import WatchListButton from '../WatchListButton'
-import ShareButton from '../ShareButton'
-import CommentButton from '../CommentButton'
-import LikeButton from '../LikeButton'
+import { Placeholder, Container } from 'semantic-ui-react'
 
 const DummyPost = (props) => (
-    <div>
-        <Dimmer.Dimmable as={Container} dimmed={true}>
-            <Dimmer active inverted>
-                <Loader size='large'>Loading...</Loader>
-            </Dimmer>
-            <Post>
-                <Post.Header title={'Loading...'} subtitle={'...'} />
-                <Post.Video url={''} />
-                <Post.Footer>
-                    <LikeButton />
-                    <CommentButton />
-                    <WatchListButton />
-                    <ShareButton />
-                </Post.Footer>
-            </Post>
-        </Dimmer.Dimmable>
-    </div>
+    <Container textAlign='center' className="ui-background">
+        <Placeholder fluid>
+            <Placeholder.Image rectangular />
+            <Placeholder.Paragraph>
+                <Placeholder.Line />
+                <Placeholder.Line />
+            </Placeholder.Paragraph>
+            <Placeholder.Header image>
+                <Placeholder.Line length='full' />
+                <Placeholder.Line length='full' />
+            </Placeholder.Header>
+        </Placeholder>
+    </Container>
 )
 
 export default DummyPost

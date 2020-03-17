@@ -4,9 +4,7 @@ import { Dropdown, Icon } from 'semantic-ui-react'
 export default class Notifications extends React.PureComponent {
     render() {
         const trigger = (
-            <span>
-                <Icon size='large' circular name='bell' /> &nbsp;
-          </span>
+            <Icon size='large' name='bell' />
         )
 
         return (

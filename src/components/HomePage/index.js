@@ -5,31 +5,30 @@ import CategoryFeedContainer from '../../containers/CategoryFeed'
 import FeedContainer from '../../containers/Feed'
 import SidebarContainer from '../../containers/Sidebar'
 import SubscribeFormContainer from '../../containers/SubscribeForm'
-
-const stickyStyle = {
-    position: 'sticky',
-    top: '4rem'
-};
+import { getFeedItems } from '../../utils/feed';
 
 const HomePage = props => {
-    const categories = ['All', 'Action', 'Comedy', 'Inspirational', 'Science', 'Short Films', 'Sports', 'Technology', 'Trailers', 'Viral']
+    let stickyStyle = {
+        position: 'sticky',
+        top: '6em'
+    };
+
+    const categories = getFeedItems();
     const category = pathToCategoryName(props.match)
     const feedComponent = category === 'all' ? <FeedContainer category={category} /> : <CategoryFeedContainer feed={category} />
     return (
         <Grid>
-            <Grid.Row>
-                <Grid.Column only='computer' computer='four' largeScreen='four' widescreen='four' >
-                    <div style={stickyStyle}>
-                        <SidebarContainer categoryType='feed' title='Feed' items={categories} activeItem={category} />
-                    </div>
-                </Grid.Column>
-                <Grid.Column mobile='sixteen' tablet='sixteen' computer='eight' largeScreen='eight' widescreen='eight'>
-                    {feedComponent}
-                </Grid.Column>
-                <Grid.Column only='computer' computer='four' largeScreen='four' widescreen='four'>
-                    <SubscribeFormContainer />
-                </Grid.Column>
-            </Grid.Row>
+            <Grid.Column only='computer' computer='four' largeScreen='four' widescreen='four' >
+                <div style={stickyStyle}>
+                    <SidebarContainer categoryType='feed' title='Feed' items={categories} activeItem={category} />
+                </div>
+            </Grid.Column>
+            <Grid.Column mobile='sixteen' tablet='sixteen' computer='eight' largeScreen='eight' widescreen='eight'>
+                {feedComponent}
+            </Grid.Column>
+            <Grid.Column only='computer' computer='four' largeScreen='four' widescreen='four'>
+                <SubscribeFormContainer />
+            </Grid.Column>
         </Grid>
     )
 }

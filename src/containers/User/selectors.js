@@ -4,10 +4,26 @@ const getProfileId = (state, ownProps) => ownProps.userId
 
 const getUsers = (state) => state.users
 
-const getUser = createSelector([getProfileId, getUsers], (profileId, users) => users.get(profileId))
+const getUser = createSelector([getProfileId, getUsers], (profileId, users) => {
+    if (users)
+        return users.get(profileId);
 
-const getUserName = createSelector([getUser], (user) => user.get('name'))
+    return null;
+})
 
-const getUserPicture = createSelector([getUser], (user) => user.get('picture'))
+const getUserName = createSelector([getUser], (user) => {
+    if (user) {
+        return user.get('name');
+    }
+
+    return 'VideoHunt Admin';
+});
+
+const getUserPicture = createSelector([getUser], (user) => {
+    if (user)
+        return user.get('picture');
+
+    return '/images/user.png';
+});
 
 export { getUserName, getUserPicture }

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Segment } from 'semantic-ui-react'
 
 const Embed = props => {
     const embed = props.embed
@@ -8,9 +7,9 @@ const Embed = props => {
     function createMarkup() { return { __html: embed } }
 
     return (
-        <Segment attached clearing>
+        <div className="ui-background">
             <div dangerouslySetInnerHTML={createMarkup()} />
-        </Segment>
+        </div>
     )
 }
 

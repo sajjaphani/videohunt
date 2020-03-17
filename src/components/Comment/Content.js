@@ -7,22 +7,23 @@ const Content = (props) => {
     const { userName, commentText, commentedOn, children, totalLikes } = props
     let likeText = ''
     if (totalLikes > 0) {
-        const countText = '. '+ totalLikes
-        likeText = totalLikes === 1 ?  countText + ' like' : countText + ' likes'
+        const countText = '. ' + totalLikes
+        likeText = totalLikes === 1 ? countText + ' like' : countText + ' likes'
     }
+    
     return (
-            <Comment.Content>
-                <Comment.Author as='a'>{userName}</Comment.Author>
-                <Comment.Metadata>
-                    {moment(commentedOn).calendar()} {likeText}
-                </Comment.Metadata>
-                <Comment.Text>
-                    <Emojify>
-                        {commentText}
-                    </Emojify>
-                </Comment.Text>
-                {children}
-            </Comment.Content>
+        <Comment.Content>
+            <Comment.Author as='a'>{userName}</Comment.Author>
+            <Comment.Metadata>
+                {moment(commentedOn).fromNow()} {likeText}
+            </Comment.Metadata>
+            <Comment.Text>
+                <Emojify>
+                    {commentText}
+                </Emojify>
+            </Comment.Text>
+            {children}
+        </Comment.Content>
     )
 }
 

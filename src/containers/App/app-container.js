@@ -24,7 +24,7 @@ class AppContainer extends React.PureComponent {
         return (
             <div>
                 <HeaderContainer />
-                <MainContent>
+                <MainContent loggedIn={this.props.loggedIn} >
                     <SignupSection loggedIn={this.props.loggedIn} openLogin={this.props.actions.openLoginModal} />
                     <ConnectedRouter history={history}>
                         <Switch>

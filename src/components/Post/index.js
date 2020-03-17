@@ -13,9 +13,9 @@ const Post = props => (
 )
 
 Post.Header = Header
-Post.Footer = Footer
 Post.Video = Video
 Post.Embed = Embed
 Post.VideoEmbedly = VideoEmbedly
+Post.Footer = Footer
 
 export default Post

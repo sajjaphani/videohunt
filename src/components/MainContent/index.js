@@ -2,16 +2,13 @@ import React from 'react'
 import { Container } from 'semantic-ui-react'
 
 const MainContent = (props) => {
-    const mainStyle = {
-        marginTop: "5em"
-    }
-    
+
+    let mainStyle = { paddingTop: '6em' };
+
     return (
-        <div>
-            <Container style={mainStyle}>
-                {props.children}
-            </Container>
-        </div>
+        <Container style={mainStyle}>
+            {props.children}
+        </Container>
     )
 }
 

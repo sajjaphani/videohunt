@@ -10,8 +10,8 @@ const getActiveItem = createSelector([getCategoryType, getApp], (categoryType, a
     if (activeItem) {
         return activeItem
     }
+
     return 'all'
 })
-
 
 export { getActiveItem }

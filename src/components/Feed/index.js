@@ -4,6 +4,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import DayFeedContainer from '../../containers/DayFeed'
 import DummyPost from '../DummyPost'
 import EmptyFeed from '../EmptyFeed';
+import { Segment } from 'semantic-ui-react';
 
 export default class Feed extends React.PureComponent {
 
@@ -27,18 +28,20 @@ export default class Feed extends React.PureComponent {
 
     componentDidUpdate() {
         const FB = window.FB;
-        FB.XFBML.parse();
+        if (FB) {
+            FB.XFBML.parse();
+        }
     }
 
     render() {
-        const dayFeedList = this.computeDayFeedList()
+        const dayFeedList = this.computeDayFeedList(this.state.hasMore)
         return (
             <div>
                 <InfiniteScroll
                     pageStart={0}
                     loadMore={this.loadPosts}
                     hasMore={this.state.hasMore}
-                    loader={<DummyPost key={0}/>}
+                    loader={this.getLoader()}
                 >
                     {dayFeedList}
                 </InfiniteScroll>
@@ -46,11 +49,25 @@ export default class Feed extends React.PureComponent {
         )
     }
 
-    computeDayFeedList = () => {
+    computeDayFeedList = (hasMore) => {
         const { feed, category } = this.props;
         if (feed && feed.length > 0) {
             return feed.map((feedDate) => <DayFeedContainer key={feedDate} date={feedDate} category={category} />)
-        } else
-            return (<EmptyFeed key="empty-feed" />)
+        } else {
+            if (hasMore)
+                return <div />
+            else
+                return (<EmptyFeed />)
+        }
+    }
+
+    getLoader = () => {
+        const borderStyle = { borderRadius: '4px' };
+
+        return (
+            <Segment style={borderStyle} key={0}>
+                <DummyPost />
+            </Segment>
+        )
     }
 }

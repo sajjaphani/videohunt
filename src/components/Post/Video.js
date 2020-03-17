@@ -6,9 +6,9 @@ function getParameter(url, name) {
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
-    if (!results) 
+    if (!results)
         return null;
-    if (!results[2]) 
+    if (!results[2])
         return '';
 
     return decodeURIComponent(results[2].replace(/\+/g, " "));
@@ -17,12 +17,12 @@ function getParameter(url, name) {
 const Video = props => {
     const videoId = getParameter(props.url, 'v')
     let placeholder
-    if(videoId === '' || videoId == null)
+    if (videoId === '' || videoId == null)
         placeholder = '/images/videohunt.jpg'
-    else 
+    else
         placeholder = 'https://i.ytimg.com/vi/' + videoId + '/sddefault.jpg'
     return (
-        <Segment attached clearing>
+        <Segment attached clearing className="ui-background">
             <Embed
                 id={videoId}
                 placeholder={placeholder}

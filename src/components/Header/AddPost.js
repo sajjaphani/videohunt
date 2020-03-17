@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Icon } from 'semantic-ui-react'
 
 const AddPost = props => {
     const { isLoggedIn, activeSelection, changeSelection } = props
@@ -9,7 +9,7 @@ const AddPost = props => {
                 active={activeSelection === 'post'}
                 onClick={changeSelection}
                 position='right'>
-                    <span role="img" aria-label="Add post"> &#x2795; </span>
+                    <Icon name='plus' size='large' />
             </Menu.Item>
         )
     } else {

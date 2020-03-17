@@ -1,10 +1,9 @@
 import React from 'react'
-import { Segment } from 'semantic-ui-react'
 
 const Footer = (props) => (
-    <Segment attached>
+    <div className="ui-background">
         {props.children}
-    </Segment>
+    </div>
 )
 
 export default Footer

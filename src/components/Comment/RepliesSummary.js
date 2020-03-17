@@ -5,18 +5,21 @@ export default class RepliesSummary extends React.PureComponent {
     handleClick = () => {
         this.props.showReplies(this.props.commentId)
     }
+
     render() {
         const mainStyle = {
-            marginTop: "1em"
-        }
+            marginTop: "0em"
+        };
         const { hidden, totalReplies, loading } = this.props
         const replyStr = totalReplies > 1 ? ' Replies...' : ' Reply...'
         const summary = totalReplies + replyStr
         if (hidden || totalReplies === 0) {
             return null
         }
+
         return (
-            <Button content={summary} basic style={mainStyle} size='mini' onClick={this.handleClick} loading={loading} />
+            <Button content={summary} basic style={mainStyle} size='mini' onClick={this.handleClick} loading={loading}
+                className="replies" />
         )
     }
 }

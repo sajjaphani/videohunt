@@ -1,0 +1,19 @@
+.round-avatar img {
+  border-radius: 50% !important;
+}
+
+.ui.basic.button.replies {
+  color: gray;
+  box-shadow: none !important;
+  padding-right: 0em;
+}
+
+.ui.basic.button.replies:hover {
+  color: blue !important;
+  background-color: transparent !important;
+}
+
+.ui.basic.button.replies:focus {
+  color: blue !important;
+  background-color: transparent !important;
+}

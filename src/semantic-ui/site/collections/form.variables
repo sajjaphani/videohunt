@@ -1,0 +1,14 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/* Input */
+@inputColor: rgba(21, 48, 78, .8);
+
+
+/* Input Focus */
+@inputFocusColor: rgba(21, 48, 78, 1);
+
+/* Placeholder */
+@inputPlaceholderColor: rgba(21, 48, 78, .6);
+@inputPlaceholderFocusColor: rgba(21, 48, 78, .6);

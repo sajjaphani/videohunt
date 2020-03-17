@@ -1,7 +1,9 @@
 import React from 'react'
+import { Segment } from 'semantic-ui-react'
 
 import PostContainer from '../../containers/Post'
 import DummyPost from '../DummyPost'
+
 /**
  * Wrapper around Post Item (or container) to display post in Single post page
  * 
@@ -20,15 +22,25 @@ export default class PostWrapper extends React.PureComponent {
         if (!postExists) {
             this.props.actions.loadPost(postId)
         }
+    }
 
+    componentDidUpdate() {
         const FB = window.FB;
-        FB.XFBML.parse();
+        if (FB) {
+            FB.XFBML.parse();
+        }
     }
 
     render() {
+        const borderStyle = { borderRadius: '4px' };
+
         const { postExists, postId } = this.props
         if (postExists) {
-            return <PostContainer postId={postId} expandComments={true} />
+            return (
+                <Segment style={borderStyle}>
+                    <PostContainer postId={postId} expandComments={true} />
+                </Segment>
+            )
         }
 
         return <DummyPost key={0} />

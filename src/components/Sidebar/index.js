@@ -1,11 +1,13 @@
-import React from 'react'
-import { List, Segment, Divider } from 'semantic-ui-react'
+import React from 'react';
+import { Header, Segment, Divider, Menu, Container } from 'semantic-ui-react';
+
+import './Sidebar.css';
 
 export default class Sidebar extends React.PureComponent {
 
     handleItemClick = (e, { name }) => {
-        const { categoryType } = this.props
-        this.props.actions.selectSidebarItem(categoryType, name)
+        const { categoryType } = this.props;
+        this.props.actions.selectSidebarItem(categoryType, name);
     }
 
     normalizeKey = (item) => {
@@ -15,27 +17,26 @@ export default class Sidebar extends React.PureComponent {
     render() {
         const { items, title, activeItem } = this.props
         const listItems = items.map(item =>
-            <List.Item
+            <Menu.Item
                 key={item}
                 name={this.normalizeKey(item)}
                 active={activeItem === this.normalizeKey(item)}
                 onClick={this.handleItemClick}>
-                <List.Content>{item}</List.Content>
-            </List.Item>
+            </Menu.Item>
         )
 
+        const borderStyle = { borderRadius: '4px' }
+
         return (
-            <Segment>
-                <List verticalAlign='middle'>
-                    <List.Item>
-                        <List.Header>{title} <List.Content as='a' floated='right'>Edit</List.Content></List.Header>
-                    </List.Item>
-                </List>
+            <Container className="ui-background" style={borderStyle}>
+                <Segment className="feed-segment">
+                    <Header size='small'>{title}</Header>
+                </Segment>
                 <Divider />
-                <List selection verticalAlign='middle'>
+                <Menu secondary vertical className="scrollable-list">
                     {listItems}
-                </List>
-            </Segment>
+                </Menu>
+            </Container>
         );
     }
 }

@@ -1,0 +1,16 @@
+.segment-first {
+  padding-bottom: 0 !important;
+  border-top-left-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+}
+
+.segment-middle {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+
+.segment-last {
+  padding-top: 0 !important;
+  border-bottom-left-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}

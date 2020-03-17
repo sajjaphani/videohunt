@@ -1,16 +1,15 @@
 import React from 'react'
+
 import UserAccount from './UserAccount'
 import LoginButton from './LoginButton'
 import SignupButton from './SignupButton'
-import Notifications from './Notifications'
 
 const LoginWrapper = props => {
     const { isLoggedIn, loginLoading, handleLogout, loginModalOpen, openLogin, handleProfile, handleSettings } = props
     if (isLoggedIn) {
-        return <div>
-            <Notifications />
+        return (
             <UserAccount userId={props.userId} handleLogout={handleLogout} handleProfile={handleProfile} handleSettings={handleSettings} />
-        </div>
+        )
     } else {
         return (
             <div>

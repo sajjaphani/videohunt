@@ -1,0 +1,20 @@
+.scrollable-list {
+  width: 100% !important;
+  max-height: 23rem;
+  overflow: hidden;
+}
+
+.scrollable-list:hover {
+  overflow-y: auto;
+}
+
+.ui.secondary.menu {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.feed-segment {
+  padding-bottom: 0 !important;
+  border-top-left-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+}

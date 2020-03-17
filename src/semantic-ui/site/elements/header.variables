@@ -1,0 +1,11 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/* Sub Header */
+
+@subHeaderColor: @mutedTextColor;
+
+/* Attached */
+
+@attachedBorderRadius: 0em;

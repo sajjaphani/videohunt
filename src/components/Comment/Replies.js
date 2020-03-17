@@ -6,8 +6,11 @@ const Replies = (props) => {
     if (hidden) {
         return null
     }
+
+    const replyGroupStyle = { marginLeft: '3em' };
+
     return (
-        <Comment.Group collapsed={hidden} threaded size='small' >
+        <Comment.Group style={replyGroupStyle} collapsed={hidden} size='mini' >
             {children}
         </Comment.Group>
     )

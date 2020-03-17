@@ -1,0 +1,19 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+@background: #c8d2de;
+@border: none;
+
+@boxShadow: none;
+
+@borderRadius: 0em;
+
+/*-------------------
+       Group
+--------------------*/
+@groupedBorderRadius: @borderRadius;
