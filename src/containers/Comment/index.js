@@ -20,7 +20,8 @@ const mapStateToProps = (state, ownProps) => {
         isLoggedIn: Selectors.isLoggedIn(state),
         totalLikes: Selectors.getTotalLikes(state, ownProps),
         hasLiked: Selectors.hasLiked(state, ownProps),
-        isRepliesLoading: Selectors.isRepliesLoading(state, ownProps)
+        isRepliesLoading: Selectors.isRepliesLoading(state, ownProps),
+        currentUserId: Selectors.getCurrentUserId(state),
     }
 }
 

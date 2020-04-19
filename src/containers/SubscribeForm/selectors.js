@@ -1,3 +1,3 @@
-import { getLoggedIn } from '../App/selectors.js'
+import { getLoggedIn, getSubscription } from '../App/selectors.js'
 
-export { getLoggedIn }
+export { getLoggedIn, getSubscription }

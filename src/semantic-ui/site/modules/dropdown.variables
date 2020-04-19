@@ -1,3 +1,7 @@
 /*******************************
     User Variable Overrides
 *******************************/
+
+/* Default Text */
+@defaultTextColor: @inputPlaceholderColor;
+@defaultTextFocusColor: @inputPlaceholderFocusColor;

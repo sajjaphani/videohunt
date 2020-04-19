@@ -22,14 +22,19 @@ export default class UserAccount extends React.PureComponent {
         const trigger = (
             <User userId={this.props.userId} imageUrl={this.props.imageUrl} />
         )
+        const userHeader = <div>
+            <User forAccountInfo={true} userId={this.props.userId} imageUrl={this.props.imageUrl} />
+        </div>;
+
         return (
             <Dropdown trigger={trigger} icon={null} pointing='top right'>
                 <Dropdown.Menu>
+                    <Dropdown.Header content={userHeader} onClick={e => e.stopPropagation()} />
                     <Dropdown.Item text='Profile' icon='user' onClick={this.handleChange} value='user' />
                     <Dropdown.Divider />
                     <Dropdown.Item text='Settings' icon='settings' onClick={this.handleChange} value='settings' />
                     <Dropdown.Divider />
-                    <Dropdown.Item text='Logout' icon='sign out' onClick={this.handleChange} value='sign-out'/>
+                    <Dropdown.Item text='Logout' icon='sign out' onClick={this.handleChange} value='sign-out' />
                 </Dropdown.Menu>
             </Dropdown>
         )

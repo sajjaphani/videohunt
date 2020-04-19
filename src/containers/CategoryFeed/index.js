@@ -2,12 +2,14 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import CategoryFeed from '../../components/CategoryFeed'
-import { getPostIds, getPagination, getInitializing } from './selectors'
+import { getPostIds, getPagination, getInitializing, getFeedName, getFeedImage } from './selectors'
 import * as actions from '../Feed/actions'
 
 const mapStateToProps = (state, ownProps) => {
     return {
         feed: ownProps.feed,
+        feedName: getFeedName(state, ownProps),
+        feedImage: getFeedImage(state, ownProps),
         postIds: getPostIds(state, ownProps),
         nextPage: getPagination(state, ownProps),
         initializing: getInitializing(state, ownProps)

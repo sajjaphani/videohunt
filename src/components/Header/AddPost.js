@@ -9,7 +9,11 @@ const AddPost = props => {
                 active={activeSelection === 'post'}
                 onClick={changeSelection}
                 position='right'>
-                    <Icon name='plus' size='large' />
+                <Icon.Group size='big' >
+                    <Icon name='circle outline' />
+                    <Icon name='play' size='tiny' />
+                    <Icon corner name='add' />
+                </Icon.Group>
             </Menu.Item>
         )
     } else {

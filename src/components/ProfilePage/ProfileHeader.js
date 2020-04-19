@@ -11,8 +11,7 @@ export default class ProfileHeader extends React.PureComponent {
   }
 
   handleSubmit = e => {
-    // e.preventDefault()
-    // this.props.addNewVideoPost(post)
+    e.preventDefault()
   }
 
   render() {

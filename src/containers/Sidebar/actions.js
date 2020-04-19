@@ -1,5 +1,7 @@
 import { push } from 'connected-react-router'
 
+import { loadFeedTopics } from '../App/actions'
+
 import { SELECT_SIDEBAR_ITEM } from './constants'
 
 function selectSidebarItem(itemType, itemName) {
@@ -12,7 +14,7 @@ function selectSidebarItem(itemType, itemName) {
                 dispatch(push('/topics/' + itemName))
             }
         } else if (itemType === 'languages') {
-            // TODO: need to revisit when languages are handled            
+            // TODO: need to revisit when languages are handled 
         }
     }
 }
@@ -27,4 +29,5 @@ function sidebarSelectAction(itemType, itemName) {
     }
 }
 
-export { selectSidebarItem, sidebarSelectAction }
+
+export { selectSidebarItem, sidebarSelectAction, loadFeedTopics }

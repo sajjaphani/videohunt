@@ -4,6 +4,7 @@ import { Grid } from 'semantic-ui-react'
 import SettingsForm from './SettingsForm'
 
 export default class SettingsPage extends React.PureComponent {
+
     render() {
         return (
             <Grid>

@@ -11,16 +11,18 @@ function* handleLoadVideosAction(action) {
         // reconstruct feed part for categories
         response = reconstructFeed(response)
     }
+    
     yield put({ type: LOAD_VIDEOS_SUCCESS, payload: response, category: category })
 }
 
 function reconstructFeed(response) {
     const res = fromJS(response)
-    const postIds = res.getIn(['data','posts']).keySeq().toJS()
+    const postIds = res.getIn(['data', 'posts']).keySeq().toJS()
     response = res.toJS()
     response.data.feed = {
         postIds
     }
+
     return response
 }
 
@@ -34,6 +36,7 @@ function* handleLoadMoreVideosAction(action) {
     if (category !== 'all') {
         response = reconstructFeed(response)
     }
+
     yield put({ type: LOAD_MORE_VIDEOS_SUCCESS, payload: response, category: category })
 }
 

@@ -1,5 +1,7 @@
 import { createSelector } from 'reselect'
 
+import { getFeedTopics } from '../App/selectors';
+
 const getFeedState = (state) => state.feed
 
 const getFeedCategory = (state, ownProps) => ownProps.feed
@@ -31,4 +33,22 @@ const getInitializing = createSelector([getFeedState, getFeedCategory], (feed, c
     }
 });
 
-export { getPostIds, getPagination, getInitializing }
+const getFeedName = createSelector([getFeedTopics, getFeedCategory], (topics, category) => {
+    if (!topics) {
+        return ''
+    }
+
+    const topic = topics.find(_topic => _topic._id === category)
+    return topic.name;
+});
+
+const getFeedImage = createSelector([getFeedTopics, getFeedCategory], (topics, category) => {
+    if (!topics) {
+        return '/images/topics/discovery.jpg'
+    }
+
+    const topic = topics.find(_topic => _topic._id === category)
+    return topic.image || '/images/topics/discovery.jpg';
+});
+
+export { getPostIds, getPagination, getInitializing, getFeedName, getFeedImage }

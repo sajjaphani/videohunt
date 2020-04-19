@@ -1,7 +1,7 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
-import { push } from 'connected-react-router'
+import { push, goBack } from 'connected-react-router'
 
-import { ADD_NEW_VIDEO, ADD_NEW_VIDEO_SUCCESS, ADD_NEW_VIDEO_REDIRECT } from './constants'
+import { ADD_NEW_VIDEO, ADD_NEW_VIDEO_SUCCESS, ADD_NEW_VIDEO_REDIRECT, ADD_NEW_VIDEO_GO_BACK } from './constants'
 
 import { postVideo } from '../../api';
 
@@ -23,4 +23,12 @@ function* redirectToFirstPageSaga() {
     yield takeLatest(ADD_NEW_VIDEO_REDIRECT, redirectToFirstPageAction)
 }
 
-export { addNewVideoSaga, redirectToFirstPageSaga }
+function* handleGoBackAction(action) {
+    yield put(goBack())
+}
+
+function* backToPrevPageSaga() {
+    yield takeLatest(ADD_NEW_VIDEO_GO_BACK, handleGoBackAction)
+}
+
+export { addNewVideoSaga, redirectToFirstPageSaga, backToPrevPageSaga }

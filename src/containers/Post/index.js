@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { getTitle, getAuthor, getURL, getCategory, getProvider, getEmbed } from './selectors'
+import { getTitle, getAuthor, getURL, getCategory, getProvider, getEmbed, getUserId, getPostedOn, getDescription } from './selectors'
 import PostItem from '../../components/PostItem'
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,6 +12,9 @@ const mapStateToProps = (state, ownProps) => {
         category: getCategory(state, ownProps),
         provider: getProvider(state, ownProps),
         embed: getEmbed(state, ownProps),
+        userId: getUserId(state, ownProps),
+        postedOn: getPostedOn(state, ownProps),
+        description: getDescription(state, ownProps),
     }
 }
 

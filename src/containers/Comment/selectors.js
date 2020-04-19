@@ -6,6 +6,8 @@ const getComments = (state) => state.comments
 
 export const isLoggedIn = (state) => state.app.get('loggedIn')
 
+export const getCurrentUserId = (state) => state.app.get('userId')
+
 const getComment = createSelector([getCommentId, getComments], (commentId, comments) => {
     return comments.get(commentId)
 })

@@ -70,9 +70,8 @@ const commentsReducer = (state = fromJS(initState), action) => {
             return likedState.setIn([commentId, 'likes', 'summary', 'count'], likeCount - 1)
         }
         default:
-            break
+            return state
     }
-    return state
 }
 
 export { commentsReducer }

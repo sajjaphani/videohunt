@@ -1,8 +1,10 @@
 import React from 'react'
-import { Divider } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 
 import DayFeed from '../DayFeed'
 import PostContainer from '../../containers/Post'
+
+const borderStyle = { borderRadius: '4px' };
 
 export default class DayFeedPosts extends React.PureComponent {
     render() {
@@ -19,10 +21,9 @@ export default class DayFeedPosts extends React.PureComponent {
 const computePostsList = (postIds) => {
     const postItems = postIds.map((postId) => {
         return (
-            <div key={postId}>
-                <Divider />
+            <Segment key={postId} style={borderStyle} className="post-item-bg">
                 <PostContainer key={postId} postId={postId} />
-            </div>
+            </Segment>
         )
     });
 

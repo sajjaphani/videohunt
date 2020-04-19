@@ -17,6 +17,8 @@
 
 @secondaryMargin: 0em;
 @secondaryItemMargin: 0em;
+@secondaryItemPadding: 0.7em 0.9em;
+
 @secondaryActiveItemBackground: #FFFFFF;
 @secondaryActiveItemColor: rgba(21, 48, 78, .8);
 @secondaryItemBorderRadius: 0em;

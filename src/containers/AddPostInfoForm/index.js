@@ -1,14 +1,15 @@
 import { connect } from 'react-redux'
 import AddPostInfoForm from '../../components/AddPostInfoPage/AddPostInfoForm'
-import { addNewVideoPost, redirectToFirstPage } from './actions'
-import { getNewPost } from './selectors'
+import { addNewVideoPost, redirectToFirstPage, backToPrevPage, loadTagTopics } from './actions'
+import { getNewPost, getTagTopics } from './selectors'
 
 const mapsStateToProps = (state, ownProps) => {
     return {
-        newPost: getNewPost(state)
+        newPost: getNewPost(state),
+        tags: getTagTopics(state)
     }
 }
 
 export default connect(mapsStateToProps, {
-    addNewVideoPost, redirectToFirstPage
+    addNewVideoPost, redirectToFirstPage, backToPrevPage, loadTagTopics
 })(AddPostInfoForm)

@@ -1,14 +1,10 @@
 .scrollable-list {
   width: 100% !important;
-  max-height: 23rem;
-  overflow: hidden;
-}
-
-.scrollable-list:hover {
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .ui.secondary.menu {
+  width: 100% !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
@@ -16,5 +12,20 @@
 .feed-segment {
   padding-bottom: 0 !important;
   border-top-left-radius: 4px !important;
+  padding-top: 4px;
   border-top-right-radius: 4px !important;
+}
+
+.feed-active {
+  background: #ffffff !important;
+  font-weight: 900 !important;
+}
+
+.feed-active > .active.item {
+  font-weight: 900 !important;
+}
+
+.hr-line {
+  border-top: 0.5px solid rgba(112, 112, 112, 0.5);
+  border-bottom: 1px solid rgba(112, 112, 112, 0.1);
 }

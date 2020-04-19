@@ -9,7 +9,10 @@ const mapStateToProps = (state, ownProps) => {
         postId: ownProps.postId,
         userId: getUserId(state),
         hidden: ownProps.hidden,
-        commentId: ownProps.commentId
+        showForm: ownProps.showForm,
+        commentId: ownProps.commentId,
+        parentCommentId: ownProps.parentCommentId,
+        currentUserId: ownProps.currentUserId
     }
 }
 

@@ -5,7 +5,6 @@ import AppContainer from './app-container'
 class App extends React.Component {
 
     componentDidMount() {
-        
     }
 
     render() {

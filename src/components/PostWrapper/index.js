@@ -24,10 +24,10 @@ export default class PostWrapper extends React.PureComponent {
         }
     }
 
-    componentDidUpdate() {
-        const FB = window.FB;
-        if (FB) {
-            FB.XFBML.parse();
+    componentDidUpdate(prevProps) {
+        const { postId } = this.props;
+        if (postId !== prevProps.postId) {
+            this.props.actions.loadPost(postId)
         }
     }
 
@@ -37,7 +37,7 @@ export default class PostWrapper extends React.PureComponent {
         const { postExists, postId } = this.props
         if (postExists) {
             return (
-                <Segment style={borderStyle}>
+                <Segment style={borderStyle} className="post-item-bg">
                     <PostContainer postId={postId} expandComments={true} />
                 </Segment>
             )

@@ -1,9 +1,7 @@
 import React from 'react'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Segment, Header, Divider } from 'semantic-ui-react'
 
 import AddPostInfoFormContainer from '../../containers/AddPostInfoForm'
-import AddPostInfoHeader from './AddPostInfoHeader'
-import AddPostInfoHint from './AddPostInfoHint'
 
 export default class AddPostInfoPage extends React.PureComponent {
     constructor(props) {
@@ -27,18 +25,17 @@ export default class AddPostInfoPage extends React.PureComponent {
     }
 
     render() {
-        const { name, hint } = this.state
+        const borderStyle = { borderRadius: '4px' };
+
         return (
             <Grid>
                 <Grid.Row>
-                    <AddPostInfoHeader />
-                </Grid.Row>
-                <Grid.Row >
-                    <Grid.Column mobile='sixteen' tablet='sixteen' computer='ten' largeScreen='ten' widescreen='ten'>
-                        <AddPostInfoFormContainer updatePostHint={this.updatePostHint} />
-                    </Grid.Column>
-                    <Grid.Column verticalAlign='top' only='computer' computer='six' largeScreen='six' widescreen='six'>
-                        <AddPostInfoHint name={name} hint={hint}/>
+                    <Grid.Column mobile={16} tablet={16} computer={10} largeScreen={10} widescreen={10}>
+                        <Segment style={borderStyle}>
+                            <Header size='small' className="ui-background">Create a New Post</Header>
+                            <Divider />
+                            <AddPostInfoFormContainer updatePostHint={this.updatePostHint} />
+                        </Segment>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

@@ -7,3 +7,6 @@
 @pageBackground    : #f3f3f3;
 @textColor         : rgba(21, 48, 78, 1);
 @mutedTextColor    : rgba(21, 48, 78, .8);
+
+@inputPlaceholderColor: rgba(21, 48, 78, .6);
+@inputPlaceholderFocusColor: rgba(21, 48, 78, .6);

@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { getLoggedIn } from '../App/selectors'
+import { getLoggedIn, getSearchResults, getIsLoadingResults } from '../App/selectors'
 
 const getHeader = (state) => (state.header)
 
@@ -13,4 +13,4 @@ const getLoggedInUserId = createSelector([getApp], (app) => app.get('userId'))
 
 const getLoginModalOpen = createSelector([getApp], (app) => app.get('loginModalOpen'))
 
-export { getLoggedIn, getActiveSelection, isLoginLoading, getLoggedInUserId, getLoginModalOpen }
+export { getLoggedIn, getActiveSelection, isLoginLoading, getLoggedInUserId, getLoginModalOpen, getSearchResults, getIsLoadingResults }

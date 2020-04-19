@@ -3,12 +3,12 @@ import { bindActionCreators } from 'redux'
 
 import Sidebar from '../../components/Sidebar'
 import * as actions from './actions'
-import { getActiveItem } from './selectors'
+import { getActiveItem, getFeedTopics } from './selectors'
 
 const mapStateToProps = (state, ownProps) => {
     return {
         title: ownProps.title,
-        items: ownProps.items,
+        items: getFeedTopics(state),
         categoryType: ownProps.categoryType,
         activeItem: ownProps.activeItem ? ownProps.activeItem : getActiveItem(state, ownProps)
     }

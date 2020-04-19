@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Footer = (props) => (
-    <div className="ui-background">
+    <div className="post-item-bg">
         {props.children}
     </div>
 )

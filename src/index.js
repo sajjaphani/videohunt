@@ -12,9 +12,10 @@ import { loginSuccess } from './containers/App/actions';
 import 'semantic-ui-less/semantic.less';
 import './index.css';
 
-if (localStorage.jwtToken) {
-  setAuthToken(localStorage.jwtToken)
-  const user = jwt.decode(localStorage.jwtToken)
+const jwtToken = localStorage.jwtToken;
+if (typeof jwtToken !== 'undefined' && jwtToken !== null) {
+  setAuthToken(jwtToken)
+  const user = jwt.decode(jwtToken)
   store.dispatch(loginSuccess(user))
 }
 

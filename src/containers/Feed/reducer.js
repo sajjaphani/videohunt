@@ -30,7 +30,7 @@ export const feedReducer = (state = fromJS(initialState), action) => {
             const post = action.payload.post
             const feedKey = action.payload.feedKey
             if (state.getIn(['all', 'data', feedKey])) {
-                return state.updateIn(['all', 'data', feedKey], list => list.push(post.id))
+                return state.updateIn(['all', 'data', feedKey], list => list.unshift(post.id))
             } else {
                 return state.setIn(['all', 'data', feedKey], fromJS([post.id]))
             }
@@ -39,4 +39,4 @@ export const feedReducer = (state = fromJS(initialState), action) => {
         default:
             return state;
     }
-} 
+}

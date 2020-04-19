@@ -1,9 +1,11 @@
 import React from 'react';
-import { Header, Form, Container, Segment, Message } from 'semantic-ui-react'
+import { Form, Container, Message, Button, Popup, List } from 'semantic-ui-react'
+
+import validator from 'validator';
 
 export default class AddPostForm extends React.PureComponent {
 
-  state = { url: '' }
+  state = { url: '', hasError: false, error: { header: '', content: '' } }
 
   handleChange = (e, { name, value }) => {
     e.preventDefault()
@@ -18,62 +20,125 @@ export default class AddPostForm extends React.PureComponent {
     this.props.updatePostHint(value)
   }
 
-  handleSubmit = e => {
-    e.preventDefault()
-    const { url } = this.state
-    const post = {
-      url: url
+  handleCancel = () => {
+    this.props.backToHomePage();
+  }
+
+  handleNext = () => {
+    const { url } = this.state;
+    if (!url || !validator.isURL(url)) {
+      this.setState({ hasError: true, error: { header: 'Invalid URL', content: 'Please enter a valid URL.' } })
+      return;
+    } else {
+      const post = {
+        url: url
+      };
+
+      this.props.checkAddNewVideoPost(post)
     }
-    this.props.checkAddNewVideoPost(post)
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { errorData } = this.props;
+    if (!prevProps.errorData && errorData) {
+      this.setState({
+        hasError: true, error:
+          getErrorState(errorData)
+      })
+    }
   }
 
   render() {
-    const { url } = this.state
-    let dupPostUrl;
-    let dupComponent;
-    if (this.props.duplicatePost && this.props.duplicatePost.id) {
-      dupPostUrl = '/posts/' + this.props.duplicatePost.id
-      dupComponent = <Segment attached>
-        <Message warning>
-          <Message.Header>There is a post exists for the given URL!</Message.Header>
-          <p>Visit <a href={dupPostUrl}> page</a> to see the post.</p>
-        </Message>
-      </Segment>
-    } else {
-      dupComponent = <div />
-    }
-
-    let errorComp;
-    if (this.props.errorData) {
-      errorComp = <Segment attached>
-        <Message error>
-          <Message.Header>There is some problem processing the URL!</Message.Header>
-          <p>Please check the validity of the URL.</p>
-        </Message>
-      </Segment>
-    } else {
-      errorComp = <div />
-    }
+    const { url, hasError, error } = this.state;
+    const styles = { marginBottom: '3em' };
+    const btnStyle = { marginLeft: '.75em' };
 
     return (
-      <Container>
-        <Header as='h2' attached='top'>
-          Add an awesome video
-        </Header>
-        <Segment attached>
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Group widths='equal'>
-              <Form.Input autoFocus={true} placeholder='URL' name='url' value={url} label='URL' onChange={this.handleChange}
-                onFocus={this.handleFocus.bind(this, 'url')} onMouseOver={this.handleMouseOver.bind(this, 'url')} />
-            </Form.Group>
-            <Form.Group widths='equal'>
-              <Form.Button color='orange' floated='right' content='Next' />
-            </Form.Group>
-          </Form>
-        </Segment>
-        {dupComponent}
-        {errorComp}
+      <Container style={styles}>
+        <Form error={hasError}>
+          <Form.TextArea autoFocus={true} placeholder='URL' name='url' value={url} label='URL' onChange={this.handleChange} />
+          <Message
+            error
+            header={error.header}
+            content={error.content}
+          />
+          <Form.Field>
+            <Button size="mini" className='btn-primary'
+              style={btnStyle} floated='right' content='Next'
+              onClick={this.handleNext} />
+            <Button size="mini" className='btn-primary-o'
+              floated='right' content='Cancel'
+              onClick={this.handleCancel} />
+          </Form.Field>
+        </Form>
       </Container>
     )
   }
+}
+
+const getErrorState = (error) => {
+  switch (error.type) {
+    case 'UnsupportedProvider':
+      return {
+        header: 'Unsupported Provider',
+        content: providerErrorContent()
+      };
+    case 'DuplicatePost':
+      return {
+        header: 'Duplicate URL Entry',
+        content: duplicateErrorContent(error.errorData)
+      };
+    default:
+      return {
+        header: 'There is some problem processing the URL!',
+        content: 'Please check the validity of the URL.'
+      };
+  }
+}
+
+const supportedProviders = () => (
+  <List>
+    <List.Item>
+      <a href='https://www.youtube.com/'>YouTube</a>
+    </List.Item>
+    <List.Item>
+      <a href='https://vimeo.com/'>Vimeo</a>
+    </List.Item>
+    <List.Item>
+      <List.Content>
+        <a href='https://www.ted.com/'>TED</a>
+      </List.Content>
+    </List.Item>
+    <List.Item>
+      <List.Content>
+        <a href='https://www.facebook.com/'>Facebook</a>
+      </List.Content>
+    </List.Item>
+  </List>
+)
+
+const providerErrorContent = () => {
+  const provierList = supportedProviders()
+  const providerPopup = (
+    <Popup
+      trigger={<Button basic className="popover">providers</Button>}
+      header='Supported Providers'
+      content={provierList}
+      on={['hover', 'click']}
+    />
+  );
+  const content = <p>The provider is not supported at this moment. Please choose one of the supported {providerPopup}.</p>;
+
+  return content;
+}
+
+const duplicateErrorContent = (errorData) => {
+  console.log(errorData);
+  const dupPostUrl = '/posts/' + errorData._id;
+  const content = (
+    <p>There is a post exists for the given URL!
+     Please visit <a href={dupPostUrl} target="_blank" rel="noopener noreferrer">this page</a> to see the post.</p>
+  );
+
+  return content;
 }

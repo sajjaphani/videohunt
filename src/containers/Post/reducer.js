@@ -47,7 +47,7 @@ export const postsReducer = (state = fromJS(posts), action) => {
         }
         case Types.Fetch_POST_COMMENTS_SUCCESS: {
             const { postId, payload } = action
-            const comments = fromJS(payload).getIn(['data', 'comments']).keySeq()
+            const comments = fromJS(payload).getIn(['data', 'comments']).keySeq();
             const commentsState = state.updateIn([postId, 'comments', 'data'], list => list.concat(comments))
             const nextUrl = fromJS(payload).getIn(['pagination', 'next'])
             const pagingState = commentsState.setIn([postId, 'comments', 'paging', 'next'], nextUrl)

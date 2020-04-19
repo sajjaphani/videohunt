@@ -6,11 +6,19 @@ import Title from './Title'
 import AddPost from './AddPost'
 import Notifications from './Notifications'
 import LoginWrapper from './LoginWrapper'
+import Search from './SearchComponent';
 
-const Header = props => {
-    const { activeSelection, loggedIn, changeSelection, handleLogin, loginLoading, handleLogout, loginModalOpen, openLogin, handleProfile, handleSettings } = props
+import './Header.css';
+
+const Header = (props) => {
+    const { activeSelection, loggedIn, changeSelection,
+        handleLogin, loginLoading, handleLogout, loginModalOpen,
+        openLogin, handleProfile, handleSettings } = props
 
     const notificationsMenuItem = getNotificationMenuItem(loggedIn);
+
+    const { searchResults, handleTextSearch, isLoadingResults, changeRoute } = props;
+    const searchElt = <Search isLoadingResults={isLoadingResults} results={searchResults} handleTextSearch={handleTextSearch} changeRoute={changeRoute} />;
 
     return (
         <Menu borderless fixed='top' size='small' className="ui-background">
@@ -21,10 +29,9 @@ const Header = props => {
                     <Logo full={true} />
                     <Title show={false} />
                 </Menu.Item>
-                {/* <Menu.Item name='search'
-                    active={false}>
-                    <Search />
-                </Menu.Item> */}
+                <Menu.Item name='search' active={false}>
+                    {searchElt}
+                </Menu.Item>
                 <Menu.Menu position='right'>
                     <AddPost changeSelection={changeSelection} activeSelection={activeSelection} isLoggedIn={loggedIn} />
                     <Menu.Item>

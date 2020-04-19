@@ -1,12 +1,12 @@
 import React from 'react'
-import { Header, Container, Segment, Divider } from 'semantic-ui-react'
+import { Container, Segment, Image, Grid } from 'semantic-ui-react'
 import InfiniteScroll from 'react-infinite-scroller';
 
 import PostContainer from '../../containers/Post'
 import DummyPost from '../DummyPost'
 import EmptyFeed from '../EmptyFeed';
 
-import { getDisplayName } from '../../utils/feed'
+const borderStyle = { borderRadius: '4px' };
 
 export default class CategoryFeed extends React.PureComponent {
 
@@ -20,11 +20,6 @@ export default class CategoryFeed extends React.PureComponent {
         const prevFeed = prevProps.feed;
         if (feed !== prevFeed) {
             this.setState({ hasMore: true });
-        }
-
-        const FB = window.FB;
-        if (FB) {
-            FB.XFBML.parse();
         }
     }
 
@@ -42,45 +37,62 @@ export default class CategoryFeed extends React.PureComponent {
     }
 
     render() {
-        const { postIds, feed } = this.props;
+        const { postIds, feedName, feedImage } = this.props;
         const postList = computePostList(postIds, this.state.hasMore);
-        const borderStyle = { borderRadius: '4px' };
 
         return (
             <Container>
                 <Segment style={borderStyle}>
-                    <Header size='small' className="ui-background">{getDisplayName(feed)}</Header>
+                    <Grid columns={2}>
+                        <Grid.Column width={6}>
+                            <Image src={feedImage} size='medium' rounded />
+                        </Grid.Column>
+                        <Grid.Column width={10}>
+                            <div className="next-title">{feedName}</div>
+                            <div className="next-auth">{feedName}</div>
+                        </Grid.Column>
+                    </Grid>
+                </Segment>
+                <div style={borderStyle}>
                     <InfiniteScroll
                         pageStart={0}
                         loadMore={this.loadPosts}
                         hasMore={this.state.hasMore}
-                        loader={<DummyPost key={0} />}
+                        loader={getLoader()}
                     >
                         {postList}
                     </InfiniteScroll>
-                </Segment>
+                </div>
             </Container>
         )
     }
 }
 
 function computePostList(posts, hasMore) {
-    if (posts && posts.length > 0)
-        return posts.map((postId) =>
-            <div key={postId}>
-                <Divider />
+    if (posts && posts.length > 0) {
+        return posts.map((postId) => (
+            <Segment key={postId} style={borderStyle} className="post-item-bg">
                 <PostContainer key={postId} postId={postId} />
-            </div>
-        )
-    else {
-        if (hasMore)
+            </Segment>
+        ))
+    } else {
+        if (hasMore) {
             return <div />
-        else
+        } else {
             return (
-                <div>
-                    <Divider />
+                <Segment style={borderStyle}>
                     <EmptyFeed />
-                </div>
+                </Segment>
+
             )
+        }
     }
+}
+
+function getLoader() {
+    return (
+        <Segment style={borderStyle} key={0}>
+            <DummyPost key={0} />
+        </Segment>
+    )
 }

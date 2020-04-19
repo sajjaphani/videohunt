@@ -6,6 +6,8 @@ import Video from './Video'
 import Embed from './Embed'
 import VideoEmbedly from './VideoEmbedly'
 
+import './Post.css';
+
 const Post = props => (
     <div>
         {props.children}

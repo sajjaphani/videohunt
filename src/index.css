@@ -16,9 +16,14 @@ body {
 #root {
   opacity: 1;
   background: rgb(21, 48, 78);
-  background: transparent linear-gradient(178deg, rgba(21,48,78,0.5) 50%, rgba(21,48,78,.5) 100%) 0%
-    0% no-repeat padding-box;
-    min-height: 100%;
+  background: transparent
+    linear-gradient(
+      178deg,
+      rgba(21, 48, 78, 0.9) 50%,
+      rgba(21, 48, 78, 0.9) 100%
+    )
+    0% 0% no-repeat padding-box;
+  min-height: 100%;
 }
 
 /* UI items background overwrites */
@@ -26,10 +31,22 @@ body {
   background-color: #c8d2de !important;
 }
 
+.post-item-bg {
+  background-color: #091727 !important;
+}
+
 .btn-primary {
   color: #15304e;
   text-transform: uppercase;
   background-color: #1dd1f0 !important;
+  border: 1px solid #1dd1f0 !important;
+}
+
+.btn-primary-o {
+  color: #15304e;
+  text-transform: uppercase;
+  border: 1px solid #15304e !important;
+  background-color: transparent !important;
 }
 
 .btn-primary-link {

@@ -1,3 +1,10 @@
 /*******************************
          Site Overrides
 *******************************/
+
+@resultsDistance: 0.1em;
+@promptBorderRadius: 4px;
+
+@promptVerticalPadding: 0em;
+@promptHorizontalPadding: 0em;
+@promptPadding: 0em;

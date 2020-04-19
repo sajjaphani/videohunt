@@ -4,15 +4,17 @@ import { Placeholder, Container } from 'semantic-ui-react'
 const DummyPost = (props) => (
     <Container textAlign='center' className="ui-background">
         <Placeholder fluid>
-            <Placeholder.Image rectangular />
-            <Placeholder.Paragraph>
+            <Placeholder.Header image>
                 <Placeholder.Line />
+                <Placeholder.Line />
+            </Placeholder.Header>
+            <Placeholder.Paragraph>
+                <Placeholder.Line length='full' />
                 <Placeholder.Line />
             </Placeholder.Paragraph>
-            <Placeholder.Header image>
-                <Placeholder.Line length='full' />
-                <Placeholder.Line length='full' />
-            </Placeholder.Header>
+            <Placeholder.Paragraph>
+                <Placeholder.Image rectangular />
+            </Placeholder.Paragraph>
         </Placeholder>
     </Container>
 )

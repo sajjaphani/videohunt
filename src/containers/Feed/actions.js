@@ -7,12 +7,12 @@ export function loadVideos(category) {
             category
         }
     }
-} 
+}
 
 export function loadMoreVideos(category, nextUrl) {
     return {
         type: ActionTypes.LOAD_MORE_VIDEOS,
-         payload: {
+        payload: {
             category,
             nextUrl
         }

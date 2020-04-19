@@ -1,15 +1,16 @@
 .ui.basic.button.cmnts {
-  color: gray;
+  color: #C8D2DE !important;
   box-shadow: none !important;
   padding-right: 0em;
 }
 
-.ui.basic.button.cmnts:hover {
-    color: blue !important;
-    background-color: transparent !important;
+.ui.basic.button.cmnts:hover,
+.ui.basic.button.cmnts:active {
+  color: #ffffff !important;
+  background-color: transparent !important;
 }
 
 .ui.basic.button.cmnts:focus {
-  color: blue !important;
+  color: #ffffff !important;
   background-color: transparent !important;
 }

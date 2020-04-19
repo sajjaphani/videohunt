@@ -7,17 +7,17 @@ import CommentsListContainer from '../../containers/CommentsList'
 export default class CommentsSection extends React.PureComponent {
 
     render() {
-        const { postId, expandComments, loggedIn } = this.props
+        const { postId, expandComments, loggedIn, currentUserId } = this.props;
         let commentForm = null
         if (loggedIn) {
-            commentForm = (<CommentFormContainer postId={postId} />)
+            commentForm = (<CommentFormContainer showForm={true} postId={postId} currentUserId={currentUserId} />)
         }
+
         return (
             <Comment.Section expandComments={expandComments}>
                 {commentForm}
-                <CommentsListContainer postId={postId} />
+                <CommentsListContainer isReply={false} postId={postId} loggedIn={loggedIn} />
             </Comment.Section>
         )
     }
-
 }

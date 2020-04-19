@@ -6,13 +6,17 @@ import CommentContainer from '../../containers/Comment'
 
 export default class CommentsList extends React.PureComponent {
 
-    computePostComments = (commentIds, postId) => (
-        commentIds.map((commentId) => {
+    computePostComments = (commentIds, postId, isReply) => {
+        const parentCommentId = this.props.commentId;
+        return commentIds.map((commentId) => {
+            const klassName = isReply ? 'hunt-reply' : 'hunt-comment';
             return (
-                <CommentContainer key={commentId} postId={postId} commentId={commentId} />
+                <div key={commentId} className={klassName}>
+                    <CommentContainer isReply={isReply} postId={postId} commentId={commentId} parentCommentId={parentCommentId} />
+                </div>
             )
         })
-    )
+    }
 
     componentDidMount() {
         this.fireFetchCommentsAction()
@@ -23,7 +27,7 @@ export default class CommentsList extends React.PureComponent {
     }
 
     fireFetchCommentsAction() {
-        const { hasMore, nextPageUrl, postId, commentId, actions } = this.props
+        const { hasMore, nextPageUrl, postId, commentId, actions } = this.props;
         if (hasMore) {
             if (commentId) {
                 actions.loadCommentReplies(commentId, nextPageUrl)
@@ -34,15 +38,19 @@ export default class CommentsList extends React.PureComponent {
     }
 
     render() {
-        const { commentIds, postId, hasMore, isLoading, isComment } = this.props
-        const comments = this.computePostComments(commentIds, postId)
+        const { commentIds, postId, hasMore, isLoading, isComment, loggedIn, isReply } = this.props;
+        const comments = this.computePostComments(commentIds, postId, isReply)
         let showMore = null
         let loader = null
 
         if (commentIds.size === 0 && !hasMore) {
             // If there are no comments to show and no more elements to fetch
             // return null
-            return <div key={0}>There are no comments yet!</div>
+            if (loggedIn) {
+                return <div />
+            }
+
+            return <div key={0} style={{color: '#ffffff'}}>There are no comments yet!</div>
         }
 
         if (isComment && commentIds.size === 0 && hasMore) {

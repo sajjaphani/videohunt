@@ -1,11 +1,11 @@
 import { push } from 'connected-react-router'
 import jwt from 'jsonwebtoken'
 
-import { loginRequest, loginSuccess, openLoginModal, closeLoginModal } from '../App/actions'
+import { loginRequest, loginSuccess, openLoginModal, closeLoginModal, logoutRequest, postsSearchRequest, changeRoute } from '../App/actions'
 import setAuthToken from '../../utils/setAuthToken'
 import { sidebarSelectAction } from '../Sidebar/actions'
 
-import { LOGOUT_REQUEST, PROFILE_REQUEST, SETTINGS_REQUEST } from './constants'
+import { PROFILE_REQUEST, SETTINGS_REQUEST } from './constants'
 
 export const changeSelection = (e, { name }) => {
     return (dispatch) => {
@@ -23,6 +23,7 @@ const convertSelectionToRoute = (name) => {
     } else if (name === 'home') {
         route = '/'
     }
+
     return route
 }
 
@@ -64,8 +65,8 @@ export const openLogin = (open) => {
 }
 
 export const handleLogout = () => {
-    return {
-        type: LOGOUT_REQUEST
+    return (dispatch) => {
+        dispatch(logoutRequest())
     }
 }
 
@@ -80,3 +81,11 @@ export const handleSettings = () => {
         type: SETTINGS_REQUEST
     }
 }
+
+export const handleTextSearch = (query) => {
+    return (dispatch) => {
+        dispatch(postsSearchRequest(query))
+    }
+}
+
+export { changeRoute };

@@ -15,7 +15,7 @@ const getFeed = createSelector([getFeedIds, getFeedCategory], (feed, category) =
                 return 1
             } else if (dateA > dateB) {
                 return -1
-            } else /*if (dateA == dateB)*/ {
+            } else {
                 return 0
             }
         })

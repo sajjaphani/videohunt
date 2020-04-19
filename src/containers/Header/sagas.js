@@ -1,19 +1,7 @@
 import { put, takeLatest } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 
-import { LOGOUT_REQUEST, LOGOUT_SUCCESS, PROFILE_REQUEST, PROFILE_SUCCESS, SETTINGS_REQUEST, SETTINGS_SUCCESS } from './constants'
-
-
-function* handleLogoutAction() {
-    localStorage.removeItem('jwtToken')
-    yield put(push('/'))
-    yield put({ type: LOGOUT_SUCCESS })
-    window.location.reload()
-}
-
-function* logoutSaga() {
-    yield takeLatest(LOGOUT_REQUEST, handleLogoutAction)
-}
+import { PROFILE_REQUEST, PROFILE_SUCCESS, SETTINGS_REQUEST, SETTINGS_SUCCESS } from './constants'
 
 function* handleProfileAction() {
     yield put(push('/profile'))
@@ -33,4 +21,4 @@ function* settingsSaga() {
     yield takeLatest(SETTINGS_REQUEST, handleSettingsAction)
 }
 
-export { logoutSaga, profileSaga, settingsSaga }
+export { profileSaga, settingsSaga }

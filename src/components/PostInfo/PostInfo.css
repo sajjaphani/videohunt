@@ -1,0 +1,17 @@
+.post-info {
+    display: inline-block;
+    margin-left: 1em;
+    vertical-align: bottom;
+    color: #FFFFFF;
+}
+
+.user-name {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.posted-on {
+    /* font-weight: 300; */
+    font-size: .9rem;
+    opacity: .6;
+}

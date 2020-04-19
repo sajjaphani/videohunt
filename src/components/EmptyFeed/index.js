@@ -7,11 +7,11 @@ import Logo from '../Header/Logo';
 export default class EmptyFeed extends React.PureComponent {
     render() {
         const marginStyle = {
-            marginTop: '2.5rem',
-            marginBottom: '1rem'
+            marginTop: '25%',
+            marginBottom: '0'
         };
 
-        const containerStyle = { minHeight: '21.3em' };
+        const containerStyle = { minHeight: '28.3em' };
 
         return (
             <Container style={containerStyle}>
@@ -21,7 +21,7 @@ export default class EmptyFeed extends React.PureComponent {
                     </div>
                 </Segment>
                 <Segment attached textAlign='center'>
-                    <Header size='small' style={marginStyle}>
+                    <Header size='small'>
                         No posts yet.
                         <Header.Subheader>
                             Looks like there are no posts here yet.

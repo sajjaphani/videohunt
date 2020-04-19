@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import AddPostForm from '../../components/AddPostPage/AddPostForm'
-import { checkAddNewVideoPost } from './actions'
+import { checkAddNewVideoPost, backToHomePage } from './actions'
 
 import { getDuplicatePost, getErrorData } from './selectors'
 
@@ -12,5 +12,5 @@ const mapsStateToProps = (state, ownProps) => {
 }
 
 export default connect(mapsStateToProps, {
-    checkAddNewVideoPost
+    checkAddNewVideoPost, backToHomePage
 })(AddPostForm)

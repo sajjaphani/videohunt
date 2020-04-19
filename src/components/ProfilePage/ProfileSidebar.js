@@ -12,7 +12,6 @@ export default class ProfileSidebar extends React.PureComponent {
 
   handleSubmit = e => {
     e.preventDefault()
-    // this.props.addNewVideoPost(post)
   }
 
   render() {

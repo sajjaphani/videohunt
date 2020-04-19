@@ -1,0 +1,17 @@
+.ui.icon.input > input {
+  width: 300px;
+  padding-left: 2.67142857em !important;
+  padding-right: 1em !important;
+}
+
+.ui.icon.input > i.icon {
+    left: 0;
+}
+
+.ui.small.search {
+    font-size: 1.1em !important;
+}
+
+i.icons .corner.icon {
+  text-shadow: -2px 0px 0 #c8d2de, 2px -1px 0 #c8d2de, -1px 1px 0 #c8d2de, 1px -1px 0 #c8d2de !important;
+}

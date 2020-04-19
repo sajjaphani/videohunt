@@ -1,16 +1,36 @@
 import React from 'react'
 
-const Embed = props => {
-    const embed = props.embed
-    if (!embed)
-        return (<div />)
-    function createMarkup() { return { __html: embed } }
+class Embed extends React.PureComponent {
 
-    return (
-        <div className="ui-background">
-            <div dangerouslySetInnerHTML={createMarkup()} />
-        </div>
-    )
+    componentDidMount() {
+        this.parseFB();
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        this.parseFB();
+    }
+
+    parseFB() {
+        const postId = this.props.postId;
+        const FB = window.FB;
+        if (FB) {
+            FB.XFBML.parse(document.getElementById(postId));
+        }
+    }
+
+    render() {
+        const { embed, postId } = this.props;
+        if (!embed)
+            return (<div />);
+
+        const innerHtml = { __html: embed }
+
+        return (
+            <div id={postId} className="post-item-bg">
+                <div dangerouslySetInnerHTML={innerHtml} />
+            </div>
+        )
+    }
 }
 
 export default Embed

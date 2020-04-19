@@ -8,5 +8,8 @@
 /*-------------------
        Element
 --------------------*/
+@highlightWidth: 1px;
+@highlightColor: rgba(112, 112, 112, .1);
+
 @shadowWidth: .5px;
 @shadowColor: rgba(112, 112, 112, .5);

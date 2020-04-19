@@ -1,31 +1,36 @@
 .ui.basic.button.not-liked {
-  color: gray;
+  color: #C8D2DE !important;
   box-shadow: none !important;
   padding-right: 0em;
 }
 
-.ui.basic.button.not-liked:hover {
-    color: blue !important;
-    background-color: transparent !important;
+.ui.basic.button.not-liked:hover,
+.ui.basic.button.not-liked:active {
+  color: #ffffff !important;
+  background-color: transparent !important;
 }
 
 .ui.basic.button.not-liked:focus {
-  color: blue;
+  color: #ffffff;
   box-shadow: none !important;
+  background-color: transparent !important;
 }
 
 .ui.basic.button.liked {
-  color: blue;
+  color: #ffffff !important;
   box-shadow: none !important;
   padding-right: 0em;
+  background-color: transparent !important;
 }
 
-.ui.basic.button.liked:hover {
-  color: blue;
-  box-shadow: none !important;
+.ui.basic.button.liked:hover,
+.ui.basic.button.liked:active {
+  color: #ffffff !important;
+  background-color: transparent !important;
 }
 
 .ui.basic.button.liked:focus {
-  color: blue;
+  color: #ffffff !important;
   box-shadow: none !important;
+  background-color: transparent !important;
 }

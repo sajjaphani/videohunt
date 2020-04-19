@@ -1,5 +1,4 @@
-const FEED_TO_NAME = {
-    "all": "All",
+const CATEGORIES = {
     "business": "Business",
     "comedy": "Comedy",
     "communication": "Communication",
@@ -26,15 +25,19 @@ const FEED_TO_NAME = {
     "trailers": "Trailers",
     "unboxing": "Unboxing",
     "viral": "Viral"
-}
+};
 
 function getDisplayName(feed) {
-    return FEED_TO_NAME[feed];
+    return CATEGORIES[feed];
 }
 
 function getFeedItems() {
-    const feedItems = Object.keys(FEED_TO_NAME).map((key) => FEED_TO_NAME[key]);
+    const feedItems = Object.keys(CATEGORIES).map((key) => CATEGORIES[key]);
     return feedItems;
 }
 
-module.exports = { getDisplayName, getFeedItems }
+function getCategories() {
+    return CATEGORIES;
+}
+
+module.exports = { getDisplayName, getFeedItems, getCategories }

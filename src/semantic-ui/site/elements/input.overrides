@@ -1,3 +1,7 @@
 /*******************************
          Site Overrides
 *******************************/
+
+.ui.icon.input > input {
+  padding-right: 1em !important;
+}

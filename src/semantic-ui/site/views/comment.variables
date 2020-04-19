@@ -1,3 +1,7 @@
 /*******************************
     User Variable Overrides
 *******************************/
+
+@authorFontSize: 13px;
+@nestedCommentsMargin: 0em 0em 0em 0.5em;
+@textFontSize: 13px;

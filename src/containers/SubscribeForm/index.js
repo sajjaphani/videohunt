@@ -1,14 +1,15 @@
 import { connect } from 'react-redux'
 
+import { addSubscription } from './actions'
+
 import SubscribeForm from '../../components/SubscribeForm'
-import { getLoggedIn } from './selectors.js'
+import { getLoggedIn, getSubscription } from './selectors.js'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        loggedIn: getLoggedIn(state)
+        loggedIn: getLoggedIn(state),
+        subscription: getSubscription(state)
     }
 }
 
-export default connect(mapStateToProps, {
-    
-})(SubscribeForm)
+export default connect(mapStateToProps, { addSubscription })(SubscribeForm)

@@ -12,23 +12,27 @@ import PostPage from '../../components/PostPage'
 import NotFoundPage from '../../components/NotFoundPage'
 import ProfilePage from '../../components/ProfilePage'
 import SettingsPage from '../../components/SettingsPage'
+import LoginPage from '../../components/LoginPage'
 import ActivateAccount from '../../components/ActivateAccount'
 import MainContent from '../../components/MainContent'
-import SignupSection from '../../components/SignupSection'
 import { getLoggedIn } from './selectors.js'
 import * as actions from './actions.js'
 import { history } from '../../store'
 
 class AppContainer extends React.PureComponent {
+    componentDidMount() {
+        this.props.actions.loadUserPreferences();
+    }
+
     render() {
         return (
             <div>
                 <HeaderContainer />
-                <MainContent loggedIn={this.props.loggedIn} >
-                    <SignupSection loggedIn={this.props.loggedIn} openLogin={this.props.actions.openLoginModal} />
+                <MainContent loggedIn={this.props.loggedIn}>
                     <ConnectedRouter history={history}>
                         <Switch>
                             <Route exact path="/" component={HomePage} />
+                            <Route exact path="/login" component={LoginPage} />
                             <Route path="/topics/:id" component={HomePage} />
                             <Route exact path="/posts/new" component={AddPostPage} />
                             <Route path="/posts/new/info" component={AddPostInfoPage} />

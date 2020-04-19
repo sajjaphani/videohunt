@@ -7,12 +7,13 @@ import CommentFormContainer from '../../containers/CommentForm'
 export default class CommentItem extends React.PureComponent {
 
     render() {
-        const { postId, totalReplies, commentId, isShowReplyForm, isShowReplies, isLoggedIn, hasLiked, isRepliesLoading, replies } = this.props
+        const { postId, totalReplies, commentId, parentCommentId, isShowReplyForm, isShowReplies, isLoggedIn, hasLiked, isRepliesLoading, replies, currentUserId } = this.props
         const { toggleReply, showReplies, toggleLike } = this.props.actions
         let repliesList = null
         if (isShowReplies) {
-            repliesList = <CommentsListContainer key={commentId} postId={postId} commentId={commentId} />
-        }
+            repliesList = <CommentsListContainer key={commentId} isReply={true} postId={postId} commentId={commentId} parentCommentId={null} />
+        };
+
         return (
             <Comment>
                 <Comment.Avatar userPicture={this.props.userPicture} />
@@ -24,7 +25,7 @@ export default class CommentItem extends React.PureComponent {
                         commentId={commentId}
                         hidden={!isLoggedIn}
                         isShowReplies={isShowReplies} />
-                    <CommentFormContainer commentId={commentId} hidden={!isShowReplyForm} />
+                    <CommentFormContainer showForm={isShowReplyForm} commentId={commentId} parentCommentId={parentCommentId} hidden={!isShowReplyForm} currentUserId={currentUserId} />
                     <Comment.RepliesSummary commentId={commentId}
                         showReplies={showReplies}
                         totalReplies={totalReplies}
@@ -37,5 +38,4 @@ export default class CommentItem extends React.PureComponent {
             </Comment>
         )
     }
-
 }
