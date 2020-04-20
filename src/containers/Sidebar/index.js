@@ -5,12 +5,12 @@ import Sidebar from '../../components/Sidebar'
 import * as actions from './actions'
 import { getActiveItem, getFeedTopics } from './selectors'
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, props) => {
     return {
-        title: ownProps.title,
+        title: props.title,
         items: getFeedTopics(state),
-        categoryType: ownProps.categoryType,
-        activeItem: ownProps.activeItem ? ownProps.activeItem : getActiveItem(state, ownProps)
+        categoryType: props.categoryType,
+        activeItem: props.activeItem ? props.activeItem : getActiveItem(state, props)
     }
 }
 

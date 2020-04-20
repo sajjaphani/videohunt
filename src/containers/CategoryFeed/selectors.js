@@ -4,7 +4,7 @@ import { getFeedTopics } from '../App/selectors';
 
 const getFeedState = (state) => state.feed
 
-const getFeedCategory = (state, ownProps) => ownProps.feed
+const getFeedCategory = (_, props) => props.feed
 
 const getPostIds = createSelector([getFeedState, getFeedCategory], (feedState, category) => {
     const categoryFeed = feedState.getIn([category])

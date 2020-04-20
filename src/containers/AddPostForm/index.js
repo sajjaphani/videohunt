@@ -4,7 +4,7 @@ import { checkAddNewVideoPost, backToHomePage } from './actions'
 
 import { getDuplicatePost, getErrorData } from './selectors'
 
-const mapsStateToProps = (state, ownProps) => {
+const mapsStateToProps = (state, _) => {
     return {
         duplicatePost: getDuplicatePost(state),
         errorData: getErrorData(state),

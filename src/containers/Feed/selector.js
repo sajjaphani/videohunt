@@ -3,7 +3,7 @@ import { createSelector } from 'reselect'
 // Input selector
 const getFeedIds = state => state.feed
 
-const getFeedCategory = (state, ownProps) => (ownProps.category)
+const getFeedCategory = (_, props) => (props.category)
 
 const getFeed = createSelector([getFeedIds, getFeedCategory], (feed, category) => {
     const feedData = feed.getIn([category, 'data'])

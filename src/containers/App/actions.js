@@ -17,10 +17,9 @@ const loginRequest = () => {
     }
 }
 
-const loginSuccess = (user) => {
-    return {
-        type: ActionTypes.LOGIN_SUCCESS,
-        payload: user
+const loginSuccess = () => {
+    return (dispatch) => {
+        dispatch(getUserSession())
     }
 }
 
@@ -79,6 +78,18 @@ const loadUserPreferences = () => {
     }
 }
 
+const resetState = () => {
+    return {
+        type: ActionTypes.RESET_APP_STATE
+    }
+}
+
+const getUserSession = () => {
+    return {
+        type: ActionTypes.GET_USER_SESSION
+    }
+}
+
 export {
     changeRoute,
     loginRequest, loginSuccess,
@@ -86,5 +97,7 @@ export {
     postsSearchRequest,
     loadFeedTopics, loadTagTopics,
     handleHeadSectionDismiss,
-    loadUserPreferences
+    loadUserPreferences,
+    resetState,
+    getUserSession
 }

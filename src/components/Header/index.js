@@ -10,52 +10,66 @@ import Search from './SearchComponent';
 
 import './Header.css';
 
-const Header = (props) => {
-    const { activeSelection, loggedIn, changeSelection,
-        handleLogin, loginLoading, handleLogout, loginModalOpen,
-        openLogin, handleProfile, handleSettings } = props
+export default class Header extends React.PureComponent {
 
-    const notificationsMenuItem = getNotificationMenuItem(loggedIn);
+    componentDidMount() {
+        this.props.getUserSession();
+    }
 
-    const { searchResults, handleTextSearch, isLoadingResults, changeRoute } = props;
-    const searchElt = <Search isLoadingResults={isLoadingResults} results={searchResults} handleTextSearch={handleTextSearch} changeRoute={changeRoute} />;
+    componentDidUpdate(_) {
+        if (this.props.canCheckLoggedIn) {
+            this.props.getUserSession();
+        }
+    }
 
-    return (
-        <Menu borderless fixed='top' size='small' className="ui-background">
-            <Container>
-                <Menu.Item name='home'
-                    active={false}
-                    onClick={changeSelection}>
-                    <Logo full={true} />
-                    <Title show={false} />
-                </Menu.Item>
-                <Menu.Item name='search' active={false}>
-                    {searchElt}
-                </Menu.Item>
-                <Menu.Menu position='right'>
-                    <AddPost changeSelection={changeSelection} activeSelection={activeSelection} isLoggedIn={loggedIn} />
-                    <Menu.Item>
-                        {notificationsMenuItem}
+    render() {
+        const { activeSelection, loggedIn, changeSelection,
+            handleLogin, loginLoading, handleLogout, loginModalOpen,
+            openLogin, handleProfile, handleSettings } = this.props;
+
+        const notificationsMenuItem = getNotificationMenuItem(loggedIn);
+
+        const { searchResults, handleTextSearch, isLoadingResults, changeRoute } = this.props;
+        const searchElt = <Search isLoadingResults={isLoadingResults} results={searchResults} 
+                                    handleTextSearch={handleTextSearch} changeRoute={changeRoute} />;
+
+        return (
+            <Menu borderless fixed='top' size='small' className="ui-background">
+                <Container>
+                    <Menu.Item name='home'
+                        active={false}
+                        onClick={changeSelection}>
+                        <Logo full={true} />
+                        <Title show={false} />
                     </Menu.Item>
-                    <Menu.Item name='userAccount'
-                        active={false}>
-                        {/* TODO: Create a container for Login wrapper*/}
-                        <LoginWrapper
-                            openLogin={openLogin}
-                            loginModalOpen={loginModalOpen}
-                            handleLogin={handleLogin}
-                            isLoggedIn={loggedIn}
-                            userId={props.loggedInUserId}
-                            loginLoading={loginLoading}
-                            handleLogout={handleLogout}
-                            handleProfile={handleProfile}
-                            handleSettings={handleSettings}
-                        />
+                    <Menu.Item name='search' active={false}>
+                        {searchElt}
                     </Menu.Item>
-                </Menu.Menu>
-            </Container>
-        </Menu>
-    );
+                    <Menu.Menu position='right'>
+                        <AddPost changeSelection={changeSelection} activeSelection={activeSelection} isLoggedIn={loggedIn} />
+                        <Menu.Item>
+                            {notificationsMenuItem}
+                        </Menu.Item>
+                        <Menu.Item name='userAccount'
+                            active={false}>
+                            {/* TODO: Create a container for Login wrapper*/}
+                            <LoginWrapper
+                                openLogin={openLogin}
+                                loginModalOpen={loginModalOpen}
+                                handleLogin={handleLogin}
+                                isLoggedIn={loggedIn}
+                                userId={this.props.loggedInUserId}
+                                loginLoading={loginLoading}
+                                handleLogout={handleLogout}
+                                handleProfile={handleProfile}
+                                handleSettings={handleSettings}
+                            />
+                        </Menu.Item>
+                    </Menu.Menu>
+                </Container>
+            </Menu>
+        );
+    }
 }
 
 const getNotificationMenuItem = (isLoggedIn) => {
@@ -65,5 +79,3 @@ const getNotificationMenuItem = (isLoggedIn) => {
         return <div />
     }
 }
-
-export default Header

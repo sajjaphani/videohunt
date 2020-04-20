@@ -50,7 +50,7 @@ export default class CommentsList extends React.PureComponent {
                 return <div />
             }
 
-            return <div key={0} style={{color: '#ffffff'}}>There are no comments yet!</div>
+            return <div key={0} style={{ color: '#ffffff' }}>There are no comments yet!</div>
         }
 
         if (isComment && commentIds.size === 0 && hasMore) {

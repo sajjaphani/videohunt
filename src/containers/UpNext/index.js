@@ -6,9 +6,9 @@ import * as actions from './actions'
 
 import UpNext from '../../components/UpNext'
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, props) => {
     return {
-        postId: ownProps.postId,
+        postId: props.postId,
         initialized: getInitialized(state),
         isLoading: getIsLoading(state),
         posts: getPosts(state),

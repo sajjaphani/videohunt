@@ -17,7 +17,17 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const router = routerMiddleware(history)
 
-const store = createStore(createRootReducer(history), composeEnhancers(applyMiddleware(thunk, logger(), router, sagaMiddleware)));
+const resetEnhancer = rootReducer => (state, action) => {
+    if (action.type !== 'APP__RESET__STATE') {
+        return rootReducer(state, action);
+    }
+
+    const newState = rootReducer(undefined, {});
+    newState.router = state.router;
+    return newState;
+};
+
+const store = createStore(resetEnhancer(createRootReducer(history)), composeEnhancers(applyMiddleware(thunk, logger(), router, sagaMiddleware)));
 
 sagaMiddleware.run(rootSaga)
 

@@ -1,12 +1,10 @@
 import { createSelector } from 'reselect'
 
-const getCommentId = (state, ownProps) => (ownProps.commentId)
+import { getLoggedIn, getCurrentUserId } from '../App/selectors.js'
+
+const getCommentId = (_, props) => (props.commentId)
 
 const getComments = (state) => state.comments
-
-export const isLoggedIn = (state) => state.app.get('loggedIn')
-
-export const getCurrentUserId = (state) => state.app.get('userId')
 
 const getComment = createSelector([getCommentId, getComments], (commentId, comments) => {
     return comments.get(commentId)
@@ -30,7 +28,8 @@ export const getTotalReplies = createSelector([getComment], (comment) => {
     if (replies) {
         return replies.get('summary').get('count')
     }
-    return 0
+
+    return 0;
 })
 
 export const getTotalLikes = createSelector([getComment], (comment) => {
@@ -70,7 +69,7 @@ const getUsers = (state) => state.users
 
 const getCommentUser = createSelector([getComment, getUsers], (comment, users) => {
     return users.get(comment.get('userId'))
-})
+});
 
 const getUserName = createSelector([getCommentUser], (user) => {
     return user.get('name')
@@ -84,13 +83,11 @@ const getUserPicture = createSelector([getCommentUser], (user) => {
         const profileId = user.get('profileId')
         const provider = user.get('provider')
         if (provider === 'facebook') {
-            return 'http://graph.facebook.com/' + profileId + '/picture?type=square'
-        } else if (provider === 'google') {
-            return '/images/man1.png'
+            return 'https://graph.facebook.com/' + profileId + '/picture?type=square'
         }
-        return '/images/man1.png'
+
+        return '/images/user.png';
     }
 })
 
-
-export { getCommentText, getCommentOn, getUserName, getUserPicture } 
+export { getLoggedIn, getCurrentUserId, getCommentText, getCommentOn, getUserName, getUserPicture } 

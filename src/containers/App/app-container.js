@@ -49,7 +49,7 @@ class AppContainer extends React.PureComponent {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, _) => {
     return {
         loggedIn: getLoggedIn(state)
     }

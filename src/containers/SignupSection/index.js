@@ -4,7 +4,7 @@ import SignupSection from '../../components/SignupSection'
 import { getLoggedIn, getIsHomeSectionClosed } from './selectors.js'
 import { handleHeadSectionDismiss } from '../App/actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, _) => {
     return {
         loggedIn: getLoggedIn(state),
         isHomeSectionClosed: getIsHomeSectionClosed(state),

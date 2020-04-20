@@ -5,8 +5,7 @@ import * as ActionTypes from './constants'
 const USER_PREFS = '__USER_PREFS';
 
 const initState = {
-    loggedIn: false,
-    userId: '',
+    currentUser: null,
     subscription: null,
     loginLoading: false,
     loginModalOpen: false,
@@ -19,13 +18,11 @@ const initState = {
 
 export const appReducer = (state = fromJS(initState), action) => {
     switch (action.type) {
-        case ActionTypes.SELECT_SIDEBAR_ITEM:
+        case ActionTypes.SELECT_SIDEBAR_ITEM_SUCCESS:
             const { itemType, itemName } = action.payload
             return state.set(itemType, itemName)
         case ActionTypes.LOGIN_SUCCESS:
-            let tempState = state.set('loginLoading', false)
-            tempState = tempState.set('userId', action.payload.id)
-            return tempState.setIn(['loggedIn'], true)
+            return state.set('loginLoading', false)
         case ActionTypes.LOGIN_REQUEST:
             return state.set('loginLoading', true)
         case ActionTypes.LOGIN_MODAL_OPEN:
@@ -58,6 +55,9 @@ export const appReducer = (state = fromJS(initState), action) => {
                 }
             }
             return state.set('userPrefs', fromJS({}));
+        case ActionTypes.GET_USER_SESSION_SUCCESS:
+            const user = action.payload;
+            return state.set('currentUser', fromJS(user));
         default:
             return state;
     }

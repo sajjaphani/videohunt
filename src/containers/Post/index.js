@@ -2,19 +2,19 @@ import { connect } from 'react-redux'
 import { getTitle, getAuthor, getURL, getCategory, getProvider, getEmbed, getUserId, getPostedOn, getDescription } from './selectors'
 import PostItem from '../../components/PostItem'
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, props) => {
     return {
-        postId: ownProps.postId,
-        expandComments: ownProps.expandComments,
-        title: getTitle(state, ownProps),
-        author: getAuthor(state, ownProps),
-        url: getURL(state, ownProps),
-        category: getCategory(state, ownProps),
-        provider: getProvider(state, ownProps),
-        embed: getEmbed(state, ownProps),
-        userId: getUserId(state, ownProps),
-        postedOn: getPostedOn(state, ownProps),
-        description: getDescription(state, ownProps),
+        postId: props.postId,
+        expandComments: props.expandComments,
+        title: getTitle(state, props),
+        author: getAuthor(state, props),
+        url: getURL(state, props),
+        category: getCategory(state, props),
+        provider: getProvider(state, props),
+        embed: getEmbed(state, props),
+        userId: getUserId(state, props),
+        postedOn: getPostedOn(state, props),
+        description: getDescription(state, props),
     }
 }
 

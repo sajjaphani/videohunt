@@ -1,5 +1,6 @@
 import { put, takeLatest, call } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
+import jwt from 'jsonwebtoken'
 
 import {
     LOGIN_SUCCESS, LOGIN_REQUEST,
@@ -7,7 +8,9 @@ import {
     ADD_SUBSCRIPTION, ADD_SUBSCRIPTION_SUCCESS,
     SEARCH_POSTS, SEARCH_POSTS_SUCCESS,
     LOAD_FEED_TOPICS, LOAD_FEED_TOPICS_SUCCESS,
-    LOAD_TAG_TOPICS, LOAD_TAG_TOPICS_SUCCESS
+    LOAD_TAG_TOPICS, LOAD_TAG_TOPICS_SUCCESS,
+    RESET_APP_STATE, APP__RESET__STATE,
+    GET_USER_SESSION, GET_USER_SESSION_SUCCESS
 } from './constants';
 import { logoutUser, postSubscription, searchPosts, getFeedTopics, getTagTopics } from '../../api'
 
@@ -79,4 +82,29 @@ function* loadTagTopicsSaga() {
     yield takeLatest(LOAD_TAG_TOPICS, handleLoadTagTopicsAction)
 }
 
-export { loginSaga, logoutSaga, timedLogoutSaga, addSubsctiptionSaga, searchPostsSaga, loadFeedTopicsSaga, loadTagTopicsSaga }
+function* handleResetAppState() {
+    yield put({ type: APP__RESET__STATE })
+}
+
+function* resetAppStateSaga() {
+    yield takeLatest(RESET_APP_STATE, handleResetAppState)
+}
+
+function* handleCheckUserLoggedIn() {
+    const sessionToken = localStorage.getItem('jwtToken');
+    if (sessionToken !== null && typeof sessionToken !== 'undefined') {
+        const user = jwt.decode(sessionToken)
+        yield put({ type: GET_USER_SESSION_SUCCESS, payload: user })
+        yield put({ type: LOGIN_SUCCESS, payload: user })
+        // We need to remove the above, as it is redundant
+    }
+}
+
+function* checkUserLoggedInSaga() {
+    yield takeLatest(GET_USER_SESSION, handleCheckUserLoggedIn)
+}
+
+export {
+    loginSaga, logoutSaga, timedLogoutSaga, addSubsctiptionSaga, searchPostsSaga,
+    loadFeedTopicsSaga, loadTagTopicsSaga, resetAppStateSaga, checkUserLoggedInSaga
+}

@@ -5,22 +5,22 @@ import * as Selectors from './selectors'
 import CommentItem from '../../components/CommentItem'
 import * as actions from './actions'
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, props) => {
     return {
-        postId: ownProps.postId,
-        commentText: Selectors.getCommentText(state, ownProps),
-        commentedOn: Selectors.getCommentOn(state, ownProps),
-        userName: Selectors.getUserName(state, ownProps),
-        userPicture: Selectors.getUserPicture(state, ownProps),
-        totalReplies: Selectors.getTotalReplies(state, ownProps),
-        commentId: ownProps.commentId,
-        isShowReplyForm: Selectors.getShowReplyForm(state, ownProps),
-        isShowReplies: Selectors.getShowReplies(state, ownProps),
-        replies: Selectors.getReplies(state, ownProps),
-        isLoggedIn: Selectors.isLoggedIn(state),
-        totalLikes: Selectors.getTotalLikes(state, ownProps),
-        hasLiked: Selectors.hasLiked(state, ownProps),
-        isRepliesLoading: Selectors.isRepliesLoading(state, ownProps),
+        postId: props.postId,
+        commentText: Selectors.getCommentText(state, props),
+        commentedOn: Selectors.getCommentOn(state, props),
+        userName: Selectors.getUserName(state, props),
+        userPicture: Selectors.getUserPicture(state, props),
+        totalReplies: Selectors.getTotalReplies(state, props),
+        commentId: props.commentId,
+        isShowReplyForm: Selectors.getShowReplyForm(state, props),
+        isShowReplies: Selectors.getShowReplies(state, props),
+        replies: Selectors.getReplies(state, props),
+        isLoggedIn: Selectors.getLoggedIn(state),
+        totalLikes: Selectors.getTotalLikes(state, props),
+        hasLiked: Selectors.hasLiked(state, props),
+        isRepliesLoading: Selectors.isRepliesLoading(state, props),
         currentUserId: Selectors.getCurrentUserId(state),
     }
 }

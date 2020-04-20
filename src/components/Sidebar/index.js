@@ -9,6 +9,12 @@ export default class Sidebar extends React.PureComponent {
         this.props.actions.loadFeedTopics();
     }
 
+    componentDidUpdate(_) {
+        if (!this.props.items) {
+            this.props.actions.loadFeedTopics();
+        }
+    }
+
     findItem(name) {
         return this.props.items.find(item => item.name === name)
     }

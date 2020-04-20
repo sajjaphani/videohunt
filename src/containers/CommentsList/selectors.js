@@ -1,14 +1,14 @@
 import { createSelector } from 'reselect'
 
-const getCommentId = (state, ownProps) => (ownProps.commentId)
+const getCommentId = (_, props) => (props.commentId)
 
 const getStateComments = (state) => state.comments
 
-const getPostId = (state, props) => (props.postId)
+const getPostId = (_, props) => (props.postId)
 
 const getPosts = (state) => (state.posts)
 
-const isComment = (state, ownProps) => ownProps.commentId ? true : false
+const isComment = (_, props) => props.commentId ? true : false
 
 const getComment = createSelector([getCommentId, getStateComments, isComment], (commentId, comments, isComment) => isComment? comments.get(commentId) : false)  
 

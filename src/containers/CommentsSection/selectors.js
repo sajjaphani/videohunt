@@ -1,19 +1,17 @@
 import { createSelector } from 'reselect'
 
-const getPostId = (state, ownProps) => (ownProps.postId)
+import { getLoggedIn, getCurrentUserId } from '../App/selectors.js'
+
+const getPostId = (_, props) => (props.postId)
 
 const getPosts = (state) => (state.posts)
 
-const isLoggedIn = (state) => (state.app.get('loggedIn'))
-
-const getCurrentUserId = (state) => (state.app.get('userId'))
-
 const getPost = createSelector([getPostId, getPosts], (postId, posts) => (posts.get(postId)))
 
-const defaultExpandComments = (state, ownProps) => (ownProps.expandComments)
+const defaultExpandComments = (_, props) => (props.expandComments)
 
 const isExpandComments = createSelector([getPost, defaultExpandComments], (post, expandComments) =>
     (expandComments ? expandComments : post.get('expandComments'))
 )
 
-export { isExpandComments, isLoggedIn, getCurrentUserId }
+export { isExpandComments, getLoggedIn, getCurrentUserId }

@@ -53,7 +53,7 @@ export default class CommentForm extends React.PureComponent {
         }
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(_) {
         if (this.props.showForm && this.textInput) {
             this.textInput.current.focus();
         }

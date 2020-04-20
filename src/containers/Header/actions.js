@@ -1,8 +1,9 @@
 import { push } from 'connected-react-router'
-import jwt from 'jsonwebtoken'
 
-import { loginRequest, loginSuccess, openLoginModal, closeLoginModal, logoutRequest, postsSearchRequest, changeRoute } from '../App/actions'
-import setAuthToken from '../../utils/setAuthToken'
+import {
+    loginRequest, openLoginModal, closeLoginModal, logoutRequest,
+    postsSearchRequest, changeRoute, resetState
+} from '../App/actions'
 import { sidebarSelectAction } from '../Sidebar/actions'
 
 import { PROFILE_REQUEST, SETTINGS_REQUEST } from './constants'
@@ -11,7 +12,8 @@ export const changeSelection = (e, { name }) => {
     return (dispatch) => {
         dispatch(push(convertSelectionToRoute(name)))
         if (name === 'home') {
-            dispatch(sidebarSelectAction('feed', 'all'))
+            dispatch(sidebarSelectAction('feed', 'all'));
+            dispatch(resetState);
         }
     }
 }
@@ -29,28 +31,11 @@ const convertSelectionToRoute = (name) => {
 
 export const handleLogin = (e, { name }) => {
     return (dispatch) => {
-        dispatch(loginRequest())
+        dispatch(loginRequest());
         function authenticate(provider) {
-            // console.log('provider', provider);
-            function receiveMessage(event) {
-                // Do we trust the sender of this message?  (might be
-                // different from what we originally opened, for example).
-                // console.log('Event', event);
-                if (event.origin === "http://localhost:3000") {
-                    const token = event.data
-                    localStorage.setItem('jwtToken', token)
-                    setAuthToken(token)
-                    const user = jwt.decode(token)
-                    dispatch(loginSuccess(user))
-                    dispatch(closeLoginModal)
-                    window.location.reload()
-                }
-            }
-
             window.open('/api/v1/authentication/' + provider, "_self");
-            window.addEventListener("message", receiveMessage, false);
         }
-        authenticate(name)
+        authenticate(name);
     }
 }
 

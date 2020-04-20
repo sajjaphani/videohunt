@@ -1,12 +1,12 @@
 import { createSelector } from 'reselect'
 
-const getProfileId = (state, ownProps) => ownProps.userId
+const getUsers = (state) => state.users;
 
-const getUsers = (state) => state.users
+const getUserId = (_, props) => props.userId
 
-const getUser = createSelector([getProfileId, getUsers], (profileId, users) => {
+const getUser = createSelector([getUsers, getUserId], (users, userId) => {
     if (users)
-        return users.get(profileId);
+        return users.get(userId);
 
     return null;
 })
@@ -16,7 +16,7 @@ const getUserName = createSelector([getUser], (user) => {
         return user.get('name');
     }
 
-    return 'VideoHunt Admin';
+    return 'VideoHunt User';
 });
 
 const getUserPicture = createSelector([getUser], (user) => {

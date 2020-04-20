@@ -5,10 +5,10 @@ import { isPostExists } from './selectors'
 import * as actions from './actions'
 import PostWrapper from '../../components/PostWrapper'
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, props) => {
     return {
-        postId: ownProps.postId,
-        postExists: isPostExists(state, ownProps),
+        postId: props.postId,
+        postExists: isPostExists(state, props),
     }
 }
 

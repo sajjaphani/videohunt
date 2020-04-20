@@ -1,4 +1,4 @@
 
-const getUserId = (state) => state.app.get('userId')
+import { getCurrentUserId } from '../App/selectors.js'
 
-export { getUserId }
+export { getCurrentUserId }

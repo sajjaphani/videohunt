@@ -5,11 +5,11 @@ import Feed from '../../components/Feed'
 import * as actions from './actions'
 import { getFeed, getPagination } from './selector'
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state, props) {
     return {
-        feed: getFeed(state, ownProps),
-        nextPage: getPagination(state, ownProps),
-        category: ownProps.category
+        feed: getFeed(state, props),
+        nextPage: getPagination(state, props),
+        category: props.category
     };
 }
 

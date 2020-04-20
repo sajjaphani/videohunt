@@ -1,13 +1,13 @@
 import { connect } from 'react-redux'
 
 import CommentsSection from '../../components/CommentsSection'
-import { isExpandComments, isLoggedIn, getCurrentUserId } from './selectors'
+import { isExpandComments, getLoggedIn, getCurrentUserId } from './selectors'
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, props) => {
     return {
-        postId: ownProps.postId,
-        expandComments: isExpandComments(state, ownProps),
-        loggedIn: isLoggedIn(state),
+        postId: props.postId,
+        expandComments: isExpandComments(state, props),
+        loggedIn: getLoggedIn(state),
         currentUserId: getCurrentUserId(state)
     }
 }

@@ -5,14 +5,14 @@ import CategoryFeed from '../../components/CategoryFeed'
 import { getPostIds, getPagination, getInitializing, getFeedName, getFeedImage } from './selectors'
 import * as actions from '../Feed/actions'
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, props) => {
     return {
-        feed: ownProps.feed,
-        feedName: getFeedName(state, ownProps),
-        feedImage: getFeedImage(state, ownProps),
-        postIds: getPostIds(state, ownProps),
-        nextPage: getPagination(state, ownProps),
-        initializing: getInitializing(state, ownProps)
+        feed: props.feed,
+        feedName: getFeedName(state, props),
+        feedImage: getFeedImage(state, props),
+        postIds: getPostIds(state, props),
+        nextPage: getPagination(state, props),
+        initializing: getInitializing(state, props)
     }
 }
 

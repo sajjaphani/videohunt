@@ -4,7 +4,7 @@ import { getFeedTopics } from '../App/selectors.js'
 
 const getApp = (state) => state.app
 
-const getCategoryType = (state, ownProps) => ownProps.categoryType
+const getCategoryType = (_, props) => props.categoryType
 
 const getActiveItem = createSelector([getCategoryType, getApp], (categoryType, app) => {
     const activeItem = app.get(categoryType)

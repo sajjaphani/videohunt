@@ -1,14 +1,24 @@
 import { connect } from 'react-redux'
-import Header from '../../components/Header'
-import { changeSelection, handleLogin, handleLogout, openLogin, handleProfile, handleSettings, handleTextSearch, changeRoute } from './actions'
-import { getLoggedIn, getActiveSelection, isLoginLoading, getLoggedInUserId, getLoginModalOpen, getSearchResults, getIsLoadingResults } from './selectors'
 
-const mapStateToProps = (state, ownProps) => {
+import Header from '../../components/Header'
+
+import { getUserSession } from '../App/actions';
+import {
+    changeSelection, handleLogin, handleLogout, openLogin,
+    handleProfile, handleSettings, handleTextSearch, changeRoute
+} from './actions'
+import {
+    getLoggedIn, getActiveSelection, isLoginLoading, getCurrentUserId,
+    getLoginModalOpen, getSearchResults, getIsLoadingResults, getCanCheckLoggedIn
+} from './selectors'
+
+const mapStateToProps = (state, _) => {
     return {
         activeSelection: getActiveSelection(state),
+        canCheckLoggedIn: getCanCheckLoggedIn(state),
         loggedIn: getLoggedIn(state),
         loginLoading: isLoginLoading(state),
-        loggedInUserId: getLoggedInUserId(state),
+        loggedInUserId: getCurrentUserId(state),
         loginModalOpen: getLoginModalOpen(state),
         searchResults: getSearchResults(state),
         isLoadingResults: getIsLoadingResults(state)
@@ -23,5 +33,6 @@ export default connect(mapStateToProps, {
     handleProfile,
     handleSettings,
     handleTextSearch,
-    changeRoute
+    changeRoute,
+    getUserSession,
 })(Header)

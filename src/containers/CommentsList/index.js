@@ -5,18 +5,18 @@ import { getComments, hasMoreComments, getNextPageUrl, isLoading, isComment } fr
 import * as actions from './actions'
 import CommentsList from '../../components/CommentsList'
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, props) => {
     return {
-        postId: ownProps.postId,
-        parentCommentId: ownProps.parentCommentId,
-        commentId: ownProps.commentId,
-        loggedIn: ownProps.loggedIn,
-        isReply: ownProps.isReply,
-        commentIds: getComments(state, ownProps),
-        hasMore: hasMoreComments(state, ownProps),
-        nextPageUrl: getNextPageUrl(state, ownProps),
-        isLoading: isLoading(state, ownProps),
-        isComment: isComment(state, ownProps)
+        postId: props.postId,
+        parentCommentId: props.parentCommentId,
+        commentId: props.commentId,
+        loggedIn: props.loggedIn,
+        isReply: props.isReply,
+        commentIds: getComments(state, props),
+        hasMore: hasMoreComments(state, props),
+        nextPageUrl: getNextPageUrl(state, props),
+        isLoading: isLoading(state, props),
+        isComment: isComment(state, props)
     }
 }
 

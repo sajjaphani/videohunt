@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-const getPostId = (state, ownProps) => ownProps.postId
+const getPostId = (_, props) => props.postId
 
 const getPosts = (state) => (state.posts)
 

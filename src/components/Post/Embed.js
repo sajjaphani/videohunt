@@ -6,7 +6,7 @@ class Embed extends React.PureComponent {
         this.parseFB();
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(_) {
         this.parseFB();
     }
 

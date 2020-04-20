@@ -3,11 +3,11 @@ import { getUserName, getUserPicture } from './selectors'
 
 import PostInfo from '../../components/PostInfo'
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, props) => {
     return {
-        name: getUserName(state, ownProps),
-        picture: getUserPicture(state, ownProps),
-        postedOn: ownProps.postedOn
+        name: getUserName(state, props),
+        picture: getUserPicture(state, props),
+        postedOn: props.postedOn
     }
 }
 

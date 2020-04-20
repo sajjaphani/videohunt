@@ -2,11 +2,9 @@ import React from 'react';
 
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
-import jwt from 'jsonwebtoken';
 
 import { store } from '../../store';
-import { loginSuccess } from '../../containers/App/actions';
-import setAuthToken from '../../utils/setAuthToken';
+import { loginSuccess, changeRoute } from '../../containers/App/actions';
 
 class ActivateAccount extends React.Component {
 
@@ -16,12 +14,10 @@ class ActivateAccount extends React.Component {
         const token = params['session-token'];
         if (token) {
             localStorage.setItem('jwtToken', token)
-            setAuthToken(token);
-            const user = jwt.decode(localStorage.jwtToken)
-            store.dispatch(loginSuccess(user))
+            store.dispatch(loginSuccess())
         }
 
-        this.props.history.push('/');
+        store.dispatch(changeRoute('/'));
     }
 
     render() {

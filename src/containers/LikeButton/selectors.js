@@ -1,6 +1,8 @@
 import { createSelector } from 'reselect'
 
-const getPostId = (state, props) => (props.postId)
+import { getLoggedIn } from '../App/selectors.js';
+
+const getPostId = (_, props) => (props.postId)
 
 const getPosts = (state) => (state.posts)
 
@@ -8,24 +10,22 @@ const getPost = createSelector([getPostId, getPosts], (postId, posts) => (posts.
 
 const getLikes = createSelector([getPost], (post) => (post.get('likes')))
 
-const getUserId = (state) => state.app.get('userId')
-
 const getLikesCount = createSelector([getLikes], (likes) => {
-    const summary = likes.get('summary')
+    const summary = likes.get('summary');
     if (summary) {
-        return summary.get('count')
+        return summary.get('count');
     }
-    return 0
-})
 
-const isLoggedIn = (state) => (state.app.get('loggedIn'))
+    return 0;
+});
 
-const isLiked = createSelector([isLoggedIn, getLikes], (loggedIn,likes) => {
+const isLiked = createSelector([getLoggedIn, getLikes], (loggedIn, likes) => {
     const summary = likes.get('summary')
     if (summary) {
         return loggedIn && summary.get('has_liked')
     }
-    return false
-})
 
-export { getUserId, isLiked, getLikesCount, isLoggedIn }
+    return false
+});
+
+export { isLiked, getLikesCount, getLoggedIn }

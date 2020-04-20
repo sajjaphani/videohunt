@@ -5,7 +5,7 @@ import LoginSection from '../../components/LoginSectionWrapper';
 import { getLoggedIn } from './selectors.js';
 import { handleLogin, backToHomePage } from './actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, _) => {
     return {
         loggedIn: getLoggedIn(state),
     }

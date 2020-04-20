@@ -2,9 +2,9 @@ import { connect } from 'react-redux'
 import DayFeedPosts from '../../components/DayFeedPosts'
 import { getPostIds } from './selectors'
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, props) => {
     return {
-        postIds: getPostIds(state, ownProps) 
+        postIds: getPostIds(state, props) 
     }
 }
 
