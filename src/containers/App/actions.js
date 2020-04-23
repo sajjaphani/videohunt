@@ -12,6 +12,7 @@ const changeRoute = (route) => {
 const pushRoute = (route) => (push(route))
 
 const loginRequest = () => {
+    console.log('ActionTypes.LOGIN_REQUEST')
     return {
         type: ActionTypes.LOGIN_REQUEST
     }

@@ -176,6 +176,16 @@ export function getTagTopics() {
         });
 }
 
+export function getUserSession() {
+    let restUrl = '/api/v1/users/session'
+    return axios.get(restUrl)
+        .then(response => response.data)
+        .catch(err => {
+            handleError(err);
+            return null;
+        });
+}
+
 function handleError(error, _default) {
     if (error.response) {
         // The request was made and the server responded with a status code

@@ -1,7 +1,7 @@
 import { fork, all } from 'redux-saga/effects'
 
 import {
-    logoutSaga, timedLogoutSaga, addSubsctiptionSaga, searchPostsSaga,
+    logoutSaga, sessionExpiredSaga, addSubsctiptionSaga, searchPostsSaga,
     loadFeedTopicsSaga, loadTagTopicsSaga, resetAppStateSaga,
     checkUserLoggedInSaga,
 } from './containers/App/sagas'
@@ -22,7 +22,7 @@ export default function* rootSaga() {
         fork(loadVideoSaga),
         fork(loadMoreVideoSaga),
         fork(logoutSaga),
-        fork(timedLogoutSaga),
+        fork(sessionExpiredSaga),
         fork(addSubsctiptionSaga),
         fork(searchPostsSaga),
         fork(loadFeedTopicsSaga),

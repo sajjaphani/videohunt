@@ -1,110 +1,96 @@
 import { put, takeLatest, call } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
-import jwt from 'jsonwebtoken'
 
-import {
-    LOGIN_SUCCESS, LOGIN_REQUEST,
-    LOGOUT_REQUEST, LOGOUT_SUCCESS, TIMED_LOGOUT_REQUEST,
-    ADD_SUBSCRIPTION, ADD_SUBSCRIPTION_SUCCESS,
-    SEARCH_POSTS, SEARCH_POSTS_SUCCESS,
-    LOAD_FEED_TOPICS, LOAD_FEED_TOPICS_SUCCESS,
-    LOAD_TAG_TOPICS, LOAD_TAG_TOPICS_SUCCESS,
-    RESET_APP_STATE, APP__RESET__STATE,
-    GET_USER_SESSION, GET_USER_SESSION_SUCCESS
-} from './constants';
-import { logoutUser, postSubscription, searchPosts, getFeedTopics, getTagTopics } from '../../api'
+import * as ActionTypes from './constants';
+
+import { logoutUser, postSubscription, searchPosts, getFeedTopics, getTagTopics, getUserSession } from '../../api'
 
 function* handleLogin(action) {
-    yield put({ type: LOGIN_SUCCESS, payload: action.payload })
+    yield put({ type: ActionTypes.LOGIN_REQUEST_SUCCESS, payload: action.payload })
 }
 
 function* loginSaga() {
-    yield takeLatest(LOGIN_REQUEST, handleLogin)
+    yield takeLatest(ActionTypes.LOGIN_REQUEST, handleLogin)
+}
+
+function* handleLogoutAction(path) {
+    yield call(logoutUser)
+    yield put(push(path))
+    yield put({ type: ActionTypes.LOGOUT_REQUEST_SUCCESS })
+    window.location.reload()
 }
 
 function* handleLogout() {
-    yield call(logoutUser)
-    localStorage.removeItem('jwtToken')
-    yield put(push('/'))
-    yield put({ type: LOGOUT_SUCCESS })
-    window.location.reload()
+    yield handleLogoutAction('/')
 }
 
 function* logoutSaga() {
-    yield takeLatest(LOGOUT_REQUEST, handleLogout)
+    yield takeLatest(ActionTypes.LOGOUT_REQUEST, handleLogout)
 }
 
-function* handleTimedLogout() {
-    yield call(logoutUser)
-    localStorage.removeItem('jwtToken')
-    yield put(push('/login'))
-    yield put({ type: LOGOUT_SUCCESS })
-    window.location.reload()
+function* handleSessionExpiredLogout() {
+    yield handleLogoutAction('/login')
 }
 
-function* timedLogoutSaga() {
-    yield takeLatest(TIMED_LOGOUT_REQUEST, handleTimedLogout)
+function* sessionExpiredSaga() {
+    yield takeLatest(ActionTypes.TIMED_LOGOUT_REQUEST, handleSessionExpiredLogout)
 }
 
 function* handleSubsctiptionAction(action) {
     const data = yield call(postSubscription, action.data);
-    yield put({ type: ADD_SUBSCRIPTION_SUCCESS, payload: data })
+    yield put({ type: ActionTypes.ADD_SUBSCRIPTION_SUCCESS, payload: data })
 }
 
 function* addSubsctiptionSaga() {
-    yield takeLatest(ADD_SUBSCRIPTION, handleSubsctiptionAction)
+    yield takeLatest(ActionTypes.ADD_SUBSCRIPTION, handleSubsctiptionAction)
 }
 
 function* handleSearchPostsAction(action) {
     const data = yield call(searchPosts, action.query);
-    yield put({ type: SEARCH_POSTS_SUCCESS, payload: data })
+    yield put({ type: ActionTypes.SEARCH_POSTS_SUCCESS, payload: data })
 }
 
 function* searchPostsSaga() {
-    yield takeLatest(SEARCH_POSTS, handleSearchPostsAction)
+    yield takeLatest(ActionTypes.SEARCH_POSTS, handleSearchPostsAction)
 }
 
 function* handleLoadFeedTopicsAction(action) {
     const data = yield call(getFeedTopics);
-    yield put({ type: LOAD_FEED_TOPICS_SUCCESS, payload: data })
+    yield put({ type: ActionTypes.LOAD_FEED_TOPICS_SUCCESS, payload: data })
 }
 
 function* loadFeedTopicsSaga() {
-    yield takeLatest(LOAD_FEED_TOPICS, handleLoadFeedTopicsAction)
+    yield takeLatest(ActionTypes.LOAD_FEED_TOPICS, handleLoadFeedTopicsAction)
 }
 
 function* handleLoadTagTopicsAction(action) {
     const data = yield call(getTagTopics);
-    yield put({ type: LOAD_TAG_TOPICS_SUCCESS, payload: data })
+    yield put({ type: ActionTypes.LOAD_TAG_TOPICS_SUCCESS, payload: data })
 }
 
 function* loadTagTopicsSaga() {
-    yield takeLatest(LOAD_TAG_TOPICS, handleLoadTagTopicsAction)
+    yield takeLatest(ActionTypes.LOAD_TAG_TOPICS, handleLoadTagTopicsAction)
 }
 
 function* handleResetAppState() {
-    yield put({ type: APP__RESET__STATE })
+    yield put({ type: ActionTypes.APP__RESET__STATE })
 }
 
 function* resetAppStateSaga() {
-    yield takeLatest(RESET_APP_STATE, handleResetAppState)
+    yield takeLatest(ActionTypes.RESET_APP_STATE, handleResetAppState)
 }
 
 function* handleCheckUserLoggedIn() {
-    const sessionToken = localStorage.getItem('jwtToken');
-    if (sessionToken !== null && typeof sessionToken !== 'undefined') {
-        const user = jwt.decode(sessionToken)
-        yield put({ type: GET_USER_SESSION_SUCCESS, payload: user })
-        yield put({ type: LOGIN_SUCCESS, payload: user })
-        // We need to remove the above, as it is redundant
-    }
+    const response = yield call(getUserSession);
+    yield put({ type: ActionTypes.GET_USER_SESSION_SUCCESS, payload: response.data })
+    yield put({ type: ActionTypes.LOGIN_REQUEST_SUCCESS })
 }
 
 function* checkUserLoggedInSaga() {
-    yield takeLatest(GET_USER_SESSION, handleCheckUserLoggedIn)
+    yield takeLatest(ActionTypes.GET_USER_SESSION, handleCheckUserLoggedIn)
 }
 
 export {
-    loginSaga, logoutSaga, timedLogoutSaga, addSubsctiptionSaga, searchPostsSaga,
+    loginSaga, logoutSaga, sessionExpiredSaga, addSubsctiptionSaga, searchPostsSaga,
     loadFeedTopicsSaga, loadTagTopicsSaga, resetAppStateSaga, checkUserLoggedInSaga
 }

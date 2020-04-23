@@ -13,10 +13,9 @@ class ActivateAccount extends React.Component {
         let params = queryString.parse(url);
         const token = params['session-token'];
         if (token) {
-            localStorage.setItem('jwtToken', token)
-            store.dispatch(loginSuccess())
+            // We can pass someinfo here...
         }
-
+        store.dispatch(loginSuccess())
         store.dispatch(changeRoute('/'));
     }
 

@@ -6,6 +6,7 @@ const USER_PREFS = '__USER_PREFS';
 
 const initState = {
     currentUser: null,
+    fetchingSession: false,
     subscription: null,
     loginLoading: false,
     loginModalOpen: false,
@@ -21,7 +22,7 @@ export const appReducer = (state = fromJS(initState), action) => {
         case ActionTypes.SELECT_SIDEBAR_ITEM_SUCCESS:
             const { itemType, itemName } = action.payload
             return state.set(itemType, itemName)
-        case ActionTypes.LOGIN_SUCCESS:
+        case ActionTypes.LOGIN_REQUEST_SUCCESS:
             return state.set('loginLoading', false)
         case ActionTypes.LOGIN_REQUEST:
             return state.set('loginLoading', true)
@@ -55,9 +56,11 @@ export const appReducer = (state = fromJS(initState), action) => {
                 }
             }
             return state.set('userPrefs', fromJS({}));
+        case ActionTypes.GET_USER_SESSION:
+            return state.set('fetchingSession', true);
         case ActionTypes.GET_USER_SESSION_SUCCESS:
-            const user = action.payload;
-            return state.set('currentUser', fromJS(user));
+            let tmpState = state.set('fetchingSession', false);
+            return tmpState.set('currentUser', action.payload ? fromJS(action.payload) : null);
         default:
             return state;
     }
