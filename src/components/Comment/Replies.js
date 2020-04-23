@@ -7,7 +7,7 @@ const Replies = (props) => {
         return null
     }
 
-    const replyGroupStyle = { marginLeft: '3em' };
+    const replyGroupStyle = { marginLeft: '3em', paddingBottom: '0em' };
 
     return (
         <Comment.Group style={replyGroupStyle} collapsed={hidden} size='mini' >

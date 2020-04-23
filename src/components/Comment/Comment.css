@@ -4,6 +4,10 @@
   margin-right: 0em !important;
 }
 
+.hunt-comment {
+  margin-bottom: 10px;
+}
+
 .hunt-comment .round-avatar img {
   width: 35px !important;
 }
@@ -20,11 +24,13 @@
   color: gray;
   box-shadow: none !important;
   padding-right: 0em;
+  padding-left: 0em;
 }
 
 .ui.basic.button.replies:hover {
   color: blue !important;
   background-color: transparent !important;
+  text-decoration: underline;
 }
 
 .ui.basic.button.replies:focus {
@@ -89,4 +95,8 @@
 
 .ui.comments .comment .text {
   color: #ffffff !important;
+}
+
+.comment-mention {
+  font-size: 13px;
 }

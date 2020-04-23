@@ -41,9 +41,11 @@ export function postComment(postId, content) {
 
 export function postReply(comment) {
     let postCommentUrl = '/api/v1/comments/' + comment.parentId + '/comments';
-    const reply = {
-        content: comment.text
+    const reply = { content: comment.text };
+    if (comment.mention) {
+        reply.mention = comment.mention
     };
+
     return axios.post(postCommentUrl, reply)
         .then(response => response.data)
         .catch(err => {

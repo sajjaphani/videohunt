@@ -67,12 +67,24 @@ export const getShowReplies = createSelector([getComment], (comment) => {
 
 const getUsers = (state) => state.users
 
+export const getCommentAuthorId = createSelector([getComment], (comment) => {
+    return comment.get('userId');
+});
+
 const getCommentUser = createSelector([getComment, getUsers], (comment, users) => {
     return users.get(comment.get('userId'))
 });
 
 const getUserName = createSelector([getCommentUser], (user) => {
     return user.get('name')
+})
+
+const getCommentMentionUser = createSelector([getComment, getUsers], (comment, users) => {
+    return users.get(comment.get('mention'))
+});
+
+export const getMentionUserName = createSelector([getCommentMentionUser], (user) => {
+    return user ? user.get('name') : null;
 })
 
 const getUserPicture = createSelector([getCommentUser], (user) => {

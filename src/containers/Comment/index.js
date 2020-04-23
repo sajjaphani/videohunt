@@ -1,8 +1,9 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import * as Selectors from './selectors'
 import CommentItem from '../../components/CommentItem'
+
+import * as Selectors from './selectors'
 import * as actions from './actions'
 
 const mapStateToProps = (state, props) => {
@@ -14,6 +15,9 @@ const mapStateToProps = (state, props) => {
         userPicture: Selectors.getUserPicture(state, props),
         totalReplies: Selectors.getTotalReplies(state, props),
         commentId: props.commentId,
+        commentAuthorId: Selectors.getCommentAuthorId(state, props),
+        commentAuthorName: Selectors.getUserName(state, props),
+        commentMentionName: Selectors.getMentionUserName(state, props),
         isShowReplyForm: Selectors.getShowReplyForm(state, props),
         isShowReplies: Selectors.getShowReplies(state, props),
         replies: Selectors.getReplies(state, props),
