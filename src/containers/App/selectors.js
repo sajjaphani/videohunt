@@ -26,9 +26,9 @@ export const getFeedTopics = createSelector([getApp], (app) => (app.get('feedTop
 export const getTagTopics = createSelector([getApp], (app) => (app.get('tagTopics')))
 
 export const getIsHomeSectionClosed = createSelector([getApp], (app) => {
-    const userPrefs = app.get('userPrefs').toJS();
+    const userPrefs = app.get('userPrefs');
     if (userPrefs) {
-        return userPrefs.isHomeSectionClosed;
+        return userPrefs.get('isHomeSectionClosed');
     }
 
     return false;

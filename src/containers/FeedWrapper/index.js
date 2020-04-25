@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import DayFeedPosts from '../../components/DayFeedPosts'
+import FeedPosts from '../../components/FeedPosts'
 import { getPostIds } from './selectors'
 
 const mapStateToProps = (state, props) => {
@@ -10,5 +10,4 @@ const mapStateToProps = (state, props) => {
 
 export default connect(mapStateToProps, {
 
-})(DayFeedPosts)
-
+})(FeedPosts)

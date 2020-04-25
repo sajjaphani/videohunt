@@ -1,7 +1,9 @@
 import React from 'react'
 import { Container } from 'semantic-ui-react'
 
-const DayFeed = props => {
+// in previous releases, it is part of feed for each day, not the feed is combined based 
+// TODO it may be removed with by adjusting the dependencies
+const FeedWrapper = props => {
     const { children } = props;
 
     const styles = {
@@ -16,4 +18,4 @@ const DayFeed = props => {
     )
 }
 
-export default DayFeed
+export default FeedWrapper

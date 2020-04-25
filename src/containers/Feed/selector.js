@@ -5,23 +5,13 @@ const getFeedIds = state => state.feed
 
 const getFeedCategory = (_, props) => (props.category)
 
-const getFeed = createSelector([getFeedIds, getFeedCategory], (feed, category) => {
-    const feedData = feed.getIn([category, 'data'])
-    if (feedData) {
-        return feedData.keySeq().toArray().sort((a, b) => {
-            const dateA = new Date(a)
-            const dateB = new Date(b)
-            if (dateA < dateB) {
-                return 1
-            } else if (dateA > dateB) {
-                return -1
-            } else {
-                return 0
-            }
-        })
-    } else {
-        return [];
+const getHasFeed = createSelector([getFeedIds, getFeedCategory], (feed, category) => {
+    const feedData = feed.getIn([category, 'data']);
+    if (!feedData) {
+        return false;
     }
+    
+    return feedData.get('postIds') && feedData.get('postIds').size > 0;
 });
 
 const getPagination = createSelector([getFeedIds, getFeedCategory], (feed, category) => {
@@ -42,4 +32,4 @@ const getInitializing = createSelector([getFeedIds, getFeedCategory], (feed, cat
     }
 });
 
-export { getFeed, getPagination, getInitializing }
+export { getHasFeed, getPagination, getInitializing }

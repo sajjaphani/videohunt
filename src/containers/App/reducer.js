@@ -14,7 +14,7 @@ const initState = {
     feed: 'all',
     feedTopics: null,
     tagTopics: null,
-    userPrefs: {},
+    userPrefs: null,
 }
 
 export const appReducer = (state = fromJS(initState), action) => {
@@ -55,7 +55,7 @@ export const appReducer = (state = fromJS(initState), action) => {
                     // Do nothing
                 }
             }
-            return state.set('userPrefs', fromJS({}));
+            return state;
         case ActionTypes.GET_USER_SESSION:
             return state.set('fetchingSession', true);
         case ActionTypes.GET_USER_SESSION_SUCCESS:

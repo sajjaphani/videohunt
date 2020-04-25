@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 import Feed from '../../components/Feed'
 import * as actions from './actions'
-import { getFeed, getPagination } from './selector'
+import { getPagination, getHasFeed } from './selector'
 
 function mapStateToProps(state, props) {
     return {
-        feed: getFeed(state, props),
+        hasFeed: getHasFeed(state, props),
         nextPage: getPagination(state, props),
         category: props.category
     };

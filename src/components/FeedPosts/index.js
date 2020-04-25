@@ -1,19 +1,19 @@
 import React from 'react'
 import { Segment } from 'semantic-ui-react'
 
-import DayFeed from '../DayFeed'
+import FeedWrapper from '../FeedWrapper'
 import PostContainer from '../../containers/Post'
 
 const borderStyle = { borderRadius: '4px' };
 
-export default class DayFeedPosts extends React.PureComponent {
+export default class FeedPosts extends React.PureComponent {
     render() {
         const { date, postIds } = this.props
         const postsList = computePostsList(postIds)
         return (
-            <DayFeed date={date}>
+            <FeedWrapper date={date}>
                 {postsList}
-            </DayFeed>
+            </FeedWrapper>
         )
     }
 }

@@ -2,8 +2,8 @@ import React from 'react'
 import { Segment } from 'semantic-ui-react';
 import InfiniteScroll from 'react-infinite-scroller';
 
-import DayFeedContainer from '../../containers/DayFeed'
-import DummyPost from '../DummyPost'
+import FeedPostsContainer from '../../containers/FeedWrapper';
+import DummyPost from '../DummyPost';
 import EmptyFeed from '../EmptyFeed';
 
 export default class Feed extends React.PureComponent {
@@ -25,7 +25,7 @@ export default class Feed extends React.PureComponent {
 
     loadPosts = () => {
         const { category } = this.props;
-        if (this.props.feed.length === 0) {
+        if (!this.props.hasFeed) {
             this.props.actions.loadVideos(category);
         } else {
             if (this.props.nextPage) {
@@ -38,7 +38,7 @@ export default class Feed extends React.PureComponent {
 
     render() {
         const dayFeedList = this.computeDayFeedList(this.state.hasMore);
-        
+
         return (
             <div>
                 <InfiniteScroll
@@ -54,14 +54,15 @@ export default class Feed extends React.PureComponent {
     }
 
     computeDayFeedList = (hasMore) => {
-        const { feed, category } = this.props;
-        if (feed && feed.length > 0) {
-            return feed.map((feedDate) => <DayFeedContainer key={feedDate} date={feedDate} category={category} />)
+        const { feed, hasFeed, category } = this.props;
+        console.log(feed, category);
+        if (hasFeed) {
+            return <FeedPostsContainer category={category} />
         } else {
             if (hasMore)
                 return <div />
             else
-                return (<EmptyFeed />)
+                return <EmptyFeed />
         }
     }
 

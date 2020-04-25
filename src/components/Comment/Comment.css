@@ -1,11 +1,12 @@
 .round-avatar img {
   height: auto !important;
   border-radius: 50% !important;
-  margin-right: 0em !important;
+  margin-right: .5em !important;
+  margin-top: -.2em !important;
 }
 
 .hunt-comment {
-  margin-bottom: 10px;
+  margin-bottom: 1.5em;
 }
 
 .hunt-comment .round-avatar img {
@@ -13,7 +14,7 @@
 }
 
 .hunt-reply {
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
 }
 
 .hunt-reply .round-avatar img {
