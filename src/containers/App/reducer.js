@@ -6,7 +6,7 @@ const USER_PREFS = '__USER_PREFS';
 
 const initState = {
     currentUser: null,
-    fetchingSession: false,
+    loadingAuth: false,
     subscription: null,
     loginLoading: false,
     loginModalOpen: false,
@@ -57,9 +57,9 @@ export const appReducer = (state = fromJS(initState), action) => {
             }
             return state;
         case ActionTypes.GET_USER_SESSION:
-            return state.set('fetchingSession', true);
+            return state.set('loadingAuth', true);
         case ActionTypes.GET_USER_SESSION_SUCCESS:
-            let tmpState = state.set('fetchingSession', false);
+            let tmpState = state.set('loadingAuth', false);
             return tmpState.set('currentUser', action.payload ? fromJS(action.payload) : null);
         default:
             return state;

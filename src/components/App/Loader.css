@@ -1,0 +1,14 @@
+.hvcenter {
+  height: 89vh;
+  position: relative;
+}
+
+.hvcenter .splash {
+  position: absolute;
+  color: white;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

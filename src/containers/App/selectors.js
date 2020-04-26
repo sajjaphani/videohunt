@@ -15,7 +15,9 @@ export const getLoggedIn = createSelector([getCurrentUser], (user) => (user !== 
 
 export const getCurrentUserId = createSelector([getCurrentUser], (user) => user ? user.id : '');
 
-export const getSubscription = createSelector([getApp], (app) => (app.get('subscription')))
+export const isFetchingAuth = createSelector([getApp], (app) => (app.get('loadingAuth')));
+
+export const getSubscription = createSelector([getApp], (app) => (app.get('subscription')));
 
 export const getSearchResults = createSelector([getApp], (app) => (app.get('searchResults')))
 
