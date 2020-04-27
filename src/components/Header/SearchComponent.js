@@ -25,7 +25,7 @@ export default class SearchComponent extends React.PureComponent {
     handleResultSelect = (e, { result }) => {
         const postPath = '/posts/' + result.id;
         this.props.changeRoute(postPath);
-        this.setState({ value: result.title })
+        // this.setState({ value: result.title })
     }
 
     handleSearchChange = (e, { value }) => {
@@ -47,7 +47,7 @@ export default class SearchComponent extends React.PureComponent {
             this.setState({ results: results });
             return;
         }
-        if (results.length !== prevProps.results.length) {
+        if (results && results.length !== prevProps.results.length) {
             this.setState({ results: results });
         }
         this.setState({ isLoading: isLoadingResults });
@@ -55,7 +55,7 @@ export default class SearchComponent extends React.PureComponent {
 
     render() {
         const { isLoading, value, results } = this.state;
-        
+
         return (
             <Grid>
                 <Grid.Column width={16}>
@@ -64,6 +64,7 @@ export default class SearchComponent extends React.PureComponent {
                         size="small"
                         loading={isLoading}
                         onResultSelect={this.handleResultSelect}
+                        onFocus={debounce(this.handleSearchChange, 500, true)}
                         onSearchChange={debounce(this.handleSearchChange, 500, true)}
                         results={results}
                         value={value}
@@ -99,5 +100,10 @@ function debounce(func, wait, immediate) {
 }
 
 function truncate(str, len) {
+    console.log(str, str)
+    if (!str) {
+        return ''
+    }
+
     return (str.length > len) ? str.substr(0, len - 1) + '...' : str;
 };

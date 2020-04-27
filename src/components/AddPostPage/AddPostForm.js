@@ -114,6 +114,11 @@ const supportedProviders = () => (
         <a href='https://www.facebook.com/'>Facebook</a>
       </List.Content>
     </List.Item>
+    <List.Item>
+      <List.Content>
+        <a href='https://www.dailymotion.com/'>Dailymotion</a>
+      </List.Content>
+    </List.Item>
   </List>
 )
 
