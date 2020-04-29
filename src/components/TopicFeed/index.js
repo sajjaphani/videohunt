@@ -7,29 +7,30 @@ import DummyPost from '../DummyPost'
 import EmptyFeed from '../EmptyFeed';
 
 const borderStyle = { borderRadius: '4px' };
+const postStyle = { borderRadius: '4px', padding: '1em .5em' };
 
-export default class CategoryFeed extends React.PureComponent {
+export default class TopicFeed extends React.PureComponent {
 
     constructor(props) {
         super(props)
         this.state = { hasMore: true }
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        const feed = this.props.feed;
-        const prevFeed = prevProps.feed;
-        if (feed !== prevFeed) {
+    componentDidUpdate(prevProps, _) {
+        const topicId = this.props.topicId;
+        const prevTopicId = prevProps.topicId;
+        if (topicId !== prevTopicId) {
             this.setState({ hasMore: true });
         }
     }
 
     loadPosts = () => {
-        const { feed, initializing, nextPage } = this.props;
+        const { topicId, initializing, nextPage } = this.props;
         if (initializing) {
-            this.props.actions.loadVideos(feed);
+            this.props.actions.loadVideos(topicId);
         } else {
             if (nextPage) {
-                this.props.actions.loadMoreVideos(feed, nextPage);
+                this.props.actions.loadMoreVideos(topicId, nextPage);
             } else {
                 this.setState({ hasMore: false });
             }
@@ -53,7 +54,7 @@ export default class CategoryFeed extends React.PureComponent {
                         </Grid.Column>
                     </Grid>
                 </Segment>
-                <div style={borderStyle}>
+                <div>
                     <InfiniteScroll
                         pageStart={0}
                         loadMore={this.loadPosts}
@@ -71,7 +72,7 @@ export default class CategoryFeed extends React.PureComponent {
 function computePostList(posts, hasMore) {
     if (posts && posts.length > 0) {
         return posts.map((postId) => (
-            <Segment key={postId} style={borderStyle} className="post-item-bg">
+            <Segment key={postId} style={postStyle} className="post-item-bg">
                 <PostContainer key={postId} postId={postId} />
             </Segment>
         ))
@@ -91,7 +92,7 @@ function computePostList(posts, hasMore) {
 
 function getLoader() {
     return (
-        <Segment style={borderStyle} key={0}>
+        <Segment style={postStyle} key={0}>
             <DummyPost key={0} />
         </Segment>
     )

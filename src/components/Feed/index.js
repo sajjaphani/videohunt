@@ -10,26 +10,16 @@ export default class Feed extends React.PureComponent {
 
     constructor(props) {
         super(props)
-        this.state = { hasMore: true, hasError: false }
-    }
-
-    static getDerivedStateFromError(error) {
-        // Update state so the next render will show the fallback UI.
-        return { hasError: true };
-    }
-
-    componentDidCatch(error, errorInfo) {
-        // You can also log the error to an error reporting service
-        console.log(error, errorInfo);
+        this.state = { hasMore: true }
     }
 
     loadPosts = () => {
-        const { category } = this.props;
+        const { topicId } = this.props;
         if (!this.props.hasFeed) {
-            this.props.actions.loadVideos(category);
+            this.props.actions.loadVideos(topicId);
         } else {
             if (this.props.nextPage) {
-                this.props.actions.loadMoreVideos(category, this.props.nextPage)
+                this.props.actions.loadMoreVideos(topicId, this.props.nextPage)
             } else {
                 this.setState({ hasMore: false })
             }
@@ -37,7 +27,7 @@ export default class Feed extends React.PureComponent {
     }
 
     render() {
-        const dayFeedList = this.computeDayFeedList(this.state.hasMore);
+        const feedList = this.computeFeedList(this.state.hasMore);
 
         return (
             <div>
@@ -47,17 +37,16 @@ export default class Feed extends React.PureComponent {
                     hasMore={this.state.hasMore}
                     loader={this.getLoader()}
                 >
-                    {dayFeedList}
+                    {feedList}
                 </InfiniteScroll>
             </div>
         )
     }
 
-    computeDayFeedList = (hasMore) => {
-        const { feed, hasFeed, category } = this.props;
-        console.log(feed, category);
+    computeFeedList = (hasMore) => {
+        const { hasFeed, topicId } = this.props;
         if (hasFeed) {
-            return <FeedPostsContainer category={category} />
+            return <FeedPostsContainer topicId={topicId} />
         } else {
             if (hasMore)
                 return <div />

@@ -5,14 +5,14 @@ import { LOAD_VIDEOS, LOAD_VIDEOS_SUCCESS, LOAD_MORE_VIDEOS, LOAD_MORE_VIDEOS_SU
 import { getInitVideos, getNextVideos } from '../../api';
 
 function* handleLoadVideosAction(action) {
-    const { category } = action.payload
-    let response = yield call(getInitVideos, category)
-    if (category !== 'all') {
+    const { topicId } = action.payload
+    let response = yield call(getInitVideos, topicId)
+    if (topicId !== 'all') {
         // reconstruct feed part for categories
         response = reconstructFeed(response)
     }
     
-    yield put({ type: LOAD_VIDEOS_SUCCESS, payload: response, category: category })
+    yield put({ type: LOAD_VIDEOS_SUCCESS, payload: response, feedTopicId: topicId })
 }
 
 function reconstructFeed(response) {
@@ -31,13 +31,13 @@ function* loadVideoSaga() {
 }
 
 function* handleLoadMoreVideosAction(action) {
-    const { nextUrl, category } = action.payload
+    const { nextUrl, topicId } = action.payload
     let response = yield call(getNextVideos, nextUrl)
-    if (category !== 'all') {
+    if (topicId !== 'all') {
         response = reconstructFeed(response)
     }
 
-    yield put({ type: LOAD_MORE_VIDEOS_SUCCESS, payload: response, category: category })
+    yield put({ type: LOAD_MORE_VIDEOS_SUCCESS, payload: response, feedTopicId: topicId })
 }
 
 function* loadMoreVideoSaga() {

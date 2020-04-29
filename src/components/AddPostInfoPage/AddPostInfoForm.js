@@ -7,7 +7,7 @@ import ErrorBoundary from '../ErrorBoundary';
 export default class AddPostInfoForm extends React.PureComponent {
   constructor(props) {
     super(props)
-    this.state = { hasError: false, url: '', description: '', title: '', author: '', language: '', categories: '', embed: '' }
+    this.state = { hasError: false, url: '', description: '', title: '', author: '', language: '', topics: [], embed: '' }
   }
 
   componentDidMount() {
@@ -17,7 +17,7 @@ export default class AddPostInfoForm extends React.PureComponent {
       this.setState({
         url: this.props.newPost.url, description: this.props.newPost.description,
         title: this.props.newPost.title, author: this.props.newPost.author,
-        language: 'None', categories: [], embed: this.props.newPost.embed
+        language: 'None', topics: [], embed: this.props.newPost.embed
       });
     }
 
@@ -31,17 +31,9 @@ export default class AddPostInfoForm extends React.PureComponent {
     this.setState({ [name]: value });
   }
 
-  handleCategoryChange = (e, { value }) => {
+  handleTopicChange = (e, { value }) => {
     e.preventDefault()
-    this.setState({ 'categories': value });
-  }
-
-  handleMouseOver = (value) => {
-    this.props.updatePostHint(value)
-  }
-
-  handleFocus = (value) => {
-    this.props.updatePostHint(value)
+    this.setState({ 'topics': value });
   }
 
   handleBack = () => {
@@ -49,8 +41,8 @@ export default class AddPostInfoForm extends React.PureComponent {
   }
 
   handleNext = () => {
-    const { url, title, author, description, categories } = this.state;
-    if (!categories || categories.length === 0 || categories.length > 3) {
+    const { url, title, author, description, topics } = this.state;
+    if (!topics || topics.length === 0 || topics.length > 3) {
       this.setState({ hasError: true })
     } else {
       this.setState({ hasError: false })
@@ -62,7 +54,7 @@ export default class AddPostInfoForm extends React.PureComponent {
       description: description,
       author: author,
       language: 'None',
-      categories: categories
+      categories: topics
     }
 
     this.props.addNewVideoPost(post)
@@ -73,10 +65,10 @@ export default class AddPostInfoForm extends React.PureComponent {
       return (<div />)
 
     const { tags } = this.props
-    let categoryOptions = []
-    if(tags) {
-      categoryOptions = tags.map((tag) => {
-        return { key: tag._id, text: tag.name, value: tag._id };
+    let topicOptions = []
+    if (tags) {
+      topicOptions = tags.map((tag) => {
+        return { key: tag.id, text: tag.name, value: tag.id };
       });
     }
 
@@ -96,7 +88,7 @@ export default class AddPostInfoForm extends React.PureComponent {
       <Container style={styles}>
         <div style={postStyles}>
           <Post>
-            <Post.Header title={title} subtitle={author} />
+            <Post.Header title={title} author={author} />
             <ErrorBoundary>
               <Post.Embed embed={embed} postId={postId} />
             </ErrorBoundary>
@@ -104,21 +96,21 @@ export default class AddPostInfoForm extends React.PureComponent {
         </div>
         <Form error={hasError}>
           <Form.Field>
-            <label>Categories</label>
+            <label>Topics</label>
             <Dropdown
-              placeholder='Category'
+              placeholder='Topic'
               multiple
-              onChange={this.handleCategoryChange}
+              onChange={this.handleTopicChange}
               fluid
               search
               selection
-              options={categoryOptions}
+              options={topicOptions}
               renderLabel={renderLabel}
             />
           </Form.Field>
           <Message
             error
-            content='Please choose 1 to 3 categories.'
+            content='Please choose 1 to 3 topics.'
           />
           <Form.Field>
             <Button size="mini" className='btn-primary'

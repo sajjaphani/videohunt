@@ -2,7 +2,7 @@
   height: auto !important;
   border-radius: 50% !important;
   margin-right: .5em !important;
-  margin-top: -.2em !important;
+  vertical-align: top !important;
 }
 
 .hunt-comment {

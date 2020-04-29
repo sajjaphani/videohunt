@@ -6,7 +6,7 @@ import { loadSinglePost } from '../../api'
 
 function* handleLoadPost(action) {
     const { postId } = action.payload
-    const postData = yield call(loadSinglePost, postId)
+    const postData = yield call(loadSinglePost, postId);
     yield put({ type: Types.LOAD_SINGLE_POST_SUCCESS, payload: postData })
 }
 

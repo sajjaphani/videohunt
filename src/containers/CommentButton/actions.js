@@ -1,16 +1,9 @@
-import { TOGGLE_COMMENT } from './constants'
+import { changeRoute } from '../App/actions'
 
-const toggleComment = (postId, expand) => {
+const toggleComment = (postId, _) => {
     return (dispatch) => {
-        return dispatch(
-            {
-                type: TOGGLE_COMMENT,
-                payload: {
-                    postId: postId,
-                    expand: expand
-                }
-            }
-        )
+        const postPath = '/posts/' + postId;
+        dispatch(changeRoute(postPath))
     }
 }
 

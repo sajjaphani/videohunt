@@ -75,6 +75,7 @@ function* loadTagTopicsSaga() {
 function* handleResetAppState() {
     yield put({ type: ActionTypes.APP__RESET__STATE });
     yield put({ type: ActionTypes.LOAD_USER_PREFERENCES });
+    yield put({ type: ActionTypes.LOAD_TAG_TOPICS });
 }
 
 function* resetAppStateSaga() {

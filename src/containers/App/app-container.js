@@ -37,6 +37,7 @@ const ProtectedRoute
 class AppContainer extends React.PureComponent {
     componentDidMount() {
         this.props.actions.loadUserPreferences();
+        this.props.actions.loadTagTopics();
     }
 
     render() {

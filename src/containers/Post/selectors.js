@@ -1,5 +1,7 @@
 import { createSelector } from 'reselect'
 
+import { getTagTopics } from '../App/selectors';
+
 const getPostId = (_, props) => (props.postId)
 
 const getPosts = (state) => (state.posts)
@@ -12,7 +14,18 @@ const getAuthor = createSelector([getPost], (post) => post.author)
 
 const getURL = createSelector([getPost], (post) => post.url)
 
-const getCategory = createSelector([getPost], (post) => toTitleCase(post.category))
+const getTopics = createSelector([getPost, getTagTopics], (post, topics) => {
+    if(!topics) {
+        return []
+    }
+
+    const topicIds = post.categories || [];
+    const _topics = topics.filter(item => {
+        return topicIds.includes(item.id);
+    })
+
+    return _topics;
+});
 
 const getProvider = createSelector([getPost], (post) => post.provider_name)
 
@@ -25,11 +38,4 @@ const getPostedOn = createSelector([getPost], (post) => post.postedOn)
 
 const getDescription = createSelector([getPost], (post) => post.description)
 
-export { getPostId, getTitle, getAuthor, getURL, getCategory, getProvider, getEmbed, getUserId, getPostedOn, getDescription }
-
-function toTitleCase(str) {
-    if (!str)
-        return str
-    str = str.split("-").join(" ")
-    return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase() })
-}
+export { getPostId, getTitle, getAuthor, getURL, getTopics, getProvider, getEmbed, getUserId, getPostedOn, getDescription }

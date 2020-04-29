@@ -9,7 +9,7 @@ function mapStateToProps(state, props) {
     return {
         hasFeed: getHasFeed(state, props),
         nextPage: getPagination(state, props),
-        category: props.category
+        topicId: props.topicId
     };
 }
 

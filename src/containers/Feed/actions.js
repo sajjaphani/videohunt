@@ -1,19 +1,19 @@
 import * as ActionTypes from './constants';
 
-export function loadVideos(category) {
+export function loadVideos(topicId) {
     return {
         type: ActionTypes.LOAD_VIDEOS,
         payload: {
-            category
+            topicId
         }
     }
 }
 
-export function loadMoreVideos(category, nextUrl) {
+export function loadMoreVideos(topicId, nextUrl) {
     return {
         type: ActionTypes.LOAD_MORE_VIDEOS,
         payload: {
-            category,
+            topicId,
             nextUrl
         }
     }

@@ -3,10 +3,10 @@ import { createSelector } from 'reselect'
 // Input selector
 const getFeedIds = state => state.feed
 
-const getFeedCategory = (_, props) => (props.category)
+const getFeedTopicId = (_, props) => (props.topicId)
 
-const getHasFeed = createSelector([getFeedIds, getFeedCategory], (feed, category) => {
-    const feedData = feed.getIn([category, 'data']);
+const getHasFeed = createSelector([getFeedIds, getFeedTopicId], (feed, topicId) => {
+    const feedData = feed.getIn([topicId, 'data']);
     if (!feedData) {
         return false;
     }
@@ -14,8 +14,8 @@ const getHasFeed = createSelector([getFeedIds, getFeedCategory], (feed, category
     return feedData.get('postIds') && feedData.get('postIds').size > 0;
 });
 
-const getPagination = createSelector([getFeedIds, getFeedCategory], (feed, category) => {
-    const paginationData = feed.getIn([category, 'pagination']);
+const getPagination = createSelector([getFeedIds, getFeedTopicId], (feed, topicId) => {
+    const paginationData = feed.getIn([topicId, 'pagination']);
     if (paginationData) {
         return paginationData.get('next');
     } else {
@@ -23,8 +23,8 @@ const getPagination = createSelector([getFeedIds, getFeedCategory], (feed, categ
     }
 });
 
-const getInitializing = createSelector([getFeedIds, getFeedCategory], (feed, category) => {
-    const initData = feed.getIn([category, 'init']);
+const getInitializing = createSelector([getFeedIds, getFeedTopicId], (feed, topicId) => {
+    const initData = feed.getIn([topicId, 'init']);
     if (initData) {
         return initData.get('initializing');
     } else {

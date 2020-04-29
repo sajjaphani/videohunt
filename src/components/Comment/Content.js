@@ -24,7 +24,7 @@ const Content = (props) => {
     }
 
     return (
-        <Comment.Content style={{ color: '#ffffff', marginLeft: '4em' }}>
+        <Comment.Content style={{ color: '#ffffff', marginLeft: '4em', paddingTop: '.2em' }}>
             <Comment.Author as='a'>{userName}</Comment.Author>
             <Comment.Metadata>
                 {moment(commentedOn).fromNow()} {likeText}

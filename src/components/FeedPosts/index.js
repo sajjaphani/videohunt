@@ -4,7 +4,7 @@ import { Segment } from 'semantic-ui-react'
 import FeedWrapper from '../FeedWrapper'
 import PostContainer from '../../containers/Post'
 
-const borderStyle = { borderRadius: '4px' };
+const borderStyle = { borderRadius: '4px', padding: '1em .5em' };
 
 export default class FeedPosts extends React.PureComponent {
     render() {

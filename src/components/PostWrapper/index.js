@@ -32,7 +32,7 @@ export default class PostWrapper extends React.PureComponent {
     }
 
     render() {
-        const borderStyle = { borderRadius: '4px' };
+        const borderStyle = { borderRadius: '4px', padding: '1em .5em' };
 
         const { postExists, postId } = this.props
         if (postExists) {
@@ -43,6 +43,7 @@ export default class PostWrapper extends React.PureComponent {
             )
         }
 
+        console.log('reaching hrere...');
         return <DummyPost key={0} />
     }
 }

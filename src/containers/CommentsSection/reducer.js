@@ -5,9 +5,6 @@ const initState = {}
 
 const commentsReducer = (state = fromJS(initState), action) => {
     switch (action.type) {
-        // case ActionTypes.LOAD_VIDEOS_SUCCESS:
-        // case ActionTypes.LOAD_MORE_VIDEOS_SUCCESS:
-        // case ActionTypes.LOAD_SINGLE_POST_SUCCESS:
         case ActionTypes.Fetch_COMMENT_REPLIES_SUCCESS:
             const { commentId, payload } = action
             // merge all replies from payload

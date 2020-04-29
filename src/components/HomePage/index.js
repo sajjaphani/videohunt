@@ -2,11 +2,10 @@ import React from 'react'
 import { Grid } from 'semantic-ui-react'
 
 import SignupSectionContainer from '../../containers/SignupSection'
-import CategoryFeedContainer from '../../containers/CategoryFeed'
+import TopicFeedContainer from '../../containers/TopicFeed'
 import FeedContainer from '../../containers/Feed'
 import SidebarContainer from '../../containers/Sidebar'
 import SubscribeFormContainer from '../../containers/SubscribeForm'
-import { getFeedItems } from '../../utils/feed';
 
 const HomePage = props => {
 
@@ -17,9 +16,8 @@ const HomePage = props => {
     const signupSectionStyle = { padding: '0em 1em 0 1em' };
     const gridStyle = { marginTop: '1em' };
 
-    const categories = getFeedItems();
-    const category = pathToCategoryName(props.match)
-    const feedComponent = category === 'all' ? <FeedContainer category={category} /> : <CategoryFeedContainer feed={category} />
+    const topicId = getTopicFromMatch(props.match)
+    const feedComponent = topicId === 'all' ? <FeedContainer topicId={topicId} /> : <TopicFeedContainer topicId={topicId} />
 
     return (
         <Grid>
@@ -29,7 +27,7 @@ const HomePage = props => {
             <Grid.Row style={gridStyle}>
                 <Grid.Column only='computer' computer='four' largeScreen='four' widescreen='four' >
                     <div style={stickyStyle}>
-                        <SidebarContainer categoryType='feed' title='Feed' items={categories} activeItem={category} />
+                        <SidebarContainer sidebarItemType='feed' title='Feed' activeItem={topicId} />
                     </div>
                 </Grid.Column>
                 <Grid.Column mobile='sixteen' tablet='sixteen' computer='eight' largeScreen='eight' widescreen='eight'>
@@ -43,14 +41,12 @@ const HomePage = props => {
     )
 }
 
-function pathToCategoryName(match) {
-    let category = ''
+function getTopicFromMatch(match) {
     if (match.path === '/') {
-        category = 'all'
-    } else {
-        category = match.params.id
+        return 'all'
     }
-    return category
+
+    return match.params.id
 }
 
 export default HomePage

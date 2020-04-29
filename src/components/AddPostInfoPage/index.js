@@ -7,21 +7,6 @@ export default class AddPostInfoPage extends React.PureComponent {
     constructor(props) {
         super(props)
         this.state = { name: '', hint: '' }
-        this.updatePostHint = this.updatePostHint.bind(this)
-    }
-
-    updatePostHint(param) {
-        const hints = {
-            url: { name: 'URL', hint: 'some hint for URL' },
-            synopsis: { name: 'Synopsis', hint: 'A short summary of this video.' },
-            title: { name: 'Title', hint: 'some hint for Title' },
-            subtitle: { name: 'Sub Title', hint: 'some hint for Sub Title' },
-            language: { name: 'Language', hint: 'some hint for Language' },
-            category: { name: 'Category', hint: 'some hint for Category' }
-        }
-
-        const obj = hints[param]
-        this.setState(obj)
     }
 
     render() {
@@ -34,7 +19,7 @@ export default class AddPostInfoPage extends React.PureComponent {
                         <Segment style={borderStyle}>
                             <Header size='small' className="ui-background">Create a New Post</Header>
                             <Divider />
-                            <AddPostInfoFormContainer updatePostHint={this.updatePostHint} />
+                            <AddPostInfoFormContainer />
                         </Segment>
                     </Grid.Column>
                 </Grid.Row>

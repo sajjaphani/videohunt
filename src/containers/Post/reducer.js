@@ -34,11 +34,11 @@ export const postsReducer = (state = fromJS(posts), action) => {
                 const hasLikedState = likecountState.setIn([postId, 'likes', 'summary', 'has_liked'], !hasLiked)
                 return hasLikedState.updateIn([postId, 'likes', 'data'], list => list.delete(list.indexOf(userId)))
             }
-        case Types.TOGGLE_COMMENT:
-            {
-                const { postId, expand } = action.payload
-                return state.setIn([postId, 'expandComments'], expand)
-            }
+        // case Types.TOGGLE_COMMENT:
+        //     {
+        //         const { postId, expand } = action.payload
+        //         return state.setIn([postId, 'expandComments'], expand)
+        //     }
         case Types.ADD_POST_COMMENT_SUCCESS: {
             const { postId, commentId } = action.payload
             const commentCount = state.getIn([postId, 'comments', 'summary', 'count'])

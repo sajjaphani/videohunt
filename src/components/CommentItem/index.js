@@ -19,7 +19,7 @@ export default class CommentItem extends React.PureComponent {
 
         return (
             <Comment>
-                <Comment.Avatar userPicture={this.props.userPicture} />
+                <Comment.Avatar userPicture={this.props.userPicture} style={{margin: 0}} />
                 <Comment.Content {...this.props}>
                     <Comment.Actions
                         hasLiked={hasLiked}

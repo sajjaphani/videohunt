@@ -9,7 +9,7 @@ const mapStateToProps = (state, props) => {
     return {
         title: props.title,
         items: getFeedTopics(state),
-        categoryType: props.categoryType,
+        sidebarItemType: props.sidebarItemType,
         activeItem: props.activeItem ? props.activeItem : getActiveItem(state, props)
     }
 }

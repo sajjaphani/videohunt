@@ -21,9 +21,9 @@ export default class Sidebar extends React.PureComponent {
 
     handleItemClick = (e, { name }) => {
         const item = this.findItem(name);
-        const catName = item ? item._id : 'all';
-        const { categoryType } = this.props;
-        this.props.actions.selectSidebarItem(categoryType, catName);
+        const catName = item ? item.id : 'all';
+        const { sidebarItemType } = this.props;
+        this.props.actions.selectSidebarItem(sidebarItemType, catName);
     }
 
     render() {
@@ -32,10 +32,10 @@ export default class Sidebar extends React.PureComponent {
         if (items) {
             listItems = items.map(item =>
                 <Menu.Item
-                    key={item._id}
+                    key={item.id}
                     name={item.name}
                     content={getMenuContent(item)}
-                    active={activeItem === item._id}
+                    active={activeItem === item.id}
                     onClick={this.handleItemClick}>
                 </Menu.Item>
             )
